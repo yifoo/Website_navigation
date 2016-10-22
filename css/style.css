@@ -14,8 +14,8 @@ ul,li {list-style:none;}
 #cebian li:last-child {height: 48px;line-height: 48px;}
 
 
-.zhutikuang{float:clear;width:980px;height:32px;margin: 0 auto;border: 1px solid #E9E9E9; margin-top: 1px;overflow:hidden;}
-.tab{width:980px;height: 30px;background-color:#EDEDED; border-bottom: 1px solid #E9E9E9;border-left: 1px solid #E9E9E9;border-right: 1px solid #E9E9E9;border-top: 1px solid #E9E9E9;}
+.zhutikuang{float:clear;width:980px;height:32px;margin: 0 auto;border: 0px solid #E9E9E9;overflow:hidden;}
+.tab{width:980px;height: 30px; border-bottom: 1px solid #E9E9E9;/* border-left: 1px solid #E9E9E9;border-right: 1px solid #E9E9E9;border-top: 1px solid #E9E9E9; */}
 .tab li{float: left; width: 88px;height: 30px;line-height: 30px; text-align: center;font-size: 16px;color:#000;overflow:hidden;}
 .tab li:hover{color: #2783e0;background:#E0EEEE;cursor: pointer;}
 .tab span{float:left;line-height: 30px;width: 92px;margin-bottom:1px;font-size: 14px;text-align: center;background-color: #2783e0; color: #fff;font-weight: bold;}
@@ -27,10 +27,10 @@ ul,li {list-style:none;}
 .ul1 li a:hover{background-color:#405061;color:#FFFFFF;text-decoration:none;font-weight: bold; text-shadow:1px 1px 1px #000;transition: 0.2s;}
 .ul1 img { margin-left: 2px;
     margin-right: 2px;
-    margin-top: 1px;
+    margin-top: 3px;
     margin-bottom: 1px;
-    width: 75px;
-    height: 23px;
+    width: 70px;
+    height: 20px;
     vertical-align: bottom;
     border: 2px;}
 #shoppingshow div,#ruanjianshow div,#mianfeishow div,#mediashow div,#pptshow div,#dushushow div,#workshow div,#readshow div,#mediashow div,#studyshow div,#searchshow div{display: none;}

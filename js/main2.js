@@ -3,13 +3,13 @@ $(function(){
     $("#input_text").focus();
 
     var _indList = new Array(
-        ["百度搜索","谷歌搜索","健康搜","购物搜索", "职位搜索","http://www.baidu.com/s?wd=","https://gfsoso.8090st.com/webhp?hl=zh-CN#hl=zh-CN&q=","http://so.39.net/s?words=", "http://gouwu.sogou.com/shop?query=","http://cn.indeed.com/工作?q="], 
+        ["百度搜索","谷歌搜索","健康搜","购物搜索", "职位搜索","http://www.baidu.com/s?wd=","https://www.google.com.hk/#q=","http://so.39.net/s?words=", "http://gouwu.sogou.com/shop?query=","http://cn.indeed.com/工作?q="], 
         ["微信搜索","知乎搜索","果壳搜索","贴吧搜索","微博搜索","http://weixin.sogou.com/weixin?p=41351200&type=2&query=","http://zhihu.sogou.com/zhihu?ie=utf8&query=","http://www.guokr.com/search/all/?wd=","http://tieba.baidu.com/f?ie=utf-8&kw=","微博搜索"], 
 		["百度搜图","搜狗搜图","高清大图" ,"千图网","","http://image.baidu.com/search/index?tn=baiduimage&word=","http://pic.sogou.com/pics?query=","https://pixabay.com/zh/photos/?q=",""],
 		["电影首发","特百度","BT樱桃","胖次搜索", "西林街","电影首发站", "http://www.tebaidu.com/search.asp?r=0&wd=","http://www.btcherry.org/search?keyword=","http://www.panc.cc/s/","http://www.xilinjie.com/s?q=",],
         ["QQ音乐","网易云音乐", "虾米音乐","LRC歌词","音悦台MV", "http://y.qq.com/portal/search.html#t=song&w=","http://music.163.com/#/search/m/?s=","http://www.xiami.com/search?key=","歌词搜索","http://so.yinyuetai.com/mv?keyword="],
         ["吾爱破解","ZD423","PC6", "","","吾爱破解","http://www.zdfans.com/?s=","http://s.pc6.com/cse/search?s=12026392560237532321&q="],  
-        ["百度学术" ,"谷歌学术","Pubmed","化工搜索","知网知识","http://xueshu.baidu.com/s?wd=","https://ggso.in/scholar?q=","http://www.medlive.cn/pubmed/pubmed_search.do?q=","化工搜索","知网搜索"], 
+        ["百度学术" ,"谷歌学术","Pubmed","化工搜索","知网知识","http://xueshu.baidu.com/s?wd=","https://scholar.google.com.hk/scholar?hl=zh-CN&q=","http://www.medlive.cn/pubmed/pubmed_search.do?q=","化工搜索","知网搜索"], 
         ["佰腾专利","Soopat","","","","http://so.baiten.cn/results?q=","http://www.soopat.com/Home/Result?searchword="],
         ["百度文库","360DOC","Kindle书","","","http://wenku.baidu.com/search?word=","http://www.360doc.com/search.html?type=0&word=","http://www.zoudupai.com/book/share?kw="],
 		["美食杰","美食天下", "花瓣", "" ,  "" , "http://so.meishi.cc/?q=","http://home.meishichina.com/search/","http://huaban.com/search/?q="],
