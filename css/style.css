@@ -5,6 +5,67 @@ a {color:#504343;text-decoration:none;}
 a:hover {color:#EB6A01;text-decoration:underline;}
 ul,li {list-style:none;}
 
+.loading_container{
+    width: 100%;height: 100%;
+    background-color: #fff;
+    position: fixed;
+    z-index: 999;
+  }
+  .loading_container p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: 30px;
+    font-size: 16px;
+    margin-top: 60px;
+    margin-left: -54px;
+  }
+  .loading {
+          width: 90px;
+          height: 90px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 999999;
+          margin-top: -45px;
+          margin-left: -45px;
+          -webkit-animation: rotate 2.0s infinite linear;
+          animation: rotate 2.0s infinite linear;
+          }
+          .dot1, .dot2 {
+          width: 60%;
+          height: 60%;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          background-color: #67CF22;
+          border-radius: 100%;
+          -webkit-animation: bounce 2.0s infinite ease-in-out;
+          animation: bounce 2.0s infinite ease-in-out;
+          }
+          .dot2 {
+          top: auto;
+          bottom: 0px;
+          -webkit-animation-delay: -1.0s;
+          animation-delay: -1.0s;
+          }
+          @-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+          @keyframes rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+          @-webkit-keyframes bounce {
+          0%, 100% { -webkit-transform: scale(0.0) }
+          50% { -webkit-transform: scale(1.0) }
+          }
+          @keyframes bounce {
+          0%, 100% {
+          transform: scale(0.0);
+          -webkit-transform: scale(0.0);
+          } 50% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+          }
+          }
+
+
 
 #cebian{float:clear;position: fixed;left:50%;top:180px; margin-left: 516px;border:1px solid #ccc;}
 #cebian li{width: 80px; font-size: 14px; background-color: #fff;height: 26px; text-align: center;border-bottom: 1px solid #E6EBF4; line-height: 26px;}
