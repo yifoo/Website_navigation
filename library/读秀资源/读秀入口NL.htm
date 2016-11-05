@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>牛牛图书馆欢迎你</title>
+<style>
+.button{
+background:#fff; 
+ border:0; 
+ color: #0000FF;  
+ font-family: Arial, Helvetica, sans-serif; font-size: 38px; 
+ font-weight: normal; float: left; display: block;
+ line-height: 38px;
+}
+ .button:hover{
+ line-height: 38px;
+ border:0; 
+ text-align: center; 
+ color:rgb(255, 255, 255);
+ background:rgb(0, 153, 102);
+ text-decoration:underline;
+ font-size: 38px; 
+ font-weight: bold;}
+
+</style>
+</head>
+
+<body>
+<p>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link rel="stylesheet" type="text/css" href="/style/info/list.css" />
+<link rel="stylesheet" type="text/css" href="/style/login/login.css" /></p>
+<div id="Layer1"><br />
+&nbsp;</div>
+<div id="content">
+<form id="login" method="post" action="http://www.ucdrs.superlib.net/login/login.action" onsubmit="return checkForm();">
+    <input type="hidden" name="backurl" /> <input type="hidden" name="areaid" value="431" />
+    <table align="center">
+        <tbody>
+            <tr height="80">
+            </tr>
+            <tr>
+                <td colspan="3" style="padding-bottom: 15px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">
+                <div align="right">&nbsp;</div>
+                </td>
+                <td>&nbsp;</td>
+                <td width="350"><input id="userName" class="w190" size="27" type="hidden" name="userName" value="a02637990" /></td>
+            </tr>
+            <tr height="10">
+            </tr>
+            <tr>
+                <td align="right">
+                <div align="right">&nbsp;</div>
+                </td>
+                <td>&nbsp;</td>
+                <td><input id="passWord" class="w190" size="27" type="hidden" name="passWord" value="568582" /></td>
+            </tr>
+            <tr height="10">
+            </tr>
+            <tr>
+                <td align="right">
+                <div align="right">登陆机构</div>
+                </td>
+                <td>&nbsp;&nbsp;</td>
+                <td><select id="gid" name="gid">
+                <option value="7320" selected="selected">你牛图书馆</option>
+                </select></td>
+            </tr>
+            <tr height="10">
+            </tr>
+            <tr>
+                <td align="right">
+                <div align="right">&#1444;</div>
+                </td>
+                <td>&nbsp;&nbsp;</td>
+                <td class="trleft"><input id="verifyCode" size="6" name="verifyCode" type="text" /><span>&nbsp;&nbsp;<img id="vimg" alt="" src="http://www.ucdrs.superlib.net/user/vImage.jsp" />&nbsp;&nbsp;<a onclick="document.getElementById('vimg').src='http://www.ucdrs.superlib.net/user/vImage.jsp?t='+ (new Date().getTime());" style="padding-botomm: 5px" href="#">刷新验证码</a>&nbsp;&nbsp;</span></td>
+            </tr>
+            <tr height="15">
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                <div><input id="submit" type="submit" value=" 登陆" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</div>
+<p>&nbsp;</p></body>

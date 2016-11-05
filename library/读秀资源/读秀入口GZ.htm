@@ -1,0 +1,34 @@
+<html>
+<head>
+<script language="javascript">
+function clear(){
+ Source=document.body.firstChild.data;
+ document.open();
+ document.close();
+ document.title="看不到源代码";
+ document.body.innerHTML=Source;
+}
+</script>
+
+<center>请先输入下面的验证码，如果输错验证码，请重新从图书馆该通道点击进入<br>若连续显示验证码错误为浏览器问题，更换浏览器重试即可</center>
+</head>
+<body onload="Load()" onContextMenu="return false" onSelectStart="return false">
+<form name="formLogin" method="post" action="http://www.duxiu.com/loginhl.jsp">
+<input type="hidden" name="send" value="true">
+<input type="hidden" name="backurl" value="http://edu.duxiu.com">
+<input type="hidden" name="UserName" value="gzzyyao1">
+<input type="hidden" name="PassWord" value="eb3h4jt6">
+
+
+<center>
+<p>
+<img src="http://www.duxiu.com/vImage.jsp" alt="验证码" /><br/>
+验证码：<input type="text" name="verifycode" size="4" /><br/>
+</p>
+<p>
+<input type="submit" value="进入目标页" /></p>
+</center>
+
+
+</form>
+</body>

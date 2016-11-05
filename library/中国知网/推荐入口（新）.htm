@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<p>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" /></p>
+<form method="post" action="" name="form1">
+    <input type="hidden" name="siteid" /> <input type="hidden" name="uname" /> <input type="hidden" name="uid" />
+</form>
+<script> 
+autosubmit(document.form1);
+function autosubmit(obj)
+{
+	obj.uname.value		=	getCookie("jlqpymlusername");
+	obj.uid.value		=	getCookie("jlqpymluserid");
+	obj.siteid.value	=	"niuniulib.com";
+	obj.action		=	"http://app.nj95.net/tologin"
+	obj.submit();
+}
+function getCookie(name)
+{    
+	var offset,cookieValue;
+	var search=name+"=";
+	if(document.cookie.length>0)
+	{
+		offset=document.cookie.indexOf(search);
+		if(offset!=-1)
+		{
+			offset += search.length;   
+			end = document.cookie.indexOf(";", offset);   
+			if (end == -1) 
+				end = document.cookie.length;   
+			cookieValue=unescape(document.cookie.substring(offset, end));
+		}
+	}
+	return cookieValue;
+} 
+ 
+</script>
+</html>
