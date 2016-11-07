@@ -6,7 +6,7 @@
 <meta name="Keywords" content="专业网址导航" />
 <meta name="description" content="专业网址导航" />
 <link rel="shortcut icon" href="favicon.ico" />
-<link rel="stylesheet" href="css/search.css">
+<link rel="stylesheet" href="css/sousuo.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/hint.min.css">
 <script type="text/javascript" src="js/shubiao.js" charset="UTF-8" async="async"></script>
@@ -28,31 +28,30 @@
         <span class="logo"><!-- <a href="http://so.chongbuluo.com/ " title="靖风行"> --><img src="logo.gif"><!--</a>-->
         </span>
         <!-- 搜索框 -->
-        <div id="search-container">
-            
-            <div id="search-category">
-                <span index="0" title="网页搜索">网页</span>
-                <span index="1" title="社交搜索">社交</span>
-                <span index="2" title="图片搜索">图片</span>
-                <span index="3" title="电影搜索">电影</span>
-                <span index="4" title="听音乐">音乐</span>
-                <span index="5" title="找软件">软件</span>
-                <span index="6" title="文献搜索">专业</span>
-				<span index="7" title="找专利">专利</span>
-				<span index="8" title="找电子书">书籍</span>
-				<span index="9" title="生活美食">生活</span>
-				<span index="10" title="找素材">素材</span>
+        <form class="serchArea">
+            <div class="cat_btn">
+                <span id="wangyesearch" num="0" class="bgsrhnbt" title="网页搜索">网页</span>
+				<span id="ideasearch" num="1" class="bgsrhnbt" title="社交搜索">社交</span>
+				<span id="imagesearch" num="2" class="bgsrhnbt" title="图片搜索">图片</span>
+                <span id="moviesearch" num="3" class="bgsrhnbt" title="电影搜索">电影</span>
+                <span id="musicsearch" num="4" class="bgsrhnbt" title="听音乐">音乐</span>
+                <span id="softsearch"  num="5" class="bgsrhnbt" title="找软件">软件</span>
+				<span id="acsearch"    num="6" class="bgsrhnbt" title="文献搜索">专业</span>
+                <span id="patentsearch" num="7" class="bgsrhnbt" title="找专利">专利</span>
+				<span id="libsearch"    num="8" class="bgsrhnbt" title="找电子书">书籍</span>
+				<span id="lifesearch" num="9" class="bgsrhnbt" title="生活美食">生活</span>
+				<span id="sucaisearch" num="10" class="bgsrhnbt" title="找素材">素材</span>
             </div>
-            <div id="input-container">
-                <input type="text" id="search-input" />
-                <ul class="history-list"></ul>
-                <ul class="down-list"></ul>
-                <span id="settings"></span>
+            <input type="text" id="input_text" baiduSug="2" / placeholder="选择搜索分类" autocomplete="on">
+            <div class="btn_search">
+                <button type="button" id="searchBtn0" num="10" class="anniu" >百度搜索</button>
+                <button type="button" id="searchBtn1" num="11" class="anniu" >谷歌搜索</button>
+                <button type="button" id="searchBtn2" num="12" class="anniu" >健康搜</button>
+                <button type="button" id="searchBtn3" num="13" class="anniu" >购物搜索</button>
+                <button type="button" id="searchBtn4" num="14" class="anniu" >职位搜索</button>
             </div>
-            <div id="search-websites"></div>
-        </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/searchTools.js"></script>
+            <span class="search_btn">使用方法</span>
+        </form>
 		<!-- 搜索框结束 -->
         <!-- <ul class="header_info">
           <li class="top-right"><a href="liuyan.html" target="blank">留言</a></li>
@@ -63,6 +62,8 @@
     <!-- top结束 -->
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.cookie.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/main2.js"></script>
   <script src="js/hover.js"></script>
   <script>
       $(function(){
@@ -73,6 +74,14 @@
         });
       })
   </script>
+
+
+<div class="index_open">
+  <p>搜索框使用方法：<br>
+  1.进入后，在不输入内容下，选好各分类的默认搜索网站;<br>会记忆上次各分类使用的网站（小三角表示）<br>
+  2.下次使用时，直接输入内容，回车就可以了；</p>
+  <span class="close">×</span>
+</div>
 </body>
     <script charset="gbk" src="js/opensug.js"></script>
 	    <!-- 侧边 -->
