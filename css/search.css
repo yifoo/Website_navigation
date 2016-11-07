@@ -168,14 +168,14 @@ body {
 } */
 #search-websites span {
 	display: inline-block;
-    padding: 8px 16px;
+    padding: 8px 10px;
     background-color: #1C86EE;
     color: #fff;
     font-family: '微软雅黑';
     font-size: 14px;
     cursor: pointer;
     margin-left: 14px;
-    margin-top: 8px;
+    margin-top: 10px;
     letter-spacing: 2px;
     transition: padding-left 0.3s;  
 }
@@ -183,7 +183,7 @@ body {
 
 
 #search-websites .active {
-  padding-left: 20px;
+  padding-left: 16px;
   background: url("../images/active.png") no-repeat 6px center;
   background-color: #1C86EE;
 }
