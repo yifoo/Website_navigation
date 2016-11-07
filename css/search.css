@@ -126,8 +126,8 @@ body {
     font-family: 'Microsoft Yahei';
     font-size: 14px;
     cursor: pointer;
-    margin-left: 1px;
-    letter-spacing: 1px;
+    margin-left: -2px;
+    letter-spacing: 2px;
 }
 #search-category span:hover{    
     color: #fff;
