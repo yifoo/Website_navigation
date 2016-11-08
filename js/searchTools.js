@@ -1,18 +1,23 @@
 var searchResultNum=-1;var enterFlag="true";var serachTips=null;var settings;
 if(localStorage.getItem("settings")){settings=JSON.parse(localStorage.getItem("settings"))}
 else{settings={"searchHistory":"false","searchTips":"close"}}
-function getSearchData(data){var $inputText=$("#search-input");
+function getSearchData(data)
+
+{var $inputText=$("#search-input");
 var $downList=$(".down-list");var tempHtml="";
-if(settings.searchTips=="baidu"){datas=data.s;if(datas.length>5){for(var i=0;i<5;i++){tempHtml+="<li>"+datas[i]+"</li>"}}
- else{for(var i=0;i<datas.length;i++){tempHtml+="<li>"+datas[i]+"</li>"}}}
- else{if(settings.searchTips=="haosou"){datas=data.result;if(datas.length>5)
+if(settings.searchTips=="baidu"){datas=data.s;if(datas.length>5)
+{for(var i=0;i<5;i++){tempHtml+="<li>"+datas[i]+"</li>"}}
+else{for(var i=0;i<datas.length;i++){tempHtml+="<li>"+datas[i]+"</li>"}}}
+
+else{if(settings.searchTips=="haosou"){datas=data.result;if(datas.length>5)
 {for(var i=0;i<5;i++){tempHtml+="<li>"+datas[i].word+"</li>"}}
 else{for(var i=0;i<datas.length;i++){tempHtml+="<li>"+datas[i].word+"</li>"}}}
-else{if(settings.searchTips=="bing"){datas=data.AS.Results[0].Suggests;
-if(datas.length>5){for(var i=0;i<5;i++){tempHtml+="<li>"+datas[i].Txt+"</li>"}}
-else{for(var i=0;i<datas.length;i++){tempHtml+="<li>"+datas[i].Txt+"</li>"}}}}}
 
-$downList.html(tempHtml).show()}(function(){var keyWords;var $inputText=$("#search-input");
+else{if(settings.searchTips=="bing"){datas=data.AS.Results[0].Suggests;if(datas.length>5)
+{for(var i=0;i<5;i++){tempHtml+="<li>"+datas[i].Txt+"</li>"}}
+else{for(var i=0;i<datas.length;i++){tempHtml+="<li>"+datas[i].Txt+"</li>"}}}}}$downList.html(tempHtml).show()}
+
+(function(){var keyWords;var $inputText=$("#search-input");
 var $category=$("#search-category").find("span");var initArray;var isAjax=true;
 if(localStorage.getItem("history")){initArray=JSON.parse(localStorage.getItem("history"))} 
 else{initArray=[]}
