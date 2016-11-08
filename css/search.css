@@ -230,8 +230,8 @@ body {
   position: absolute;
   z-index: 999;
   top: 44px;
-  left: 214px;
-  width: 522px;
+  left: 215px;
+  width: 570px;
   border: 1px solid #ccc;
   border-bottom: 0;
   background-color: #fff;
@@ -242,7 +242,7 @@ body {
   line-height: 25px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
-  width: 571px;
+  width: 569px;
 }
 #input-container .history-list li:hover {
   background-color: #F0F0F0;
