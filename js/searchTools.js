@@ -30,7 +30,7 @@ sites:[["http://www.baidu.com/s?wd=guanjian","https://www.google.com.hk/#q=guanj
 {name:[["百度搜图","搜狗搜图","高清大图","千图网"],],
 sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http://pic.sogou.com/pics?query=guanjian","https://pixabay.com/zh/photos/?q=guanjian"]]}},
 
-{"tips":"食品搜索","websites":
+{"tips":"电影搜索","websites":
 {name:[["电影首发","特百度","BT樱桃","胖次搜索","西林街"],],
 sites:[["http://www.dysfz.net/key/guanjian/","http://www.tebaidu.com/search.asp?r=0&wd=guanjian","http://www.btcherry.org/search?keyword=guanjian","http://www.panc.cc/s/guanjian","http://www.xilinjie.com/s?q=guanjian&ft=ALL"],]}},
 
