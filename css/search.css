@@ -185,7 +185,7 @@ body {
 
 
 #search-websites .active {
-  padding-left: 16px;
+  padding-left: 18px;
   background: url("../images/active.png") no-repeat 6px center;
   background-color: #1C86EE;
 }
