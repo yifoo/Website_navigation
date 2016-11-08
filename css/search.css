@@ -145,6 +145,7 @@ body {
   background-color: #1C86EE;
   color: #fff;
   border-radius: 2px;
+  line-height: 10px;
 }
 #search-input {
   width: 550px;
