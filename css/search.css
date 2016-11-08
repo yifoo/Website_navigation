@@ -147,21 +147,23 @@ body {
   border-radius: 2px;
   line-height: 10px;
 }
+#search-input .active {
+  border: 1px solid #0099FF;
+}
 #search-input {
   width: 550px;
-  height: 35px;
-  line-height: 35px;
+  height: 36px;
+  line-height: 30px;
   background-color: #fff;
-  margin: 0 auto;
+/*   margin: 0 auto;
   outline: none;
-  border: none;
+  border: none; */
   padding: 0 10px;
-  font-size: 15px;
+  font-size: 17px;
   margin-top: 8px;
   margin-left: 0px;
   font-family: "微软雅黑";
   letter-spacing: 1px;
-  border: 1px solid #ccc;
   
 }
 /* #search-websites {
@@ -199,8 +201,8 @@ body {
   position: absolute;
   z-index: 999;
   top: 41px;
-  left: 214px;
-  width: 572px;
+  left: 215px;
+  width: 570px;
   border: 1px solid #ccc;
   border-bottom: 0;
   background-color: #fff;
@@ -212,7 +214,7 @@ body {
   font-size: 14px;
   cursor: default;
   height: 25px;
-  width: 561px;
+  width: 559px;
   line-height: 25px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
