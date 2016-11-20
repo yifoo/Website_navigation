@@ -48,8 +48,8 @@ sites:[["http://y.qq.com/portal/search.html#t=song&w=guanjian","http://music.163
 sites:[["http://so.52pojie.cn/cse/search?q=guanjian&click=1&s=14525262514411293706","http://www.zdfans.com/?s=guanjian","http://s.pc6.com/cse/search?s=12026392560237532321&q=guanjian"],]}},
 
 {"tips":"学术搜索","websites":
-{name:[["百度学术" ,"谷歌学术","Pubmed","化工搜索","知网知识"],],
-sites:[["http://xueshu.baidu.com/s?wd=guanjian","https://scholar.google.com.hk/scholar?hl=zh-CN&q=guanjian","http://www.medlive.cn/pubmed/pubmed_search.do?q=guanjian","http://www.anychem.com/dict/search/guanjian/","http://search.cnki.com.cn/search.aspx?q=qw:guanjian&cluster=all&val=&p=0"],]}},
+{name:[["百度学术" ,"谷歌学术","Pubmed","化工搜索","知网搜索"],],
+sites:[["http://xueshu.baidu.com/s?wd=guanjian","https://scholar.google.com.hk/scholar?hl=zh-CN&q=guanjian","http://www.medlive.cn/pubmed/pubmed_search.do?q=guanjian","http://www.anychem.com/dict/search/guanjian/","http://search.cnki.net/kns/brief/Default_Result.aspx?code=SCDB&kw=guanjian&korder=0&sel=1"],]}},
 
 {"tips":"找专利","websites":
 {name:[["佰腾专利","Soopat"],],
