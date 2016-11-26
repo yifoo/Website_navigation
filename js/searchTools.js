@@ -56,8 +56,8 @@ sites:[["http://xueshu.baidu.com/s?wd=guanjian","https://scholar.google.com.hk/s
 sites:[["http://so.baiten.cn/results?q=guanjian","http://www.soopat.com/Home/Result?searchword=guanjian"],]}},
 
 {"tips":"找文档","websites":
-{name:[["百度文库","360DOC","Kindle书"],],
-sites:[["http://wenku.baidu.com/search?word=guanjian","http://www.360doc.com/search.html?type=0&word=guanjian","http://www.zoudupai.com/book/share?kw=guanjian"],]}},
+{name:[["PDFdrive","百度文库","360DOC","Kindle书"],],
+sites:[["http://www.pdfdrive.net/search?q=guanjian","http://wenku.baidu.com/search?word=guanjian","http://www.360doc.com/search.html?type=0&word=guanjian","http://www.zoudupai.com/book/share?kw=guanjian"],]}},
 
 {"tips":"美食生活","websites":
 {name:[["美食杰","美食天下", "花瓣"],],

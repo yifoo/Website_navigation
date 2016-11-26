@@ -106,17 +106,28 @@ ul,li {list-style:none;}
 .ul1 .xiaofenlei,.content .xiaofenlei
 {clear:both;
 font-size:15px;
-color:#1874CD;font-weight:bold;background: #F8F8FF;}
-
-.ul1 .xiaofenleitools,.content .xiaofenleitools
-{clear:both;
+height: 26px;
+line-height: 26px;
 color:#1874CD;
-height: 54px;
-font-size:15px;
-line-height: 54px;
 font-weight:bold;
 background: #F8F8FF;}
 
+.ul1 .xiaofenlei2,.content .xiaofenleitools
+{clear:both;
+color:#1874CD;
+height: 53px;
+font-size:15px;
+line-height: 52px;
+font-weight:bold;
+background: #F8F8FF;}
+.ul1 .xiaofenlei3,.content .xiaofenleitools
+{clear:both;
+color:#1874CD;
+height: 79px;
+font-size:15px;
+line-height: 79px;
+font-weight:bold;
+background: #F8F8FF;}
 
 
 .fh{width:980px; height:5px; overflow:hidden; margin:0 auto;}
