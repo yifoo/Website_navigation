@@ -74,12 +74,20 @@ ul,li {list-style:none;}
 
 .zhutikuang{float:clear;width:980px;height:32px;margin: 0 auto;border: 0px solid #E9E9E9;overflow:hidden;}
 .tab{width:980px;height: 30px; border-bottom: 1px solid #E9E9E9;/* border-left: 1px solid #E9E9E9;border-right: 1px solid #E9E9E9;border-top: 1px solid #E9E9E9; */}
-.tab li{float: left; width: 88px;height: 30px;line-height: 30px; text-align: center;font-size: 15px;color:#000;overflow:hidden;}
-.tab li:hover{color: #2783e0;background:#E0EEEE;cursor: pointer;}
+.tab li{
+	float: left;
+    width: 88px;
+    margin-left: 1px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #000;
+    overflow: hidden;}
+.tab li:hover{color: #2783e0;background:#D3D3D3;cursor: pointer;}
 .tab span{float:left;
-  line-height:30px;
-  width: 92px;
-  margin-bottom:1px;
+  line-height:31px;
+  width: 90px;
   font-size: 15px;
   text-align: center;
   background-color: #2783e0; 

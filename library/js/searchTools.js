@@ -36,8 +36,8 @@ sites:[["http://www.baidu.com/s?wd=guanjian","https://www.google.com.hk/#q=guanj
 sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http://pic.sogou.com/pics?query=guanjian","https://pixabay.com/zh/photos/?q=guanjian"]]}},
 
 {"tips":"电影搜索","websites":
-{name:[["电影首发","特百度","BT樱桃","胖次搜索","西林街"],],
-sites:[["http://www.dysfz.net/key/guanjian/","http://www.tebaidu.com/search.asp?r=0&wd=guanjian","http://www.btcherry.org/search?keyword=guanjian","http://www.panc.cc/s/guanjian","http://www.xilinjie.com/s?q=guanjian&ft=ALL"],]}},
+{name:[["去转盘","电影首发","特百度","BT樱桃","胖次搜索","西林街"],],
+sites:[["http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.dysfz.net/key/guanjian/","http://www.tebaidu.com/search.asp?r=0&wd=guanjian","http://www.btcherry.org/search?keyword=guanjian","http://www.panc.cc/s/guanjian","http://www.xilinjie.com/s?q=guanjian&ft=ALL"],]}},
 
 {"tips":"听音乐","websites":
 {name:[["QQ音乐","网易云音乐", "虾米音乐","LRC歌词","音悦台MV"],],
@@ -48,16 +48,16 @@ sites:[["http://y.qq.com/portal/search.html#t=song&w=guanjian","http://music.163
 sites:[["http://so.52pojie.cn/cse/search?q=guanjian&click=1&s=14525262514411293706","http://www.zdfans.com/?s=guanjian","http://s.pc6.com/cse/search?s=12026392560237532321&q=guanjian"],]}},
 
 {"tips":"学术搜索","websites":
-{name:[["百度学术" ,"谷歌学术","Pubmed","化工搜索","知网知识"],],
-sites:[["http://xueshu.baidu.com/s?wd=guanjian","https://scholar.google.com.hk/scholar?hl=zh-CN&q=guanjian","http://www.medlive.cn/pubmed/pubmed_search.do?q=guanjian","http://www.anychem.com/dict/search/guanjian/","http://search.cnki.com.cn/search.aspx?q=qw:guanjian&cluster=all&val=&p=0"],]}},
+{name:[["百度学术" ,"谷歌学术","Pubmed","化工搜索","知网搜索"],],
+sites:[["http://xueshu.baidu.com/s?wd=guanjian","https://scholar.google.com.hk/scholar?hl=zh-CN&q=guanjian","http://www.medlive.cn/pubmed/pubmed_search.do?q=guanjian","http://www.anychem.com/dict/search/guanjian/","http://search.cnki.net/kns/brief/Default_Result.aspx?code=SCDB&kw=guanjian&korder=0&sel=1"],]}},
 
 {"tips":"找专利","websites":
 {name:[["佰腾专利","Soopat"],],
 sites:[["http://so.baiten.cn/results?q=guanjian","http://www.soopat.com/Home/Result?searchword=guanjian"],]}},
 
 {"tips":"找文档","websites":
-{name:[["百度文库","360DOC","Kindle书"],],
-sites:[["http://wenku.baidu.com/search?word=guanjian","http://www.360doc.com/search.html?type=0&word=guanjian","http://www.zoudupai.com/book/share?kw=guanjian"],]}},
+{name:[["PDFdrive","百度文库","360DOC","Kindle书"],],
+sites:[["http://www.pdfdrive.net/search?q=guanjian","http://wenku.baidu.com/search?word=guanjian","http://www.360doc.com/search.html?type=0&word=guanjian","http://www.zoudupai.com/book/share?kw=guanjian"],]}},
 
 {"tips":"美食生活","websites":
 {name:[["美食杰","美食天下", "花瓣"],],
