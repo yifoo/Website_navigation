@@ -32,8 +32,8 @@ sites:[["http://www.baidu.com/s?wd=guanjian","https://www.google.com.hk/#q=guanj
  sites:[["http://weixin.sogou.com/weixin?p=41351200&type=2&query=guanjian","http://zhihu.sogou.com/zhihu?ie=utf8&query=guanjian","http://www.guokr.com/search/all/?wd=guanjian","http://tieba.baidu.com/f?ie=utf-8&kw=guanjian","http://s.weibo.com/weibo/guanjian&Refer=index"],]}},
 
 {"tips":"图片搜索","websites":
-{name:[["百度搜图","搜狗搜图","高清大图","千图网"],],
-sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http://pic.sogou.com/pics?query=guanjian","https://pixabay.com/zh/photos/?q=guanjian"]]}},
+{name:[["百度搜图","搜狗搜图","高清大图","视觉搜索"],],
+sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http://pic.sogou.com/pics?query=guanjian","https://pixabay.com/zh/photos/?q=guanjian","https://visualhunt.com/search/instant/?q=guanjian"]]}},
 
 {"tips":"电影搜索","websites":
 {name:[["去转盘","电影首发","特百度","BT樱桃","胖次搜索","西林街"],],
@@ -64,8 +64,8 @@ sites:[["http://www.pdfdrive.net/search?q=guanjian","http://wenku.baidu.com/sear
 sites:[["http://so.meishi.cc/?q=guanjian","http://home.meishichina.com/search/guanjian","http://huaban.com/search/?q=guanjian"],]}},
 
 {"tips":"找素材","websites":
-{name:[["搜狗素材" ,"ZCOOL搜", "搜素材", "求字体","搜狗素材"],],
-sites:[["http://sucai.zcool.com.cn/search.do?k=guanjian","http://so.ui001.com/index.php?keys=guanjian","http://www.qiuziti.com/fontlist.aspx?fn=guanjian"],]}},
+{name:[["ZCOOL搜", "图标搜", "求字体","搜狗素材"],],
+sites:[["http://sucai.zcool.com.cn/search.do?k=guanjian","http://www.easyicon.net/iconsearch/guanjian/","http://www.qiuziti.com/fontlist.aspx?fn=guanjian"],]}},
 
 ];
 
