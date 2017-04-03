@@ -36,8 +36,8 @@ sites:[["http://www.baidu.com/s?wd=guanjian","https://www.google.com.hk/#q=guanj
 sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http://pic.sogou.com/pics?query=guanjian","https://pixabay.com/zh/photos/?q=guanjian","https://visualhunt.com/search/instant/?q=guanjian"]]}},
 
 {"tips":"电影搜索","websites":
-{name:[["去转盘","电影首发","特百度","BT樱桃","胖次搜索","西林街"],],
-sites:[["http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.dysfz.net/key/guanjian/","http://www.tebaidu.com/search.asp?r=0&wd=guanjian","http://www.btcherry.org/search?keyword=guanjian","http://www.panc.cc/s/guanjian","http://www.xilinjie.com/s?q=guanjian&ft=ALL"],]}},
+{name:[["去转盘","电影首发","特百度","BT樱桃","胖次搜索","美剧搜"],],
+sites:[["http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.dysfz.net/key/guanjian/","http://www.tebaidu.com/search.asp?r=0&wd=guanjian","http://www.btcherry.org/search?keyword=guanjian","http://www.panc.cc/s/guanjian","http://cn163.net/?s=guanjian"],]}},
 
 {"tips":"听音乐","websites":
 {name:[["QQ音乐","网易云音乐", "虾米音乐","LRC歌词","音悦台MV"],],
