@@ -63,7 +63,7 @@ ul,li {list-style:none;}
           -webkit-transform: scale(1.0);
           }
           }
-
+#cebian1{float:clear;position: fixed;right:50%;top:180px; margin-right: 516px;border:1px solid #ccc;}
 #cebian{float:clear;position: fixed;left:50%;top:180px; margin-left: 516px;border:1px solid #ccc;}
 #cebian li{width: 80px; font-size: 14px; background-color: #fff;height: 26px; text-align: center;border-bottom: 1px solid #E6EBF4; line-height: 26px;}
 #cebian li:hover{background-color: #2783e0;}
