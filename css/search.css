@@ -102,8 +102,8 @@ body {
 /*头部信息*/
 .header_info {
     position: absolute;
-    left: 750px;
-    top: 30px;
+    left: 82%;
+    top: 50%;
 }
 #search-container {
   font-size: 0;
