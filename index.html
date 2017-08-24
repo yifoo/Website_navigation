@@ -1,870 +1,942 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <title>靖风行</title>
-  <meta name="Keywords" content="专业网址导航" />
-  <meta name="description" content="专业网址导航" />
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>靖风行</title>
+    <meta name="Keywords" content="专业网址导航" />
+    <meta name="description" content="专业网址导航" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link href="http://static0.tuicool.com/images/icon114.png" rel="Bookmark" />
-    <link rel="stylesheet" href="css/search.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/hint.min.css"/>
-  <script type="text/javascript" src="js/shubiao.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/hint.min.css" />
+    <script type="text/javascript" src="js/shubiao.js" charset="UTF-8"></script>
 </head>
+
 <body>
- <!-- loading效果 -->
-  <div class="loading_container">
-   <div class="loading">
-    <div class="dot1"></div>
-    <div class="dot2"></div>
-   </div>
-  <p>导 航 加 载 中...</p>
-  </div>
-<!-- loading效果结束 -->
-<div id="top">
-  <div class="header">
-    <span class="logo"><!-- <a href="www.haohome.tk " title="靖风行"> --><img src="logo.gif" alt="center"/><!--</a>--></span>
-        <!-- 搜索框 -->
-      <div id="search-container">
-        <div id="search-category">
-                <span index="0" title="网页搜索">网页</span>
-                <span index="1" title="社交搜索">社交</span>
-                <span index="2" title="图片搜索">图片</span>
-                <span index="3" title="电影搜索">电影</span>
-                <span index="4" title="听音乐">音乐</span>
-                <span index="5" title="找软件">软件</span>
-                <span index="6" title="文献搜索">专业</span>
-			    <span index="7" title="找专利">专利</span>
-			    <span index="8" title="找电子书">书籍</span>
-			    <span index="9" title="生活美食">生活</span>
-		        <span index="10" title="找素材">素材</span>
+    <!-- loading效果 -->
+    <div class="loading_container">
+        <div class="loading">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
         </div>
-            <div id="input-container">
-                <input type="text" id="search-input" />
-                <ul class="history-list"></ul>
-                <ul class="down-list"></ul>
-                <span id="settings"></span>
+        <p>导 航 加 载 中...</p>
+    </div>
+    <!-- loading效果结束 -->
+    <div id="top">
+        <div class="header">
+            <span class="logo"><!-- <a href="www.haohome.tk " title="靖风行"> --><img src="logo.gif" alt="center"/><!--</a>--></span>
+            <!-- 搜索框 -->
+            <div id="search-container">
+                <div id="search-category">
+                    <span index="0" title="网页搜索">网页</span>
+                    <span index="1" title="社交搜索">社交</span>
+                    <span index="2" title="图片搜索">图片</span>
+                    <span index="3" title="电影搜索">电影</span>
+                    <span index="4" title="听音乐">音乐</span>
+                    <span index="5" title="找软件">软件</span>
+                    <span index="6" title="文献搜索">专业</span>
+                    <span index="7" title="找专利">专利</span>
+                    <span index="8" title="找电子书">书籍</span>
+                    <span index="9" title="生活美食">生活</span>
+                    <span index="10" title="找素材">素材</span>
+                </div>
+                <div id="input-container">
+                    <input type="text" id="search-input" />
+                    <ul class="history-list"></ul>
+                    <ul class="down-list"></ul>
+                    <span id="settings"></span>
+                </div>
+                <div id="search-websites"></div>
             </div>
-            <div id="search-websites"></div>
-        </div>
-        <script src="js/jquery.min.js" type="text/javascript"></script>
-        <script src="js/searchTools.js" type="text/javascript"></script>
-		
-		<!-- 搜索框结束 -->
-<!--         <ul class="header_info">
+            <script src="js/jquery.min.js" type="text/javascript"></script>
+            <script src="js/searchTools.js" type="text/javascript"></script>
+            <!-- 搜索框结束 -->
+            <!--         <ul class="header_info">
         <iframe name="sinaWeatherTool" src="http://weather.news.sina.com.cn/chajian/iframe/weatherStyle30.html?city=%E5%8C%97%E4%BA%AC" width="166" height="152" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
         </ul>  -->
-      </div>
-</div>
+        </div>
+    </div>
     <!-- top结束 -->
-  <script src="js/main.js" type="text/javascript"></script>
-  <script src="js/jquery.min.js" type="text/javascript"></script>
-  <script src="js/jquery.cookie.js" type="text/javascript"></script>
-  <script src="js/hover.js" type="text/javascript"></script>
-  <script charset="gbk" src="js/opensug.js" type="text/javascript"></script>
-  <script type="text/javascript" >
-      $(function(){
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="js/hover.js" type="text/javascript"></script>
+    <script charset="gbk" src="js/opensug.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function() {
         $(".loading,.loading_container").hide();
         $(".tab_container").find('.tab_category').click(function() {
-          $(this).addClass('active').siblings('li').removeClass('active');
-          $(".tab_content").children('li').eq($(this).index()).show().siblings('li').hide();
+            $(this).addClass('active').siblings('li').removeClass('active');
+            $(".tab_content").children('li').eq($(this).index()).show().siblings('li').hide();
         });
-      })
-  </script>
+    })
+    </script>
 </body>
-
-	    <!-- 侧边 -->
-    <div id="cebian">
-        <ul>
-            <li><a class="pinghua" href="#search">搜索</a></li>
-            <li><a class="pinghua" href="#shopping">购物</a></li>
-			<li><a class="pinghua" href="#work">工作</a></li>
-		    <li><a class="pinghua" href="#read">资讯</a></li>
-		    <li><a class="pinghua" href="#media">多媒体</a></li>
-            <!-- <li><a class="pinghua" href="#study">学习</a></li> -->
-            <li><a class="pinghua" href="#ruanjian">软件</a></li>
-            <li><a class="pinghua" href="#ppt">设计</a></li>
-		   <!-- <li><a class="pinghua" href="#mianfei">免费</a></li> -->
-           <!--  <li><a class="pinghua" href="#dushu">读物</a></li> -->
-            <!-- <li><a class="pinghua" href="#music">音乐</a></li> -->
-            <li><a class="pinghua" href="#daohang">导航</a></li>
-            <li><a class="pinghua" href="#top">顶部</a></li>
-        </ul>
-    </div>
-	<div id="cebian1">
-<iframe width="110" scrolling="no" height="320" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=4&bgc=%23&icon=4&wind=1&num=3"></iframe>
-    </div>
+<!-- 侧边 -->
+<div id="cebian">
+    <ul>
+        <li><a class="pinghua" href="#search">搜索</a></li>
+        <li><a class="pinghua" href="#shopping">购物</a></li>
+        <li><a class="pinghua" href="#work">工作</a></li>
+        <li><a class="pinghua" href="#read">资讯</a></li>
+        <li><a class="pinghua" href="#media">多媒体</a></li>
+        <!-- <li><a class="pinghua" href="#study">学习</a></li> -->
+        <li><a class="pinghua" href="#ruanjian">软件</a></li>
+        <li><a class="pinghua" href="#ppt">设计</a></li>
+        <!-- <li><a class="pinghua" href="#mianfei">免费</a></li> -->
+        <!--  <li><a class="pinghua" href="#dushu">读物</a></li> -->
+        <!-- <li><a class="pinghua" href="#music">音乐</a></li> -->
+        <li><a class="pinghua" href="#daohang">导航</a></li>
+        <li><a class="pinghua" href="#top">顶部</a></li>
+    </ul>
+</div>
+<div id="cebian1">
+    <iframe width="110" scrolling="no" height="320" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=4&bgc=%23&icon=4&wind=1&num=3"></iframe>
+</div>
 <!-- 搜索工具 -->
 <div id="search" class="zhutikuang" style="height:auto;">
-  <div class="tab">
-    <span>搜索工具</span>
-      <ul class="searchtab">
-        <li class="current">常用工具</li>
-          <li>资源搜索</li>
-		  <li>图片搜索</li>
-		  <li>指数热点</li>
-		  <li>小工具</li>
-      </ul>
-  </div>
-  <div id="searchshow"><!--常用工具-->
-  <div class="show">
-    <ul class="ul1">
-    <li class="xiaofenlei2">常用工具</li>
-		   <li><a href="http://down.foodmate.net/standard/index.html"target="_blank"><font color="#008B45">食品标准</font></a></li>
-		   <li><a href="http://db.foodmate.net" title="食品数据库查询" target="_blank"><font color="#008B00">食品数据库</font></a></li>
-	       <li><a href="http://pan.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baiduyun.png" alt="百度云" /></a></li>
-	       <li><a href="http://ddl.escience.cn" target="_blank"><font color="#458B00">团队文档库</font></a></li>
-	       <li><a href="http://fanyi.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baidufanyi.png" alt="百度翻译" /></a></li>
-		   <li><a href="https://translate.google.cn" target="_blank"><font color="#3A5FCD">谷歌翻译</font></a></li>
-           <li><a href="http://map.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baidumap.png" alt="百度地图" /></a></li>
-	       <li><a href="http://map.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxunmap.png" alt="腾讯地图" /></a></li>
-           <li><a href="https://kyfw.12306.cn/otn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/12306.png" alt="火车票" /></a></li>
-		   <li><a href="http://www.17ce.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/17ce.png" alt="网站测速" /></a></li>
-		   <li><a href="library/"title="数据库入口" target="_blank"><font color="#3A5FCD"><b>图书文献</b></font></a></li>
-		   <li><a href="http://www.boohee.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/bohe.png" alt="健康减肥工具"/></a></li>
-		   <li><a href="http://gz.xiaoi.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/gongzhongbao.png" alt="公众宝" /></a></li>
-           <li><a href="https://mp.weixin.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/weixin.png" alt="微信公众" /></a></li>
-		   <li><a href="https://github.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/github.png" alt="Github" /></a></li>
-           <li><a href="http://www.114la.com/other/rgb.htm" target="_blank">颜色代码</a></li>
-		   <li><a href="https://www.zybuluo.com/" title="在线Markdown编辑器" target="_blank">作业部落</a></li>
-		   <li><a href="https://i.mi.com/" target="_blank">小米云</a></li>
-    <li class="xiaofenlei">专业搜索</li>
-		   <li><a href="http://search.chongbuluo.com" title="搜索快人一步" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/chongbuluo.png" alt="虫部落" /></a></li>
-           <li><a href="https://www.google.com/ncr" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/Google.png"  /></a></li>
-		   <li><a href="http://so.baiten.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baiteng.png" alt="佰腾专利" /></a></li>
-           <li><a href="http://www.soopat.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhuanlidaohang.png" alt="专利导航" /></a></li>
-		   <li><a href="http://www.clcn.net.cn/modules/resources" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/shoutu.png" alt="首都图书馆" /></a></li>
-	       <li><a href="http://bjgxgc.duxiu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/duxiu.png" alt="读秀" /></a></li>
-           <li><a href="http://www.cnki.net/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/cnki.png" alt="中国知网"/></a></li>
-	       <li><a href="http://www.medlive.cn/pubmed" target="_blank"><font color="#36648B"><b>中文Pubmed</b></font></a></li>
-           <li><a href="http://medicaldb.haoyisheng.com/medicaldb/search" title="好医生医学数据库"  target="_blank">医学数据库</a></li>
-           <li><a href="http://www.404car.com" target="_blank">木虫谷歌</a></li>
-           
-    </ul>
-  </div>
-  <!--网盘资源-->
- <div>
-    <ul class="ul1">
-	<li class="xiaofenlei2">资源搜索</li>
-        <li><a href="http://www.quansouji.com/" target="_blank">全搜集</a></li>
-        <li><a href="http://ifkdy.com/" target="_blank">疯狂搜索</a></li>
-        <li><a href="http://www.xilinjie.com/" target="_blank">西林街</a></li>
-		<li><a href="http://ifkdy.com/" target="_blank">疯狂电影搜</a></li>
-        <li><a href="http://www.panc.cc/" target="_blank">胖次搜索</a></li>
-        <li><a href="http://so.ygyhg.com/" target="_blank">百度云搜</a></li>
-		<li><a href="http://www.quzhuanpan.com/" target="_blank">去转盘</a></li>
-		<li><a href="http://wangpan.renrensousuo.com/" target="_blank">众人搜索</a></li>
-        <li><a href="http://md5.daimugua.com/" target="_blank">呆木瓜</a></li>
-        <li><a href="http://www.tebaidu.com/" target="_blank">特百度</a></li>
-        <li><a href="http://www.panduoduo.net/" target="_blank">盘多多</a></li>
-        <li><a href="http://www.iwapan.com/" target="_blank">爱挖盘</a></li>
-        <li><a href="http://www.pansou.com/" target="_blank">盘搜</a></li>
-        <li><a href="http://www.yiso.me" target="_blank">壹搜</a></li>
-        <li><a href="http://www.xibianyun.com" target="_blank">西边云</a></li>
-        <li><a href="http://www.wodepan.com" target="_blank">我的盘</a></li>
-        <li><a href="http://www.sopanpan.com" target="_blank">搜盘盘</a></li>
-		<li><a href="http://wangpanwu.com" target="_blank">网盘屋</a></li>
-	<li class="xiaofenlei">BT搜索</li>
-		<li><a href="http://www.btmayi.me/" target="_blank">bt蚂蚁</a></li>
-        <li><a href="http://cililian.me" target="_blank"><b>磁力搜索</b></a></li>
-        <li><a href="http://www.cilibaba.com/" target="_blank">CiCiBaBa</a></li>
-        <li><a href="http://btlibrary.net/" target="_blank">BTlibrary</a></li>
-        <li><a href="http://www.breadsearch.com/" target="_blank">面包搜索</a></li>
-        <li><a href="http://www.bthand.com/" target="_blank">BTbook</a></li>
-        <li><a href="http://www.btsou.net/" target="_blank">BT搜</a></li>
-        <li><a href="http://www.btsoso.com/" target="_blank">BT搜搜</a></li>
-    <!--电驴资源-->
-    <li class="xiaofenlei">电驴资源</li>
-	       <li><a href="http://www.verycd.com/" target="_blank">verycd</a></li>
-         <li><a href="http://www.ed2000.com/" target="_blank">ED2000</a></li>
-         <li><a href="http://www.gdajie.com/" target="_blank">逛电驴</a></li>
-         <li><a href="http://www.renrencd.com/" target="_blank">人人资源库</a></li>
-         <li><a href="http://www.ed2kers.com/" target="_blank">ed2kers</a></li>
-         <li><a href="http://www.simplecd.me/" target="_blank">simplecd</a></li>
-         <li><a href="http://www.icili.com/emule" target="_blank">Icili</a></li>
-         <li><a href="http://www.idianlv.com/" target="_blank">爱电驴</a></li>
-         <li><a href="http://qvocd.org/" target="_blank">qvocd</a></li>
-         <li><a href="http://ed2k.imjq.com/" target="_blank">imjq</a></li>
-    </ul>
- </div>
-
-	  <!-- 图片搜索 -->
- <div>
-    <ul class="ul1">
-    <li class="xiaofenlei">图片搜索</li>
-         <li><a href="http://image.chongbuluo.org/" target="_blank">虫部落图搜</a></li>
-         <li><a href="https://www.iamgg.pw/imghp" target="_blank">谷歌图片</a></li>
-		 <li><a href="http://duososo.com" title="DUOSOUSOU 让你的图片与众不同" target="_blank">多搜搜</a></li>
-		 <li><a href="https://www.tulingss.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tulingsousuo.png" alt="图灵搜索" /></a></li>
-    <li class="xiaofenlei">以图搜图</li>
-         <li><a href="http://shitu.baidu.com/" target="_blank">百度识图</a></li>
-         <li><a href="http://www.tineye.com/" target="_blank">TinEye</a></li>
-         <li><a href="https://www.psea.in/imghp" target="_blank">谷歌识图</a></li>
-         <li><a href="http://pailitao.com/" title="商品识图" target="_blank">拍立淘</a></li>
-         <li><a href="http://www.paitogo.com/" title="商品识图" target="_blank">拍图购</a></li>
-         <li><a href="http://www.taotaosou.com/" title="商品识图" target="_blank">淘淘搜</a></li>
-    <li class="xiaofenlei">图片工具</li>
-	     <li><a href="http://www.tuhaokuai.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tuhaokuai.png" alt="图好快" /></a></li>
-		 <li><a href="https://tinypng.com/" target="_blank">图片压缩</a></li>
-		 <li><a href="https://portal.qiniu.com/" title="七牛图片外链" target="_blank">七牛图片</a></li>
-		 <li><a href="http://chuantu.biz/" title="图片上传外链" target="_blank">图片外链</a></li>
-    </ul>
- </div>
-         <!-- 热点指数 -->
- <div>
-    <ul class="ul1">
-		  <li><a href="http://index.baidu.com" target="_blank">百度指数</a></li>
-		  <li><a href="http://zhishu.sogou.com" target="_blank">搜狗指数</a></li>
-		  <li><a href="https://alizs.taobao.com" target="_blank">阿里指数</a></li>
-		  <li><a href="http://data.weibo.com" target="_blank">微报告</a></li>
-		  <li><a href="http://industry.fang.com" target="_blank">房指数</a></li>
-          <li><a href="http://www.newrank.cn" target="_blank">新媒体榜</a></li>
-		  <li><a href="http://s.weibo.com/top/summary?cate=homepage" target="_blank">微博热榜</a></li>
-		  <li><a href="http://werank.cn" target="_blank">微信热榜</a></li>
-          <li><a href="http://top.baidu.com" target="_blank">百度风云榜</a></li>
-          <li><a href="https://top.taobao.com" target="_blank">淘宝排行</a></li>
-          <li><a href="http://top.sogou.com" target="_blank">搜狗热搜</a></li>
-          <li><a href="http://top.so.com" target="_blank">360热榜</a></li>
-          <li><a href="http://www.hao123.com/top" target="_blank">hao123风云</a></li>
-          <li class="qiangdiao"><a href="http://www.cbooo.cn" target="_blank">实时票房</a></li>
-          <li><a href="http://tv.sohu.com/hothdtv" target="_blank">搜狐视频排行</a></li>
-          <li><a href="http://index.youku.com/vr_top/cate_search.html" target="_blank">优酷指数排行</a></li>
-          <li><a href="http://www.gamersky.com/top" target="_blank">单机游戏排行</a></li>
-    </ul>
- </div>
-	 <!-- 小工具 -->
- <div>
-    <ul class="ul1">
-		 <li class="qiangdiao" ><a href="http://cn.office-converter.com/" title="免费在线文件转换器" target="_blank">文件转换器</a></li>
-         <li><a href="https://www.fotor.com/cn/index.html" title="平面设计、图片编辑和拼图工具" target="_blank">Fotor</a></li>
-	     <li><a href="http://ppj.io/" title="上传PPT，转成H5" target="_blank">PP匠</a></li>
-		 <li><a href="http://www.taguage.com/" target="_blank">点博导图</a></li><li><a href="https://github.com/amyhaber/cnki-downloader" target="_blank">CNKI下载</a></li>
-		 <li><a href="http://smallpdf.com/cn" title="针对PDF问题的免费解决方案" target="_blank">Small PDF</a></li>
-         <li><a href="http://colorsublime.com" target="_blank">Sublime主题</a></li>
-         <li><a href="https://cmwtat.cloudmoe.com/cn.html" target="_blank">云萌Win10</a></li>
-         <li><a href="http://vip.runker.net/" target="_blank">VIP视频1</a></li>
-         <li><a href="http://v.runker.net/" target="_blank">VIP视频2</a></li>
-         <li><a href="http://www.lrc123.com" target="_blank">LRC搜索</a></li>
-    </ul>
- </div>
+    <div class="tab">
+        <span>搜索工具</span>
+        <ul class="searchtab">
+            <li class="current">常用工具</li>
+            <li>IT工具</li>
+            <li>资源搜索</li>
+            <li>图片搜索</li>
+            <li>指数热点</li>
+        </ul>
+    </div>
+    <div id="searchshow">
+        <!--常用工具-->
+        <div class="show">
+            <ul class="ul1">
+                <li class="xiaofenlei2">常用工具</li>
+                <li>
+                    <a href="http://down.foodmate.net/standard/index.html" target="_blank">
+                        <font color="#008B45">食品标准</font>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://db.foodmate.net" title="食品数据库查询" target="_blank">
+                        <font color="#008B00">食品数据库</font>
+                    </a>
+                </li>
+                <li><a href="http://pan.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baiduyun.png" alt="百度云" /></a></li>
+                <li>
+                    <a href="http://ddl.escience.cn" target="_blank">
+                        <font color="#458B00">团队文档库</font>
+                    </a>
+                </li>
+                <li><a href="http://fanyi.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baidufanyi.png" alt="百度翻译" /></a></li>
+                <li>
+                    <a href="https://translate.google.cn" target="_blank">
+                        <font color="#3A5FCD">谷歌翻译</font>
+                    </a>
+                </li>
+                <li><a href="http://map.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baidumap.png" alt="百度地图" /></a></li>
+                <li><a href="http://map.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxunmap.png" alt="腾讯地图" /></a></li>
+                <li><a href="https://kyfw.12306.cn/otn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/12306.png" alt="火车票" /></a></li>
+                <li>
+                    <a href="library/" title="数据库入口" target="_blank">
+                        <font color="#3A5FCD"><b>图书文献</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.boohee.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/bohe.png" alt="健康减肥工具"/></a></li>
+                <li><a href="https://i.mi.com/" target="_blank">小米云</a></li>
+                <li class="xiaofenlei">专业搜索</li>
+                <li><a href="http://search.chongbuluo.com" title="搜索快人一步" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/chongbuluo.png" alt="虫部落" /></a></li>
+                <li><a href="https://www.google.com/ncr" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/Google.png"  /></a></li>
+                <li><a href="http://so.baiten.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baiteng.png" alt="佰腾专利" /></a></li>
+                <li><a href="http://www.soopat.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhuanlidaohang.png" alt="专利导航" /></a></li>
+                <li><a href="http://www.clcn.net.cn/modules/resources" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/shoutu.png" alt="首都图书馆" /></a></li>
+                <li><a href="http://bjgxgc.duxiu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/duxiu.png" alt="读秀" /></a></li>
+                <li><a href="http://www.cnki.net/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/cnki.png" alt="中国知网"/></a></li>
+                <li>
+                    <a href="http://www.medlive.cn/pubmed" target="_blank">
+                        <font color="#36648B"><b>中文Pubmed</b></font>
+                    </a>
+                </li>
+                <li><a href="http://medicaldb.haoyisheng.com/medicaldb/search" title="好医生医学数据库" target="_blank">医学数据库</a></li>
+                <li><a href="http://www.404car.com" target="_blank">木虫谷歌</a></li>
+            </ul>
+        </div>
+        <!-- IT工具 -->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">前端工具</li>
+                <li><a href="http://seo.chinaz.com/" target="_blank">SEO查询</a></li>
+                <li><a href="http://gz.xiaoi.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/gongzhongbao.png" alt="公众宝" /></a></li>
+                <li><a href="https://mp.weixin.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/weixin.png" alt="微信公众" /></a></li>
+                <li><a href="https://github.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/github.png" alt="Github" /></a></li>
+                <li><a href="http://www.114la.com/other/rgb.htm" target="_blank">颜色代码</a></li>
+                <li><a href="https://www.zybuluo.com/" title="在线Markdown编辑器" target="_blank">作业部落</a></li>
+                <li><a href="http://www.17ce.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/17ce.png" alt="网站测速" /></a></li>
+                <li class="xiaofenlei">前端工具</li>
+                <li class="qiangdiao"><a href="http://cn.office-converter.com/" title="免费在线文件转换器" target="_blank">文件转换器</a></li>
+                <li><a href="https://www.fotor.com/cn/index.html" title="平面设计、图片编辑和拼图工具" target="_blank">Fotor</a></li>
+                <li><a href="http://ppj.io/" title="上传PPT，转成H5" target="_blank">PP匠</a></li>
+                <li><a href="http://www.taguage.com/" target="_blank">点博导图</a></li>
+                <li><a href="https://github.com/amyhaber/cnki-downloader" target="_blank">CNKI下载</a></li>
+                <li><a href="http://smallpdf.com/cn" title="针对PDF问题的免费解决方案" target="_blank">Small PDF</a></li>
+                <li><a href="http://colorsublime.com" target="_blank">Sublime主题</a></li>
+                <li><a href="https://cmwtat.cloudmoe.com/cn.html" target="_blank">云萌Win10</a></li>
+                <li><a href="http://vip.runker.net/" target="_blank">VIP视频1</a></li>
+                <li><a href="http://v.runker.net/" target="_blank">VIP视频2</a></li>
+                <li><a href="http://www.lrc123.com" target="_blank">LRC搜索</a></li>
+            </ul>
+        </div>
+        <!--网盘资源-->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei2">资源搜索</li>
+                <li><a href="http://www.quansouji.com/" target="_blank">全搜集</a></li>
+                <li><a href="http://ifkdy.com/" target="_blank">疯狂搜索</a></li>
+                <li><a href="http://www.xilinjie.com/" target="_blank">西林街</a></li>
+                <li><a href="http://ifkdy.com/" target="_blank">疯狂电影搜</a></li>
+                <li><a href="http://www.panc.cc/" target="_blank">胖次搜索</a></li>
+                <li><a href="http://so.ygyhg.com/" target="_blank">百度云搜</a></li>
+                <li><a href="http://www.quzhuanpan.com/" target="_blank">去转盘</a></li>
+                <li><a href="http://wangpan.renrensousuo.com/" target="_blank">众人搜索</a></li>
+                <li><a href="http://md5.daimugua.com/" target="_blank">呆木瓜</a></li>
+                <li><a href="http://www.tebaidu.com/" target="_blank">特百度</a></li>
+                <li><a href="http://www.panduoduo.net/" target="_blank">盘多多</a></li>
+                <li><a href="http://www.iwapan.com/" target="_blank">爱挖盘</a></li>
+                <li><a href="http://www.pansou.com/" target="_blank">盘搜</a></li>
+                <li><a href="http://www.yiso.me" target="_blank">壹搜</a></li>
+                <li><a href="http://www.xibianyun.com" target="_blank">西边云</a></li>
+                <li><a href="http://www.wodepan.com" target="_blank">我的盘</a></li>
+                <li><a href="http://www.sopanpan.com" target="_blank">搜盘盘</a></li>
+                <li><a href="http://wangpanwu.com" target="_blank">网盘屋</a></li>
+                <li class="xiaofenlei">BT搜索</li>
+                <li><a href="http://www.btmayi.me/" target="_blank">bt蚂蚁</a></li>
+                <li><a href="http://cililian.me" target="_blank"><b>磁力搜索</b></a></li>
+                <li><a href="http://www.cilibaba.com/" target="_blank">CiCiBaBa</a></li>
+                <li><a href="http://btlibrary.net/" target="_blank">BTlibrary</a></li>
+                <li><a href="http://www.breadsearch.com/" target="_blank">面包搜索</a></li>
+                <li><a href="http://www.bthand.com/" target="_blank">BTbook</a></li>
+                <li><a href="http://www.btsou.net/" target="_blank">BT搜</a></li>
+                <li><a href="http://www.btsoso.com/" target="_blank">BT搜搜</a></li>
+                <!--电驴资源-->
+                <li class="xiaofenlei">电驴资源</li>
+                <li><a href="http://www.verycd.com/" target="_blank">verycd</a></li>
+                <li><a href="http://www.ed2000.com/" target="_blank">ED2000</a></li>
+                <li><a href="http://www.gdajie.com/" target="_blank">逛电驴</a></li>
+                <li><a href="http://www.renrencd.com/" target="_blank">人人资源库</a></li>
+                <li><a href="http://www.ed2kers.com/" target="_blank">ed2kers</a></li>
+                <li><a href="http://www.simplecd.me/" target="_blank">simplecd</a></li>
+                <li><a href="http://www.icili.com/emule" target="_blank">Icili</a></li>
+                <li><a href="http://www.idianlv.com/" target="_blank">爱电驴</a></li>
+                <li><a href="http://qvocd.org/" target="_blank">qvocd</a></li>
+                <li><a href="http://ed2k.imjq.com/" target="_blank">imjq</a></li>
+            </ul>
+        </div>
+        <!-- 图片搜索 -->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">图片搜索</li>
+                <li><a href="http://image.chongbuluo.org/" target="_blank">虫部落图搜</a></li>
+                <li><a href="https://www.iamgg.pw/imghp" target="_blank">谷歌图片</a></li>
+                <li><a href="http://duososo.com" title="DUOSOUSOU 让你的图片与众不同" target="_blank">多搜搜</a></li>
+                <li><a href="https://www.tulingss.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tulingsousuo.png" alt="图灵搜索" /></a></li>
+                <li class="xiaofenlei">以图搜图</li>
+                <li><a href="http://shitu.baidu.com/" target="_blank">百度识图</a></li>
+                <li><a href="http://www.tineye.com/" target="_blank">TinEye</a></li>
+                <li><a href="https://www.psea.in/imghp" target="_blank">谷歌识图</a></li>
+                <li><a href="http://pailitao.com/" title="商品识图" target="_blank">拍立淘</a></li>
+                <li><a href="http://www.paitogo.com/" title="商品识图" target="_blank">拍图购</a></li>
+                <li><a href="http://www.taotaosou.com/" title="商品识图" target="_blank">淘淘搜</a></li>
+                <li class="xiaofenlei">图片工具</li>
+                <li><a href="http://www.tuhaokuai.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tuhaokuai.png" alt="图好快" /></a></li>
+                <li><a href="https://tinypng.com/" target="_blank">图片压缩</a></li>
+                <li><a href="https://portal.qiniu.com/" title="七牛图片外链" target="_blank">七牛图片</a></li>
+                <li><a href="http://chuantu.biz/" title="图片上传外链" target="_blank">图片外链</a></li>
+            </ul>
+        </div>
+        <!-- 热点指数 -->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://index.baidu.com" target="_blank">百度指数</a></li>
+                <li><a href="http://zhishu.sogou.com" target="_blank">搜狗指数</a></li>
+                <li><a href="https://alizs.taobao.com" target="_blank">阿里指数</a></li>
+                <li><a href="http://data.weibo.com" target="_blank">微报告</a></li>
+                <li><a href="http://industry.fang.com" target="_blank">房指数</a></li>
+                <li><a href="http://www.newrank.cn" target="_blank">新媒体榜</a></li>
+                <li><a href="http://s.weibo.com/top/summary?cate=homepage" target="_blank">微博热榜</a></li>
+                <li><a href="http://werank.cn" target="_blank">微信热榜</a></li>
+                <li><a href="http://top.baidu.com" target="_blank">百度风云榜</a></li>
+                <li><a href="https://top.taobao.com" target="_blank">淘宝排行</a></li>
+                <li><a href="http://top.sogou.com" target="_blank">搜狗热搜</a></li>
+                <li><a href="http://top.so.com" target="_blank">360热榜</a></li>
+                <li><a href="http://www.hao123.com/top" target="_blank">hao123风云</a></li>
+                <li class="qiangdiao"><a href="http://www.cbooo.cn" target="_blank">实时票房</a></li>
+                <li><a href="http://tv.sohu.com/hothdtv" target="_blank">搜狐视频排行</a></li>
+                <li><a href="http://index.youku.com/vr_top/cate_search.html" target="_blank">优酷指数排行</a></li>
+                <li><a href="http://www.gamersky.com/top" target="_blank">单机游戏排行</a></li>
+            </ul>
+        </div>
+       
+    </div>
 </div>
-      </div>
 <!-- 购物生活 -->
-  <div id="shopping" class="zhutikuang" style="height:auto;">
+<div id="shopping" class="zhutikuang" style="height:auto;">
     <div class="tab">
         <span>购物生活</span>
         <ul class="shoppingtab">
-		<li class="current">购物点评</li>
-		<li>美食频道</li>
-		<li>兴趣生活</li>
+            <li class="current">购物点评</li>
+            <li>美食频道</li>
+            <li>兴趣生活</li>
         </ul>
     </div>
     <div id="shoppingshow">
-
-<!--购物生活-->
- <div class="show">
-<ul class="ul1">
-        <li><a href="http://www.taobao.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/taobao.png" alt="淘宝网" /></a></li>
-        <li><a href="http://www.1688.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/Alibaba.png" alt="阿里巴巴" /></a></li>
-		<li><a href="http://www.jd.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jd.png" alt="京东"/></a></li>
-		<li><a href="http://www.amazon.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yamaxun.png" alt="亚马逊"/></a></li>
-		<li><a href="http://www.gome.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/guomeizaixian.png"alt="国美在线"/></a></li>
-		<li><a href="http://www.suning.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/suningyigou.png"alt="苏宁易购"/></a></li>
-		<li><a href="http://www.dangdang.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dangdangwang.png"alt="当当网"/></a></li>
-		<li><a href="http://www.yhd.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/1haodian.png"alt="1号店"/></a></li>
-		<li><a href="http://www.vip.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/weipinhui.png"alt="唯品会"/></a></li>
-        <li><a href="http://www.zbj.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhubajie.png" alt="猪八戒网" /></a></li>
-	    <li><a href="http://jumei.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jumeiyoupin.png"alt="聚美优品"/></a></li>
-        <li><a href="https://ju.taobao.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/juhuasuan.png"alt="聚划算"/></a></li>
-		<li><a href="http://www.zhe800.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhe800.png"alt="折800"/></a></li>
-		<li><a href="http://www.dianping.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dazhongdianping.png"alt="大众点评" /></a></li>
-        <li><a href="http://www.meituan.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/meituan.png"alt="美团"/></a></li>
-		<li><a href="http://58.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/58.png"/></a></li>
-        <li><a href="http://ganji.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/ganjiwang.png"/></a></li>
-        <li><a href="http://www.guahao.com" target="_blank"><font color="#0033FF">挂号网</font></a></li>
-        <li><a href="http://www.fang.com" target="_blank"><font color="#EE0000">搜房网</font></a></li>
-        <li><a href="http://www.anjuke.com" target="_blank"><font color="#228B22"><b>安居客</b></font></a></li>
-      </ul>
+        <!--购物生活-->
+        <div class="show">
+            <ul class="ul1">
+                <li><a href="http://www.taobao.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/taobao.png" alt="淘宝网" /></a></li>
+                <li><a href="http://www.1688.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/Alibaba.png" alt="阿里巴巴" /></a></li>
+                <li><a href="http://www.jd.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jd.png" alt="京东"/></a></li>
+                <li><a href="http://www.amazon.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yamaxun.png" alt="亚马逊"/></a></li>
+                <li><a href="http://www.gome.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/guomeizaixian.png"alt="国美在线"/></a></li>
+                <li><a href="http://www.suning.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/suningyigou.png"alt="苏宁易购"/></a></li>
+                <li><a href="http://www.dangdang.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dangdangwang.png"alt="当当网"/></a></li>
+                <li><a href="http://www.yhd.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/1haodian.png"alt="1号店"/></a></li>
+                <li><a href="http://www.vip.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/weipinhui.png"alt="唯品会"/></a></li>
+                <li><a href="http://www.zbj.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhubajie.png" alt="猪八戒网" /></a></li>
+                <li><a href="http://jumei.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jumeiyoupin.png"alt="聚美优品"/></a></li>
+                <li><a href="https://ju.taobao.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/juhuasuan.png"alt="聚划算"/></a></li>
+                <li><a href="http://www.zhe800.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhe800.png"alt="折800"/></a></li>
+                <li><a href="http://www.dianping.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dazhongdianping.png"alt="大众点评" /></a></li>
+                <li><a href="http://www.meituan.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/meituan.png"alt="美团"/></a></li>
+                <li><a href="http://58.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/58.png"/></a></li>
+                <li><a href="http://ganji.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/ganjiwang.png"/></a></li>
+                <li>
+                    <a href="http://www.guahao.com" target="_blank">
+                        <font color="#0033FF">挂号网</font>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.fang.com" target="_blank">
+                        <font color="#EE0000">搜房网</font>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.anjuke.com" target="_blank">
+                        <font color="#228B22"><b>安居客</b></font>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--美食频道-->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">美食网站</li>
+                <li><a href="http://www.beitaichufang.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/beitaichufang.png"/></a></li>
+                <li><a href="http://www.xiachufang.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiachufang.png"/></a></li>
+                <li><a href="http://meiwei.me" target="_blank">美味工厂</a></li>
+                <li><a href="http://www.haodou.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/haodouwang.png" align="middle" width="50"/></a></li>
+                <li><a href="http://www.douguo.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/douguomeishi.png" alt="豆果美食" /></a></li>
+                <li><a href="http://www.spos.com.cn" target="_blank">食谱网</a></li>
+                <li><a href="http://www.meishichina.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/meishitianxia.png" alt="美食天下" /></a></li>
+                <li><a href="http://www.lingshikong.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/lingshikong.png" alt="零食控" /></a></li>
+                <li class="xiaofenlei">美食交流</li>
+                <li><a href="http://enjoy.ricebook.com" target="_blank">ENJOY</a></li>
+                <li><a href="http://ceechoo.com" target="_blank">西厨</a></li>
+                <li><a href="http://www.salad-in-a-jar.com" target="_blank">Salad in a jar</a></li>
+                <li><a href="http://www.yoka.com/dna/207/754/index.html" target="_blank">YOKA</a></li>
+                <li><a href="http://www.weileizhijia.com" target="_blank">味蕾之家</a></li>
+                <li><a href="http://www.bakingtime.com.cn" target="_blank"><b>烘焙之家</b></a></li>
+                <li><a href="http://www.zghongbei.cn" target="_blank">中国烘焙</a></li>
+                <li><a href="http://eatinchina.net/" target="_blank">Eatinchina</a></li>
+                <li><a href="http://www.cyncw.com" target="_blank">餐饮内参</a></li>
+                <li><a href="http://www.canyin88.com" target="_blank">红餐网</a></li>
+            </ul>
+        </div>
+        <!--兴趣生活-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://www.aoaola.com" title="美妆主题社区，你的化妆品使用顾问" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aoaola.png"/></a></li>
+                <li><a href="http://www.duitang.com" title="堆糖，分享收集生活中的美好，遇见世界上的另外一个你。" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/duitang.png"/></a></li>
+                <li><a href="http://www.aihuhua.com/" title="花卉种植及花卉养殖技术" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aihuhua.gif"/></a></li>
+                <li>
+                    <a href="http://dashulin.com/" target="_blank">
+                        <font color="#228B22"><b>大树林</b></font>
+                    </a>
+                </li>
+                <li><a href="http://huaban.com" title="发现、采集你喜欢的一切" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/huaban.png"/></a></li>
+                <li><a href="http://www.zijizuo.cn/" target="_blank">自己做</a></li>
+                <li><a href="http://www.jifenzhong.com" target="_blank">几分钟</a></li>
+                <li><a href="http://www.imanpin.com/" title="推荐把生活慢慢品读网站" target="_blank">慢品</a></li>
+                <li><a href="http://www.faxieba.net/" title="扔掉一切生活中的不愉快" target="_blank">发泄吧</a></li>
+                <li><a href="http://www.zw3e.com/" target="_blank">植物之家</a></li>
+                <li><a href="http://www.lvye.cn" target="_blank">绿野户外</a></li>
+                <li><a href="http://www.qyer.com" target="_blank">穷 游</a></li>
+                <li><a href="http://www.jingcity.com" target="_blank">京城网</a></li>
+            </ul>
+        </div>
     </div>
-	        <!--美食频道-->
-                <div>
-                    <ul class="ul1">
-			<li class="xiaofenlei">美食网站</li>
-		<li><a href="http://www.beitaichufang.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/beitaichufang.png"/></a></li>
-        <li><a href="http://www.xiachufang.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiachufang.png"/></a></li>
-		<li><a href="http://meiwei.me" target="_blank">美味工厂</a></li>
-		<li><a href="http://www.haodou.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/haodouwang.png" align="middle" width="50"/></a></li>
-		<li><a href="http://www.douguo.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/douguomeishi.png" alt="豆果美食" /></a></li>
-		<li><a href="http://www.spos.com.cn" target="_blank">食谱网</a></li>
-		<li><a href="http://www.meishichina.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/meishitianxia.png" alt="美食天下" /></a></li>
-		<li><a href="http://www.lingshikong.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/lingshikong.png" alt="零食控" /></a></li>
-		    <li class="xiaofenlei">美食交流</li>
-		<li><a href="http://enjoy.ricebook.com" target="_blank">ENJOY</a></li>
-        <li><a href="http://ceechoo.com" target="_blank">西厨</a></li>
-        <li><a href="http://www.salad-in-a-jar.com" target="_blank">Salad in a jar</a></li>
-        <li><a href="http://www.yoka.com/dna/207/754/index.html" target="_blank">YOKA</a></li>
-        <li><a href="http://www.weileizhijia.com" target="_blank">味蕾之家</a></li>
-        <li><a href="http://www.bakingtime.com.cn"  target="_blank"><b>烘焙之家</b></a></li>
-        <li><a href="http://www.zghongbei.cn" target="_blank">中国烘焙</a></li>
-        <li><a href="http://eatinchina.net/" target="_blank">Eatinchina</a></li>
-		<li><a href="http://www.cyncw.com" target="_blank">餐饮内参</a></li>
-		<li><a href="http://www.canyin88.com" target="_blank">红餐网</a></li>
-
-                    </ul>
-                </div>
-	 <!--兴趣生活-->
-<div>
-        <ul class="ul1">
-        <li><a href="http://www.aoaola.com"title="美妆主题社区，你的化妆品使用顾问" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aoaola.png"/></a></li>
-		<li><a href="http://www.duitang.com"title="堆糖，分享收集生活中的美好，遇见世界上的另外一个你。" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/duitang.png"/></a></li>
-		<li><a href="http://www.aihuhua.com/"title="花卉种植及花卉养殖技术" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aihuhua.gif"/></a></li>
-		<li><a href="http://dashulin.com/" target="_blank"><font color="#228B22"><b>大树林</b></font></a></li>
-        <li><a href="http://huaban.com"title="发现、采集你喜欢的一切"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/huaban.png"/></a></li>
-		<li><a href="http://www.zijizuo.cn/" target="_blank">自己做</a></li>
-        <li><a href="http://www.jifenzhong.com" target="_blank">几分钟</a></li>
-        <li><a href="http://www.imanpin.com/" title="推荐把生活慢慢品读网站" target="_blank">慢品</a></li>
-		<li><a href="http://www.faxieba.net/" title="扔掉一切生活中的不愉快" target="_blank">发泄吧</a></li>
-		<li><a href="http://www.zw3e.com/" target="_blank">植物之家</a></li>
-		<li><a href="http://www.lvye.cn" target="_blank">绿野户外</a></li>
-		<li><a href="http://www.qyer.com" target="_blank">穷 游</a></li>
-		<li><a href="http://www.jingcity.com" target="_blank">京城网</a></li>
-		</ul>
-	</div>
-
-
-	 </div>
 </div>
 <!-- 工作学习 -->
 <div id="work" class="zhutikuang" style="height:auto;">
     <div class="tab">
-    <span>工作领域</span>
-    <ul class="worktab">
-        <li class="current">工作社交</li>
-        <li>食品专业</li>
-        <li>公开课</li>
-        <li>医学专业</li>
-        <li>专业学术</li>
-    </ul>
+        <span>工作领域</span>
+        <ul class="worktab">
+            <li class="current">工作社交</li>
+            <li>食品专业</li>
+            <li>公开课</li>
+            <li>医学专业</li>
+            <li>专业学术</li>
+        </ul>
     </div>
     <div id="workshow">
-<!-- 工作社交 -->
-     <div class="show">
-        <ul class="ul1">
-		  <li class="xiaofenlei2">工作领域</li>
-		<li><a href="blog/" target="_blank">靖风行</a></li>
-		<li><a href="http://www.ahfszx.com" target="_blank">浮山中学</a></li>
-		<li><a href="http://www.w3school.com.cn" title="因特网上最大的 WEB 开发者资源"  target="_blank"><b>W3School</b></a></li>
-		<li><a href="https://www.nowcoder.com" title="专业IT笔试面试备考平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/nowcoder.png" alt="牛客网" /></a></li>
-		<li><a href="http://www.qdfuns.com/" target="_blank"><font color="#29A372"><b>前端网</b></font></a></li>
-		<li><a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN博客</a></li>
-		<li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
-		<li><a href="http://www.qdfuns.com/" target="_blank">前端网</a></li>
-		<li><a href="http://www.liaoxuefeng.com/" target="_blank">廖雪峰</a></li>
-		<li><a href="http://www.mhero.com/" target="_blank">Js练习</a></li>
-		<li><a href="http://www.w3cplus.com/" target="_blank">W3cPlus</a></li>
-		<li><a href="http://www.imooc.com" title="国内最大的IT技能学习平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/imooc.png" alt="慕课网" /></a></li>
-		<li><a href="http://ke.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxunketang.png" alt="腾讯课堂" /></a></li>
-		<li><a href="http://study.163.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wyykt.png" alt="网易云课堂" /></a></li>
-		<li><a href="http://www.ycku.com/" target="_blank">瓢城Web俱乐部</a></li>
-		<li><a href="http://www.zhaopin.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhilianzhaopin.png" alt="智联招聘"/></a></li>
-		<li><a href="http://www.51job.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/51job.png" alt="前程无忧"/></a></li>
-		<li><a href="http://food.job1001.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/job1001.png" alt="一览英才"/></a></li>
-		<li><a href="http://www.liepin.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/liepin.png" alt="猎聘"/></a></li>
-		<li><a href="http://www.dxy.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dxy.png" alt="丁香园"/></a></li>
-     
-    <li class="xiaofenlei2">数据分析</li>
-		<li><a href="http://www.afenxi.com/hao"target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/data.png" alt="数据分析" /></a></li>
-		<li><a href="http://www.199it.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/199IT.png" alt="199IT" /></a></li>
-        <li><a href="http://www.analysys.cn/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yiguan.png" alt="易观" /></a></li>
-        <li><a href="http://data.qq.com/reports" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/qqdata1.png" alt="腾讯大数据" /></a></li>
-		<li><a href="http://re.qq.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/qqzhiku.png" alt="企鹅智库" /></a></li>
-		<li><a href="http://www.iresearch.cn/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/airuiwang.png" alt="艾瑞网" /></a></li>
-		<li><a href="http://www.syntun.com.cn" target="_blank">星图数据</a></li>
-		<li><a href="http://www.datasoldier.net/" title="数据小兵" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/shujuxiaobing.png" alt="数据小兵" /></a></li>
-        <li><a href="http://www.tubiaoxiu.com" target="_blank">图表秀</a></li>
-		<li><a href="http://hao.199it.com" target="_blank">大数据导航</a></li>
-		<li><a href="http://bbs.pinggu.org" title="人大经济"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jgzj.png" alt="经管之家" /></a></li>
-		<li><a href="http://www.iimedia.cn/" title="艾媒网"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/iimedia1.png" alt="艾媒网" /></a></li>
-	<li class="xiaofenlei2">经济管理</li>
-        <li><a href="http://www.linkshop.com.cn/" title="中国零售商业平台"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/linkshop.png" alt="联商网" /></a></li>
-		<li><a href="http://www.iyiou.com" title="O2O新商业媒体" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yiouwang.png" alt="亿欧网" /></a></li>
-		<li><a href="http://www.pedaily.cn" title="中国股权投资权威门户" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/touzijie.png" alt="投资界" /></a></li>
-        <li><a href="http://www.ceconline.com" target="_blank">世界经理人</a></li>
-	    <li><a href="http://www.sino-manager.com" target="_blank">经理人网</a></li>
-		<li><a href="http://www.woshipm.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/chanpinjingli.png" alt="产品经理" /></a></li>
-        <li><a href="http://www.zggonglue.com" target="_blank">掌柜攻略</a></li>
-        <li><a href="http://www.watcn.cn/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/canyinneican.png" alt="餐饮老板内参" /></a></li>
-        <li><a href="http://newseed.pedaily.cn" target="_blank">新芽</a></li>
-        <li><a href="http://baijia.baidu.com" target="_blank">百度百家</a></li>
-        <li><a href="http://www.ikanchai.com" target="_blank">砍柴网</a></li>
-        <li><a href="http://www.paidai.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/paidai.png" alt="派代网" /></a></li>
-        <li><a href="http://www.cy211.cn" title="致力于为互联网创业者提供动力" target="_blank">创业之家</a></li>
-    <li class="xiaofenlei">问答网站</li>
-	    <li><a href="http://www.guokr.com" title="科技有意思"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/guoke.png" alt="果壳"/></a></li>
-		<li><a href="http://www.zhihu.com" title="与世界分享你的知识、经验和见解"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhihu.png" alt="知乎"/></a></li>
-		<li><a href="http://cooking.stackexchange.com/"title="Seasoned Adviced" target="_blank">SAdvice</a></li>
-		<li><a href="http://www.ask.com/" target="_blank">ASK</a></li>
-		<li><a href="http://www.answers.com" title="英文版的知道" target="_blank">Answers</a></li>
-		<li class="qiangdiao" ><a href="http://zh.wikihow.com" target="_blank">Wikihow</a></li>
-		<li><a href="https://www.quora.com/" target="_blank">Quora</a></li>
-                </ul>
-            </div>
-        <!-- 食品专业 -->
- <div>
-  <ul class="ul1">
-    <li class="xiaofenlei2">信息资讯</li>
-		<li><a href="http://www.boohee.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/bohe.png" alt="健康减肥工具"/></a></li>
-		<li><a href="http://www.foodaily.com" title="每日食品网，自己的食品圈" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/foodaliy.png" alt="每日食品"/></a></li>
-		<li><a href="http://www.sda.gov.cn" target="_blank">食药局</a></li>
-		<li><a href="http://www.bjda.gov.cn/" target="_blank">北京食药局</a></li>
-		<li><a href="http://news.qingzhuyi.com"  title="生活安全资讯" target="_blank"><font color="#FF0000"><b>请注意</b></font></a></li>
-		<li><a href="http://www.food-info.net/cn/index.htm" target="_blank">食品信息</a></li>
-        <li><a href="http://www.foodaily.com" title="每日食品网，自己的食品圈" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/foodaliy.png" alt="每日食品"/></a></li>
-		<li><a href="https://www.pinterest.com" target="_blank"><font color="#CD0000"><b>Pinterest</b></font></a></li>
-		<li><a href="http://www.guojiguoshu.com" title="国际果蔬报道"  target="_blank">国际果蔬</a></li>
-		<li><a href="http://www.fda.gov" target="_blank">FDA</a></li>
-		<li><a href="http://www.cfiin.com" target="_blank">食品工业</a></li>
-		<li><a href="http://www.logclub.com/forum.php" title="专业物流与供应链论坛" target="_blank"><b>物流沙龙</b></a></li>
-		<li><a href="http://www.cnfoodsafety.com" title="《食品安全导刊》杂志" target="_blank">食安中国</a></li>
-        <li><a href="http://www.chengxsa.com" target="_blank">食品安全</a></li>
-		<li><a href="http://www.cnagri.com" title="中国最大最优秀的农业咨询" target="_blank">艾格农业</a></li>
-		<li><a href="http://www.vegnet.com.cn" title="中国蔬菜网,蔬菜种子,蔬菜企业商务平台,蔬菜行业领航者,欢迎来到中国蔬菜网!" target="_blank">蔬菜网</a></li>
-		<li><a href="http://www.foodjx.com" title="食品加工机械设备行业B2B平台和网络媒体！"  target="_blank">食品机械</a></li>
-	<li class="xiaofenlei2">技术交流</li>
-		<li><a href="http://muchong.com/bbs" title="学术科研第一站" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiaomuchong.png" alt="小木虫"/></a></li>
-        <li><a href="http://www.decodingdelicious.com/" title="美食原理解码" target="_blank">美食解码</a></li>
-		<li><a href="http://bbs.foodmate.net" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/foodmate.png" alt="食品伙伴"/></a></li>
-		<li><a href="http://bbs.tech-food.com" title="食品科技网食品论坛"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/techfood.png" alt="食品科技"/></a></li>
-		<li><a href="http://www.ausmeat.com.au/custom-content/cdrom/Handbook-7th-edition/Chinese/53C18C32-F6BA-11DA-AA4B-000A95D14B6E.html" title="国际红肉手册（第七版）" target="_blank"><b>澳洲红肉</b></a></li>
-		<li><a href="http://muchong.com/bbs" title="学术科研第一站" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiaomuchong.png" alt="小木虫"/></a></li>
-		<li><a href="http://www.eurofresh-distribution.com" target="_blank">Eurofresh</a></li>
-		<li><a href="http://www.365xiaochi.net/forum.php" target="_blank"><font color="#FF7F00">365小吃</font></a></li>
-		<li><a href="http://bbs.isoqc.com" target="_blank">质量管理</a></li>
-		<li><a href="http://bbs.antpedia.com/index.php" target="_blank">分析测试</a></li>
-		<li><a href="http://www.sepu.net/bbs" target="_blank">色谱网</a></li>
-		<li><a href="http://bbs.instrument.com.cn" title="集色谱、光谱、质谱、波谱、显微镜、X射线、食品、环境、药物等专业爱好者交流平台"  target="_blank">仪器论坛</a></li>
-		<li><a href="http://www.foodaily.com/template/default/product/check.htm" title="感官测试方法快速诊断"  target="_blank"><b>感官方法诊断</b></a></li>
-		<li><a href="http://www.foodaily.com/product/show.php?index=onlinetest_1" title="感官测试方法及模板选择"  target="_blank"><b>感官测试设计</b></a></li>
-        <li><a href="http://www.plantphoto.cn" target="_blank"><font color="#008B00">植物图</font></a></li>
-
-          </ul>
-                </div>
-    <div>    <!--  公开课 -->
-              <ul class="ul1">
-	    <li><a href="http://yixi.tv/" title="一席,演讲,听君一席话,人文,科技,白日梦,get inspired" target="_blank">一席</a></li>
-	    
-        <li><a href="http://open.163.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wangyigongkaike.png" alt="网易公开课" /></a></li>
-        <li><a href="https://zh-hans.khanacademy.org" title="Khan Academy 中文" target="_blank">可汗学院</a></li>
-        <li><a href="http://www.jisuanke.com" title="让你真正可以在线学习的计算机科学" target="_blank">计蒜客</a></li>
-        <li><a href="http://www.aiyunlu.com/student/homepage" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yunlu.png" alt="云路课堂" /></a></li>
-        <li><a href="https://www.vocabulary.com/" target="_blank">Vocabulary</a></li>
-		<li><a href="http://www.youmi.cn" title="为创业者服务" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/youmi.png" alt="优米网" /></a></li>
-	    <li><a href="http://www.howzhi.com" title="重拾学习的乐趣"  target="_blank">好知网</a></li>
-        <li><a href="http://www.myoops.org" title="來自全球頂尖大學的開放式課程，現在由世界各國的數千名義工志工為您翻譯成中文。"  target="_blank"><font color="#00BB00">MyOOPS</font></a></li>
-        <li><a href="http://doyoudo.com/" target="_blank">doyoudo</a></li>
-        <li><a href="https://www.shiyanlou.com/courses/" target="_blank">实验楼</a></li>        
-        <li><a href="http://mooc.guokr.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/mooc.png" alt="MOOC学院" /></a></li>
-        <li><a href="http://www.tanzhouedu.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tanzhoujiaoyu.png" alt="潭州学院" /></a></li>
-        <li><a href="http://www.51zxw.net/" target="_blank">我要自学网</a></li>
-		<li><a href="http://www.28gl.com" target="_blank">视频讲座</a></li>
-        <li><a href="http://www.duobei.com/" target="_blank">多贝</a></li>
-        <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
-        <li><a href="http://www.icourses.cn/home/" target="_blank">爱课程</a></li>
-        <li><a href="http://oeasy.org/" target="_blank">Oeasy系列</a></li>
-        <li><a href="http://www.ibeifeng.com/" target="_blank">北风网</a></li>
-        <li><a href="http://www.wanmen.org/" target="_blank">万门大学</a></li>
-        <li><a href="http://www.haoxue.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/haoxuewang.png" alt="好学网" /></a></li>
-        <li><a href="http://www.gogoup.com/course/list" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/gaogaoshou.png" alt="高高手" /></a></li>
-        <li><a href="http://www.hjenglish.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/hujiangyingyu.png" alt="沪江英语" /></a></li>
-	    <li><a href="http://xidong.net" target="_blank">西 东</a></li>
-     </ul>
+        <!-- 工作社交 -->
+        <div class="show">
+            <ul class="ul1">
+                <li class="xiaofenlei2">工作领域</li>
+                <li><a href="blog/" target="_blank">靖风行</a></li>
+                <li><a href="http://www.ahfszx.com" target="_blank">浮山中学</a></li>
+                <li><a href="http://www.w3school.com.cn" title="因特网上最大的 WEB 开发者资源" target="_blank"><b>W3School</b></a></li>
+                <li><a href="https://www.nowcoder.com" title="专业IT笔试面试备考平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/nowcoder.png" alt="牛客网" /></a></li>
+                <li>
+                    <a href="http://www.qdfuns.com/" target="_blank">
+                        <font color="#29A372"><b>前端网</b></font>
+                    </a>
+                </li>
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN博客</a></li>
+                <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+                <li><a href="http://www.qdfuns.com/" target="_blank">前端网</a></li>
+                <li><a href="http://www.liaoxuefeng.com/" target="_blank">廖雪峰</a></li>
+                <li><a href="http://www.mhero.com/" target="_blank">Js练习</a></li>
+                <li><a href="http://www.w3cplus.com/" target="_blank">W3cPlus</a></li>
+                <li><a href="http://www.imooc.com" title="国内最大的IT技能学习平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/imooc.png" alt="慕课网" /></a></li>
+                <li><a href="http://ke.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxunketang.png" alt="腾讯课堂" /></a></li>
+                <li><a href="http://study.163.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wyykt.png" alt="网易云课堂" /></a></li>
+                <li><a href="http://www.ycku.com/" target="_blank">瓢城Web俱乐部</a></li>
+                <li><a href="http://www.zhaopin.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhilianzhaopin.png" alt="智联招聘"/></a></li>
+                <li><a href="http://www.51job.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/51job.png" alt="前程无忧"/></a></li>
+                <li><a href="http://food.job1001.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/job1001.png" alt="一览英才"/></a></li>
+                <li><a href="http://www.liepin.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/liepin.png" alt="猎聘"/></a></li>
+                <li><a href="http://www.dxy.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dxy.png" alt="丁香园"/></a></li>
+                <li class="xiaofenlei2">数据分析</li>
+                <li><a href="http://www.afenxi.com/hao" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/data.png" alt="数据分析" /></a></li>
+                <li><a href="http://www.199it.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/199IT.png" alt="199IT" /></a></li>
+                <li><a href="http://www.analysys.cn/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yiguan.png" alt="易观" /></a></li>
+                <li><a href="http://data.qq.com/reports" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/qqdata1.png" alt="腾讯大数据" /></a></li>
+                <li><a href="http://re.qq.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/qqzhiku.png" alt="企鹅智库" /></a></li>
+                <li><a href="http://www.iresearch.cn/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/airuiwang.png" alt="艾瑞网" /></a></li>
+                <li><a href="http://www.syntun.com.cn" target="_blank">星图数据</a></li>
+                <li><a href="http://www.datasoldier.net/" title="数据小兵" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/shujuxiaobing.png" alt="数据小兵" /></a></li>
+                <li><a href="http://www.tubiaoxiu.com" target="_blank">图表秀</a></li>
+                <li><a href="http://hao.199it.com" target="_blank">大数据导航</a></li>
+                <li><a href="http://bbs.pinggu.org" title="人大经济" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jgzj.png" alt="经管之家" /></a></li>
+                <li><a href="http://www.iimedia.cn/" title="艾媒网" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/iimedia1.png" alt="艾媒网" /></a></li>
+                <li class="xiaofenlei2">经济管理</li>
+                <li><a href="http://www.linkshop.com.cn/" title="中国零售商业平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/linkshop.png" alt="联商网" /></a></li>
+                <li><a href="http://www.iyiou.com" title="O2O新商业媒体" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yiouwang.png" alt="亿欧网" /></a></li>
+                <li><a href="http://www.pedaily.cn" title="中国股权投资权威门户" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/touzijie.png" alt="投资界" /></a></li>
+                <li><a href="http://www.ceconline.com" target="_blank">世界经理人</a></li>
+                <li><a href="http://www.sino-manager.com" target="_blank">经理人网</a></li>
+                <li><a href="http://www.woshipm.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/chanpinjingli.png" alt="产品经理" /></a></li>
+                <li><a href="http://www.zggonglue.com" target="_blank">掌柜攻略</a></li>
+                <li><a href="http://www.watcn.cn/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/canyinneican.png" alt="餐饮老板内参" /></a></li>
+                <li><a href="http://newseed.pedaily.cn" target="_blank">新芽</a></li>
+                <li><a href="http://baijia.baidu.com" target="_blank">百度百家</a></li>
+                <li><a href="http://www.ikanchai.com" target="_blank">砍柴网</a></li>
+                <li><a href="http://www.paidai.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/paidai.png" alt="派代网" /></a></li>
+                <li><a href="http://www.cy211.cn" title="致力于为互联网创业者提供动力" target="_blank">创业之家</a></li>
+                <li class="xiaofenlei">问答网站</li>
+                <li><a href="http://www.guokr.com" title="科技有意思" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/guoke.png" alt="果壳"/></a></li>
+                <li><a href="http://www.zhihu.com" title="与世界分享你的知识、经验和见解" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zhihu.png" alt="知乎"/></a></li>
+                <li><a href="http://cooking.stackexchange.com/" title="Seasoned Adviced" target="_blank">SAdvice</a></li>
+                <li><a href="http://www.ask.com/" target="_blank">ASK</a></li>
+                <li><a href="http://www.answers.com" title="英文版的知道" target="_blank">Answers</a></li>
+                <li class="qiangdiao"><a href="http://zh.wikihow.com" target="_blank">Wikihow</a></li>
+                <li><a href="https://www.quora.com/" target="_blank">Quora</a></li>
+            </ul>
         </div>
-       
-                <!--医学专业-->
-                <div>
-                    <ul class="ul1">
-        <li><a href="http://www.ncbi.nlm.nih.gov/pubmed" target="_blank"><font color="#36648B"><b>Pubmed</b></font></a></li>
-        <li><a href="http://www.yuntsg.com/html/1/" target="_blank">本地Pubmed</a></li>
-        <li><a href="http://shiyan.ebioe.com" target="_blank">易生物</a></li>
-		<li><a href="http://bbs.bbioo.com" target="_blank">生物秀</a></li>
-		<li><a href="http://www.dxy.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dxy.png" alt="丁香园"/></a></li>
-		<li><a href="http://www.elseviermed.cn" target="_blank">爱唯医学</a></li>
-		<li><a href="http://www.i-md.com" target="_blank">睿医i-MD</a></li>
-		<li><a href="http://www.medlive.cn" target="_blank">医脉通</a></li>
-		<li><a href="http://www.bazhua.org" target="_blank">八爪网</a></li>
-		<li><a href="http://www.drmed.cn" target="_blank">Dr med</a></li>
-		<li><a href="http://www.haodf.com" target="_blank">好大夫</a></li>
-		<li><a href="http://www.med126.com/pharm" target="_blank">医学全在线</a></li>
-		<li><a href="http://www.39kf.com" target="_blank">医 源</a></li>
-		<li><a href="http://www.39.net" target="_blank">39健康</a></li>
-	    <li><a href="http://www.clsi.com.cn" target="_blank">临床微生物</a></li>
-                    </ul>
-  </div>
-<!--谷歌文献-->
- <div>
-    <ul class="ul1">
-		 <li class="xiaofenlei">谷歌学术</li>
-		  <li><a href="http://vip.itwusun.com/index.html" target="_blank">Anypaper</a></li>
-		 <li><a href="http://so.sciencesoft.cn/" target="_blank">学术搜索</a></li>
-         <li><a href="http://jiuweisoso.wallpai.com/" target="_blank">拇 指</a></li>
-         <li><a href="https://gfsoso.8090st.com/webhp?hl=zh-CN" target="_blank">九命狐</a></li>
-         <li><a href="http://www.googto.com/" target="_blank">Googto搜索</a></li>
-         <li><a href="http://scholar.glgoo.org" target="_blank">glgoo学术</a></li>
-         <li><a href="http://dir.scmor.com/google" target="_blank"><font color="#008B00">Google镜像</font></a></li>
-         <li><a href="http://g.linkscholar.org/" target="_blank">Linkscholar</a></li>
-         <li class="qiangdiao"><a href="https://github.com/racaljk/hosts" target="_blank">Hosts</a></li>
-    <li class="xiaofenlei2">文献下载</li>
-		 <li><a href="http://www.sci-hub.cn/" target="_blank">中文SCI-HUB</a></li>
-	     <li><a href="http://www.sci-hub.cc/" target="_blank">SCI-HUB</a></li>
-	     <li><a href="http://www.sci-hub.io/" target="_blank">SCI-HUB2</a></li>
-	     <li><a href="http://www.drugfuture.com/cnpat/cn_patent.asp" target="_blank">专利下载</a></li>
-		 <li><a href="http://sci-hub.bz/" target="_blank"><b>Sci-Hub</b></a></li>
-		 <li><a href="https://oadoi.org/" target="_blank">oaDOI</a></li>
-		 <li class="qiangdiao"><a href="http://www.scholarnet.cn/" target="_blank">学术网</a></li>
-		 <li><a href="http://www.ucdrs.net" title="全国图书馆参考咨询联盟"  target="_blank">文献传递</a></li>
-		 <li><a href="http://www.sgst.cn" title="上海研发公共服务平台"  target="_blank">研发公共</a></li>
-		 <li><a href="http://www.soudoc.com/bbs" title="零点花园 文献代理,学术交流,统计年鉴,基金标书"  target="_blank">零点花园</a></li>
-		 <li><a href="http://www.expaper.cn" title="打造最高效的文献互助平台|检索知识|文献代理|名校资源"   target="_blank">科研速递</a></li>
-         <li><a href="https://www.researchgate.net" title=""   target="_blank">Researchgate</a></li>
-	     <li><a href="http://www.aolsearch.com" target="_blank">AOL</a></li>
-	     <li><a href="http://academic.research.microsoft.com" target="_blank">Academic</a></li>
-	     <li><a href="https://search.disconnect.me" target="_blank"><font color="#0000cc">DisConnect</font></a></li>
-		 <li><a href="http://www.saydao.com/Article/ArticleClass1/49_1.html" title="食品生产、技术专利" target="_blank">东西农家</a></li>
-		 <li><a href="http://datatang.com" title="国内首家大数据共享交易平台" target="_blank">数据堂</a></li>
-		 <li><a href="http://www.panlv.net" title="行情分析报告"  target="_blank"><b>渐飞数据</b></a></li>
-         <li><a href="https://www.roolin.com/" target="_blank">儒林学术搜索</a></li>
-         <li><a href="http://www.odour.org.uk/lriindex.html" target="_blank">L R I</a></li>
-		</ul>
- </div>
-
-
-
-
+        <!-- 食品专业 -->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei2">信息资讯</li>
+                <li><a href="http://www.boohee.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/bohe.png" alt="健康减肥工具"/></a></li>
+                <li><a href="http://www.foodaily.com" title="每日食品网，自己的食品圈" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/foodaliy.png" alt="每日食品"/></a></li>
+                <li><a href="http://www.sda.gov.cn" target="_blank">食药局</a></li>
+                <li><a href="http://www.bjda.gov.cn/" target="_blank">北京食药局</a></li>
+                <li>
+                    <a href="http://news.qingzhuyi.com" title="生活安全资讯" target="_blank">
+                        <font color="#FF0000"><b>请注意</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.food-info.net/cn/index.htm" target="_blank">食品信息</a></li>
+                <li><a href="http://www.foodaily.com" title="每日食品网，自己的食品圈" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/foodaliy.png" alt="每日食品"/></a></li>
+                <li>
+                    <a href="https://www.pinterest.com" target="_blank">
+                        <font color="#CD0000"><b>Pinterest</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.guojiguoshu.com" title="国际果蔬报道" target="_blank">国际果蔬</a></li>
+                <li><a href="http://www.fda.gov" target="_blank">FDA</a></li>
+                <li><a href="http://www.cfiin.com" target="_blank">食品工业</a></li>
+                <li><a href="http://www.logclub.com/forum.php" title="专业物流与供应链论坛" target="_blank"><b>物流沙龙</b></a></li>
+                <li><a href="http://www.cnfoodsafety.com" title="《食品安全导刊》杂志" target="_blank">食安中国</a></li>
+                <li><a href="http://www.chengxsa.com" target="_blank">食品安全</a></li>
+                <li><a href="http://www.cnagri.com" title="中国最大最优秀的农业咨询" target="_blank">艾格农业</a></li>
+                <li><a href="http://www.vegnet.com.cn" title="中国蔬菜网,蔬菜种子,蔬菜企业商务平台,蔬菜行业领航者,欢迎来到中国蔬菜网!" target="_blank">蔬菜网</a></li>
+                <li><a href="http://www.foodjx.com" title="食品加工机械设备行业B2B平台和网络媒体！" target="_blank">食品机械</a></li>
+                <li class="xiaofenlei2">技术交流</li>
+                <li><a href="http://muchong.com/bbs" title="学术科研第一站" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiaomuchong.png" alt="小木虫"/></a></li>
+                <li><a href="http://www.decodingdelicious.com/" title="美食原理解码" target="_blank">美食解码</a></li>
+                <li><a href="http://bbs.foodmate.net" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/foodmate.png" alt="食品伙伴"/></a></li>
+                <li><a href="http://bbs.tech-food.com" title="食品科技网食品论坛" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/techfood.png" alt="食品科技"/></a></li>
+                <li><a href="http://www.ausmeat.com.au/custom-content/cdrom/Handbook-7th-edition/Chinese/53C18C32-F6BA-11DA-AA4B-000A95D14B6E.html" title="国际红肉手册（第七版）" target="_blank"><b>澳洲红肉</b></a></li>
+                <li><a href="http://muchong.com/bbs" title="学术科研第一站" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiaomuchong.png" alt="小木虫"/></a></li>
+                <li><a href="http://www.eurofresh-distribution.com" target="_blank">Eurofresh</a></li>
+                <li>
+                    <a href="http://www.365xiaochi.net/forum.php" target="_blank">
+                        <font color="#FF7F00">365小吃</font>
+                    </a>
+                </li>
+                <li><a href="http://bbs.isoqc.com" target="_blank">质量管理</a></li>
+                <li><a href="http://bbs.antpedia.com/index.php" target="_blank">分析测试</a></li>
+                <li><a href="http://www.sepu.net/bbs" target="_blank">色谱网</a></li>
+                <li><a href="http://bbs.instrument.com.cn" title="集色谱、光谱、质谱、波谱、显微镜、X射线、食品、环境、药物等专业爱好者交流平台" target="_blank">仪器论坛</a></li>
+                <li><a href="http://www.foodaily.com/template/default/product/check.htm" title="感官测试方法快速诊断" target="_blank"><b>感官方法诊断</b></a></li>
+                <li><a href="http://www.foodaily.com/product/show.php?index=onlinetest_1" title="感官测试方法及模板选择" target="_blank"><b>感官测试设计</b></a></li>
+                <li>
+                    <a href="http://www.plantphoto.cn" target="_blank">
+                        <font color="#008B00">植物图</font>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <!--  公开课 -->
+            <ul class="ul1">
+                <li><a href="http://yixi.tv/" title="一席,演讲,听君一席话,人文,科技,白日梦,get inspired" target="_blank">一席</a></li>
+                <li><a href="http://open.163.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wangyigongkaike.png" alt="网易公开课" /></a></li>
+                <li><a href="https://zh-hans.khanacademy.org" title="Khan Academy 中文" target="_blank">可汗学院</a></li>
+                <li><a href="http://www.jisuanke.com" title="让你真正可以在线学习的计算机科学" target="_blank">计蒜客</a></li>
+                <li><a href="http://www.aiyunlu.com/student/homepage" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yunlu.png" alt="云路课堂" /></a></li>
+                <li><a href="https://www.vocabulary.com/" target="_blank">Vocabulary</a></li>
+                <li><a href="http://www.youmi.cn" title="为创业者服务" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/youmi.png" alt="优米网" /></a></li>
+                <li><a href="http://www.howzhi.com" title="重拾学习的乐趣" target="_blank">好知网</a></li>
+                <li>
+                    <a href="http://www.myoops.org" title="來自全球頂尖大學的開放式課程，現在由世界各國的數千名義工志工為您翻譯成中文。" target="_blank">
+                        <font color="#00BB00">MyOOPS</font>
+                    </a>
+                </li>
+                <li><a href="http://doyoudo.com/" target="_blank">doyoudo</a></li>
+                <li><a href="https://www.shiyanlou.com/courses/" target="_blank">实验楼</a></li>
+                <li><a href="http://mooc.guokr.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/mooc.png" alt="MOOC学院" /></a></li>
+                <li><a href="http://www.tanzhouedu.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tanzhoujiaoyu.png" alt="潭州学院" /></a></li>
+                <li><a href="http://www.51zxw.net/" target="_blank">我要自学网</a></li>
+                <li><a href="http://www.28gl.com" target="_blank">视频讲座</a></li>
+                <li><a href="http://www.duobei.com/" target="_blank">多贝</a></li>
+                <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+                <li><a href="http://www.icourses.cn/home/" target="_blank">爱课程</a></li>
+                <li><a href="http://oeasy.org/" target="_blank">Oeasy系列</a></li>
+                <li><a href="http://www.ibeifeng.com/" target="_blank">北风网</a></li>
+                <li><a href="http://www.wanmen.org/" target="_blank">万门大学</a></li>
+                <li><a href="http://www.haoxue.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/haoxuewang.png" alt="好学网" /></a></li>
+                <li><a href="http://www.gogoup.com/course/list" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/gaogaoshou.png" alt="高高手" /></a></li>
+                <li><a href="http://www.hjenglish.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/hujiangyingyu.png" alt="沪江英语" /></a></li>
+                <li><a href="http://xidong.net" target="_blank">西 东</a></li>
+            </ul>
+        </div>
+        <!--医学专业-->
+        <div>
+            <ul class="ul1">
+                <li>
+                    <a href="http://www.ncbi.nlm.nih.gov/pubmed" target="_blank">
+                        <font color="#36648B"><b>Pubmed</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.yuntsg.com/html/1/" target="_blank">本地Pubmed</a></li>
+                <li><a href="http://shiyan.ebioe.com" target="_blank">易生物</a></li>
+                <li><a href="http://bbs.bbioo.com" target="_blank">生物秀</a></li>
+                <li><a href="http://www.dxy.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/dxy.png" alt="丁香园"/></a></li>
+                <li><a href="http://www.elseviermed.cn" target="_blank">爱唯医学</a></li>
+                <li><a href="http://www.i-md.com" target="_blank">睿医i-MD</a></li>
+                <li><a href="http://www.medlive.cn" target="_blank">医脉通</a></li>
+                <li><a href="http://www.bazhua.org" target="_blank">八爪网</a></li>
+                <li><a href="http://www.drmed.cn" target="_blank">Dr med</a></li>
+                <li><a href="http://www.haodf.com" target="_blank">好大夫</a></li>
+                <li><a href="http://www.med126.com/pharm" target="_blank">医学全在线</a></li>
+                <li><a href="http://www.39kf.com" target="_blank">医 源</a></li>
+                <li><a href="http://www.39.net" target="_blank">39健康</a></li>
+                <li><a href="http://www.clsi.com.cn" target="_blank">临床微生物</a></li>
+            </ul>
+        </div>
+        <!--谷歌文献-->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">谷歌学术</li>
+                <li><a href="http://vip.itwusun.com/index.html" target="_blank">Anypaper</a></li>
+                <li><a href="http://so.sciencesoft.cn/" target="_blank">学术搜索</a></li>
+                <li><a href="http://jiuweisoso.wallpai.com/" target="_blank">拇 指</a></li>
+                <li><a href="https://gfsoso.8090st.com/webhp?hl=zh-CN" target="_blank">九命狐</a></li>
+                <li><a href="http://www.googto.com/" target="_blank">Googto搜索</a></li>
+                <li><a href="http://scholar.glgoo.org" target="_blank">glgoo学术</a></li>
+                <li>
+                    <a href="http://dir.scmor.com/google" target="_blank">
+                        <font color="#008B00">Google镜像</font>
+                    </a>
+                </li>
+                <li><a href="http://g.linkscholar.org/" target="_blank">Linkscholar</a></li>
+                <li class="qiangdiao"><a href="https://github.com/racaljk/hosts" target="_blank">Hosts</a></li>
+                <li class="xiaofenlei2">文献下载</li>
+                <li><a href="http://www.sci-hub.cn/" target="_blank">中文SCI-HUB</a></li>
+                <li><a href="http://www.sci-hub.cc/" target="_blank">SCI-HUB</a></li>
+                <li><a href="http://www.sci-hub.io/" target="_blank">SCI-HUB2</a></li>
+                <li><a href="http://www.drugfuture.com/cnpat/cn_patent.asp" target="_blank">专利下载</a></li>
+                <li><a href="http://sci-hub.bz/" target="_blank"><b>Sci-Hub</b></a></li>
+                <li><a href="https://oadoi.org/" target="_blank">oaDOI</a></li>
+                <li class="qiangdiao"><a href="http://www.scholarnet.cn/" target="_blank">学术网</a></li>
+                <li><a href="http://www.ucdrs.net" title="全国图书馆参考咨询联盟" target="_blank">文献传递</a></li>
+                <li><a href="http://www.sgst.cn" title="上海研发公共服务平台" target="_blank">研发公共</a></li>
+                <li><a href="http://www.soudoc.com/bbs" title="零点花园 文献代理,学术交流,统计年鉴,基金标书" target="_blank">零点花园</a></li>
+                <li><a href="http://www.expaper.cn" title="打造最高效的文献互助平台|检索知识|文献代理|名校资源" target="_blank">科研速递</a></li>
+                <li><a href="https://www.researchgate.net" title="" target="_blank">Researchgate</a></li>
+                <li><a href="http://www.aolsearch.com" target="_blank">AOL</a></li>
+                <li><a href="http://academic.research.microsoft.com" target="_blank">Academic</a></li>
+                <li>
+                    <a href="https://search.disconnect.me" target="_blank">
+                        <font color="#0000cc">DisConnect</font>
+                    </a>
+                </li>
+                <li><a href="http://www.saydao.com/Article/ArticleClass1/49_1.html" title="食品生产、技术专利" target="_blank">东西农家</a></li>
+                <li><a href="http://datatang.com" title="国内首家大数据共享交易平台" target="_blank">数据堂</a></li>
+                <li><a href="http://www.panlv.net" title="行情分析报告" target="_blank"><b>渐飞数据</b></a></li>
+                <li><a href="https://www.roolin.com/" target="_blank">儒林学术搜索</a></li>
+                <li><a href="http://www.odour.org.uk/lriindex.html" target="_blank">L R I</a></li>
+            </ul>
+        </div>
     </div>
 </div>
-
 <!-- 资讯阅读 -->
 <div id="read" class="zhutikuang" style="height:auto;">
     <div class="tab">
-    <span>资讯阅读</span>
-    <ul class="readtab">
-        <li class="current">信息阅读</li>
-		<li>电子书</li>
-        <li>杂志</li>
-        <li>Kindle资源</li>
-    </ul>
+        <span>资讯阅读</span>
+        <ul class="readtab">
+            <li class="current">信息阅读</li>
+            <li>电子书</li>
+            <li>杂志</li>
+            <li>Kindle资源</li>
+        </ul>
     </div>
     <div id="readshow">
         <div class="show">
-        <ul class="ul1">
-    <li class="xiaofenlei">新闻资讯</li>
-		<li><a href="http://www.ifeng.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/fenghuangwang.png" alt="凤凰网"/></a></li>
-        <li><a href="http://www.sina.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sina.png" alt="新浪网"/></a></li>
-		<li><a href="http://www.163.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wangyi.png" alt="网易"/></a></li>
-		<li><a href="http://www.sohu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sohu.png" alt="搜狐"/></a></li>
-		<li><a href="http://www.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxun.png" alt="腾讯"/></a></li>
-        <li><a href="http://www.cntv.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yangshi.png" alt="央视"/></a></li>
-		<li><a href="http://www.thepaper.cn/" title="专注时政与思想" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/pengpai.png" alt="澎湃新闻"/></a></li>
-        <li><a href="http://www.tieba.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baidutieba.png" alt="百度贴吧"/></a></li>
-		<li><a href="http://weibo.com"target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/weibo.png" alt="新浪微博"/></a></li>
-    <li class="xiaofenlei">I T 资讯</li>
-        <li><a href="http://www.ifanr.com" title="发现新价值的科技媒体"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aifaner.png" alt="爱范儿"/></a></li>
-		<li><a href="http://www.techweb.com.cn" title="新媒体、新产品、新技术互动交流平台"   target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/techweb.png" alt="Techweb"/></a></li>
-		<li><a href="http://www.cnbeta.com"title="中文业界资讯站" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/cnbeta.png" alt="cnbeta"/></a></li>
-		<li><a href="http://www.williamlong.info" title="关注互联网和搜索引擎的IT科技博客"  target="_blank">月光博客</a></li>
-		<li><a href="http://www.tuicool.com/" title="IT人专属的个性聚合阅读社区"  target="_blank">推酷</a></li>
-		<li><a href="http://songshuhui.net" title="让我们剥开科学的坚果"  target="_blank">科学松鼠会</a></li>
-		<li><a href="http://www.tmtpost.com/" title="网罗天下创新事"  target="_blank">钛媒体</a></li>
-        <li><a href="http://36kr.com" title="让创业更简单"  target="_blank">36氪</a></li>
-		<li><a href="http://cn.engadget.com" title="消费电子产品新闻和评测"  target="_blank">Engadget</a></li>
-
-	<li class="xiaofenlei2">聚合阅读</li>
-		<li><a href="http://xianguo.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xianguo.png" alt="鲜果" /></a></li>
-		<li><a href="http://www.zoulang.com" title=" 汇聚互联网上最精彩的内容"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zoulang.png" align="center" width="40"/></a></li>
-		<li><a href="http://www.douban.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/douban.png" alt="豆瓣" /></a></li>
-        <li><a href="http://www.xinli001.com"  title="心理学从这里开始" target="_blank">壹心理</a></li>
-        <li><a href="http://yue.fm" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yueFM.png" alt="阅FM"/></a></li>
-		<li><a href="http://www.yeeyan.org" title="发现、翻译、分享中文之外的互联网精华" target="_blank"><font color="#199EF8"><b>译言网</b></font></a></li>
-		<li><a href="http://www.ishuchao.com" title="一个闲置纸质书的在线漂流平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aishucao.png" alt="爱书巢"/></a></li>
-		<li><a href="http://www.bimuyu.com" title="作家比目鱼的博客"  target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/bimuyu.png" alt="比目鱼" /></a></li>
-		<li><a href="http://www.duxieren.com" title="一个聚合了书评杂志、书评博客、中英文读书资源的读书网站" target="_blank">读写人</a></li>
-		<li><a href="http://www.duwanjuan.cn" title="最受欢迎的免费期刊、杂志阅读平台"  target="_blank">读万卷</a></li>
-		<li><a href="http://www.write.org.cn"  title="一个思维导图读书笔记分享的平台" target="_blank">读书笔记</a></li>
-		<li><a href="http://www.read.org.cn" title="探索怎样更快的提升“个人学习能力”!!!"  target="_blank">战隼学习</a></li>
-		<li><a href="http://www.15yan.com" title="十五言 写作 阅读社区 每个人都在创造"  target="_blank"><font color="#292929">十五言</font></a></li>
-		<li><a href="http://www.rongshuxia.com" title="华语文学门户"  target="_blank">榕树下</a></li>
-		<li><a href="http://www.tianya.cn" target="_blank"><font color="#3A5FCD">天涯社区</font></a></li>
-		<li><a href="http://www.mop.com" target="_blank">猫 扑</a></li>
-		<li><a href="http://www.zy234.com" target="_blank">枞阳二三事</a></li>
-		<li><a href="http://www.zol.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zol.png" alt="中关村在线" /></a></li>
-	<li class="xiaofenlei">趣味阅读</li>
-		<li><a href="http://www.wolege.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wolege.gif" alt="我勒个" /></a></li>
-		<li><a href="http://jandan.net" title="地球上没有新鲜事" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jiandan.png"/></a></li>
-		<li><a href="http://ideaest.com" title="贴创意 嚼文字 玩图像" target="_blank">创意栖息</a></li>
-        <li><a href="http://www.xiankankan.com" target="_blank">先看看</a></li>
-        <li><a href="http://www.ixiqi.com" title="搜罗全球新鲜玩意儿" target="_blank">爱稀奇</a></li>
-		<li><a href="http://since1984.cn" title="设计 生活 发现新鲜" target="_blank">1984设计</a></li>
-        <li><a href="http://lugede.cn" title="路个的的奇思怪想 一个人的路，一个人走！"  target="_blank">奇思怪想</a></li>
-         </ul>
-       </div>
-
-	                  <!--电子书-->
-                <div>
-                    <ul class="ul1">
-			<li class="xiaofenlei">EBOOK</li>
-        <li><a href="http://www.pdfdrive.net/" title="较全的英文电子书" target="_blank"><b>Pdfdrive</b></a></li>
-		<li><a href="http://en.booksee.org/" title="下载书籍的第一选择" target="_blank">Booksee</a></li>
-		<li><a href="http://zh.bookzz.org/" title="世界最大的电子图书馆藏" target="_blank">BookZZ</a></li>
-		<li><a href="http://gen.lib.rus.ec/" title="电子书丰富" target="_blank">Library</a></li>
-		<li><a href="http://gen.lib.rus.ec/" title="电子书丰富" target="_blank">Library</a></li>
-			<li class="xiaofenlei2">电子书</li>
-			<li><a href="http://cn.epubee.com/" target="_blank">Epubee</a></li>
-			<li><a href="http://www.touxianzhai.com" title="打造互联网上最大最全的电子书库！" target="_blank"><font color="#FF7F00">偷闲斋</font></a></li>
-            <li><a href="http://www.bookask.com/" target="_blank">书问</a></li>
-            <li><a href="https://www.jiumodiary.com/" target="_blank">鸠摩搜书</a></li>
-            <li><a href="http://www.chnxp.com.cn/" target="_blank">浩扬电子书城</a></li>
-            <li><a href="http://www.gqdzs.com/" target="_blank">高清电子书</a></li>
-            <li><a href="http://www.ed2000.com/FileList.asp?FileCategory=%E5%9B%BE%E4%B9%A6" target="_blank">ED2000图书</a></li>
-            <li><a href="http://www.zreading.cn/" target="_blank">左岸读书</a></li>
-            <li><a href="http://www.read.org.cn/" target="_blank">战隼学习探索</a></li>
-            <li><a href="http://shudan.moadd.com/" target="_blank">书单</a></li>
-            <li><a href="http://www.ibooks.org.cn/" target="_blank">爱书·书社</a></li>
-            <li><a href="http://www.write.org.cn/" target="_blank">读书笔记分享</a></li>
-            <li><a href="http://xkreading.com/" target="_blank">醒客读书</a></li>
-            <li><a href="http://haoshu100.com/" target="_blank">好书推荐排行榜</a></li>
-            <li><a href="http://www.book110.com/" target="_blank">荐书堂</a></li>
-            <li><a href="http://www.54read.com/" target="_blank">54·一本好书</a></li>
-            <li><a href="http://www.mybanshu.com/" target="_blank">蚂蚁搬书</a></li>
-            <li class="qiangdiao"><a href="http://www.zhaoshu114.com/index.php" target="_blank">找书网</a></li>
-
-		<li class="xiaofenlei">文档</li>
-					<li><a href="http://wenku.baidu.com" target="_blank">百度文库</a></li>
-		<li><a href="http://www.docin.com" target="_blank">豆丁网</a></li>
-		<li><a href="http://www.sharej.com" title="不用注册就可免费下载数十万份学习资料、各种考卷"  target="_blank">分享家</a></li>
-		<li><a href="http://www.xuexi111.com" title="免费共享各类学习资料，学习资料免费下载"  target="_blank">学习资料库</a></li>
-		<li><a href="http://www.doc88.com" target="_blank">道客巴巴</a></li>
-		<li><a href="http://www.360doc.com" target="_blank">360Doc</a></li>
-		<li><a href="http://www.tinooa.com" title="有机生活-食品安全-阳台种菜-有机食品-回归田园-有机农业"  target="_blank">听蛙有机</a></li>
-		<li><a href="http://www.xuebalib.cn" target="_blank">学 霸</a></li>
-		</ul>
-
-                </div>
-
-
-
-       <!--杂志-->
- <div>
-        <ul class="ul1">
-        <li><a href="http://shiyue.me/" target="_blank">十月杂志网</a></li>
-        <li><a href="http://www.pdfzj.com/" target="_blank">PDF之家</a></li>
-		<li><a href="http://www.ifblue.net/" target="_blank">若蓝格</a></li>
-        <li><a href="http://www.gqzzw.com/" target="_blank">高清杂志网</a></li>
-        <li class="qiangdiao"><a href="http://www.zoupan.com/" target="_blank">走盘网</a></li>
-        <li><a href="http://www.52duzhe.com/" target="_blank">读者</a></li>
-        <li><a href="http://www.92yilin.com/" target="_blank">意林</a></li>
-        <li><a href="http://www.92gushi.com/" target="_blank">故事会</a></li>
-        <li><a href="http://www.2zazhi.com/" target="_blank">青年文摘</a></li>
-         </ul>
- </div>
-   <!--kindle资源-->
-                <div>
-                    <ul class="ul1">
-                        <li><a href="http://www.zoudupai.com" target="_blank">走读派</a></li>
-                        <li><a href="http://www.kindlepush.com/" target="_blank">kingle推</a></li>
-						<li><a href="http://kgbook.com/" target="_blank">苦瓜书盘</a></li>
-						<li><a href="http://mebook.cc/" target="_blank"><b>小书屋</b></a></li>
-                        <li><a href="http://kindlefere.com/" target="_blank">kindle伴侣</a></li>
-                        <li><a href="http://readcolor.com/" target="_blank">读远</a></li>
-                        <li><a href="http://www.kindle10000.com/" target="_blank">万读论坛</a></li>
-                        <li><a href="http://www.kindle114.com/" target="_blank">kindle114</a></li>
-                        <li><a href="http://kankindle.com/" target="_blank">看kindle</a></li>
-                        <li><a href="http://haodoo.net/" target="_blank">好读</a></li>
-                        <li><a href="https://www.mlook.mobi/" target="_blank">mlook精校</a></li>
-                        <li><a href="http://www.taiduoshu.com/" target="_blank">太多书</a></li>
-                        <li class="qiangdiao"><a href="http://kindlefere.com/ebook" target="_blank">更多</a></li>
-                    </ul>
-                </div>
-
+            <ul class="ul1">
+                <li class="xiaofenlei">新闻资讯</li>
+                <li><a href="http://www.ifeng.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/fenghuangwang.png" alt="凤凰网"/></a></li>
+                <li><a href="http://www.sina.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sina.png" alt="新浪网"/></a></li>
+                <li><a href="http://www.163.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wangyi.png" alt="网易"/></a></li>
+                <li><a href="http://www.sohu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sohu.png" alt="搜狐"/></a></li>
+                <li><a href="http://www.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxun.png" alt="腾讯"/></a></li>
+                <li><a href="http://www.cntv.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yangshi.png" alt="央视"/></a></li>
+                <li><a href="http://www.thepaper.cn/" title="专注时政与思想" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/pengpai.png" alt="澎湃新闻"/></a></li>
+                <li><a href="http://www.tieba.baidu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/baidutieba.png" alt="百度贴吧"/></a></li>
+                <li><a href="http://weibo.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/weibo.png" alt="新浪微博"/></a></li>
+                <li class="xiaofenlei">I T 资讯</li>
+                <li><a href="http://www.ifanr.com" title="发现新价值的科技媒体" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aifaner.png" alt="爱范儿"/></a></li>
+                <li><a href="http://www.techweb.com.cn" title="新媒体、新产品、新技术互动交流平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/techweb.png" alt="Techweb"/></a></li>
+                <li><a href="http://www.cnbeta.com" title="中文业界资讯站" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/cnbeta.png" alt="cnbeta"/></a></li>
+                <li><a href="http://www.williamlong.info" title="关注互联网和搜索引擎的IT科技博客" target="_blank">月光博客</a></li>
+                <li><a href="http://www.tuicool.com/" title="IT人专属的个性聚合阅读社区" target="_blank">推酷</a></li>
+                <li><a href="http://songshuhui.net" title="让我们剥开科学的坚果" target="_blank">科学松鼠会</a></li>
+                <li><a href="http://www.tmtpost.com/" title="网罗天下创新事" target="_blank">钛媒体</a></li>
+                <li><a href="http://36kr.com" title="让创业更简单" target="_blank">36氪</a></li>
+                <li><a href="http://cn.engadget.com" title="消费电子产品新闻和评测" target="_blank">Engadget</a></li>
+                <li class="xiaofenlei2">聚合阅读</li>
+                <li><a href="http://xianguo.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xianguo.png" alt="鲜果" /></a></li>
+                <li><a href="http://www.zoulang.com" title=" 汇聚互联网上最精彩的内容" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zoulang.png" align="center" width="40"/></a></li>
+                <li><a href="http://www.douban.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/douban.png" alt="豆瓣" /></a></li>
+                <li><a href="http://www.xinli001.com" title="心理学从这里开始" target="_blank">壹心理</a></li>
+                <li><a href="http://yue.fm" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yueFM.png" alt="阅FM"/></a></li>
+                <li>
+                    <a href="http://www.yeeyan.org" title="发现、翻译、分享中文之外的互联网精华" target="_blank">
+                        <font color="#199EF8"><b>译言网</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.ishuchao.com" title="一个闲置纸质书的在线漂流平台" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aishucao.png" alt="爱书巢"/></a></li>
+                <li><a href="http://www.bimuyu.com" title="作家比目鱼的博客" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/bimuyu.png" alt="比目鱼" /></a></li>
+                <li><a href="http://www.duxieren.com" title="一个聚合了书评杂志、书评博客、中英文读书资源的读书网站" target="_blank">读写人</a></li>
+                <li><a href="http://www.duwanjuan.cn" title="最受欢迎的免费期刊、杂志阅读平台" target="_blank">读万卷</a></li>
+                <li><a href="http://www.write.org.cn" title="一个思维导图读书笔记分享的平台" target="_blank">读书笔记</a></li>
+                <li><a href="http://www.read.org.cn" title="探索怎样更快的提升“个人学习能力”!!!" target="_blank">战隼学习</a></li>
+                <li>
+                    <a href="http://www.15yan.com" title="十五言 写作 阅读社区 每个人都在创造" target="_blank">
+                        <font color="#292929">十五言</font>
+                    </a>
+                </li>
+                <li><a href="http://www.rongshuxia.com" title="华语文学门户" target="_blank">榕树下</a></li>
+                <li>
+                    <a href="http://www.tianya.cn" target="_blank">
+                        <font color="#3A5FCD">天涯社区</font>
+                    </a>
+                </li>
+                <li><a href="http://www.mop.com" target="_blank">猫 扑</a></li>
+                <li><a href="http://www.zy234.com" target="_blank">枞阳二三事</a></li>
+                <li><a href="http://www.zol.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zol.png" alt="中关村在线" /></a></li>
+                <li class="xiaofenlei">趣味阅读</li>
+                <li><a href="http://www.wolege.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/wolege.gif" alt="我勒个" /></a></li>
+                <li><a href="http://jandan.net" title="地球上没有新鲜事" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jiandan.png"/></a></li>
+                <li><a href="http://ideaest.com" title="贴创意 嚼文字 玩图像" target="_blank">创意栖息</a></li>
+                <li><a href="http://www.xiankankan.com" target="_blank">先看看</a></li>
+                <li><a href="http://www.ixiqi.com" title="搜罗全球新鲜玩意儿" target="_blank">爱稀奇</a></li>
+                <li><a href="http://since1984.cn" title="设计 生活 发现新鲜" target="_blank">1984设计</a></li>
+                <li><a href="http://lugede.cn" title="路个的的奇思怪想 一个人的路，一个人走！" target="_blank">奇思怪想</a></li>
+            </ul>
+        </div>
+        <!--电子书-->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">EBOOK</li>
+                <li><a href="http://www.pdfdrive.net/" title="较全的英文电子书" target="_blank"><b>Pdfdrive</b></a></li>
+                <li><a href="http://en.booksee.org/" title="下载书籍的第一选择" target="_blank">Booksee</a></li>
+                <li><a href="http://zh.bookzz.org/" title="世界最大的电子图书馆藏" target="_blank">BookZZ</a></li>
+                <li><a href="http://gen.lib.rus.ec/" title="电子书丰富" target="_blank">Library</a></li>
+                <li><a href="http://gen.lib.rus.ec/" title="电子书丰富" target="_blank">Library</a></li>
+                <li class="xiaofenlei2">电子书</li>
+                <li><a href="http://cn.epubee.com/" target="_blank">Epubee</a></li>
+                <li>
+                    <a href="http://www.touxianzhai.com" title="打造互联网上最大最全的电子书库！" target="_blank">
+                        <font color="#FF7F00">偷闲斋</font>
+                    </a>
+                </li>
+                <li><a href="http://www.bookask.com/" target="_blank">书问</a></li>
+                <li><a href="https://www.jiumodiary.com/" target="_blank">鸠摩搜书</a></li>
+                <li><a href="http://www.chnxp.com.cn/" target="_blank">浩扬电子书城</a></li>
+                <li><a href="http://www.gqdzs.com/" target="_blank">高清电子书</a></li>
+                <li><a href="http://www.ed2000.com/FileList.asp?FileCategory=%E5%9B%BE%E4%B9%A6" target="_blank">ED2000图书</a></li>
+                <li><a href="http://www.zreading.cn/" target="_blank">左岸读书</a></li>
+                <li><a href="http://www.read.org.cn/" target="_blank">战隼学习探索</a></li>
+                <li><a href="http://shudan.moadd.com/" target="_blank">书单</a></li>
+                <li><a href="http://www.ibooks.org.cn/" target="_blank">爱书·书社</a></li>
+                <li><a href="http://www.write.org.cn/" target="_blank">读书笔记分享</a></li>
+                <li><a href="http://xkreading.com/" target="_blank">醒客读书</a></li>
+                <li><a href="http://haoshu100.com/" target="_blank">好书推荐排行榜</a></li>
+                <li><a href="http://www.book110.com/" target="_blank">荐书堂</a></li>
+                <li><a href="http://www.54read.com/" target="_blank">54·一本好书</a></li>
+                <li><a href="http://www.mybanshu.com/" target="_blank">蚂蚁搬书</a></li>
+                <li class="qiangdiao"><a href="http://www.zhaoshu114.com/index.php" target="_blank">找书网</a></li>
+                <li class="xiaofenlei">文档</li>
+                <li><a href="http://wenku.baidu.com" target="_blank">百度文库</a></li>
+                <li><a href="http://www.docin.com" target="_blank">豆丁网</a></li>
+                <li><a href="http://www.sharej.com" title="不用注册就可免费下载数十万份学习资料、各种考卷" target="_blank">分享家</a></li>
+                <li><a href="http://www.xuexi111.com" title="免费共享各类学习资料，学习资料免费下载" target="_blank">学习资料库</a></li>
+                <li><a href="http://www.doc88.com" target="_blank">道客巴巴</a></li>
+                <li><a href="http://www.360doc.com" target="_blank">360Doc</a></li>
+                <li><a href="http://www.tinooa.com" title="有机生活-食品安全-阳台种菜-有机食品-回归田园-有机农业" target="_blank">听蛙有机</a></li>
+                <li><a href="http://www.xuebalib.cn" target="_blank">学 霸</a></li>
+            </ul>
+        </div>
+        <!--杂志-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://shiyue.me/" target="_blank">十月杂志网</a></li>
+                <li><a href="http://www.pdfzj.com/" target="_blank">PDF之家</a></li>
+                <li><a href="http://www.ifblue.net/" target="_blank">若蓝格</a></li>
+                <li><a href="http://www.gqzzw.com/" target="_blank">高清杂志网</a></li>
+                <li class="qiangdiao"><a href="http://www.zoupan.com/" target="_blank">走盘网</a></li>
+                <li><a href="http://www.52duzhe.com/" target="_blank">读者</a></li>
+                <li><a href="http://www.92yilin.com/" target="_blank">意林</a></li>
+                <li><a href="http://www.92gushi.com/" target="_blank">故事会</a></li>
+                <li><a href="http://www.2zazhi.com/" target="_blank">青年文摘</a></li>
+            </ul>
+        </div>
+        <!--kindle资源-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://www.zoudupai.com" target="_blank">走读派</a></li>
+                <li><a href="http://www.kindlepush.com/" target="_blank">kingle推</a></li>
+                <li><a href="http://kgbook.com/" target="_blank">苦瓜书盘</a></li>
+                <li><a href="http://mebook.cc/" target="_blank"><b>小书屋</b></a></li>
+                <li><a href="http://kindlefere.com/" target="_blank">kindle伴侣</a></li>
+                <li><a href="http://readcolor.com/" target="_blank">读远</a></li>
+                <li><a href="http://www.kindle10000.com/" target="_blank">万读论坛</a></li>
+                <li><a href="http://www.kindle114.com/" target="_blank">kindle114</a></li>
+                <li><a href="http://kankindle.com/" target="_blank">看kindle</a></li>
+                <li><a href="http://haodoo.net/" target="_blank">好读</a></li>
+                <li><a href="https://www.mlook.mobi/" target="_blank">mlook精校</a></li>
+                <li><a href="http://www.taiduoshu.com/" target="_blank">太多书</a></li>
+                <li class="qiangdiao"><a href="http://kindlefere.com/ebook" target="_blank">更多</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
-</div>
-
 <!-- 多媒体 -->
 <div id="media" class="zhutikuang" style="height:auto;">
     <div class="tab">
-    <span>多媒体</span>
-    <ul class="mediatab">
-        <li class="current">视频</li>
-        <li>音乐</li>
-        <li>动 漫</li>
-        <li>字 幕</li>
-		<li>资源福利</li>
-    </ul>
+        <span>多媒体</span>
+        <ul class="mediatab">
+            <li class="current">视频</li>
+            <li>音乐</li>
+            <li>动 漫</li>
+            <li>字 幕</li>
+            <li>资源福利</li>
+        </ul>
     </div>
-       <div id="mediashow">
-       <!--视频-->
-           <div class="show">
-                <ul class="ul1">
-                    <li class="xiaofenlei">热门视频</li>
-	            	    <li><a href="https://www.youtube.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/youtube.png" alt="YouTube"/></a></li>
-	                	<li><a href="http://allyingshi.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/renrenyinshi.png" alt="人人影视大全"/></a></li>
-                        <li><a href="http://www.iqiyi.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aiqiyi.png" alt="爱奇艺"/></a></li>
-                        <li><a href="http://www.hunantv.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/mangguo.png" alt="芒果TV"/></a></li>
-                        <li><a href="http://v.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxunshipin.png"/></a></li>
-	                	<li><a href="http://www.youku.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/youku.png" align="center" width="70"/></a></li>
-	                	<li><a href="http://www.tudou.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tudouwang.png" alt=""/></a></li>
-	                	<li><a href="http://www.letv.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/leshi.png"/></a></li>
-	                	<li><a href="http://tv.sohu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sohushipin.png" alt="搜狐视频"/></a></li>
-	                 	<li><a href="http://www.cctv.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/cctv.png" alt="央视网"/></a></li>
-
-                    <li class="xiaofenlei">最新电影</li>
-	                 	<li><a href="http://www.mp4ba.com" target="_blank"><font color="#3A5FCD">MP4吧</font></a></li>
-	                	<li><a href="http://www.mtime.com" target="_blank">Mtime</a></li>
-                        <li><a href="http://www.dytt.com/" target="_blank">电影淘淘</a></li>
-                        <li><a href="http://www.id97.com/" target="_blank">97电影网</a></li>
-                        <li><a href="http://www.dysfz.net/" target="_blank">电影首发站</a></li>
-                        <li><a href="http://www.piaohua.com/" target="_blank">飘花电影</a></li>
-                        <li><a href="http://www.lbldy.com/" target="_blank">龙部落</a></li>
-                        <li><a href="http://www.dy2018.com/" target="_blank">电影天堂</a></li>
-                        <li><a href="http://www.yugaopian.com/" target="_blank">预告片世界</a></li>
-                        <li><a href="http://37yzy.com/" target="_blank">37云资源</a></li>
-					<li class="xiaofenlei">纪录片</li>
-					    <li><a href="http://www.jlpcn.net/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jilupiantd.png" alt="纪录片天地"/></a></li>
-                        <li><a href="http://www.jiluniwo.cn/" target="_blank">记录你我</a></li>
-                        <li><a href="http://www.laojilu.com/" target="_blank">老记录</a></li>
-                        <li><a href="http://www.xzwyu.com/" target="_blank">行者物语</a></li>
-                        <li><a href="http://www.opclass.com/" target="_blank">公开课纪录片</a></li>
-                        <li><a href="http://www.bilibili.com/video/tech-popular-science-1.html" target="_blank">bilibili纪录</a></li>
-                        <li><a href="http://jilupian.kankan.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiangchaokankan.png" alt="响巢看看"/></a></li>
-                    <li class="xiaofenlei">高清影视</li>
-                        <li><a href="http://www.gaoqingkong.com/" target="_blank">高清控联盟</a></li>
-                        <li><a href="http://www.yinfans.com/" target="_blank">音范丝</a></li>
-                        <li><a href="http://gaoqing.la/" target="_blank">中国高清网</a></li>
-                        <li><a href="http://www.hd1080.cn/" target="_blank">蓝光电影网</a></li>
-                        <li><a href="http://www.rs05.com/" target="_blank">人生05</a></li>
-                        <li><a href="http://www.moviewg.com/" target="_blank">电影王国</a></li>
-                        <li><a href="http://www.youzhidy.com/" target="_blank">优质电影网</a></li>
-                        <li><a href="http://www.ibtzz.com/" target="_blank">思享</a></li>
-                        <li><a href="http://www.hdwan.net/" target="_blank">海盗湾</a></li>
-					<li class="xiaofenlei">美剧</li>
-					    <li><a href="http://www.zimuzu.tv/" target="_blank">字幕组</a></li>
-                        <li><a href="http://www.ttmeiju.com/" target="_blank">天天美剧</a></li>
-                        <li><a href="http://cn163.net/" target="_blank">CN163</a></li>
-                        <li><a href="http://www.meijutt.com/" target="_blank">美剧天堂</a></li>
-                        <li><a href="http://www.meiju.hk/" target="_blank">好看美剧</a></li>
-                        <li><a href="http://wx.meijubie.com/" target="_blank">美剧鳖</a></li>
-                        <li><a href="http://cili001.com/" target="_blank">MAG磁力</a></li>
-                        <li><a href="http://btdd2015.com/" target="_blank">BTdd</a></li>
-                        <li><a href="http://videos.yizhansou.com/" target="_blank">一站搜</a></li>
-                        <li><a href="http://dbfansub.com/" target="_blank">电波字幕组</a></li>
-                    </ul>
-                </div>
-                <!--在线音乐-->
-                <div>
-                    <ul class="ul1">
-          <li><a href="http://www.yinyuetai.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yinyuetai.png"/></a></li>
-          <li><a href="http://music.163.com/" target="_blank">网易云音乐</a></li>
-          <li><a href="http://www.xiami.com/" target="_blank">虾米音乐</a></li>
-          <li><a href="http://www.app-echo.com/" target="_blank">echo回声</a></li>
-          <li><a href="http://y.qq.com/" target="_blank">QQ音乐</a></li>
-          <li><a href="http://douban.fm/" target="_blank">豆瓣FM</a></li>
-          <li><a href="http://5sing.kugou.com/" target="_blank">5sing原创</a></li>
-          <li><a href="http://www.1ting.com/" target="_blank">一听音乐</a></li>
-          <li><a href="http://www.kugou.com/" target="_blank">酷狗音乐</a></li>
-          <li><a href="http://music.baidu.com/" target="_blank">百度音乐</a></li>
-          <li><a href="http://www.dongting.com/" target="_blank">天天动听</a></li>
-          <li><a href="http://www.kuwo.cn/" target="_blank">酷我音乐</a></li>
-
-        <li><a href="http://www.yuesir.com/ipu" target="_blank">爱乐谱</a></li>
-        <li><a href="http://www.gtp.cn/gtp.html" target="_blank">GTP谱</a></li>
-		<li><a href="http://mp3.sogou.com" target="_blank">搜狗音乐</a></li>
-		<li><a href="http://www.xiami.com" target="_blank">虾米音乐</a></li>
-		<li><a href="http://www.songtaste.com" target="_blank">乐  享</a></li>
-
-		<li><a href="http://www.flash8.net" target="_blank">闪  吧</a></li>
-		<li><a href="http://5sing.kugou.com" target="_blank">原创音乐</a></li>
-          <li><a href="http://www.9sky.com/" target="_blank">九天音乐</a></li>
-          <li><a href="http://www.yinyueke.net/" target="_blank">音乐客</a></li>
-          <li><a href="http://www.tingall.com/d" target="_blank">诠音乐库</a></li>
-          <li><a href="http://www.bandari.net/" target="_blank">班得瑞全球网</a></li>
-          <li><a href="http://www.hzou.net/" target="_blank">红嘴鸥电台</a></li>
-          <li><a href="http://www.tingfanyin.com/news" target="_blank">听梵音</a></li>
-          <li><a href="http://musicuu.com/search.html" target="_blank">音乐间谍</a></li>
-                    </ul>
-                </div>
-                <!--动漫-->
-                <div>
-                    <ul class="ul1">
-                        <li class="xiaofenlei">在线视频</li>
-                        <li><a href="http://tv.sohu.com/comic/" target="_blank">搜狐动漫</a></li>
-                        <li><a href="http://comic.youku.com/" target="_blank">优酷动漫</a></li>
-                        <li><a href="http://cartoon.tudou.com/" target="_blank">土豆动漫</a></li>
-                        <li><a href="http://comic.letv.com/" target="_blank">乐视动漫</a></li>
-                        <li><a href="http://v.qq.com/cartoon/" target="_blank">腾讯动漫</a></li>
-                        <li><a href="http://www.iqiyi.com/dongman/" target="_blank">爱奇艺动漫</a></li>
-                        <li><a href="http://www.bilibili.com" target="_blank">Bili动漫</a></li>
-                        <li class="xiaofenlei">下载动漫</li>
-                        <li><a href="http://www.kisssub.org/" target="_blank">爱恋BT</a></li>
-                        <li><a href="http://dmhy.dandanplay.com/" target="_blank">动漫花园资源网</a></li>
-                        <li><a href="http://d.dmm.hk/" target="_blank">卜卜酱动漫</a></li>
-                        <li><a href="http://dmxz.zerodm.com/" target="_blank">zero动漫</a></li>
-                        <li><a href="http://dm1080p.com/" target="_blank">动漫1080p</a></li>
-                        <li><a href="http://www.dilidili.com/" target="_blank">嘀哩嘀哩</a></li>
-                        <li class="xiaofenlei">发现更多</li>
-                        <li><a href="https://nyaso.com/" target="_blank">喵 搜</a></li>
-                        <li><a href="http://bgmlist.com/" target="_blank">番组放送</a></li>
-                        <li><a href="http://www.dongman.fm/" target="_blank">动漫FM</a></li>
-                        <li><a href="http://www.moe123.com/" target="_blank">萌导航</a></li>
-                        <li><a href="http://d.yimoe.cc/" target="_blank">翼萌导航</a></li>
-                        <li><a href="http://go.pcmoe.net/" target="_blank">萌研社</a></li>
-                    </ul>
-                </div>
-                <!--字幕-->
-                <div>
-                    <ul class="ul1">
-                      <li class="qiangdiao"><a href="http://www.disanlou.org/hao.php" target="_blank">字幕大全</a></li>
-                        <li><a href="http://www.zimuku.net/" target="_blank"><b>字幕库</b></a></li>
-                        <li><a href="http://subhd.com/" target="_blank">SubHD</a></li>
-                        <li><a href="http://www.shinybbs.com/forum.php" target="_blank">深影字幕组</a></li>
-                        <li><a href="http://www.subom.net/" target="_blank">subom</a></li>
-                        <li><a href="http://www.abcsub.com/" target="_blank">ABC字幕站</a></li>
-                        <li><a href="http://sub.makedie.me/" target="_blank">伪射手</a></li>
-                        <li><a href="http://www.disanlou.org/" target="_blank">第三楼字幕</a></li>
-                        <li><a href="http://www.xmqzmz.org/" target="_blank">夏末秋字幕组</a></li>
-                        <li><a href="http://www.kamigami.org/" target="_blank">诸神字幕组</a></li>
-                        <li><a href="http://sskzmz.com/" target="_blank">SSK字幕组</a></li>
-                        <li><a href="http://weibo.com/youzimucom" target="_blank">柚子木字幕组</a></li>
-                        <li><a href="http://sub.eastgame.org/" target="_blank">TLF字幕组</a></li>
-                        <li><a href="http://www.ragbear.com/" target="_blank">破烂熊字幕组</a></li>
-                        <li><a href="http://bbs.sfile2012.com/index.php" target="_blank">伊甸园字幕组</a></li>
-                        <li><a href="http://www.1000fr.net/" target="_blank">风软字幕组</a></li>
-                        <li><a href="http://www.opensubtitles.org/zh" target="_blank">opensubtitles</a></li>
-                        <li><a href="http://subscene.com/" target="_blank">subscene</a></li>
-                    </ul>
-                </div>
-         <!--资源福利-->
-                <div>
-
-                    <ul class="ul1">
-                       <li class="xiaofenlei">免费资源</li>
-                        <li><a href="http://www.mianfeib.com/" target="_blank">免费吧</a></li>
-                        <li><a href="http://www.freehao123.com/" target="_blank">免费资源部落</a></li>
-                        <li><a href="http://www.ziyuangou.com/" target="_blank">资源狗</a></li>
-                        <li><a href="http://www.isharebest.com/" target="_blank">爱上分享</a></li>
-                        <li><a href="http://www.bingduba.com/" target="_blank">病毒资源网</a></li>
-                        <li><a href="http://51.ruyo.net/" target="_blank">如有乐享</a></li>
-						<li class="xiaofenlei">福利网</li>
-                        <li><a href="http://www.flgod.org" target="_blank">福利天堂</a></li>
-						<li><a href="http://fuliba.net/" target="_blank">福利吧</a></li>
-						<li><a href="http://www.neihan8.com/" target="_blank">内涵吧</a></li>
-						<li><a href="http://zhainanba.net/" target="_blank">宅男吧</a></li>
-						<li><a href="http://wuxianfuli.cc/" target="_blank">无限福利</a></li>
-						<li><a href="http://moecao.com/" target="_blank">萌草酱</a></li>
-                    </ul>
-                </div>
-
-
-
+    <div id="mediashow">
+        <!--视频-->
+        <div class="show">
+            <ul class="ul1">
+                <li class="xiaofenlei">热门视频</li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/youtube.png" alt="YouTube"/></a></li>
+                <li><a href="http://allyingshi.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/renrenyinshi.png" alt="人人影视大全"/></a></li>
+                <li><a href="http://www.iqiyi.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/aiqiyi.png" alt="爱奇艺"/></a></li>
+                <li><a href="http://www.hunantv.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/mangguo.png" alt="芒果TV"/></a></li>
+                <li><a href="http://v.qq.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tengxunshipin.png"/></a></li>
+                <li><a href="http://www.youku.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/youku.png" align="center" width="70"/></a></li>
+                <li><a href="http://www.tudou.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/tudouwang.png" alt=""/></a></li>
+                <li><a href="http://www.letv.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/leshi.png"/></a></li>
+                <li><a href="http://tv.sohu.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sohushipin.png" alt="搜狐视频"/></a></li>
+                <li><a href="http://www.cctv.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/cctv.png" alt="央视网"/></a></li>
+                <li class="xiaofenlei">最新电影</li>
+                <li>
+                    <a href="http://www.mp4ba.com" target="_blank">
+                        <font color="#3A5FCD">MP4吧</font>
+                    </a>
+                </li>
+                <li><a href="http://www.mtime.com" target="_blank">Mtime</a></li>
+                <li><a href="http://www.dytt.com/" target="_blank">电影淘淘</a></li>
+                <li><a href="http://www.id97.com/" target="_blank">97电影网</a></li>
+                <li><a href="http://www.dysfz.net/" target="_blank">电影首发站</a></li>
+                <li><a href="http://www.piaohua.com/" target="_blank">飘花电影</a></li>
+                <li><a href="http://www.lbldy.com/" target="_blank">龙部落</a></li>
+                <li><a href="http://www.dy2018.com/" target="_blank">电影天堂</a></li>
+                <li><a href="http://www.yugaopian.com/" target="_blank">预告片世界</a></li>
+                <li><a href="http://37yzy.com/" target="_blank">37云资源</a></li>
+                <li class="xiaofenlei">纪录片</li>
+                <li><a href="http://www.jlpcn.net/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jilupiantd.png" alt="纪录片天地"/></a></li>
+                <li><a href="http://www.jiluniwo.cn/" target="_blank">记录你我</a></li>
+                <li><a href="http://www.laojilu.com/" target="_blank">老记录</a></li>
+                <li><a href="http://www.xzwyu.com/" target="_blank">行者物语</a></li>
+                <li><a href="http://www.opclass.com/" target="_blank">公开课纪录片</a></li>
+                <li><a href="http://www.bilibili.com/video/tech-popular-science-1.html" target="_blank">bilibili纪录</a></li>
+                <li><a href="http://jilupian.kankan.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiangchaokankan.png" alt="响巢看看"/></a></li>
+                <li class="xiaofenlei">高清影视</li>
+                <li><a href="http://www.gaoqingkong.com/" target="_blank">高清控联盟</a></li>
+                <li><a href="http://www.yinfans.com/" target="_blank">音范丝</a></li>
+                <li><a href="http://gaoqing.la/" target="_blank">中国高清网</a></li>
+                <li><a href="http://www.hd1080.cn/" target="_blank">蓝光电影网</a></li>
+                <li><a href="http://www.rs05.com/" target="_blank">人生05</a></li>
+                <li><a href="http://www.moviewg.com/" target="_blank">电影王国</a></li>
+                <li><a href="http://www.youzhidy.com/" target="_blank">优质电影网</a></li>
+                <li><a href="http://www.ibtzz.com/" target="_blank">思享</a></li>
+                <li><a href="http://www.hdwan.net/" target="_blank">海盗湾</a></li>
+                <li class="xiaofenlei">美剧</li>
+                <li><a href="http://www.zimuzu.tv/" target="_blank">字幕组</a></li>
+                <li><a href="http://www.ttmeiju.com/" target="_blank">天天美剧</a></li>
+                <li><a href="http://cn163.net/" target="_blank">CN163</a></li>
+                <li><a href="http://www.meijutt.com/" target="_blank">美剧天堂</a></li>
+                <li><a href="http://www.meiju.hk/" target="_blank">好看美剧</a></li>
+                <li><a href="http://wx.meijubie.com/" target="_blank">美剧鳖</a></li>
+                <li><a href="http://cili001.com/" target="_blank">MAG磁力</a></li>
+                <li><a href="http://btdd2015.com/" target="_blank">BTdd</a></li>
+                <li><a href="http://videos.yizhansou.com/" target="_blank">一站搜</a></li>
+                <li><a href="http://dbfansub.com/" target="_blank">电波字幕组</a></li>
+            </ul>
+        </div>
+        <!--在线音乐-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://www.yinyuetai.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/yinyuetai.png"/></a></li>
+                <li><a href="http://music.163.com/" target="_blank">网易云音乐</a></li>
+                <li><a href="http://www.xiami.com/" target="_blank">虾米音乐</a></li>
+                <li><a href="http://www.app-echo.com/" target="_blank">echo回声</a></li>
+                <li><a href="http://y.qq.com/" target="_blank">QQ音乐</a></li>
+                <li><a href="http://douban.fm/" target="_blank">豆瓣FM</a></li>
+                <li><a href="http://5sing.kugou.com/" target="_blank">5sing原创</a></li>
+                <li><a href="http://www.1ting.com/" target="_blank">一听音乐</a></li>
+                <li><a href="http://www.kugou.com/" target="_blank">酷狗音乐</a></li>
+                <li><a href="http://music.baidu.com/" target="_blank">百度音乐</a></li>
+                <li><a href="http://www.dongting.com/" target="_blank">天天动听</a></li>
+                <li><a href="http://www.kuwo.cn/" target="_blank">酷我音乐</a></li>
+                <li><a href="http://www.yuesir.com/ipu" target="_blank">爱乐谱</a></li>
+                <li><a href="http://www.gtp.cn/gtp.html" target="_blank">GTP谱</a></li>
+                <li><a href="http://mp3.sogou.com" target="_blank">搜狗音乐</a></li>
+                <li><a href="http://www.xiami.com" target="_blank">虾米音乐</a></li>
+                <li><a href="http://www.songtaste.com" target="_blank">乐  享</a></li>
+                <li><a href="http://www.flash8.net" target="_blank">闪  吧</a></li>
+                <li><a href="http://5sing.kugou.com" target="_blank">原创音乐</a></li>
+                <li><a href="http://www.9sky.com/" target="_blank">九天音乐</a></li>
+                <li><a href="http://www.yinyueke.net/" target="_blank">音乐客</a></li>
+                <li><a href="http://www.tingall.com/d" target="_blank">诠音乐库</a></li>
+                <li><a href="http://www.bandari.net/" target="_blank">班得瑞全球网</a></li>
+                <li><a href="http://www.hzou.net/" target="_blank">红嘴鸥电台</a></li>
+                <li><a href="http://www.tingfanyin.com/news" target="_blank">听梵音</a></li>
+                <li><a href="http://musicuu.com/search.html" target="_blank">音乐间谍</a></li>
+            </ul>
+        </div>
+        <!--动漫-->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">在线视频</li>
+                <li><a href="http://tv.sohu.com/comic/" target="_blank">搜狐动漫</a></li>
+                <li><a href="http://comic.youku.com/" target="_blank">优酷动漫</a></li>
+                <li><a href="http://cartoon.tudou.com/" target="_blank">土豆动漫</a></li>
+                <li><a href="http://comic.letv.com/" target="_blank">乐视动漫</a></li>
+                <li><a href="http://v.qq.com/cartoon/" target="_blank">腾讯动漫</a></li>
+                <li><a href="http://www.iqiyi.com/dongman/" target="_blank">爱奇艺动漫</a></li>
+                <li><a href="http://www.bilibili.com" target="_blank">Bili动漫</a></li>
+                <li class="xiaofenlei">下载动漫</li>
+                <li><a href="http://www.kisssub.org/" target="_blank">爱恋BT</a></li>
+                <li><a href="http://dmhy.dandanplay.com/" target="_blank">动漫花园资源网</a></li>
+                <li><a href="http://d.dmm.hk/" target="_blank">卜卜酱动漫</a></li>
+                <li><a href="http://dmxz.zerodm.com/" target="_blank">zero动漫</a></li>
+                <li><a href="http://dm1080p.com/" target="_blank">动漫1080p</a></li>
+                <li><a href="http://www.dilidili.com/" target="_blank">嘀哩嘀哩</a></li>
+                <li class="xiaofenlei">发现更多</li>
+                <li><a href="https://nyaso.com/" target="_blank">喵 搜</a></li>
+                <li><a href="http://bgmlist.com/" target="_blank">番组放送</a></li>
+                <li><a href="http://www.dongman.fm/" target="_blank">动漫FM</a></li>
+                <li><a href="http://www.moe123.com/" target="_blank">萌导航</a></li>
+                <li><a href="http://d.yimoe.cc/" target="_blank">翼萌导航</a></li>
+                <li><a href="http://go.pcmoe.net/" target="_blank">萌研社</a></li>
+            </ul>
+        </div>
+        <!--字幕-->
+        <div>
+            <ul class="ul1">
+                <li class="qiangdiao"><a href="http://www.disanlou.org/hao.php" target="_blank">字幕大全</a></li>
+                <li><a href="http://www.zimuku.net/" target="_blank"><b>字幕库</b></a></li>
+                <li><a href="http://subhd.com/" target="_blank">SubHD</a></li>
+                <li><a href="http://www.shinybbs.com/forum.php" target="_blank">深影字幕组</a></li>
+                <li><a href="http://www.subom.net/" target="_blank">subom</a></li>
+                <li><a href="http://www.abcsub.com/" target="_blank">ABC字幕站</a></li>
+                <li><a href="http://sub.makedie.me/" target="_blank">伪射手</a></li>
+                <li><a href="http://www.disanlou.org/" target="_blank">第三楼字幕</a></li>
+                <li><a href="http://www.xmqzmz.org/" target="_blank">夏末秋字幕组</a></li>
+                <li><a href="http://www.kamigami.org/" target="_blank">诸神字幕组</a></li>
+                <li><a href="http://sskzmz.com/" target="_blank">SSK字幕组</a></li>
+                <li><a href="http://weibo.com/youzimucom" target="_blank">柚子木字幕组</a></li>
+                <li><a href="http://sub.eastgame.org/" target="_blank">TLF字幕组</a></li>
+                <li><a href="http://www.ragbear.com/" target="_blank">破烂熊字幕组</a></li>
+                <li><a href="http://bbs.sfile2012.com/index.php" target="_blank">伊甸园字幕组</a></li>
+                <li><a href="http://www.1000fr.net/" target="_blank">风软字幕组</a></li>
+                <li><a href="http://www.opensubtitles.org/zh" target="_blank">opensubtitles</a></li>
+                <li><a href="http://subscene.com/" target="_blank">subscene</a></li>
+            </ul>
+        </div>
+        <!--资源福利-->
+        <div>
+            <ul class="ul1">
+                <li class="xiaofenlei">免费资源</li>
+                <li><a href="http://www.mianfeib.com/" target="_blank">免费吧</a></li>
+                <li><a href="http://www.freehao123.com/" target="_blank">免费资源部落</a></li>
+                <li><a href="http://www.ziyuangou.com/" target="_blank">资源狗</a></li>
+                <li><a href="http://www.isharebest.com/" target="_blank">爱上分享</a></li>
+                <li><a href="http://www.bingduba.com/" target="_blank">病毒资源网</a></li>
+                <li><a href="http://51.ruyo.net/" target="_blank">如有乐享</a></li>
+                <li class="xiaofenlei">福利网</li>
+                <li><a href="http://www.flgod.org" target="_blank">福利天堂</a></li>
+                <li><a href="http://fuliba.net/" target="_blank">福利吧</a></li>
+                <li><a href="http://www.neihan8.com/" target="_blank">内涵吧</a></li>
+                <li><a href="http://zhainanba.net/" target="_blank">宅男吧</a></li>
+                <li><a href="http://wuxianfuli.cc/" target="_blank">无限福利</a></li>
+                <li><a href="http://moecao.com/" target="_blank">萌草酱</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <!-- 学习天堂 -->
@@ -882,287 +954,294 @@
 <!-- 软件 -->
 <div id="ruanjian" class="zhutikuang" style="height:auto;">
     <div class="tab">
-    <span>软件社区</span>
-    <ul class="ruanjiantab">
-        <li class="current">精品软件</li>
-        <li>手机APP</li>
-        <li>科学上网</li>
-		<li>会员分享</li>
-    </ul>
+        <span>软件社区</span>
+        <ul class="ruanjiantab">
+            <li class="current">精品软件</li>
+            <li>手机APP</li>
+            <li>科学上网</li>
+            <li>会员分享</li>
+        </ul>
     </div>
     <div id="ruanjianshow">
-    <!--精品软件-->
-            <div class="show">
-                <ul class="ul1">
- 		<li><a href="http://www.52pojie.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/52pojie.png" alt="52破解" /></a></li>
-    <li><a href="http://www.xuepojie.com/" target="_blank">学破解</a></li>
-    <li><a href="http://www.dayanzai.me" target="_blank">大眼仔</a></li>
-		<li><a href="http://www.miui.com/forum.php" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/MIUI.png" alt="MIUI"/></a></li>
-		<li><a href="http://www.mi.com/index.html" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiaomi.png" alt="小米网"/></a></li>
-		<li><a href="http://hrtsea.com" target="_blank"><font color="#436EEE"><b>烈火软件</b></font></a></li>
-        <li><a href="http://www.shaoit.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/mopiaoyao.png" alt="莫飘遥" /></a></li>
-		<li><a href="http://www.zdfans.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zd423.png" alt="Zd423" /></a></li>
-		<li><a href="http://www.repaik.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/ruipaike.png" alt="睿派克" /></a></li>
-    <li><a href="http://www.bokeboke.net/" target="_blank">爱软客</a></li>
-    <li><a href="http://www.carrotchou.blog/" target="_blank">胡萝卜周</a></li>
-    <li><a href="https://emlvirus.gitbooks.io/windows-apps-that-amaze-us/content/" target="_blank">Win绝赞应用</a></li>
-        <li><a href="https://www.rkdot.com/" target="_blank">软矿</a></li>
-        <li><a href="http://www.xiexinmin.com/?page_id=14" target="_blank">谢信民</a></li>
-        <li><a href="https://laod.cn/" target="_blank">老D博客</a></li>
-		<li><a href="http://sae.sina.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sinaapp.png" alt="SAE" /></a></li>
-		<li><a href="http://bbs.pcbeta.com" target="_blank"><font color="#3A5FCD">远景论坛</font></a></li>
-        <li><a href="http://www.flighty.cn" target="_blank">轻狂志</a></li>
-		<li><a href="http://www.chinapyg.com/forum.php" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/piaoyunge.png" alt="飘云阁" /></a></li>
-		<li><a href="https://www.itreping.com/" target="_blank">IT热评</a></li>
-		<li><a href="http://www.3xiazai.com/" target="_blank">独木成林</a></li>
-		<li><a href="http://www.runker.net/" target="_blank">行客工作室</a></li>
-		<li><a href="http://bbs.pediy.com/index.php" target="_blank">看雪论坛</a></li>
-        <li><a href="http://www.hanzify.org" target="_blank">汉化新世纪</a></li>
-        <li><a href="http://www.ttrar.com" target="_blank">天天软件</a></li>
-		<li><a href="http://bbs.125.la" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jingyiluntan.png" alt="精易论坛" /></a></li>
-		<li><a href="http://bbs.eyuyan.com" target="_blank">E语言</a></li>
-		<li><a href="https://xbeta.info/" target="_blank">善用佳软</a></li>
-		<li><a href="http://www.appinn.com" target="_blank">小众软件</a></li>
-		<li><a href="http://www.anxz.com" target="_blank">俺下载</a></li>
-		<li><a href="http://www.huacolor.com" target="_blank">华彩破解</a></li>
-		<li><a href="http://www.0daydown.com" target="_blank"><b>Daydown</b></a></li>
-		<li><a href="http://www.xdowns.com" target="_blank">绿软联盟</a></li>
-		<li><a href="http://www.seekbio.com/soft" target="_blank">生物软件</a></li>
-		<li><a href="http://jsbpzx.net.cn/Index.html" target="_blank">蒲中资源</a></li>
-		<li><a href="http://www.guofs.com" target="_blank">独木成林</a></li>
-		<li><a href="http://msdn.itellyou.cn/?lang=zh-cn" target="_blank">微软软件</a></li>
-		<li><a href="http://www.comicer.com/stronghorse/index.htm" target="_blank"><b>老马原创</b></a></li>
-		<li><a href="http://www.iplaysoft.com" target="_blank">异次元</a></li>
-		<li><a href="http://www.heu8.com" target="_blank">知己而彼</a></li>
-		<li><a href="http://www.appcheers.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/ruanjianxiaopin.png" alt="软件小品" /></a></li>
-		<li><a href="http://www.itopdog.cn" target="_blank">软件盒子</a></li>
-        <li><a href="http://www.freehao123.com" target="_blank">Freehao</a></li>
-		<li><a href="http://my.dot.tk" target="_blank">Dot</a></li>
-		<li><a href="http://www.hostinger.com.hk" target="_blank">Hostinger</a></li>
-                </ul>
-            </div>
-                <!--手机APP-->
-                <div>
-                    <ul class="ul1">
-        <li class="qiangdiao"><a href="http://bbs.zhiyoo.com/forum-2-1.html" target="_blank">智友网</a></li>
-		<li><a href="http://bbs.lidroid.com/f-36-1.html" target="_blank">力卓网</a></li>
-		<li><a href="http://www.7po.com" target="_blank">奇珀网</a></li>
-		<li><a href="http://zuimeia.com" target="_blank"><font color="#FF7F00">最美应用</font></a></li>
-		<li><a href="http://bbs.mfunz.com" target="_blank">魔 趣</a></li>
-        <li><a href="http://bbs.xda.cn/forum.php" target="_blank">XDA</a></li>
-	    <li><a href="http://bbs.gfan.com" target="_blank">机锋论坛</a></li>
-        <li><a href="http://www.wpxap.com" target="_blank">智机网</a></li>
-        <li><a href="http://bbs.feng.com" target="_blank"><font color="#1196EE">威锋网</font></a></li>
-        <li><a href="http://www.wandoujia.com/award" target="_blank">豌豆荚设计奖</a></li>
-        <li><a href="http://app.mi.com/subject/168374" target="_blank">金米奖</a></li>
-        <li><a href="http://apk.hiapk.com/topics" target="_blank">安卓市场精选集</a></li>
-        <li><a href="http://www.anzhi.com/subjects_1.html" target="_blank">安智专题</a></li>
-        <li><a href="http://news.d.cn/zt/" target="_blank">当乐手游专题</a></li>
-        <li><a href="http://apk.gfan.com/topics-1.shtml" target="_blank">机锋精选专题</a></li>
-        <li><a href="http://www.appchina.com/column_list/huishuo" target="_blank">汇说专栏</a></li>
-        <li><a href="http://www.coolapk.com/faxian/digest" target="_blank">酷安精选</a></li>
-        <li><a href="http://sspai.com/" target="_blank">少数派</a></li>
-        <li><a href="http://www.appnz.com/" target="_blank">爱屁屁</a></li>
-        <li><a href="http://pinapps.in/" target="_blank">Pinapps</a></li>
-        <li><a href="http://appdp.com/" target="_blank">APP每日推送</a></li>
-        <li><a href="http://app.dgtle.com/" target="_blank">数字尾巴</a></li>
-        <li><a href="http://www.qdaily.com/tags/1288.html" target="_blank">好奇心日报</a></li>
-        <li><a href="http://next.36kr.com/posts" target="_blank">NEXT</a></li>
-        <li><a href="http://www.wooaii.com/" target="_blank">我爱玩应用</a></li>
-          </ul>
-                </div>
-                <!--科学上网-->
-     <div>
-     <ul class="ul1">
-
-                        <li><a href="https://faststunnel.co/" target="_blank">翻墙插件</a></li>
-                         <li><a href="http://oldj.github.io/SwitchHosts/#cn" target="_blank">SwitchHosts</a></li>
-                        <li><a href="http://www.dou-bi.com/" target="_blank">逗比根据地</a></li>
-                        <li><a href="http://pan.baidu.com/s/1mhaiAfA" target="_blank">壁虎漫步</a></li>
-                        <li><a href="http://www.ishadowsocks.net/" target="_blank">Iss</a></li>
-                        <li><a href="https://1.aiguge.xyz/shadowsocks" target="_blank">1.aiguge.xyz</a></li>
-                        <li><a href="http://note.youdao.com/share/?id=384863bbdb2231b04415196571e2d042&type=note" target="_blank">备份</a></li>
-                    </ul>
-                </div>
-             <!--会员分享-->
-                <div>
-                    <ul class="ul1">
-                        <li><a href="http://www.uevip.cn" target="_blank">优易vip</a></li>
-                        <li><a href="http://www.vipfenxiang.com/xunlei/" target="_blank">vip分享网</a></li>
-                        <li><a href="http://www.ffaner.com/xunlei" target="_blank">飞凡vip</a></li>
-                        <li><a href="http://vip.ihuan.me/" target="_blank">爱幻想分享</a></li>
-                        <li><a href="http://vipbuluo.com/catalog.asp?cate=1" target="_blank">vip部落</a></li>
-                        <li><a href="http://www.zmsq.com/category/yunbo" target="_blank">织梦社区</a></li>
-                        <li><a href="http://www.521xunlei.com/forum-xunleihuiyuan-1.html" target="_blank">爱密码</a></li>
-                        <li><a href="http://www.aiqiyivip.com/forum-38-1.html" target="_blank">乐享网</a></li>
-                        <li><a href="http://www.xunwangba.com/forum-49-1.html" target="_blank">迅网吧</a></li>
-                        <li><a href="http://www.fenxs.com/" target="_blank">分享社</a></li>
-                        <li><a href="http://www.laobinggun.com/forum-37-1.html" target="_blank">老冰棍论坛</a></li>
-                        <li><a href="http://www.365iqiyi.com/" target="_blank">天天爱奇艺</a></li>
-                        <li><a href="http://www.zhanghao.cc/" target="_blank">帐号网</a></li>
-                        <li><a href="http://www.mdouvip.com/aiqiyi" target="_blank">麦豆vip分享网</a></li>
-                        <li><a href="http://ihxvip.com/youku.html" target="_blank">vip会员账号分享</a></li>
-                        <li><a href="http://www.mdouvip.com/youku" target="_blank">麦豆vip分享网</a></li>
-                    </ul>
-                </div>
+        <!--精品软件-->
+        <div class="show">
+            <ul class="ul1">
+                <li><a href="http://www.52pojie.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/52pojie.png" alt="52破解" /></a></li>
+                <li><a href="http://www.xuepojie.com/" target="_blank">学破解</a></li>
+                <li><a href="http://www.dayanzai.me" target="_blank">大眼仔</a></li>
+                <li><a href="http://www.miui.com/forum.php" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/MIUI.png" alt="MIUI"/></a></li>
+                <li><a href="http://www.mi.com/index.html" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/xiaomi.png" alt="小米网"/></a></li>
+                <li>
+                    <a href="http://hrtsea.com" target="_blank">
+                        <font color="#436EEE"><b>烈火软件</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.shaoit.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/mopiaoyao.png" alt="莫飘遥" /></a></li>
+                <li><a href="http://www.zdfans.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/zd423.png" alt="Zd423" /></a></li>
+                <li><a href="http://www.repaik.com" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/ruipaike.png" alt="睿派克" /></a></li>
+                <li><a href="http://www.bokeboke.net/" target="_blank">爱软客</a></li>
+                <li><a href="http://www.carrotchou.blog/" target="_blank">胡萝卜周</a></li>
+                <li><a href="https://emlvirus.gitbooks.io/windows-apps-that-amaze-us/content/" target="_blank">Win绝赞应用</a></li>
+                <li><a href="https://www.rkdot.com/" target="_blank">软矿</a></li>
+                <li><a href="http://www.xiexinmin.com/?page_id=14" target="_blank">谢信民</a></li>
+                <li><a href="https://laod.cn/" target="_blank">老D博客</a></li>
+                <li><a href="http://sae.sina.com.cn" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/sinaapp.png" alt="SAE" /></a></li>
+                <li>
+                    <a href="http://bbs.pcbeta.com" target="_blank">
+                        <font color="#3A5FCD">远景论坛</font>
+                    </a>
+                </li>
+                <li><a href="http://www.flighty.cn" target="_blank">轻狂志</a></li>
+                <li><a href="http://www.chinapyg.com/forum.php" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/piaoyunge.png" alt="飘云阁" /></a></li>
+                <li><a href="https://www.itreping.com/" target="_blank">IT热评</a></li>
+                <li><a href="http://www.3xiazai.com/" target="_blank">独木成林</a></li>
+                <li><a href="http://www.runker.net/" target="_blank">行客工作室</a></li>
+                <li><a href="http://bbs.pediy.com/index.php" target="_blank">看雪论坛</a></li>
+                <li><a href="http://www.hanzify.org" target="_blank">汉化新世纪</a></li>
+                <li><a href="http://www.ttrar.com" target="_blank">天天软件</a></li>
+                <li><a href="http://bbs.125.la" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/jingyiluntan.png" alt="精易论坛" /></a></li>
+                <li><a href="http://bbs.eyuyan.com" target="_blank">E语言</a></li>
+                <li><a href="https://xbeta.info/" target="_blank">善用佳软</a></li>
+                <li><a href="http://www.appinn.com" target="_blank">小众软件</a></li>
+                <li><a href="http://www.anxz.com" target="_blank">俺下载</a></li>
+                <li><a href="http://www.huacolor.com" target="_blank">华彩破解</a></li>
+                <li><a href="http://www.0daydown.com" target="_blank"><b>Daydown</b></a></li>
+                <li><a href="http://www.xdowns.com" target="_blank">绿软联盟</a></li>
+                <li><a href="http://www.seekbio.com/soft" target="_blank">生物软件</a></li>
+                <li><a href="http://jsbpzx.net.cn/Index.html" target="_blank">蒲中资源</a></li>
+                <li><a href="http://www.guofs.com" target="_blank">独木成林</a></li>
+                <li><a href="http://msdn.itellyou.cn/?lang=zh-cn" target="_blank">微软软件</a></li>
+                <li><a href="http://www.comicer.com/stronghorse/index.htm" target="_blank"><b>老马原创</b></a></li>
+                <li><a href="http://www.iplaysoft.com" target="_blank">异次元</a></li>
+                <li><a href="http://www.heu8.com" target="_blank">知己而彼</a></li>
+                <li><a href="http://www.appcheers.com/" target="_blank"><img src="http://ojis8rp6f.bkt.clouddn.com/ruanjianxiaopin.png" alt="软件小品" /></a></li>
+                <li><a href="http://www.itopdog.cn" target="_blank">软件盒子</a></li>
+                <li><a href="http://www.freehao123.com" target="_blank">Freehao</a></li>
+                <li><a href="http://my.dot.tk" target="_blank">Dot</a></li>
+                <li><a href="http://www.hostinger.com.hk" target="_blank">Hostinger</a></li>
+            </ul>
+        </div>
+        <!--手机APP-->
+        <div>
+            <ul class="ul1">
+                <li class="qiangdiao"><a href="http://bbs.zhiyoo.com/forum-2-1.html" target="_blank">智友网</a></li>
+                <li><a href="http://bbs.lidroid.com/f-36-1.html" target="_blank">力卓网</a></li>
+                <li><a href="http://www.7po.com" target="_blank">奇珀网</a></li>
+                <li>
+                    <a href="http://zuimeia.com" target="_blank">
+                        <font color="#FF7F00">最美应用</font>
+                    </a>
+                </li>
+                <li><a href="http://bbs.mfunz.com" target="_blank">魔 趣</a></li>
+                <li><a href="http://bbs.xda.cn/forum.php" target="_blank">XDA</a></li>
+                <li><a href="http://bbs.gfan.com" target="_blank">机锋论坛</a></li>
+                <li><a href="http://www.wpxap.com" target="_blank">智机网</a></li>
+                <li>
+                    <a href="http://bbs.feng.com" target="_blank">
+                        <font color="#1196EE">威锋网</font>
+                    </a>
+                </li>
+                <li><a href="http://www.wandoujia.com/award" target="_blank">豌豆荚设计奖</a></li>
+                <li><a href="http://app.mi.com/subject/168374" target="_blank">金米奖</a></li>
+                <li><a href="http://apk.hiapk.com/topics" target="_blank">安卓市场精选集</a></li>
+                <li><a href="http://www.anzhi.com/subjects_1.html" target="_blank">安智专题</a></li>
+                <li><a href="http://news.d.cn/zt/" target="_blank">当乐手游专题</a></li>
+                <li><a href="http://apk.gfan.com/topics-1.shtml" target="_blank">机锋精选专题</a></li>
+                <li><a href="http://www.appchina.com/column_list/huishuo" target="_blank">汇说专栏</a></li>
+                <li><a href="http://www.coolapk.com/faxian/digest" target="_blank">酷安精选</a></li>
+                <li><a href="http://sspai.com/" target="_blank">少数派</a></li>
+                <li><a href="http://www.appnz.com/" target="_blank">爱屁屁</a></li>
+                <li><a href="http://pinapps.in/" target="_blank">Pinapps</a></li>
+                <li><a href="http://appdp.com/" target="_blank">APP每日推送</a></li>
+                <li><a href="http://app.dgtle.com/" target="_blank">数字尾巴</a></li>
+                <li><a href="http://www.qdaily.com/tags/1288.html" target="_blank">好奇心日报</a></li>
+                <li><a href="http://next.36kr.com/posts" target="_blank">NEXT</a></li>
+                <li><a href="http://www.wooaii.com/" target="_blank">我爱玩应用</a></li>
+            </ul>
+        </div>
+        <!--科学上网-->
+        <div>
+            <ul class="ul1">
+                <li><a href="https://faststunnel.co/" target="_blank">翻墙插件</a></li>
+                <li><a href="http://oldj.github.io/SwitchHosts/#cn" target="_blank">SwitchHosts</a></li>
+                <li><a href="http://www.dou-bi.com/" target="_blank">逗比根据地</a></li>
+                <li><a href="http://pan.baidu.com/s/1mhaiAfA" target="_blank">壁虎漫步</a></li>
+                <li><a href="http://www.ishadowsocks.net/" target="_blank">Iss</a></li>
+                <li><a href="https://1.aiguge.xyz/shadowsocks" target="_blank">1.aiguge.xyz</a></li>
+                <li><a href="http://note.youdao.com/share/?id=384863bbdb2231b04415196571e2d042&type=note" target="_blank">备份</a></li>
+            </ul>
+        </div>
+        <!--会员分享-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://www.uevip.cn" target="_blank">优易vip</a></li>
+                <li><a href="http://www.vipfenxiang.com/xunlei/" target="_blank">vip分享网</a></li>
+                <li><a href="http://www.ffaner.com/xunlei" target="_blank">飞凡vip</a></li>
+                <li><a href="http://vip.ihuan.me/" target="_blank">爱幻想分享</a></li>
+                <li><a href="http://vipbuluo.com/catalog.asp?cate=1" target="_blank">vip部落</a></li>
+                <li><a href="http://www.zmsq.com/category/yunbo" target="_blank">织梦社区</a></li>
+                <li><a href="http://www.521xunlei.com/forum-xunleihuiyuan-1.html" target="_blank">爱密码</a></li>
+                <li><a href="http://www.aiqiyivip.com/forum-38-1.html" target="_blank">乐享网</a></li>
+                <li><a href="http://www.xunwangba.com/forum-49-1.html" target="_blank">迅网吧</a></li>
+                <li><a href="http://www.fenxs.com/" target="_blank">分享社</a></li>
+                <li><a href="http://www.laobinggun.com/forum-37-1.html" target="_blank">老冰棍论坛</a></li>
+                <li><a href="http://www.365iqiyi.com/" target="_blank">天天爱奇艺</a></li>
+                <li><a href="http://www.zhanghao.cc/" target="_blank">帐号网</a></li>
+                <li><a href="http://www.mdouvip.com/aiqiyi" target="_blank">麦豆vip分享网</a></li>
+                <li><a href="http://ihxvip.com/youku.html" target="_blank">vip会员账号分享</a></li>
+                <li><a href="http://www.mdouvip.com/youku" target="_blank">麦豆vip分享网</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <!-- 设计素材 -->
 <div id="ppt" class="zhutikuang" style="height:auto;">
     <div class="tab">
-    <span>设计素材</span>
-    <ul class="ppttab">
-        <li class="current">素材下载</li>
-		<li>字体</li>
-		<li>PPT模板</li>
-        <li>音效</li>
-
-    </ul>
+        <span>设计素材</span>
+        <ul class="ppttab">
+            <li class="current">素材下载</li>
+            <li>字体</li>
+            <li>PPT模板</li>
+            <li>音效</li>
+        </ul>
     </div>
     <div id="pptshow">
         <!--素材下载-->
-                <div class="show">
-                    <ul class="ul1">
-		<li class="xiaofenlei">素材资源</li>
-        <li><a href="http://www.58pic.com" target="_blank"><font color="#32CD32"><b>千图网</b></font></a></li>
-        <li><a href="http://www.pdadians.com/" target="_blank"><b>P大点S</b></a></li>
-        <li><a href="http://www.k1982.com" target="_blank">数字驿站</a></li>
-        <li><a href="http://pngimg.com/" target="_blank">透明素材</a></li>
-        <li><a href="http://90sheji.com/" target="_blank">90设计</a></li>
-        <li><a href="http://psefan.com/" target="_blank">ps饭团网</a></li>
-        <li><a href="http://so.ui001.com/" target="_blank">搜素材</a></li>
-        <li><a href="https://tagul.com" target="_blank">文字云</a></li>
-        <li><a href="http://www.meigong8.com" title="淘宝美工网址导航" target="_blank">美工吧</a></li>
-        <li><a href="http://www.peise.net/tools/web" title="中文版色彩搭配师" target="_blank">配色设计</a></li>
-        <li class="xiaofenlei">高清图库</li>
-                        <li><a href="http://www.quanjing.com/" target="_blank">全景</a></li>
-                        <li><a href="http://eput.com/" target="_blank">Eput</a></li>
-                        <li><a href="http://www.gratisography.com/" target="_blank">Gratisography</a></li>
-                        <li><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
-                        <li><a href="https://500px.com/" target="_blank">500px</a></li>
-                        <li><a href="http://www.kdatu.com/" target="_blank">看大图</a></li>
-						<li><a href="http://www.topit.me" target="_blank">优美图</a></li>
-		              <li><a href="http://www.tuzhan.com" target="_blank">图 展</a></li>
-
-                    </ul>
-                </div>
-				<!--字体-->
-                <div>
-                    <ul class="ul1">
-                        <li><a href="http://www.diyiziti.com/" target="_blank">第一字体转换器</a></li>
-                        <li><a href="http://www.qiuziti.com/" target="_blank">求字体</a></li>
-                        <li><a href="http://www.zhaozi.cn/" target="_blank">找字网</a></li>
-                        <li><a href="http://font.knowsky.com/" target="_blank">字体下载大宝库</a></li>
-                        <li><a href="http://font.chinaz.com/" target="_blank">站长字体</a></li>
-                        <li class="qiangdiao"><a href="http://hao.uisdc.com/" target="_blank">更多</a></li>
-                    </ul>
-                </div>
-            <!--ppt模板-->
-                <div>
-                    <ul class="ul1">
-                        <li><a href="http://www.tretars.com/" target="_blank">逼格ppt</a></li>
-                        <li><a href="http://office.msn.com.cn/List.shtml?cat=PPT" target="_blank">微软OfficePLUS</a></li>
-                        <li><a href="http://www.pptfans.cn/" target="_blank">PPTfans</a></li>
-                        <li><a href="http://list.docer.com/PPT%E6%A8%A1%E6%9D%BF/" target="_blank">稻壳儿</a></li>
-                        <li><a href="http://www.yanyijingling.com/" target="_blank">演绎精灵</a></li>
-                        <li><a href="http://www.pptstore.net/ppt_moban/?opt=free" target="_blank">PPTstore</a></li>
-                        <li><a href="http://muzi.info/" target="_blank">MUZI</a></li>
-                        <li><a href="http://www.pptschool.com/" target="_blank">PPT大学</a></li>
-                        <li><a href="http://www.pptok.com/" target="_blank">PPTOK</a></li>
-                        <li><a href="http://www.rapidbbs.cn/" target="_blank">锐普ppt</a></li>
-                        <li><a href="http://www.51ppt.com.cn/" target="_blank">无忧ppt</a></li>
-                        <li><a href="http://iloveppt.cn/" target="_blank">我爱ppt</a></li>
-                        <li><a href="http://www.yanj.cn/" target="_blank">演界网</a></li>
-                        <li><a href="http://www.51pptmoban.com/" target="_blank">51ppt模板</a></li>
-                        <li><a href="http://www.zhaogeppt.com/" target="_blank">找个PPT</a></li>
-                        <li><a href="http://www.pooban.com/" target="_blank">扑奔网</a></li>
-                        <li><a href="http://www.ypppt.com/" target="_blank">优品PPT</a></li>
-                    </ul>
-                </div>
-				<!--音效-->
-                <div>
-                    <ul class="ul1">
-                        <li><a href="http://taira-komori.jpn.org/freesoundcn.html" target="_blank">小森平的音效</a></li>
-                        <li><a href="http://www.yinxiao.com/" target="_blank">音效网</a></li>
-                        <li><a href="http://www.2gei.com/sound/" target="_blank">爱给网</a></li>
-                        <li><a href="http://www.yisell.com/" target="_blank">音笑网</a></li>
-                        <li><a href="http://www.soundsnap.com/" target="_blank">soundsnap</a></li>
-                        <li><a href="http://www.sucaibar.com/yinxiao/" target="_blank">素材吧</a></li>
-                    </ul>
-                </div>
+        <div class="show">
+            <ul class="ul1">
+                <li class="xiaofenlei">素材资源</li>
+                <li>
+                    <a href="http://www.58pic.com" target="_blank">
+                        <font color="#32CD32"><b>千图网</b></font>
+                    </a>
+                </li>
+                <li><a href="http://www.pdadians.com/" target="_blank"><b>P大点S</b></a></li>
+                <li><a href="http://www.k1982.com" target="_blank">数字驿站</a></li>
+                <li><a href="http://pngimg.com/" target="_blank">透明素材</a></li>
+                <li><a href="http://90sheji.com/" target="_blank">90设计</a></li>
+                <li><a href="http://psefan.com/" target="_blank">ps饭团网</a></li>
+                <li><a href="http://so.ui001.com/" target="_blank">搜素材</a></li>
+                <li><a href="https://tagul.com" target="_blank">文字云</a></li>
+                <li><a href="http://www.meigong8.com" title="淘宝美工网址导航" target="_blank">美工吧</a></li>
+                <li><a href="http://www.peise.net/tools/web" title="中文版色彩搭配师" target="_blank">配色设计</a></li>
+                <li class="xiaofenlei">高清图库</li>
+                <li><a href="http://www.quanjing.com/" target="_blank">全景</a></li>
+                <li><a href="http://eput.com/" target="_blank">Eput</a></li>
+                <li><a href="http://www.gratisography.com/" target="_blank">Gratisography</a></li>
+                <li><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+                <li><a href="https://500px.com/" target="_blank">500px</a></li>
+                <li><a href="http://www.kdatu.com/" target="_blank">看大图</a></li>
+                <li><a href="http://www.topit.me" target="_blank">优美图</a></li>
+                <li><a href="http://www.tuzhan.com" target="_blank">图 展</a></li>
+            </ul>
+        </div>
+        <!--字体-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://www.diyiziti.com/" target="_blank">第一字体转换器</a></li>
+                <li><a href="http://www.qiuziti.com/" target="_blank">求字体</a></li>
+                <li><a href="http://www.zhaozi.cn/" target="_blank">找字网</a></li>
+                <li><a href="http://font.knowsky.com/" target="_blank">字体下载大宝库</a></li>
+                <li><a href="http://font.chinaz.com/" target="_blank">站长字体</a></li>
+                <li class="qiangdiao"><a href="http://hao.uisdc.com/" target="_blank">更多</a></li>
+            </ul>
+        </div>
+        <!--ppt模板-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://www.tretars.com/" target="_blank">逼格ppt</a></li>
+                <li><a href="http://office.msn.com.cn/List.shtml?cat=PPT" target="_blank">微软OfficePLUS</a></li>
+                <li><a href="http://www.pptfans.cn/" target="_blank">PPTfans</a></li>
+                <li><a href="http://list.docer.com/PPT%E6%A8%A1%E6%9D%BF/" target="_blank">稻壳儿</a></li>
+                <li><a href="http://www.yanyijingling.com/" target="_blank">演绎精灵</a></li>
+                <li><a href="http://www.pptstore.net/ppt_moban/?opt=free" target="_blank">PPTstore</a></li>
+                <li><a href="http://muzi.info/" target="_blank">MUZI</a></li>
+                <li><a href="http://www.pptschool.com/" target="_blank">PPT大学</a></li>
+                <li><a href="http://www.pptok.com/" target="_blank">PPTOK</a></li>
+                <li><a href="http://www.rapidbbs.cn/" target="_blank">锐普ppt</a></li>
+                <li><a href="http://www.51ppt.com.cn/" target="_blank">无忧ppt</a></li>
+                <li><a href="http://iloveppt.cn/" target="_blank">我爱ppt</a></li>
+                <li><a href="http://www.yanj.cn/" target="_blank">演界网</a></li>
+                <li><a href="http://www.51pptmoban.com/" target="_blank">51ppt模板</a></li>
+                <li><a href="http://www.zhaogeppt.com/" target="_blank">找个PPT</a></li>
+                <li><a href="http://www.pooban.com/" target="_blank">扑奔网</a></li>
+                <li><a href="http://www.ypppt.com/" target="_blank">优品PPT</a></li>
+            </ul>
+        </div>
+        <!--音效-->
+        <div>
+            <ul class="ul1">
+                <li><a href="http://taira-komori.jpn.org/freesoundcn.html" target="_blank">小森平的音效</a></li>
+                <li><a href="http://www.yinxiao.com/" target="_blank">音效网</a></li>
+                <li><a href="http://www.2gei.com/sound/" target="_blank">爱给网</a></li>
+                <li><a href="http://www.yisell.com/" target="_blank">音笑网</a></li>
+                <li><a href="http://www.soundsnap.com/" target="_blank">soundsnap</a></li>
+                <li><a href="http://www.sucaibar.com/yinxiao/" target="_blank">素材吧</a></li>
+            </ul>
+        </div>
     </div>
 </div>
-
-
 <!-- 导航先锋 -->
 <div id="daohang" class="zhutikuang" style="height:auto;">
     <div class="tab">
-    <span>导航先锋</span>
-    <ul class="daohangtab">
-        <li class="current">导航</li>
-
-    </ul>
+        <span>导航先锋</span>
+        <ul class="daohangtab">
+            <li class="current">导航</li>
+        </ul>
     </div>
     <div id="daohangshow">
-           <!--IT学习-->
-           <div class="show">
-              <ul class="ul1">
-        <li class="xiaofenlei2">导航聚集</li>
-		    <li><a href="http://www.haoyonghaowan.com/" title="好用好玩导航" target="_blank"><b>好用好玩导航</b></a></li>
-			 <li><a href="http://www.zm1z.com" title="发现最美好站" target="_blank"><b>最美1站</b></a></li>
-			 <li><a href="http://www.egouz.com/" target="_blank">国外网站大全</a></li>
-			<li><a href="http://youquhome.com/" target="_blank">有趣网址</a></li>
-			<li><a href="http://ilxdh.com/" title="龙轩导航" target="_blank"><b>龙轩导航</b></a></li>
-            <li><a href="http://www.qicao.cn/" target="_blank">奇草导航</a></li>
-            <li><a href="http://www.ziyuangou.com/" target="_blank">资源狗</a></li>
-			<li><a href="http://gate.guokr.com" target="_blank">果壳任意门</a></li>
-            <li><a href="http://qianshan.co/" target="_blank">千山导航</a></li>
-            <li><a href="http://mfavisa.com/" target="_blank">签证导航网</a></li>
-            <li><a href="http://it2048.cn/" target="_blank">极客导航</a></li>
-            <li class="xiaofenlei">影视导航</li>
-            <li><a href="http://www.dydh.org/" target="_blank">电影导航.ORG</a></li>
-            <li><a href="http://hao.wdy.com/" target="_blank">微电影导航</a></li>
-
-			<li class="xiaofenlei">设计素材</li>
-            <li><a href="http://hao.uisdc.com/" target="_blank">设计师导航1</a></li>
-            <li><a href="http://www.userinterface.com.cn/" target="_blank">设计师导航2</a></li>
-            <li><a href="http://hao.xueui.cn/" target="_blank">ui导航</a></li>
-            <li><a href="http://hao.shejidaren.com/" target="_blank">设计导航</a></li>
-            <li><a href="http://www.niudana.com/" target="_blank">牛大拿导航</a></li>
-            <li><a href="http://hao.psefan.com/" target="_blank">饭团导航</a></li>
-			<li class="qiangdiao"><a href="http://hao.uisdc.com/" target="_blank">更多</a></li>
-
-            <li class="xiaofenlei">教育学习</li>
-            <li><a href="http://www.1nami.com/" target="_blank">1纳米学习</a></li>
-            <li><a href="http://kbs.cnki.net/" target="_blank">学术导航</a></li>
-            <li><a href="http://123.paomianba.com/" target="_blank">泡面吧</a></li>
-            <li><a href="http://dh.xdf.cn/" target="_blank">新东方导航</a></li>
-            <li><a href="http://www.jydh.com/" target="_blank">中国教育导航</a></li>
-            <li><a href="http://www.54100.net/" target="_blank">好教师导航</a></li>
-            <li><a href="http://www.qunadu.cn/" target="_blank">去哪读导航</a></li>
-
-            <li class="xiaofenlei">博客导航</li>
-            <li><a href="http://blog.ws234.com/" target="_blank">玩博客</a></li>
-            <li><a href="http://www.516680.com/" target="_blank">博客导航网</a></li>
-            <li><a href="http://boke112.com/" target="_blank">boke112导航</a></li>
-            <li><a href="http://zgboke.com/" target="_blank">博客联盟</a></li>
-            <li><a href="http://lusongsong.com/daohang/" target="_blank">博客大全</a></li>
-            <li><a href="http://www.wuxianlandao.com/bokezhi/" target="_blank">博客志</a></li>
-
-
-        </ul>
-		</div>
+        <!--IT学习-->
+        <div class="show">
+            <ul class="ul1">
+                <li class="xiaofenlei2">导航聚集</li>
+                <li><a href="http://www.haoyonghaowan.com/" title="好用好玩导航" target="_blank"><b>好用好玩导航</b></a></li>
+                <li><a href="http://www.zm1z.com" title="发现最美好站" target="_blank"><b>最美1站</b></a></li>
+                <li><a href="http://www.egouz.com/" target="_blank">国外网站大全</a></li>
+                <li><a href="http://youquhome.com/" target="_blank">有趣网址</a></li>
+                <li><a href="http://ilxdh.com/" title="龙轩导航" target="_blank"><b>龙轩导航</b></a></li>
+                <li><a href="http://www.qicao.cn/" target="_blank">奇草导航</a></li>
+                <li><a href="http://www.ziyuangou.com/" target="_blank">资源狗</a></li>
+                <li><a href="http://gate.guokr.com" target="_blank">果壳任意门</a></li>
+                <li><a href="http://qianshan.co/" target="_blank">千山导航</a></li>
+                <li><a href="http://mfavisa.com/" target="_blank">签证导航网</a></li>
+                <li><a href="http://it2048.cn/" target="_blank">极客导航</a></li>
+                <li class="xiaofenlei">影视导航</li>
+                <li><a href="http://www.dydh.org/" target="_blank">电影导航.ORG</a></li>
+                <li><a href="http://hao.wdy.com/" target="_blank">微电影导航</a></li>
+                <li class="xiaofenlei">设计素材</li>
+                <li><a href="http://hao.uisdc.com/" target="_blank">设计师导航1</a></li>
+                <li><a href="http://www.userinterface.com.cn/" target="_blank">设计师导航2</a></li>
+                <li><a href="http://hao.xueui.cn/" target="_blank">ui导航</a></li>
+                <li><a href="http://hao.shejidaren.com/" target="_blank">设计导航</a></li>
+                <li><a href="http://www.niudana.com/" target="_blank">牛大拿导航</a></li>
+                <li><a href="http://hao.psefan.com/" target="_blank">饭团导航</a></li>
+                <li class="qiangdiao"><a href="http://hao.uisdc.com/" target="_blank">更多</a></li>
+                <li class="xiaofenlei">教育学习</li>
+                <li><a href="http://www.1nami.com/" target="_blank">1纳米学习</a></li>
+                <li><a href="http://kbs.cnki.net/" target="_blank">学术导航</a></li>
+                <li><a href="http://123.paomianba.com/" target="_blank">泡面吧</a></li>
+                <li><a href="http://dh.xdf.cn/" target="_blank">新东方导航</a></li>
+                <li><a href="http://www.jydh.com/" target="_blank">中国教育导航</a></li>
+                <li><a href="http://www.54100.net/" target="_blank">好教师导航</a></li>
+                <li><a href="http://www.qunadu.cn/" target="_blank">去哪读导航</a></li>
+                <li class="xiaofenlei">博客导航</li>
+                <li><a href="http://blog.ws234.com/" target="_blank">玩博客</a></li>
+                <li><a href="http://www.516680.com/" target="_blank">博客导航网</a></li>
+                <li><a href="http://boke112.com/" target="_blank">boke112导航</a></li>
+                <li><a href="http://zgboke.com/" target="_blank">博客联盟</a></li>
+                <li><a href="http://lusongsong.com/daohang/" target="_blank">博客大全</a></li>
+                <li><a href="http://www.wuxianlandao.com/bokezhi/" target="_blank">博客志</a></li>
+            </ul>
+        </div>
     </div>
-</div>	<script type="text/javascript" color="0,104,183" opacity='1' zIndex="-1" count="100" src="js/jquery.js"></script>
+</div>
+<script type="text/javascript" color="0,104,183" opacity='1' zIndex="-1" count="100" src="js/jquery.js"></script>
 <div id="footer">
-                <p>
-                友情链接 :
-                <a href="http://haohome.github.io/" target="_blank">靖风行</a>
-				<!-- <p>Copyright &copy; 2016. 靖风行</p> -->
-				</p>
-
-    </div>
+    <p>
+        友情链接 :
+        <a href="http://haohome.github.io/" target="_blank">靖风行</a>
+        <!-- <p>Copyright &copy; 2016. 靖风行</p> -->
+    </p>
+</div>
 <!-- 结束footer -->
-
-
 </html
