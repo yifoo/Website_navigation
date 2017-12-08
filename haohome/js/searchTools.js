@@ -37,7 +37,7 @@ sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http:
 
 {"tips":"网盘搜索","websites":
 {name:[["鸵鸟搜索","去转盘","胖次搜索","007网盘","PanSoso"],],
-sites:[["http://www.tuoniao.me/search/guanjian/list","http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.panc.cc/s/guanjian"],"https://wangpan007.com/share/kwguanjian","http://www.pansoso.com/zh/guanjian"]}},
+sites:[["http://www.tuoniao.me/search/guanjian/list","http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.panc.cc/s/guanjian","https://wangpan007.com/share/kwguanjian","http://www.pansoso.com/zh/guanjian"],]}},
 
 {"tips":"BT影视资源","websites":
 {name:[["BT之家","电影首发","美剧搜","疯狂搜索","胖鸟搜索","降龙影院"],],
