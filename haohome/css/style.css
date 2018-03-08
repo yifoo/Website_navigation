@@ -101,11 +101,11 @@ ul,li {list-style:none;}
 .ul1 img { margin-left: 2px;
     margin-right: 2px;
     margin-top: 3px;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     width: 70px;
     height: 20px;
     vertical-align: bottom;
-    border: 2px;}
+    }
 #shoppingshow div,#ruanjianshow div,#mianfeishow div,#mediashow div,#pptshow div,#dushushow div,#workshow div,#readshow div,#mediashow div,#studyshow div,#searchshow div{display: none;}
 #shoppingshow .show,#mediashow .show,#ruanjianshow .show,#mianfeishow .show,#pptshow .show,#dushushow .show,#workshow .show,#readshow .show,#mediashow .show,#studyshow .show,#searchshow .show{display: block;}
 .searchtab .current,.shoppingtab .current,.mediatab .current,.ruanjiantab .current,.mianfeitab .current,.ppttab .current,.dushutab .current,.worktab .current,.readtab .current,.mediatab .current,.studytab .current,.daohangtab .current{ background-color:#EDEDED;color:#2783e0;font-weight:bold;border-bottom:1px solid #2783e0;/*border-right:1px solid #ccc;border-left:1px solid #ccc;*/}
