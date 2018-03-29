@@ -4,10 +4,10 @@ db.json
 *.log
 node_modules/
 .deploy*/
-.zip
-.rar
-.doc
-.txt
-.xml
+*.zip
+*.rar
+*.doc
+*.txt
+*.xml
 /.idea
 .idea
