@@ -364,6 +364,7 @@
               <li><a href="https://www.v2ex.com/" style="font-weight:bold" target="_blank">V2EX</a></li>
               <li><a href="http://www.bslxx.com/" style="color:#199EF8;font-weight:bold;font-size:15px;" target="_blank">奔三路</a></li>
               <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+              <li><a href="http://www.infoq.com/cn/" title="促进软件开发领域知识与创新的传播" target="_blank">InfoQ</a></li>
               <li><a href="https://codepen.io/" target="_blank">CodePen</a></li>
               <li><a href="http://www.w3cplus.com/" target="_blank">W3cPlus</a></li>
               <li><a href="http://www.imooc.com" title="国内最大的IT技能学习平台" target="_blank"><img src="https://haohome.top/imooc.png" alt="慕课网" /></a></li>
@@ -1219,10 +1220,11 @@
 <!-- <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> -->
 <!-- <script src="./haohome/js/jquery.cookie.js"></script> -->
 <!-- <script src="./haohome/js/hover.js"></script> -->
-<!-- <script src="./haohome/js/opensug.js"></script> -->
+<script src="./haohome/js/jquery.tooltip.js"></script>
 <script>
 $(function() {
     $(".loading,.loading_container").hide();
+    $('a[title]').tooltip({align: 'top'});
 })
 </script>
 </body>
