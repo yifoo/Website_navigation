@@ -25,7 +25,7 @@ else{initArray=[]}
 var searchInfo=
 [{"tips":"网页搜索","websites":
 {name:[["百度搜索","谷歌搜索","健康搜","搜淘宝","京东购物",],],
-sites:[["http://www.baidu.com/s?wd=guanjian","https://www.google.com.hk/#q=guanjian","http://so.39.net/s?words=guanjian","https://s.taobao.com/search?q=guanjian", "https://search.jd.com/Search?enc=utf-8&keyword=guanjian"],]}},
+sites:[["http://www.baidu.com/s?wd=guanjian","https://www.google.com/search?q=guanjian","http://so.39.net/s?words=guanjian","https://s.taobao.com/search?q=guanjian", "https://search.jd.com/Search?enc=utf-8&keyword=guanjian"],]}},
 
 {"tips":"社交知识搜索","websites":
  {name:[["微信搜索","知乎搜索","果壳搜索","贴吧搜索","微博搜索"],],
