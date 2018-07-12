@@ -37,11 +37,11 @@ sites:[["http://image.baidu.com/search/index?tn=baiduimage&word=guanjian","http:
 
 {"tips":"网盘搜索","websites":
 {name:[["鸵鸟搜索","去转盘","胖次搜索","007网盘","PanSoso"],],
-sites:[["http://www.tuoniao.me/search/guanjian/list","http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.panc.cc/s/guanjian","https://wangpan007.com/share/kwguanjian","http://www.pansoso.com/zh/guanjian"],]}},
+sites:[["http://www.tuoniao.me/search/guanjian/list","http://www.quzhuanpan.com/source/search.action?q=guanjian","http://www.panc.cc/s/guanjian","https://wangpan007.com/share/kwguanjian","http://www.pansoso.com/zh/guanjian"]]}},
 
-{"tips":"BT影视资源","websites":
-{name:[["BT之家","电影首发","美剧搜","疯狂搜索","胖鸟搜索","降龙影院"],],
-sites:["http://www.btbtt.me/search-index-keyword-guanjian.htm","http://www.dysfz.net/key/guanjian/","http://cn163.net/?s=guanjian","http://ifkdy.com/?q=guanjian","http://www.pniao.com/Mov/so/guanjian","http://xlyy100.com/index.php?m=vod-search-pg-1-wd-guanjian.html"],}},
+{"tips":"影视资源","websites":
+{name:[["BtSou","Bt云搜","veryCD","逛电驴"],],
+sites:[["http://www.btsou8.net/list/guanjian/1","http://www.btyunsou.co/search/guanjian_ctime_1.html","http://www.verycd.com/search/entries/guanjian","http://verycd.gdajie.com/find.htm?keyword=guanjian"]]}},
 
 {"tips":"找素材","websites":
 {name:[["ZCOOL搜", "图标搜", "求字体",'Iconfont图标','图鱼纹理','搜GIF'],],
