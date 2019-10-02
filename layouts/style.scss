@@ -1,0 +1,17 @@
+.container{
+  height:100vh;
+  overflow: auto;
+}
+.main{
+  overflow: initial;
+  padding:0;
+}
+.header {
+  padding:0;
+  height:40px !important;
+}
+.footer{
+  width:100%;
+  background-color: #000;
+  line-height: 60px;
+}

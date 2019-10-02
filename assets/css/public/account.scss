@@ -1,0 +1,62 @@
+@import '~assets/css/variable/color.scss';
+
+.account {
+  width: 22rem;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  position: relative;
+  border-radius: 1rem;
+
+  &:after {
+    content: '';
+    filter: blur(1px);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 1rem;
+  }
+
+  label {
+    color: $reg-label;
+    font-size:.7rem;
+  }
+
+  .el-input {
+    width: 70%;
+    input{
+      height:2rem;
+      line-height: 2rem;
+      font-size:.7rem;
+    }
+  }
+
+  .status {
+    color: $error;
+    line-height: 1rem;
+    display: block;
+  }
+
+
+  .login-btn {
+    width: 70%;
+  }
+
+  .login-title {
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .text{
+    color:#fff;
+    font-size:.7rem;
+  }
+  .el-button{
+    font-size:.7rem;
+  }
+}

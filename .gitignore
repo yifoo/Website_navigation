@@ -11,3 +11,8 @@ node_modules/
 *.xml
 /.idea
 .idea
+.nuxt
+# Nuxt generate
+dist
+
+# server/config
