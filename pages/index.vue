@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import SiteBox from "@/components/siteBox/siteBox.vue";
+import SiteBox from "@/components/siteBox/siteBox";
 import SortOrder from "@/components/siteBox/sortOrder";
 import EditSite from "@/components/public/dialog/EditSite";
 import EditSort from "@/components/public/dialog/EditSort";

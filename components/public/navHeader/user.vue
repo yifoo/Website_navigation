@@ -1,21 +1,17 @@
 <template>
-  <div
-    v-if="userShow"
-    class="nav-user"
-  >
+  <div v-if="userShow" class="nav-user">
     <template v-if="$store.state.userInfo.uname">
-      <span class="user-name">欢迎您，<strong style="color:yellow">{{ userName }}</strong> </span>
-      <el-dropdown @command="handleCommand">
+      <span class="user-name">
+        欢迎您，
+        <strong style="color:yellow">{{ userName }}</strong>
+      </span>
+      <nuxt-link v-if="type!=='mobile'" to="/user-center" >个人中心</nuxt-link>
+      <el-dropdown trigger="click" @command="handleCommand">
         <span class="nav-text">
-          个人中心<i class="el-icon-arrow-down el-icon--right" />
+          选项
+          <i class="el-icon-arrow-down el-icon--right" />
         </span>
         <el-dropdown-menu slot="dropdown">
-          <!-- <el-dropdown-item>
-            <nuxt-link
-              class="el-dropdown-link"
-              to="/user-center"
-            >账号设置</nuxt-link>
-          </el-dropdown-item> -->
           <el-dropdown-item command="edit">{{ editName }}</el-dropdown-item>
           <el-dropdown-item command="feedback">意见反馈</el-dropdown-item>
         </el-dropdown-menu>
@@ -29,19 +25,10 @@
         trigger="hover"
         content="在个人中心选择编辑模式，可以分类、排序和添加网址"
       >
-        <a
-          slot="reference"
-          class="tips"
-        >登录后自定义网址→</a>
+        <a slot="reference" class="tips">登录后自定义网址→</a>
       </el-popover>
-      <nuxt-link
-        to="/login"
-        class="login"
-      >立即登录</nuxt-link>
-      <nuxt-link
-        class="register"
-        to="/register"
-      >注册</nuxt-link>
+      <nuxt-link to="/login" class="login">立即登录</nuxt-link>
+      <nuxt-link class="register" to="/register">注册</nuxt-link>
     </template>
   </div>
 </template>
@@ -60,7 +47,10 @@ export default {
     },
     userName() {
       return this.$store.state.userInfo.userName;
-    }
+    },
+    type() {
+      return this.$store.state.type;
+    },
   },
   async mounted() {
     const { status, data } = await this.$axios.get("/user/getUser");
@@ -79,7 +69,6 @@ export default {
       })
         .then(async confirm => {
           const { status, data } = await this.$axios.get("/user/logout");
-          console.log("user", data);
           if (status === 200 && data.code === "01") {
             this.$store.commit("setUserInfo", {});
             this.$message({
@@ -91,6 +80,7 @@ export default {
             this.$store.commit("sites/setEdit", false);
             this.$store.commit("search/setSHistory", []);
             this.$store.commit("sites/setSubSortList", []);
+            this.$router.replace("/")
           }
         })
         .catch(cancel => {});
@@ -133,13 +123,31 @@ export default {
   float: right;
 }
 .nav-text {
+  display:inline-block;
+  margin:0 10px;
   color: #fff;
   cursor: pointer;
-  font-size: .7rem;
+  font-size: 0.7rem;
+  &:hover{
+    color:#66b1ff
+  }
+  .el-icon--right{
+    margin-left:0;
+  }
 }
-.user-name{
+.user-name {
   display: inline-block;
-  margin:0 .5rem;
+  margin: 0 0.5rem;
+}
+.user-center {
+  display:inline-block;
+  font-size: 14px;
+  color: #606266;
+  cursor: pointer;
+  &:hover {
+    background-color: #ecf5ff;
+    color: #66b1ff;
+  }
 }
 @keyframes myfirst {
   0% {

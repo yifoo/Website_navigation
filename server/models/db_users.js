@@ -3,7 +3,7 @@
  * @Date: 2019-10-01 15:51:36
  * @Desc: 用户
  * @Last Modified by: wuhao
- * @Last Modified time: 2019-10-01 16:28:40
+ * @Last Modified time: 2019-10-02 23:48:10
  */
 import pool from "../config/pool";
 
@@ -12,7 +12,7 @@ const Users = {
    * 查询用户
    * @param {*} query
    */
-  getUser: function(query) {
+  getUser: function (query) {
     const { uid, uname, email } = query;
     let sql = "";
     if (uid) {
@@ -28,7 +28,7 @@ const Users = {
       };
     }
     return new Promise((resolve, reject) => {
-      const param = pool.query(sql, function(err, data) {
+      const param = pool.query(sql, function (err, data) {
         if (err) {
           reject(err);
         }
@@ -47,7 +47,7 @@ const Users = {
     )}','${new Date().format('yyyy-MM-dd hh:mm:ss')}')`;
     return new Promise((resolve, reject) => {
       try {
-        const param = pool.query(sql, function(err, data) {
+        const param = pool.query(sql, function (err, data) {
           if (err) {
             reject(err);
           }
@@ -71,11 +71,11 @@ const Users = {
    * 登录更新登录时间
    * @param {id} uid
    */
-  login: function(uid) {
+  login: function (uid) {
     let sql = `UPDATE nav_users SET login_time='${new Date().format('yyyy-MM-dd hh:mm:ss')}' WHERE uid=${uid}`;
     try {
-      pool.query(sql, function(err, data) {
-        if(err){
+      pool.query(sql, function (err, data) {
+        if (err) {
           console.log("loginerr", err);
         }
       });
@@ -84,16 +84,38 @@ const Users = {
     }
   },
   /**
+   * 更新密码
+   * @param {id} uid
+   * @param {upwd} upwd
+   */
+  updatePwd: function (uid, upwd) {
+    return new Promise((resolve, reject) => {
+      let sql = `UPDATE nav_users SET upwd='${upwd}' WHERE uid=${uid}`;
+      try {
+        pool.query(sql, function (err, data) {
+          if (err) {
+            console.log("修改密码错误", err);
+          } else {
+            resolve("01")
+          }
+        });
+      } catch (e) {
+        console.log("修改密码错误", e);
+      }
+    })
+
+  },
+  /**
    * 获取所有注册用户名
    */
-  getAllUser: function() {
+  getAllUser: function () {
     return new Promise((resolve, reject) => {
       pool.query(
         {
           sql: "SELECT user_name userName,login_time loginTime FROM nav_users",
           timeout: 5000
         },
-        function(err, data) {
+        function (err, data) {
           if (err) {
             throw err;
           } else {

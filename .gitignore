@@ -15,4 +15,4 @@ node_modules/
 # Nuxt generate
 dist
 
-# server/config
+server/config/

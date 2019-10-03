@@ -53,7 +53,8 @@ module.exports = {
     '@/plugins/element-ui',
     '@/plugins/utils',
     '@/plugins/axios',
-    '@/plugins/vueLazyload'
+    '@/plugins/vueLazyload',
+    { src: '@/plugins/router', ssr: true }
   ],
 
   /*

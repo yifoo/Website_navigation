@@ -166,7 +166,6 @@ router.post('/register', async (ctx) => {
     return false
   }
   let user = await dbUsers.getUser(ctx.request.body)
-  console.log('user: ', user);
   if (user && user.uid) {
     ctx.body = {
       code: "-1",
@@ -208,7 +207,9 @@ router.post('/register', async (ctx) => {
     console.log('e', e)
   }
 })
-
+/**
+ * @title 登录网站
+ */
 router.post('/login', async (ctx, next) => {
   return passport.authenticate('local', function (err, user, info, status) {
     if (err) {
@@ -249,6 +250,57 @@ router.get('/logout', async (ctx, next) => {
     ctx.body = {
       code: "-1",
       msg: "注销失败"
+    }
+  }
+})
+/**
+ * @title 修改密码
+ */
+router.post('/editPwd', async (ctx, next) => {
+  const {
+    opwd,
+    npwd
+  } = ctx.request.body;
+  if (ctx.isAuthenticated()) {
+    const {
+      uname,
+      upwd,
+      uid,
+    } = ctx.session.passport.user
+    console.log('opwd!==upwd: ', opwd,upwd);
+    if(opwd!==upwd){
+      ctx.body = {
+        code: "-1",
+        msg:'旧密码不正确',
+        respData: {}
+      }
+    }else{
+      let result = await dbUsers.updatePwd(uid,npwd)
+      if(result==='01'){
+        ctx.body = {
+          code: "01",
+          msg:'密码修改成功,请重新登录',
+          respData: {
+            userName:uname,
+            upwd
+          }
+        }
+        ctx.logout()
+      }else{
+        ctx.body = {
+          code: "-1",
+          msg:'密码修改失败',
+          respData: {}
+        }
+      }
+
+    }
+
+  } else {
+    ctx.body = {
+      code: "-1",
+      msg:'密码修改失败',
+      respData: {}
     }
   }
 })
