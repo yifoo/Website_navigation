@@ -17,6 +17,8 @@ router.get("/getAll", async ctx => {
   }
   try {
     var siteList = await dbSites.getAllSites(uid);
+    console.log('uid: ', uid);
+    console.log('siteList: ', siteList);
     if (siteList && siteList.length > 0) {
       ctx.body = {
         code: "01",

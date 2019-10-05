@@ -56,6 +56,10 @@ export default {
       } else {
         favUrl = iconUrl;
       }
+      console.log('favUrl: ', favUrl);
+      if(favUrl.indexOf('=')>0){
+        throw new Error('error')
+      }
       return { logoSrc: favUrl, mark: true };
     } catch (error) {
       console.log("获取", error);

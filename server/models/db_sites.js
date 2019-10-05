@@ -3,7 +3,7 @@
  * @Date: 2019-10-01 15:51:26
  * @Desc: 网址
  * @Last Modified by: wuhao
- * @Last Modified time: 2019-10-02 15:00:57
+ * @Last Modified time: 2019-10-05 20:38:36
  */
 import pool from "../config/pool"
 
@@ -59,6 +59,7 @@ export const dbSites = {
     // 采用promise.all方法处理
     return new Promise((resolve, reject) => {
       Promise.all([sites, subSort, sort]).then((result) => {
+        console.log('result: ', result);
         // 针对数据处理转换成为需要的格式
         var siteList = result[0],
           subSort = result[1],

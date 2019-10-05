@@ -3,7 +3,7 @@
  * @Date: 2018-08-30 10:46:35
  * @Desc: 组件 编辑/添加网址
  * @Last Modified by: wuhao
- * @Last Modified time: 2019-10-01 15:35:00
+ * @Last Modified time: 2019-10-05 21:21:31
  */
 <template>
   <!-- 添加新网址弹窗 -->
@@ -26,45 +26,22 @@
       element-loading-background="rgba(255, 255, 255, 0.7)"
       status-icon
     >
-      <el-form-item
-        :label-width="formLabelWidth"
-        label="网址分类"
-      >
+      <el-form-item :label-width="formLabelWidth" label="网址分类">
         <el-cascader
+          :key="isResouceShow"
           :options="sortCascader"
           v-model="sort"
           :filterable="true"
           expand-trigger="hover"
         />
       </el-form-item>
-      <el-form-item
-        :label-width="formLabelWidth"
-        label="网址名称"
-        prop="siteName"
-      >
-        <el-input
-          v-model="newSite.siteName"
-          auto-complete="off"
-          placeholder="请输入网址名称，推荐5个字符以内"
-        />
+      <el-form-item :label-width="formLabelWidth" label="网址名称" prop="siteName">
+        <el-input v-model="newSite.siteName" auto-complete="off" placeholder="请输入网址名称，推荐5个字符以内" />
       </el-form-item>
-      <el-form-item
-        :label-width="formLabelWidth"
-        label="网址链接"
-        prop="siteUrl"
-      >
-        <el-input
-          v-model="newSite.siteUrl"
-          type="url"
-          auto-complete="off"
-          placeholder="请输入网址链接"
-        />
+      <el-form-item :label-width="formLabelWidth" label="网址链接" prop="siteUrl">
+        <el-input v-model="newSite.siteUrl" type="url" auto-complete="off" placeholder="请输入网址链接" />
       </el-form-item>
-      <el-form-item
-        :label-width="formLabelWidth"
-        label="图标地址"
-        prop="logoSrc"
-      >
+      <el-form-item :label-width="formLabelWidth" label="图标地址" prop="logoSrc">
         <el-input
           v-model="newSite.logoSrc"
           :disabled="userInfo.role!==1"
@@ -72,17 +49,10 @@
           auto-complete="off"
           placeholder="请输入图标地址"
         />
-        <img
-          :src="newSite.logoSrc"
-          class="logo"
-        >
+        <img :src="newSite.logoSrc" class="logo" />
         <p class="tips">Tips: 多数情况下输入正确的网址后自动更新图标</p>
       </el-form-item>
-      <el-form-item
-        :label-width="formLabelWidth"
-        label="网站描述"
-        prop="siteTips"
-      >
+      <el-form-item :label-width="formLabelWidth" label="网站描述" prop="siteTips">
         <el-input
           v-model="newSite.siteTips"
           type="textarea"
@@ -91,15 +61,9 @@
         />
       </el-form-item>
     </el-form>
-    <div
-      slot="footer"
-      class="dialog-footer"
-    >
+    <div slot="footer" class="dialog-footer">
       <el-button @click="unShowAdd">取 消</el-button>
-      <el-button
-        type="primary"
-        @click="submitSite(type,'newSite')"
-      >确 定</el-button>
+      <el-button type="primary" @click="submitSite(type,'newSite')">确 定</el-button>
     </div>
   </el-dialog>
 </template>
@@ -133,6 +97,7 @@ export default {
       dialogWidth: "500px",
       formLabelWidth: "4rem",
       sort: [],
+      isResouceShow:0,//Cascader的key值,重新渲染Cascader
       type: "add", //添加还是编辑网址类型
       newSite: {
         siteName: "",
@@ -155,7 +120,7 @@ export default {
           { type: "url", message: "请输入正确的网址格式" },
           {
             validator: async (rule, val, callback) => {
-              if(!this.isSubmit){
+              if (!this.isSubmit) {
                 let { data, status } = await this.$axios.get(
                   "/sites/checkSite",
                   {
@@ -165,9 +130,11 @@ export default {
                 if (status === 200 && data.code === "01") {
                   // 非提交状态 input失去焦点或替换logo
                   this.newSite.logoSrc = data.respData.logoSrc;
-                  if(this.type==='add'&&data.respData.siteInfo){
-                    callback(`该网址已存在于${data.respData.siteInfo.sortInfo}`);
-                  }else{
+                  if (this.type === "add" && data.respData.siteInfo) {
+                    callback(
+                      `该网址已存在于${data.respData.siteInfo.sortInfo}`
+                    );
+                  } else {
                     callback();
                   }
                 } else if (data.code === "00") {
@@ -237,12 +204,15 @@ export default {
 
         if (this.sort.length === 0) {
           this.sort = [this.sortId, this.subSortId];
-
         }
         this.getSiteInfo();
       } else {
         this.sort = [];
       }
+    },
+    // 重新渲染Cascader
+    sortCascader(val){
+      this.isResouceShow++;
     }
   },
   beforeMount() {
@@ -296,7 +266,6 @@ export default {
         if (status === 200 && data.code === "01") {
           var respData = data.respData.siteInfo;
           this.newSite = respData;
-
         }
         this.loading = false;
       } else {
@@ -322,10 +291,7 @@ export default {
 
       this.loading = true;
       this.loadingText = "更新中...";
-      let { status, data } = await this.$axios.post(
-        "/sites/edit",
-        reqData
-      );
+      let { status, data } = await this.$axios.post("/sites/edit", reqData);
       this.loading = false;
       if (status === 200 && data.code === "01") {
         this.$store.commit("sites/setIsUpdateAll", true);
@@ -347,12 +313,12 @@ export default {
     /**插入新网址 */
     insertSite: async function() {
       this.newSite.subSortId = this.sort[1];
-      var siteIndex = this.siteIndex
+      var siteIndex = this.siteIndex;
       this.loading = true;
       this.loadingText = "更新中...";
       let { data, status } = await this.$axios.post(
         "/sites/insert",
-        Object.assign(this.newSite,{siteIndex:++siteIndex},)
+        Object.assign(this.newSite, { siteIndex: ++siteIndex })
       );
       this.loading = false;
       if (status === 200 && data.code === "01") {

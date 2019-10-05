@@ -86,8 +86,8 @@
       />
       <edit-sort ref="editSort" :sub-title="subTitle" :sort-id="sortId" :sub-sort-id="subSortId" />
       <sort-order v-if="editState&&type!=='mobile'" class="drag-sort" />
+      <feed-back />
     </section>
-    <feed-back />
   </div>
 </template>
 
@@ -180,7 +180,7 @@ export default {
             });
           }
         } else {
-          componentSiteList = [this.siteList, []];
+          componentSiteList = [this.siteList || [], []];
         }
       }
       return componentSiteList;
@@ -269,6 +269,7 @@ export default {
       this.sortColor = "blue";
     },
     addSort() {
+      console.log("this.newSortName: ", this.newSortName);
       if (!this.newSortName) {
         this.hideSortEditBox();
       } else {
