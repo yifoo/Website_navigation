@@ -1,8 +1,8 @@
-import Redis from 'koa-redis';
+// import Redis from 'koa-redis';
 import Router from 'koa-router';
 import nodeMailer from 'nodemailer';
 import config from '../config';
-import {dbSites} from '../models/db_sites';
+import { dbSites } from '../models/db_sites';
 import dbUsers from '../models/db_users';
 import passport from '../utils/passport';
 
@@ -10,7 +10,7 @@ import passport from '../utils/passport';
 let router = new Router({
   prefix: '/user'
 })
-let Store = new Redis().client
+// let Store = new Redis().client
 
 router.get('/getUser', async (ctx) => {
   if (ctx.isAuthenticated()) {
@@ -69,7 +69,8 @@ router.post('/verify', async (ctx, next) => {
     return;
   }
   let uname = ctx.request.body.uname
-  const sendExpire = await Store.hget(`nodemail:${uname}`, 'limit')
+  // const sendExpire = await Store.hget(`nodemail:${uname}`, 'limit')
+  const sendExpire = ctx.session.regInfo && ctx.session.regInfo.limit
   if (sendExpire && new Date().getTime() - sendExpire < 0) {
     ctx.body = {
       code: "-1",
@@ -86,10 +87,10 @@ router.post('/verify', async (ctx, next) => {
   })
   let codeInfo = {
     code: config.smtp.code(),
-    expire: confg.smtp.expire(),
+    expire: config.smtp.expire(),
     limit: config.smtp.limit(),
     email: ctx.request.body.email,
-    user: ctx.request.body.uname
+    uname: ctx.request.body.uname
   }
   let mailOptions = {
     from: `"认证邮件" <${config.smtp.user}>`,
@@ -97,8 +98,9 @@ router.post('/verify', async (ctx, next) => {
     subject: '个人导航注册码',
     html: `您在个人导航注册，您的验证码是 <a style="color:red">${codeInfo.code}</a>，5分钟内有效! <br/>本邮件由系统自动发送，请勿回复!☺`
   }
-  console.log(`nodemail:${codeInfo.user}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
+  console.log(`nodemail:${codeInfo.uname}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
   try {
+    // ctx.session.regInfo={uname: codeInfo.uname, code: codeInfo.code, expire: codeInfo.expire, email: codeInfo.email, limit: codeInfo.limit}
     await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log('error: ', error);
@@ -108,7 +110,7 @@ router.post('/verify', async (ctx, next) => {
         }
         return false;
       } else {
-        Store.hmset(`nodemail:${codeInfo.user}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
+        // Store.hmset(`nodemail:${codeInfo.user}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
       }
     })
   } catch (e) {
@@ -118,6 +120,7 @@ router.post('/verify', async (ctx, next) => {
     }
     return false;
   }
+  ctx.session.regInfo = { uname: codeInfo.uname, code: codeInfo.code, expire: codeInfo.expire, email: codeInfo.email, limit: codeInfo.limit }
   ctx.body = {
     code: "01",
     msg: '验证码已发送，可能会有延时，有效期5分钟'
@@ -127,12 +130,24 @@ router.post('/verify', async (ctx, next) => {
 router.post('/register', async (ctx) => {
   const {
     uname,
+    email,
     code
   } = ctx.request.body;
 
   if (code) {
-    const saveCode = await Store.hget(`nodemail:${uname}`, 'code')
-    const saveExpire = await Store.hget(`nodemail:${uname}`, 'expire')
+    // const saveCode = await Store.hget(`nodemail:${uname}`, 'code')
+    // const saveExpire = await Store.hget(`nodemail:${uname}`, 'expire')
+    console.log('ctx.session.regInfo: ', ctx.session.regInfo);
+    const regInfo = ctx.session.regInfo
+    if (uname !== regInfo.uname || email !== regInfo.email) {
+      ctx.body = {
+        code: "-1",
+        msg: '请填写正确的用户名或邮箱'
+      }
+      return false
+    }
+    const saveCode = ctx.session.regInfo.code
+    const saveExpire = ctx.session.regInfo.expire
     console.log('saveExpire: ', saveCode, code, saveExpire);
     if (saveCode) {
       if (code.toLocaleLowerCase() === saveCode.toLocaleLowerCase()) {
@@ -267,29 +282,29 @@ router.post('/editPwd', async (ctx, next) => {
       upwd,
       uid,
     } = ctx.session.passport.user
-    console.log('opwd!==upwd: ', opwd,upwd);
-    if(opwd!==upwd){
+    console.log('opwd!==upwd: ', opwd, upwd);
+    if (opwd !== upwd) {
       ctx.body = {
         code: "-1",
-        msg:'旧密码不正确',
+        msg: '旧密码不正确',
         respData: {}
       }
-    }else{
-      let result = await dbUsers.updatePwd(uid,npwd)
-      if(result==='01'){
+    } else {
+      let result = await dbUsers.updatePwd(uid, npwd)
+      if (result === '01') {
         ctx.body = {
           code: "01",
-          msg:'密码修改成功,请重新登录',
+          msg: '密码修改成功,请重新登录',
           respData: {
-            userName:uname,
+            userName: uname,
             upwd
           }
         }
         ctx.logout()
-      }else{
+      } else {
         ctx.body = {
           code: "-1",
-          msg:'密码修改失败',
+          msg: '密码修改失败',
           respData: {}
         }
       }
@@ -299,7 +314,7 @@ router.post('/editPwd', async (ctx, next) => {
   } else {
     ctx.body = {
       code: "-1",
-      msg:'密码修改失败',
+      msg: '密码修改失败',
       respData: {}
     }
   }
