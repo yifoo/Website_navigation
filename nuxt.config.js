@@ -69,7 +69,7 @@ module.exports = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.haohome.top' : 'http://localhost:3005'
+    baseURL: process.env.NODE_ENV === 'production' ? '请求地址' : 'http://localhost:3005'
   },
 
   /*

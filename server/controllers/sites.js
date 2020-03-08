@@ -1,6 +1,6 @@
 import Router from "koa-router";
 import config from '../config';
-import {dbSites} from "../models/db_sites";
+import { dbSites } from "../models/db_sites";
 import utils from "../utils/utils";
 
 let router = new Router({
@@ -40,7 +40,40 @@ router.get("/getAll", async ctx => {
     console.log(error);
   }
 });
-
+/**
+ * 获取网址分类信息
+ */
+router.get("/getSubSort", async ctx => {
+  var uid;
+  if (ctx.isAuthenticated()) {
+    uid = ctx.session.passport.user.uid;
+    try {
+      var subSortList = await dbSites.getSubSort(uid);
+      if (subSortList && subSortList.length > 0) {
+        ctx.body = {
+          code: "01",
+          msg: "获取成功",
+          respData: {
+            subSortList: subSortList
+          }
+        };
+      } else {
+        ctx.body = {
+          code: -1,
+          msg: "获取失败"
+        };
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    ctx.body = {
+      code: "-9",
+      msg: "登录已过期"
+    };
+    return false;
+  }
+});
 /**
  * *获取单个网址信息
  */
