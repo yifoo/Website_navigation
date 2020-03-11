@@ -3,9 +3,9 @@
  * @Date: 2019-10-01 15:51:26
  * @Desc: 网址
  * @Last Modified by: wuhao
- * @Last Modified time: 2019-10-05 20:38:36
+ * @Last Modified time: 2020-03-08 21:57:34
  */
-import pool from "../config/pool"
+import pool from "../config/pool";
 
 export const dbSites = {
   /**
@@ -29,7 +29,7 @@ export const dbSites = {
     var sites = new Promise((resolve, reject) => {
       const param = pool.query(sql1,
         function (err, data) {
-          console.log('err: ', err);
+
           if (err) {
             reject(err)
           };
@@ -59,7 +59,6 @@ export const dbSites = {
     // 采用promise.all方法处理
     return new Promise((resolve, reject) => {
       Promise.all([sites, subSort, sort]).then((result) => {
-        console.log('result: ', result);
         // 针对数据处理转换成为需要的格式
         var siteList = result[0],
           subSort = result[1],
@@ -86,7 +85,30 @@ export const dbSites = {
       })
     })
   },
-
+  /**
+     * 查询网址分类信息
+     * @param {*} uid
+     */
+  getSubSort(uid) {
+    let sql;
+    if (uid) {
+      sql = `SELECT subSort.sort_id sortId,sort.sort_name sortName,subSort.sub_sort_id subSortId,subSort.sub_title subTitle,sub_index subIndex,sort_index sortIndex FROM nav_subSort subSort , nav_sort sort WHERE subSort.sort_id=sort.sort_id And subSort.uid='${uid}' ORDER BY sort.sort_index,subSort.sub_index`;
+      return new Promise((resolve, reject) => {
+        const param = pool.query(sql,
+          function (err, data) {
+            if (err) {
+              reject(err)
+            };
+            resolve(data)
+          })
+      })
+    } else {
+      return {
+        code: '-1',
+        msg: '参数不能为空'
+      }
+    }
+  },
   /**
    * 查询网址信息
    * @param {*} uid
@@ -103,21 +125,21 @@ export const dbSites = {
           pool.query(sql,
             function (err, data) {
               if (err) {
-                console.log('sql: ', sql, err);
+
                 reject(err)
               };
               if (data && data.length > 0) {
                 sql = `SELECT sort_id sortId,sub_title subTitle FROM nav_subSort WHERE sub_sort_id=${data[0].subSortId} `;
                 pool.query(sql, function (subErr, subSortData) {
                   if (subErr) {
-                    console.log('subErr: ', subErr);
+
                     reject(subErr)
                   }
                   if (subSortData && subSortData.length > 0) {
                     sql = `SELECT sort_name sortName FROM nav_sort WHERE sort_id='${subSortData[0].sortId}' `;
                     pool.query(sql, function (sortErr, sortData) {
                       if (sortErr) {
-                        console.log('sortErr: ', sortErr);
+
                         reject(sortErr)
                       }
                       let resp = JSON.parse(JSON.stringify(data[0]))
@@ -133,7 +155,7 @@ export const dbSites = {
               }
             })
         } catch (e) {
-          console.log('e: ', e);
+
         }
       })
     } else {
@@ -155,7 +177,7 @@ export const dbSites = {
                 reject1()
                 return false
               } else {
-                console.log('data[0]: ', data);
+
                 if (data.length > 0) {
                   resolve1(data[0])
                 } else {
@@ -166,11 +188,11 @@ export const dbSites = {
         })
           .then((result) => {
             var sql = `SELECT logo_id logoId,src logoSrc FROM nav_img WHERE logo_id=${result.logoId} `
-            console.log('sql: ', sql);
+
             return new Promise((resolve2, reject2) => {
               pool.query(sql,
                 function (err, data) {
-                  console.log('data: ', data);
+
                   if (err) {
                     reject(err)
                   };
@@ -182,7 +204,7 @@ export const dbSites = {
                 })
             })
           }).catch(e => {
-            console.log('error', e)
+
             resolve()
           })
       })
@@ -215,7 +237,7 @@ export const dbSites = {
       })
       sql2 = `UPDATE nav_img SET src='${siteInfo.logoSrc}',site_name='${siteInfo.siteName}' WHERE logo_id='${siteInfo.logoId}'`;
       var updateLogoInfo = new Promise((resolve, reject) => {
-        console.log('sql2: ', sql2);
+
         const param = pool.query(sql2,
           function (err, data) {
             if (err) {
@@ -227,7 +249,7 @@ export const dbSites = {
       })
       return new Promise((resolve, reject) => {
         Promise.all([updateSiteInfo, updateLogoInfo]).then(result => {
-          console.log('result: ', result);
+
           if (result[0] || result[1]) {
             resolve(result[0] || result[1])
           } else {
@@ -259,7 +281,7 @@ export const dbSites = {
     } = siteInfo;
     if (uid) {
       sql = `INSERT INTO nav_sites ( sub_sort_id,site_name,site_url,site_tips,logo_id,uid,com_code,site_index) VALUES( '${subSortId}','${siteName}','${siteUrl}','${siteTips}','${logoId}','${uid}',1,${siteIndex})`;
-      console.log('sql: ', sql);
+
       return new Promise((resolve, reject) => {
         const param = pool.query(sql,
           function (err, data) {
@@ -283,7 +305,7 @@ export const dbSites = {
    */
   getLogoSrc(logoSrc) {
     var sql = `SELECT logo_id logoId FROM nav_img WHERE src='${logoSrc}' `
-    console.log('sql: ', sql);
+
     return new Promise((resolve, reject) => {
       pool.query(sql,
         function (err, data) {
@@ -357,7 +379,7 @@ export const dbSites = {
                       reject3(err)
                     };
                     if (k === sites.length - 1) {
-                      console.log('成功', ++count)
+
                     }
                   })
               }
@@ -382,7 +404,7 @@ export const dbSites = {
             reject(err)
           };
           // 返回影响的行数
-          console.log('siteId', data.affectedRows);
+
           resolve(data.affectedRows)
         })
     })
@@ -401,7 +423,7 @@ export const dbSites = {
               if (err) {
                 reject(err)
               };
-              console.log('data.affectedRows: ', data.affectedRows);
+
               if (data.affectedRows == 1) {
                 count++
               }
@@ -410,7 +432,7 @@ export const dbSites = {
               }
             })
         } catch (e) {
-          console.log(e)
+
         }
         siteIndex++
       }
@@ -467,7 +489,7 @@ export const dbSites = {
     // 采用promise.all方法处理
     return new Promise((resolve, reject) => {
       Promise.all([sites, subSort, sort]).then((result) => {
-        console.log('result: ', result);
+
         resolve(true)
       }).catch((error) => {
         reject(error)

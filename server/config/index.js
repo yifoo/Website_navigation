@@ -1,14 +1,14 @@
 export default {
   comUid:100000,
   initPwd:'123456',
-  // redis:{
-  //   get host(){
-  //     return '127.0.0.1'
-  //   },
-  //   get port(){
-  //     return 6379
-  //   }
-  // },
+  redis:{
+    get host(){
+      return '127.0.0.1'
+    },
+    get port(){
+      return 6379
+    }
+  },
   smtp:{
     get host(){
       return 'smtp.qq.com'

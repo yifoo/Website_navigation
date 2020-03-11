@@ -146,6 +146,7 @@ router.post("/del", async ctx => {
 router.post("/order", async ctx => {
   if (ctx.isAuthenticated()) {
     var uid = ctx.session.passport.user.uid;
+    console.log('uid: ', uid);
     try {
       var updateInfo = await dbSubSort.updateSubOrder(
         uid,

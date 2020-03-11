@@ -3,7 +3,7 @@
  * @Date: 2019-10-01 15:51:10
  * @Desc: 一级分类
  * @Last Modified by: wuhao
- * @Last Modified time: 2019-10-01 16:28:34
+ * @Last Modified time: 2020-03-08 08:06:02
  */
 import pool from "../config/pool";
 export const dbSort = {
@@ -52,7 +52,6 @@ export const dbSort = {
               reject(err)
             };
             // 返回影响的行数
-            console.log('insertSort', data.insertId)
             resolve(data.insertId)
           })
       })

@@ -1,4 +1,4 @@
-// import Redis from 'koa-redis';
+import Redis from 'koa-redis';
 import Router from 'koa-router';
 import nodeMailer from 'nodemailer';
 import config from '../config';
@@ -10,7 +10,7 @@ import passport from '../utils/passport';
 let router = new Router({
   prefix: '/user'
 })
-// let Store = new Redis().client
+let Store = new Redis().client
 
 router.get('/getUser', async (ctx) => {
   if (ctx.isAuthenticated()) {
@@ -69,8 +69,8 @@ router.post('/verify', async (ctx, next) => {
     return;
   }
   let uname = ctx.request.body.uname
-  // const sendExpire = await Store.hget(`nodemail:${uname}`, 'limit')
-  const sendExpire = ctx.session.regInfo && ctx.session.regInfo.limit
+  const sendExpire = await Store.hget(`nodemail:${uname}`, 'limit')
+  // const sendExpire = ctx.session.regInfo && ctx.session.regInfo.limit
   if (sendExpire && new Date().getTime() - sendExpire < 0) {
     ctx.body = {
       code: "-1",
@@ -110,7 +110,7 @@ router.post('/verify', async (ctx, next) => {
         }
         return false;
       } else {
-        // Store.hmset(`nodemail:${codeInfo.user}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
+        Store.hmset(`nodemail:${codeInfo.user}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
       }
     })
   } catch (e) {
@@ -120,7 +120,7 @@ router.post('/verify', async (ctx, next) => {
     }
     return false;
   }
-  ctx.session.regInfo = { uname: codeInfo.uname, code: codeInfo.code, expire: codeInfo.expire, email: codeInfo.email, limit: codeInfo.limit }
+  // ctx.session.regInfo = { uname: codeInfo.uname, code: codeInfo.code, expire: codeInfo.expire, email: codeInfo.email, limit: codeInfo.limit }
   ctx.body = {
     code: "01",
     msg: '验证码已发送，可能会有延时，有效期5分钟'
@@ -135,9 +135,8 @@ router.post('/register', async (ctx) => {
   } = ctx.request.body;
 
   if (code) {
-    // const saveCode = await Store.hget(`nodemail:${uname}`, 'code')
-    // const saveExpire = await Store.hget(`nodemail:${uname}`, 'expire')
-    console.log('ctx.session.regInfo: ', ctx.session.regInfo);
+    const saveCode = await Store.hget(`nodemail:${uname}`, 'code')
+    const saveExpire = await Store.hget(`nodemail:${uname}`, 'expire')
     const regInfo = ctx.session.regInfo
     if (uname !== regInfo.uname || email !== regInfo.email) {
       ctx.body = {
@@ -146,12 +145,11 @@ router.post('/register', async (ctx) => {
       }
       return false
     }
-    const saveCode = ctx.session.regInfo.code
-    const saveExpire = ctx.session.regInfo.expire
+    // const saveCode = ctx.session.regInfo.code
+    // const saveExpire = ctx.session.regInfo.expire
     console.log('saveExpire: ', saveCode, code, saveExpire);
     if (saveCode) {
       if (code.toLocaleLowerCase() === saveCode.toLocaleLowerCase()) {
-        console.log('new Date().getTime() - saveExpire: ', new Date().getTime() - saveExpire);
         if (new Date().getTime() - saveExpire > 0) {
           ctx.body = {
             code: "-1",

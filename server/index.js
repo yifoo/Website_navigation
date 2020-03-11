@@ -4,7 +4,7 @@ import bodyParser from 'koa-bodyparser'
 import session from 'koa-generic-session'
 import json from 'koa-json'
 import logger from 'koa-logger'
-// import Redis from 'koa-redis'
+import Redis from 'koa-redis'
 import Router from 'koa-router'
 import cors from 'koa2-cors'
 import { Builder, Nuxt } from 'nuxt'
@@ -22,7 +22,7 @@ app.proxy = true
 app.use(session({
   key: 'haohome_SESSIONID',
   prefix: 'haohome:uid',
-  // store: new Redis()
+  store: new Redis()
 }))
 app.use(bodyParser({
   extendTypes: ['json', 'form', 'text']
