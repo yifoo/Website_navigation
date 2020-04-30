@@ -110,7 +110,7 @@ router.post('/verify', async (ctx, next) => {
         }
         return false;
       } else {
-        Store.hmset(`nodemail:${codeInfo.user}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
+        Store.hmset(`nodemail:${codeInfo.uname}`, 'code', codeInfo.code, 'expire', codeInfo.expire, 'email', codeInfo.email, 'limit', codeInfo.limit)
       }
     })
   } catch (e) {
@@ -137,14 +137,6 @@ router.post('/register', async (ctx) => {
   if (code) {
     const saveCode = await Store.hget(`nodemail:${uname}`, 'code')
     const saveExpire = await Store.hget(`nodemail:${uname}`, 'expire')
-    const regInfo = ctx.session.regInfo
-    if (uname !== regInfo.uname || email !== regInfo.email) {
-      ctx.body = {
-        code: "-1",
-        msg: '请填写正确的用户名或邮箱'
-      }
-      return false
-    }
     // const saveCode = ctx.session.regInfo.code
     // const saveExpire = ctx.session.regInfo.expire
     console.log('saveExpire: ', saveCode, code, saveExpire);
