@@ -1,0 +1,79 @@
+.bg {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+}
+.loading {
+  background-color: #565654;
+}
+.search {
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+.siteContainer {
+  width: 60rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+  overflow: auto;
+}
+.orderStyle {
+  position: fixed;
+  top: 40%;
+  right: 0;
+  z-index: 1000;
+}
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 28px;
+  }
+  .siteContainer {
+    width: 60rem;
+  }
+  .search {
+    width: 36rem;
+  }
+}
+@media screen and (min-width: 1222px) and (max-width: 1600px) {
+  .siteContainer {
+    width: 58rem;
+  }
+  .search {
+    width: 36rem;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1221px) {
+  .siteContainer {
+    width: 47rem;
+  }
+  .search {
+    width: 36rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 28px;
+  }
+  .siteContainer {
+    width: 100%;
+    padding: 0.4rem;
+  }
+  .search {
+    width: 100%;
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .siteContainer {
+    width: 100%;
+    padding: 0.4rem;
+  }
+  .search {
+    width: 100%;
+    padding: 0 2rem;
+  }
+}

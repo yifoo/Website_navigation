@@ -1,0 +1,56 @@
+.mainBg {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+}
+.nav {
+  :global {
+    .ant-menu.ant-menu-dark .ant-menu-item-selected,
+    .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected,
+    .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+      background-color: transparent;
+      font-weight: bold;
+    }
+  }
+}
+.top {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  :global {
+    .ant-menu-item.ant-menu-item-selected {
+      background: none;
+      border-bottom: 1px solid #fff;
+    }
+    .ant-menu-item:hover {
+      background: none;
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
+
+.main {
+  margin-top: 46px;
+  z-index: 1;
+  position: relative;
+  height: 100vh;
+}
+.user {
+  position: absolute !important;
+  right: 1rem;
+  cursor: pointer;
+  color: #f0f0f0;
+  .avatar {
+    margin: 0 5px;
+  }
+  .setting {
+    transition: transform 0.3s linear;
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+}

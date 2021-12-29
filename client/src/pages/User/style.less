@@ -1,0 +1,39 @@
+.bg {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #565654;
+  position: relative;
+}
+.user {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .login {
+    width: 30rem;
+    margin: 0 auto !important;
+    label {
+      color: #fff;
+    }
+    .divider {
+      color: #fff;
+      font-size: 1.2rem;
+      letter-spacing: 0.6rem;
+    }
+  }
+}
+.sendCode {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .user .login {
+    width: 70%;
+  }
+}

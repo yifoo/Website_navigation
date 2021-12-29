@@ -1,0 +1,380 @@
+.siteBox {
+  display: flex;
+  justify-content: flex-start;
+  min-height: calc(100vh - 46px - 135px);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.siteEmpty {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+.addSort {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  border: 1px dashed #f0f0f0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.addSortInput {
+  width: 0rem;
+  transition: width 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &.showSortInput {
+    width: 13rem;
+  }
+  .sortInput {
+    float: left;
+    outline: none;
+    border: none;
+    width: 6rem;
+    height: 1.5rem;
+    padding: 0 5px;
+  }
+  .sortSelect {
+    width: 6rem;
+    height: 1.5rem;
+    border: none;
+  }
+}
+.dropSelect {
+  width: 6rem !important;
+}
+.dropColor {
+  width: 6rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 5px;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+.addSortIcon {
+  display: flex;
+  justify-content: flex-start;
+  span {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    &:hover {
+      opacity: 0.7;
+    }
+    &.yes {
+      color: #0ef30e;
+    }
+    &.del {
+      color: red;
+    }
+  }
+}
+
+.sortBox {
+  width: 100%;
+  background: hsla(0, 0%, 100%, 0.5);
+  font-size: 0.7rem;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.3rem 0rem;
+}
+.sortTitle {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  margin-right: 0.5rem;
+  text-shadow: 1px 1px 2px #666;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0 0.5rem;
+  .sortInput {
+    width: 0rem;
+    height: 1.1rem;
+    outline: none;
+    border: none;
+    margin: 0 0px;
+    padding: 0;
+    transition: width 0.2s ease;
+    &.sortEdit {
+      width: 4rem;
+      margin: 0 5px;
+      padding: 0 5px;
+    }
+  }
+  span {
+    cursor: pointer;
+  }
+  .del {
+    color: red;
+  }
+}
+.subSort {
+  display: inline-block;
+  height: 1.1rem;
+  line-height: 1.1rem;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  border-radius: 0.55rem;
+  margin: 0.2rem;
+  padding: 0 0.5rem;
+  position: relative;
+  color: #383a44;
+  cursor: pointer;
+  &.active {
+    font-weight: bold;
+    color: #000;
+  }
+  &.edit {
+    box-sizing: border-box;
+  }
+  .edit {
+    margin: 0 2px;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+  }
+  .del {
+    color: red;
+  }
+  &.addSubSort {
+    color: #fff;
+  }
+  .subSortInput {
+    outline: none;
+    border: none;
+    height: 1.1rem;
+    width: 0rem;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: width 0.2s ease;
+    &.showSubSortInput {
+      width: 3rem;
+      padding: 0 5px;
+    }
+  }
+}
+
+.siteContainBox {
+  float: left;
+  padding: 0px 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.siteContainBox > div {
+  z-index: 10;
+  transition: 0.1s linear;
+  float: left;
+}
+.siteDrag {
+  opacity: 0.3;
+}
+.site {
+  width: 5.3rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin: 1px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  a {
+    color: #000;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.3rem;
+    transition: transform 0.1s linear;
+    position: absolute;
+    font-size: 0.7rem;
+  }
+  a:hover {
+    transform: scale(1.1);
+    background: #405061;
+    color: #fff;
+    font-weight: 700;
+  }
+  .siteName {
+    position: absolute;
+    left: 1.3rem;
+    width: 3.7rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .edit {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    span {
+      cursor: pointer;
+      &:hover {
+        color: #000;
+      }
+    }
+    .delSite {
+      position: absolute;
+      right: -5px;
+      top: -5px;
+      font-size: 0.7rem;
+    }
+  }
+}
+//* 配置拖拽移动样式
+.drag {
+  position: relative;
+  .site {
+    cursor: move;
+    a {
+      // z-index: -1;
+      border: 1px dashed #f0f0f0;
+      box-sizing: border-box;
+    }
+  }
+  &.subSort {
+    cursor: move;
+    border: 1px dashed #f0f0f0;
+    box-sizing: border-box;
+  }
+}
+.sortDrag .sortBox {
+  cursor: move;
+  border: 1px dashed #f0f0f0;
+  box-sizing: border-box;
+}
+
+.sortTop {
+  margin-bottom: 0.2rem;
+  // height: 30px;
+  &.green {
+    background-color: rgba(91, 174, 35, 0.1);
+  }
+  dt,
+  .addSort {
+    background-color: rgba(91, 174, 35, 1);
+  }
+  &.orange {
+    background-color: rgba(248, 182, 41, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(248, 182, 41, 1);
+    }
+  }
+  &.red {
+    background-color: rgba(237, 85, 106, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(237, 85, 106, 1);
+    }
+  }
+  &.purple {
+    background-color: rgba(120, 41, 248, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(120, 41, 248, 1);
+    }
+  }
+  &.blue {
+    background-color: rgba(41, 155, 248, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(41, 155, 248, 1);
+    }
+  }
+  &.yellow {
+    background-color: rgba(252, 210, 23, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(252, 210, 23, 1);
+    }
+  }
+  &.kongquelan {
+    background-color: rgba(14, 176, 201, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(14, 176, 201, 1);
+    }
+  }
+  &.tongGreen {
+    background-color: rgba(83, 60, 27, 0.1);
+    dt,
+    .addSort {
+      background-color: rgba(83, 60, 27, 1);
+    }
+  }
+  &:after {
+    content: '';
+    display: block;
+    height: 0px;
+    line-height: 0px;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.siteForm {
+  :global {
+    .ant-image {
+      position: absolute;
+      right: 50px;
+      bottom: 200px;
+      width: 42px;
+      font-size: 12px;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .grid {
+    width: 50%;
+    padding: 5px;
+  }
+}
+@media screen and (min-width: 798px) and (max-width: 991px) {
+  .grid {
+    width: 100%;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 797px) {
+  .grid {
+    width: 100%;
+    padding: 5px;
+  }
+  .site {
+    width: 4rem;
+    .icon {
+      display: none;
+    }
+    .siteName {
+      left: auto;
+      width: 3.4rem;
+    }
+  }
+}
