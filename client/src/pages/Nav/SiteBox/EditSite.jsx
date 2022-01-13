@@ -137,35 +137,35 @@ const EditSiteModal = (props) => {
               {
                 validator: async (rule, val, callback) => {
                   if (val !== undefined && val !== '') {
-                    try{
+                    try {
                       let data = await props.checkSite({ siteId: props.siteInfo.siteId, siteUrl: val });
-                    let sitePath = '';
-                    if (!props.siteInfo.siteId) {
-                      props.sortList.forEach((item) => {
-                        item.children.forEach((_item) => {
-                          if (_item.sortId === data.sortId) {
-                            sitePath = `${item.sortName}/${_item.sortName}/${data.siteName}`;
-                          }
+                      let sitePath = '';
+                      if (!props.siteInfo.siteId) {
+                        props.sortList.forEach((item) => {
+                          item.children.forEach((_item) => {
+                            if (_item.sortId === data.sortId) {
+                              sitePath = `${item.sortName}/${_item.sortName}/${data.siteName}`;
+                            }
+                          });
                         });
-                      });
-                      if (sitePath) {
-                        return Promise.reject(new Error(`当前网址已存在于 "${sitePath}" `));
+                        if (sitePath) {
+                          return Promise.reject(new Error(`当前网址已存在于 "${sitePath}" `));
+                        } else {
+                          console.log('siteForm.getF', siteForm.getFieldValue('logoSrc'));
+                          if (!siteForm.getFieldValue('logoSrc')) {
+                            siteForm.setFieldsValue({ logoSrc: data.logoSrc });
+                          }
+                        }
                       } else {
-                        siteForm.setFieldsValue({ logoSrc: data.logoSrc });
+                        if (!props.siteInfo.logoSrc) {
+                          siteForm.setFieldsValue({ logoSrc: data.logoSrc });
+                        }
                       }
-                    } else {
-                      if (!props.siteInfo.logoSrc) {
-                        siteForm.setFieldsValue({ logoSrc: data.logoSrc });
-                      }
-                    }
-                    setLogoSrc(data.logoSrc);
-                    return Promise.resolve();
-                    }catch(e){
+                      return Promise.resolve();
+                    } catch (e) {
                       console.log('e: ', e);
-
                     }
-                  }
-                },
+                }
               },
             ]}
           >
