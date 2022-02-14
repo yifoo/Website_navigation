@@ -48,7 +48,7 @@ class SiteController extends Controller {
    */
   *fetchAllCom() {
     const { ctx, app } = this
-    const uid = 10046
+    const uid = 10001
     let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_tips siteTips,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
       left JOIN nav_logo logo USING(logo_id)  where site.uid=${uid} order by order_index`
     let siteList
@@ -108,7 +108,7 @@ class SiteController extends Controller {
   //!获取所有未登录分类
   *fetchSortCom() {
     const { ctx, app } = this
-    const uid = 10046
+    const uid = 10001
     let res, cateData
     try {
       res = yield app.mysql.query(
