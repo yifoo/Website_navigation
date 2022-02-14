@@ -14,6 +14,7 @@ class SiteController extends Controller {
   *fetchAll() {
     const { ctx, app } = this
     const { uid } = ctx.state.user
+    console.log('uid: ', uid);
     let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_tips siteTips,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
       left JOIN nav_logo logo USING(logo_id)  where site.uid=${uid} order by order_index`
     let siteList
@@ -28,9 +29,26 @@ class SiteController extends Controller {
    *
    * @param {*} uid 用户uid
    */
+  *querySite() {
+    const { ctx, app } = this
+    const params = ctx.request.body
+    const { uid } = ctx.state.user
+    let siteInfo = yield app.mysql.query(
+      `select sort_id sortId,site_name siteName,site_id siteId from nav_sites where uid=${uid} and site_name like "%${params.siteName}%"`
+    )
+    if (siteInfo && siteInfo.length > 0) {
+      ctx.body = { code: 200, msg: `当前网址已存在`, data: siteInfo }
+    } else {
+      ctx.body = { code: 200, msg: '当前网址不存在', data: [] }
+    }
+  }
+  /**
+   *
+   * @param {*} uid 用户uid
+   */
   *fetchAllCom() {
     const { ctx, app } = this
-    const uid = 10001
+    const uid = 10046
     let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_tips siteTips,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
       left JOIN nav_logo logo USING(logo_id)  where site.uid=${uid} order by order_index`
     let siteList
@@ -45,6 +63,7 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
+    console.log('uid: ', uid);
     if (uid) {
       let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_tips siteTips,logo.logo_id logoId,logo.logo_src logoSrc,sort.sort_name sortName,sort.parent_id parentId from nav_sites site left JOIN nav_logo logo USING(logo_id) left join  nav_sort sort on  site.sort_id = sort.sort_id  and sort.uid=site.uid where site_id=${params.siteId} and site.uid=${uid}`
       let res
@@ -70,6 +89,7 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
+    console.log('uid: ', uid);
     let res, cateData
     try {
       console.log(
@@ -88,13 +108,9 @@ class SiteController extends Controller {
   //!获取所有未登录分类
   *fetchSortCom() {
     const { ctx, app } = this
-    const uid = 10001
+    const uid = 10046
     let res, cateData
     try {
-      console.log(
-        'sql',
-        `select id,sort_id sortId,sort_name sortName,parent_id parentId,order_index orderIndex,color from nav_sort where uid = ${uid} order by orderIndex ASC`
-      )
       res = yield app.mysql.query(
         `select id,sort_id sortId,sort_name sortName,parent_id parentId,order_index orderIndex,color from nav_sort where uid = ${uid} order by orderIndex ASC`
       )
@@ -115,7 +131,7 @@ class SiteController extends Controller {
         where: { logo_src: params.logoSrc }
       })
       if (logoInfo && logoInfo.length > 0) {
-        logoId = logoInfo.logo_id
+        logoId = logoInfo[0].logo_id
       } else {
         logoRes = yield app.mysql.insert('nav_logo', {
           logo_src: params.logoSrc,
@@ -136,7 +152,7 @@ class SiteController extends Controller {
         site_name: params.siteName,
         logo_id: logoId,
         site_url: params.siteUrl,
-        site_tips: params.siteTips||'',
+        site_tips: params.siteTips || null,
         order_index: max[0].maxSiteOrderIndex
       })
       if (res.affectedRows > 0) {
@@ -175,6 +191,7 @@ class SiteController extends Controller {
     let sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
     site.site_name='${params.siteName}', site.site_tips='${params.siteTips}',site.site_url='${params.siteUrl}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
     WHERE uid=${uid} and site.site_id=${params.siteId}`
+    console.log('sql: ', sql);
     let res
     try {
       res = yield app.mysql.query(sql)
@@ -185,7 +202,7 @@ class SiteController extends Controller {
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '更新网址失败' }
+      ctx.body = { code: 403, msg: '更新网址失败' }
     }
   }
   *updateSiteOrder() {
@@ -331,7 +348,6 @@ class SiteController extends Controller {
         logoInfo = await app.mysql.select('nav_logo', {
           where: { logo_id: siteInfo.logo_id }
         })
-        console.log('logoInfo: ', logoInfo)
         if (logoInfo && logoInfo.length > 0) {
           logoInfo = logoInfo[0]
           ctx.body = {
@@ -356,9 +372,10 @@ class SiteController extends Controller {
       return false
     }
     const getIdIcon = async () => {
-      let logoId = siteInfo[0].logo_id
+      console.log('siteInfo: ', siteInfo);
+      siteInfo = siteInfo[0]
       logoInfo = await app.mysql.select('nav_logo', {
-        where: { logo_id: logoId }
+        where: { logo_id: siteInfo.logo_id }
       })
       if (logoInfo && logoInfo.length > 0) {
         logoInfo = logoInfo[0]
