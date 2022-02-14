@@ -46,7 +46,7 @@ const mapStateToProps = (state) => ({
   showEditSite: state.Nav.showEditSite,
   isEdit: state.Nav.isEdit,
   orderVal: state.Nav.orderVal,
-  isMobile: state.Nav.isMobile,
+  isMobile: state.global.isMobile,
 });
 
 const mapDispatchToProps = (dispatch) => ({

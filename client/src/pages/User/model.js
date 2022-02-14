@@ -13,8 +13,6 @@ export default {
   reducers: {
     //* 设置操作记录信息
     setLogin(state, { payload }) {
-      localStorage.setItem('token', payload.token);
-      history.push('/');
       return {
         ...state,
         userInfo: payload.userInfo,
@@ -31,7 +29,6 @@ export default {
       };
     },
     clearUserInfo(state, { payload }) {
-      localStorage.clear('token');
       return {
         ...state,
         userInfo: {},
@@ -44,11 +41,14 @@ export default {
     *login({ payload }, { call, put }) {
       const res = yield call(service.login, payload);
       if (res.code === 200) {
-        message.success(res.msg);
+        localStorage.setItem('token', res.token);
         yield put({
           type: 'setLogin',
           payload: res,
         });
+        return true
+      }else{
+        return false
       }
     },
     *register({ payload }, { call, put }) {
@@ -84,6 +84,7 @@ export default {
         res = yield call(service.logout, payload);
         if (res.code === 200) {
           message.success(res.msg);
+          localStorage.clear('token');
           yield put({
             type: 'Nav/fetchSort',
             payload: {},

@@ -1,16 +1,20 @@
-import { Button, Form, Input } from 'antd';
+import { message, Button, Form, Input } from 'antd';
 import CryptoJS from 'crypto-js';
 import { connect } from 'dva';
 import { Link } from 'umi';
+import { history } from 'umi';
 import style from './style.less';
 const Login = (props) => {
   const isMobile = window.document.body.clientWidth <= 575;
   const onFinish = async (value) => {
     props.logout({ type: 'clearToken' });
-    props.login({
+    let res = await props.login({
       uname: window.encodeURIComponent(value.uname),
       upwd: CryptoJS.MD5(value.upwd).toString(),
     });
+    if (res) {
+      message.success('登录成功!', 1, () => history.push('/'));
+    }
   };
 
   const onFinishFailed = (errorInfo) => {

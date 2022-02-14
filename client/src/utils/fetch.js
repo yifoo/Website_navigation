@@ -1,13 +1,12 @@
 import { message } from 'antd';
 import qs from 'qs';
 import { extend } from 'umi-request';
-const token = localStorage.getItem('token');
 const instance = extend({
   prefix: process.env.apiUrl,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
   },
   paramsSerializer: function (params) {
     if (params instanceof FormData) {
@@ -53,6 +52,10 @@ export const fetch = ({ url = '', method = 'get', ...options }) => {
   } else {
     options.data = options.body;
   }
+  options.headers={
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  }
   return instance(url, { method, ...options }).then((res) => {
     if (res.code === 200) {
       return res;
@@ -64,7 +67,7 @@ export const fetchExport = ({ url = '', method = 'post', ...options }) => {
   instance.extendOptions({
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     responseType: 'blob',
   });
