@@ -9,7 +9,6 @@ export default {
     func: [],
     isLogin: false,
   },
-
   reducers: {
     //* 设置操作记录信息
     setLogin(state, { payload }) {
@@ -46,9 +45,9 @@ export default {
           type: 'setLogin',
           payload: res,
         });
-        return true
-      }else{
-        return false
+        return true;
+      } else {
+        return false;
       }
     },
     *register({ payload }, { call, put }) {
@@ -59,8 +58,8 @@ export default {
       }
     },
     *fetchUser({ payload }, { call, put }) {
-      const res = yield call(service.fetchUser, payload);
-      if (res.code === 200) {
+        const res = yield call(service.fetchUser, payload);
+      if (res && res.code === 200) {
         yield put({
           type: 'setUserInfo',
           payload: res,

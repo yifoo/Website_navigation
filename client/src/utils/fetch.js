@@ -24,6 +24,7 @@ const instance = extend({
     if (error.response) {
       if (window.navigator.onLine) {
         if (error.response.status === 401) {
+          localStorage.clear('token');
           message.error('登录已失效,请重新登录');
         } else {
           message.error(`${error.response.status} ${error.response.statusText || codeMap[error.response.status]}`);
@@ -32,17 +33,15 @@ const instance = extend({
         message.error('网络异常，请检查网络设置');
       }
       // 请求已发送但服务端返回状态码非 2xx 的响应
-      console.log(error.data);
-      console.log(error.request);
-      console.log(codeMap[error.data.status]);
+      console.log('data',error);
+      console.log('error', error.request);
     } else {
       // 请求初始化时出错或者没有响应返回的异常
       console.log(error.message);
     }
-
-    throw error; // 如果throw. 错误将继续抛出.
+    // throw error; // 如果throw. 错误将继续抛出.
     // 如果return, 则将值作为返回. 'return;' 相当于return undefined, 在处理结果时判断response是否有值即可.
-    // return {some: 'data'};
+    return {}
   },
 });
 
@@ -52,10 +51,10 @@ export const fetch = ({ url = '', method = 'get', ...options }) => {
   } else {
     options.data = options.body;
   }
-  options.headers={
+  options.headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${localStorage.getItem('token')}`,
-  }
+  };
   return instance(url, { method, ...options }).then((res) => {
     if (res.code === 200) {
       return res;
