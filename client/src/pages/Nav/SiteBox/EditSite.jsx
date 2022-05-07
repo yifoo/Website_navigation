@@ -8,7 +8,7 @@ const EditSiteModal = (props) => {
   const [siteForm] = Form.useForm();
   const [options, setOptions] = useState([]);
   useEffect(() => {
-    let list = JSON.parse(JSON.stringify(props.sortList));
+    let list = props.sortList ? JSON.parse(JSON.stringify(props.sortList)) : [];
     list.map((item) => {
       item.children.map((_item) => {
         delete _item['children'];
@@ -23,7 +23,6 @@ const EditSiteModal = (props) => {
       .validateFields()
       .then((params) => {
         setIsSubmit(false);
-        debugger
         let siteInfo = JSON.parse(JSON.stringify(props.siteInfo));
         params.siteId = props.siteInfo.siteId;
         props.sortList.forEach((item, key) => {
@@ -136,11 +135,18 @@ const EditSiteModal = (props) => {
               },
               {
                 validator: async (rule, val, callback) => {
-                  if (val !== undefined && val !== '') {
-                    try {
-                      let data = await props.checkSite({ siteId: props.siteInfo.siteId, siteUrl: val });
-                      let sitePath = '';
-                      if (!props.siteInfo.siteId) {
+                  if (siteForm.getFieldValue('logoSrc')) {
+                    return Promise.resolve();
+                  }
+                  if (val) {
+                    let res = await props.checkSite({
+                      siteId: props.siteInfo.siteId,
+                      siteUrl: val,
+                    });
+                    if (res.code === 200) {
+                      let data = res.data;
+                      if (data.sortId) {
+                        let sitePath = '';
                         props.sortList.forEach((item) => {
                           item.children.forEach((_item) => {
                             if (_item.sortId === data.sortId) {
@@ -148,24 +154,18 @@ const EditSiteModal = (props) => {
                             }
                           });
                         });
-                        if (sitePath) {
-                          return Promise.reject(new Error(`当前网址已存在于 "${sitePath}" `));
-                        } else {
-                          console.log('siteForm.getF', siteForm.getFieldValue('logoSrc'));
-                          if (!siteForm.getFieldValue('logoSrc')) {
-                            siteForm.setFieldsValue({ logoSrc: data.logoSrc });
-                          }
-                        }
+                        return Promise.reject(new Error(`当前网址已存在于 "${sitePath}" `));
                       } else {
-                        if (!props.siteInfo.logoSrc) {
-                          siteForm.setFieldsValue({ logoSrc: data.logoSrc });
-                        }
+                        setLogoSrc(data.logoSrc);
+                        siteForm.setFieldsValue({ logoSrc: data.logoSrc });
+                        return Promise.resolve();
                       }
+                    } else {
+                      message.error(res.msg);
                       return Promise.resolve();
-                    } catch (e) {
-                      console.log('e: ', e);
                     }
-                }
+                  }
+                },
               },
             ]}
           >

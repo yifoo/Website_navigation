@@ -31,6 +31,7 @@ const Register = (props) => {
   // }
   return (
     <div className={style.login}>
+      <h1 className={style.title}>注 册</h1>
       <Form
         name="login"
         form={regForm}

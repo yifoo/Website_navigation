@@ -47,6 +47,7 @@ export default {
         });
         return true;
       } else {
+        res&&message.error(res.msg);
         return false;
       }
     },

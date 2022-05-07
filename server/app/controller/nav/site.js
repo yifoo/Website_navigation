@@ -2,10 +2,6 @@
 
 const Controller = require('egg').Controller
 const util = require('../../utils/util')
-let FaviconGet = require('../../utils/getFavicon')
-let favicon = new FaviconGet({
-  verboseMode: true
-})
 class SiteController extends Controller {
   /**
    *
@@ -14,7 +10,7 @@ class SiteController extends Controller {
   *fetchAll() {
     const { ctx, app } = this
     const { uid } = ctx.state.user
-    console.log('uid: ', uid);
+    console.log('uid: ', uid)
     let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_tips siteTips,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
       left JOIN nav_logo logo USING(logo_id)  where site.uid=${uid} order by order_index`
     let siteList
@@ -63,7 +59,7 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    console.log('uid: ', uid);
+    console.log('uid: ', uid)
     if (uid) {
       let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_tips siteTips,logo.logo_id logoId,logo.logo_src logoSrc,sort.sort_name sortName,sort.parent_id parentId from nav_sites site left JOIN nav_logo logo USING(logo_id) left join  nav_sort sort on  site.sort_id = sort.sort_id  and sort.uid=site.uid where site_id=${params.siteId} and site.uid=${uid}`
       let res
@@ -89,7 +85,7 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    console.log('uid: ', uid);
+    console.log('uid: ', uid)
     let res, cateData
     try {
       console.log(
@@ -152,7 +148,7 @@ class SiteController extends Controller {
         site_name: params.siteName,
         logo_id: logoId,
         site_url: params.siteUrl,
-        site_tips: params.siteTips || null,
+        site_tips: params.siteTips || '',
         order_index: max[0].maxSiteOrderIndex
       })
       if (res.affectedRows > 0) {
@@ -191,7 +187,7 @@ class SiteController extends Controller {
     let sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
     site.site_name='${params.siteName}', site.site_tips='${params.siteTips}',site.site_url='${params.siteUrl}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
     WHERE uid=${uid} and site.site_id=${params.siteId}`
-    console.log('sql: ', sql);
+    console.log('sql: ', sql)
     let res
     try {
       res = yield app.mysql.query(sql)
@@ -326,122 +322,89 @@ class SiteController extends Controller {
       ctx.body = { code: 402, msg: '删除分类失败' }
     }
   }
-
   //!检查网址
   *checkSite() {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let siteInfo,
-      logoInfo,
-      logoSrc = {}
-    let domainReg =
-      /(http|https):\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?\/?/i
-    const getIcon = async () => {
-      siteInfo = await app.mysql.query(
-        `select logo_id from nav_sites where site_url = '${
-          params.siteUrl.match(domainReg)[0]
-        }' group by logo_id`
-      )
-      if (siteInfo && siteInfo.length > 0) {
-        siteInfo = siteInfo[0]
-        logoInfo = await app.mysql.select('nav_logo', {
-          where: { logo_id: siteInfo.logo_id }
-        })
-        if (logoInfo && logoInfo.length > 0) {
-          logoInfo = logoInfo[0]
-          ctx.body = {
-            code: 200,
-            msg: `获取图标成功`,
-            data: { logoId: logoInfo.logo_id, logoSrc: logoInfo.logo_src }
-          }
-          return false
+    let iconUrl = ''
+    if (params.siteId) {
+      // *不存在网址则解析得到图标并直接返回
+      iconUrl = yield util.getFavicon(params.siteUrl)
+      console.log('icsssonUrl: ', iconUrl);
+      if(iconUrl){
+        ctx.body = {
+          code: 200,
+          msg: `已获取图标`,
+          data: { logoSrc: iconUrl }
         }
-      }
-      // logoSrc = await util.getHtml(ctx, params.siteUrl)
-      try {
-        logoSrc = await favicon.getFavicon(ctx, params.siteUrl)
-      } catch (err) {
-        console.log('err: ', err)
-      }
-      ctx.body = {
-        code: 200,
-        msg: `获取图标成功`,
-        data: { logoSrc: logoSrc.path }
+      }else{
+        ctx.body = {
+          code: 400,
+          msg: `网站访问存在问题`,
+        }
       }
       return false
     }
-    const getIdIcon = async () => {
-      console.log('siteInfo: ', siteInfo);
-      siteInfo = siteInfo[0]
-      logoInfo = await app.mysql.select('nav_logo', {
-        where: { logo_id: siteInfo.logo_id }
-      })
-      if (logoInfo && logoInfo.length > 0) {
-        logoInfo = logoInfo[0]
-        ctx.body = {
-          code: 200,
-          msg: `获取图标成功`,
-          data: { logoId: logoInfo.logo_id, logoSrc: logoInfo.logo_src }
-        }
-        return false
-      } else {
-        ctx.body = {
-          code: 200,
-          msg: `获取图标失败`,
-          data: { logoId: logoInfo.logo_id, logoSrc: logoInfo.logo_src }
-        }
-        return false
-      }
-    }
     try {
-      // 如果是编辑网址或更换网址
-      if (params.siteId) {
-        siteInfo = yield app.mysql.query(
-          `select logo_id from nav_sites where site_url = '${params.siteUrl}' group by logo_id`
-        )
-        if (siteInfo && siteInfo.length > 0) {
-          return getIdIcon()
-        } else {
-          return getIcon()
+      let siteInfo = yield ctx.service.nav.findSite({
+        site_url: params.siteUrl
+      })
+      // *判断是否已经存在网址
+      if (siteInfo.length === 0) {
+        // *不存在网址则解析得到图标并直接返回
+        iconUrl = yield util.getFavicon(params.siteUrl)
+        if(iconUrl){
+          ctx.body = {
+            code: 200,
+            msg: `已获取图标`,
+            data: { logoSrc: iconUrl }
+          }
+        }else{
+          ctx.body = {
+            code: 400,
+            msg: `网站服务存在问题`,
+          }
         }
+        return false
       } else {
-        siteInfo = yield app.mysql.query(
-          `select sort_id sortId,site_name siteName from nav_sites where uid=${uid} and site_url='${params.siteUrl}'`
-        )
-        if (siteInfo && siteInfo.length > 0) {
-          siteInfo = siteInfo[0]
-          ctx.body = { code: 200, msg: `当前网址已存在`, data: siteInfo }
+        // *存在网址则查询网址所关联的图标
+        siteInfo = siteInfo[0]
+        iconUrl = yield ctx.service.nav.getLogo({
+          logo_id: siteInfo.logo_id
+        })
+        if (iconUrl && iconUrl.length > 0) {
+          iconUrl = iconUrl[0].logo_src
+        }
+        // *查询网址是否为当前账号名下的
+        let sortId = yield ctx.service.nav.findSite({
+          uid,
+          site_url: params.siteUrl
+        })
+        if (sortId.length === 0) {
+          ctx.body = {
+            code: 200,
+            msg: `获取图标成功`,
+            data: { logoId: iconUrl.logo_id, logoSrc: iconUrl }
+          }
         } else {
-          siteInfo = yield app.mysql.query(
-            `select logo_id from nav_sites where site_url = '${params.siteUrl}' group by logo_id`
-          )
-          if (siteInfo && siteInfo.length > 0) {
-            return getIdIcon()
-          } else {
-            return getIcon()
+          // * 属于账号名下返回账号名下的sortID和logo的图片地址
+          sortId = sortId[0]
+          ctx.body = {
+            code: 200,
+            msg: `当前网址已存在`,
+            data: {
+              siteId: sortId.site_id,
+              siteName: sortId.site_name,
+              sortId: sortId.sort_id,
+              logoSrc: iconUrl
+            }
           }
         }
       }
-    } catch (err) {
-      console.log('err: ', err)
-      ctx.body = { code: 402, msg: '获取图标失败' }
+    } catch (e) {
+      console.log('checkSite: ', e)
     }
-  }
-  *getIcon() {
-    const { ctx, app } = this
-    const params = ctx.request.body
-    console.log('params: ', params)
-    let domainReg =
-      /(http|https):\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/i
-    let host = params.url.match(domainReg)[0]
-    let res
-    try {
-      res = yield favicon.getFavicon(ctx, host)
-    } catch (err) {
-      console.log('err: ', err)
-    }
-    ctx.body = { res, host }
   }
 }
 

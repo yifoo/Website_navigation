@@ -1,17 +1,17 @@
 /*
- Navicat Premium Data Transfer
+ Navicat MySQL Data Transfer
 
  Source Server         : Maclocal
  Source Server Type    : MySQL
- Source Server Version : 50723
+ Source Server Version : 80023
  Source Host           : localhost:3306
  Source Schema         : nav_test
 
  Target Server Type    : MySQL
- Target Server Version : 50723
+ Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 29/12/2021 15:34:13
+ Date: 08/05/2022 00:22:04
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_logo`;
 CREATE TABLE `nav_logo` (
-  `logo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `logo_id` int NOT NULL AUTO_INCREMENT,
   `logo_src` varchar(255) DEFAULT NULL,
   `site_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`logo_id`) USING BTREE,
@@ -1041,12 +1041,12 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_role`;
 CREATE TABLE `nav_role` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  `rid` int(3) NOT NULL,
-  `role` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fid` int(6) NOT NULL,
-  `func` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `func_name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rid` int NOT NULL,
+  `role` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fid` int NOT NULL,
+  `func` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `func_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1018 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1064,12 +1064,12 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_search`;
 CREATE TABLE `nav_search` (
-  `sid` int(2) NOT NULL AUTO_INCREMENT,
-  `key_active` int(1) DEFAULT '0',
-  `text` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `placeholder` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `s_index` int(2) DEFAULT NULL,
-  `status` int(1) DEFAULT '1',
+  `sid` int NOT NULL AUTO_INCREMENT,
+  `key_active` int DEFAULT '0',
+  `text` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `placeholder` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_index` int DEFAULT NULL,
+  `status` int DEFAULT '1',
   PRIMARY KEY (`sid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1094,13 +1094,13 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_search_item`;
 CREATE TABLE `nav_search_item` (
-  `sitem_id` int(2) NOT NULL AUTO_INCREMENT,
-  `sitem_active` int(1) DEFAULT '0',
-  `name` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `query` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sid` int(2) DEFAULT NULL,
-  `sitem_index` int(2) DEFAULT NULL,
-  `status` int(1) DEFAULT '1',
+  `sitem_id` int NOT NULL AUTO_INCREMENT,
+  `sitem_active` int DEFAULT '0',
+  `name` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `query` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sid` int DEFAULT NULL,
+  `sitem_index` int DEFAULT NULL,
+  `status` int DEFAULT '1',
   PRIMARY KEY (`sitem_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1154,15 +1154,15 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_sites`;
 CREATE TABLE `nav_sites` (
-  `site_id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) DEFAULT NULL,
-  `sort_id` int(11) DEFAULT NULL,
+  `site_id` int NOT NULL AUTO_INCREMENT,
+  `uid` int DEFAULT NULL,
+  `sort_id` int DEFAULT NULL,
   `site_name` varchar(64) DEFAULT NULL,
-  `logo_id` int(11) DEFAULT NULL,
+  `logo_id` int DEFAULT NULL,
   `site_url` varchar(255) DEFAULT NULL,
   `site_tips` varchar(64) DEFAULT NULL,
-  `order_index` int(11) DEFAULT NULL,
-  `is_com` int(1) DEFAULT NULL COMMENT '共用网址',
+  `order_index` int DEFAULT NULL,
+  `is_com` int DEFAULT NULL COMMENT '共用网址',
   PRIMARY KEY (`site_id`) USING BTREE,
   KEY `logo_id` (`logo_id`) USING BTREE,
   KEY `subSortIndex` (`sort_id`) USING BTREE,
@@ -1978,14 +1978,14 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_sort`;
 CREATE TABLE `nav_sort` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
-  `sort_id` int(6) DEFAULT NULL,
-  `sort_name` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `parent_id` int(6) DEFAULT NULL,
-  `uid` int(6) DEFAULT NULL,
-  `order_index` int(4) DEFAULT NULL,
-  `color` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `is_com` int(1) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sort_id` int DEFAULT NULL,
+  `sort_name` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `parent_id` int DEFAULT NULL,
+  `uid` int DEFAULT NULL,
+  `order_index` int DEFAULT NULL,
+  `color` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `is_com` int DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1615 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2096,7 +2096,7 @@ CREATE TABLE `nav_users` (
   `user_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `time` varchar(64) DEFAULT NULL,
   `login_time` varchar(64) DEFAULT NULL,
-  `rid` int(2) DEFAULT '0',
+  `rid` int DEFAULT '0',
   PRIMARY KEY (`uid`) USING BTREE,
   KEY `uname` (`uname`,`upwd`) USING BTREE,
   KEY `uid` (`uid`) USING BTREE
@@ -2106,8 +2106,8 @@ CREATE TABLE `nav_users` (
 -- Records of nav_users
 -- ----------------------------
 BEGIN;
-INSERT INTO `nav_users` VALUES (10000, 'admin', 'c93ccd78b2076528346216b3b2f701e6', 'admin@admin.com', '超级管理员', '2021-12-29 14:38:31', '2021-12-29 14:40:48', 10000);
-INSERT INTO `nav_users` VALUES (10001, 'guset', 'e10adc3949ba59abbe56e057f20f883e', 'guest@sina.com', 'guest', '2021-12-29 14:38:31', '2021-12-29 14:45:26', 10001);
+INSERT INTO `nav_users` VALUES (10000, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin@admin.com', '超级管理员', '2021-12-29 14:38:31', '2022-5-8 0:19:41', 10000);
+INSERT INTO `nav_users` VALUES (10001, 'guest', 'e10adc3949ba59abbe56e057f20f883e', 'guest@sina.com', '普通用户', '2021-12-29 14:38:31', '2022-5-8 0:20:55', 10001);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

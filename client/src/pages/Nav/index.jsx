@@ -4,6 +4,7 @@ import injector from './injector';
 import Search from './Search';
 import SiteBox from './SiteBox';
 import style from './style.less';
+import bg from '@/assets/img/bg.jpeg';
 @injector
 class NavPage extends Component {
   constructor(props) {
@@ -35,10 +36,7 @@ class NavPage extends Component {
     const { orderVal } = this.state;
     return (
       <Spin tip="加载中..." wrapperClassName={style.loading} spinning={this.props.isLoading} size="large">
-        <div
-          className={style.bg}
-          style={{ backgroundImage: `url('https://gitee.com/hfood/img-cloud/raw/master/202112/bg.jpeg')` }}
-        >
+        <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}>
           <Search className={`${style.search} ${style.clearfix}`} />
           <SiteBox className={style.siteContainer} />
           {this.props.isEdit && !this.props.isMobile ? (

@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import injector from './injector';
 import style from './style.less';
+import bg from '@/assets/img/bg.jpeg';
 @injector
 class UserLayout extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class UserLayout extends Component {
   }
   render() {
     return (
-      <div className={style.bg} style={{ backgroundImage: `url(${this.props.bgImg})` }}>
+      <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}>
         <div className={style.user}>{this.props.children}</div>
       </div>
     );

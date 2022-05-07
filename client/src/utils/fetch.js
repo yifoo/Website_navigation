@@ -1,13 +1,9 @@
 import { message } from 'antd';
 import qs from 'qs';
+import { history } from 'umi';
 import { extend } from 'umi-request';
 const instance = extend({
-  prefix: process.env.apiUrl,
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
+  timeout: 15000,
   paramsSerializer: function (params) {
     if (params instanceof FormData) {
       return params;
@@ -25,6 +21,7 @@ const instance = extend({
       if (window.navigator.onLine) {
         if (error.response.status === 401) {
           localStorage.clear('token');
+          history.push('/user/login')
           message.error('登录已失效,请重新登录');
         } else {
           message.error(`${error.response.status} ${error.response.statusText || codeMap[error.response.status]}`);
@@ -33,15 +30,14 @@ const instance = extend({
         message.error('网络异常，请检查网络设置');
       }
       // 请求已发送但服务端返回状态码非 2xx 的响应
-      console.log('data',error);
       console.log('error', error.request);
     } else {
       // 请求初始化时出错或者没有响应返回的异常
-      console.log(error.message);
+      error && console.log(error.message);
     }
     // throw error; // 如果throw. 错误将继续抛出.
     // 如果return, 则将值作为返回. 'return;' 相当于return undefined, 在处理结果时判断response是否有值即可.
-    return {}
+    return {};
   },
 });
 
@@ -55,20 +51,9 @@ export const fetch = ({ url = '', method = 'get', ...options }) => {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${localStorage.getItem('token')}`,
   };
+  options.responseType = 'json';
+  options.prefix = process.env.apiUrl;
   return instance(url, { method, ...options }).then((res) => {
-    if (res.code === 200) {
-      return res;
-    }
+    return res;
   });
-};
-export const fetchExport = ({ url = '', method = 'post', ...options }) => {
-  options.data = options.body;
-  instance.extendOptions({
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
-    responseType: 'blob',
-  });
-  return instance(url, { method, ...options });
 };

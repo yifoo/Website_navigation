@@ -1,12 +1,14 @@
 import router from '@/config/routes';
-import ProLayout from '@ant-design/pro-layout';
+import ProLayout, { DefaultFooter } from '@ant-design/pro-layout';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { ConfigProvider, Empty } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { connect } from 'dva';
 import React, { useEffect, useState } from 'react';
-import { history } from 'umi';
+import { history, Link } from 'umi';
 import style from './style.less';
 import UserInfo from './UserInfo';
+import logo from '@/assets/img/logo.png';
 const path = history.location.pathname;
 const Layout = (props) => {
   const [pathname, setPathname] = useState(path);
@@ -23,14 +25,14 @@ const Layout = (props) => {
   //? 菜单按钮点击切换路由
   const menuItemRender = (item, dom) => {
     return (
-      <a
+      <Link
+        to={item.path}
         onClick={() => {
-          history.push(item.path);
           setPathname(item.path);
         }}
       >
         {dom}
-      </a>
+      </Link>
     );
   };
   const routes = router[1].routes;
@@ -49,11 +51,11 @@ const Layout = (props) => {
       <ProLayout
         location={{ pathname }}
         route={{ routes: menuList }}
-        title={''}
-        logo={'https://raw.githubusercontent.com/yifoo/Sidea/master/src/img/s.png'}
+        title=""
+        logo={logo}
         contentStyle={{ margin: 0 }}
         className={style.nav}
-        onMenuHeaderClick={(e) => console.log(e)}
+        onMenuHeaderClick={(e) => history.push('/')}
         menuItemRender={menuItemRender}
         rightContentRender={() => <UserInfo />}
         contentWidth="Fluid"
@@ -63,6 +65,9 @@ const Layout = (props) => {
         navTheme="dark"
         headerTheme="dark"
         splitMenus={true}
+        defaultCollapsed={true}
+        breakpoint={false}
+        // footerRender={() => <DefaultFooter links={[]} copyright="靖风行@2022 皖ICP备20003553号-1" />}
       >
         <div id="container" className={style.mainBg}>
           <ConfigProvider locale={zhCN} renderEmpty={() => <Empty />} theme={{ textColor: '#25b864' }}>

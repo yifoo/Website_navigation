@@ -3,6 +3,7 @@ import { Avatar, Dropdown, Image, Menu, Popconfirm } from 'antd';
 import { connect } from 'dva';
 import { useEffect, useCallback, useState } from 'react';
 import { Link } from 'umi';
+import avatarimg from '@/assets/img/huba.jpg';
 import style from './style.less';
 
 const UserInfo = (props) => {
@@ -31,10 +32,7 @@ const UserInfo = (props) => {
       <div>
         {props.userInfo.uid ? (
           <>
-            <Avatar
-              className={style.avatar}
-              src={<Image src="https://gitee.com/hfood/img-cloud/raw/master/202110/6Hrsvw.jpg" />}
-            />
+            <Avatar className={style.avatar} src={<Image src={`${avatarimg}`} />} />
             <span onClick={() => setDropShow(!dropShow)}>
               {props.userInfo.userName} <DownOutlined className={`${style.setting} ${dropShow ? style.active : ''}`} />
             </span>

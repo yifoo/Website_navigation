@@ -14,7 +14,7 @@ class UsersController extends Controller {
     try {
       result = yield app.mysql.query(`select u.user_name userName,u.uname,u.email,u.uid,r.rid from nav_users u left join nav_role r using(rid) where uname='${uname}' and upwd='${upwd}'`)
       if (result.length === 0) {
-        ctx.body = { code: 402, msg: '登录失败' };
+        ctx.body = { code: 402, msg: '登录不正确' };
         return false
       } else {
         result = result[0]

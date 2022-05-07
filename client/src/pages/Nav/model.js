@@ -295,11 +295,7 @@ export default {
     },
     *checkSite({ payload }, { call, put }) {
       const res = yield call(service.checkSite, payload);
-      if (res && res.code === 200) {
-        return res.data;
-      } else {
-        return {};
-      }
+      return res
     },
   },
 };

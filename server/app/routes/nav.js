@@ -24,5 +24,4 @@ module.exports = app => {
   router.post('/api/nav/search/query',controller.nav.search.query);
   router.post('/api/nav/site/fetchAllCom',controller.nav.site.fetchAllCom);
   router.post('/api/nav/site/fetchSortCom',controller.nav.site.fetchSortCom);
-  router.post('/api/nav/site/getIcon',controller.nav.site.getIcon);
 };

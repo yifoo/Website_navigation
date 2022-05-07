@@ -23,6 +23,7 @@ const Login = (props) => {
 
   return (
     <div className={style.login}>
+      <h1 className={style.title}>登 录</h1>
       <Form
         name="login"
         labelCol={{ span: 4 }}

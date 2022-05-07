@@ -10,7 +10,7 @@ export default defineConfig({
   },
   history: { type: 'hash' },
   // base:'./',
-  favicon: './img/favicon.ico',
+  favicon: './img/favicon64.ico',
   devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
   publicPath: './',
   title: '个人收藏夹',
