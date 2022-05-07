@@ -3,6 +3,10 @@
 - 本人非计算机专业，对代码比较感兴趣，水平有限大牛勿喷，平常花在这上面的时间不多;
 - 导航的设计原则是风格简洁，前端基于react，后端接口采用node编写；
 - 切换Vue版本,请打开[这里](https://github.com/yifoo/Website_navigation/tags).
+## update 2022-05-08
+- 修复图标获取bug；
+- 修复初始化数据数据错误；
+- 登录样式调整，图标更换；
 ## update 2021-12-29
 - 基于react版本导航更新(umijs+dva+egg)
 ## update 2021-10-09
