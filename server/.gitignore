@@ -15,3 +15,4 @@ typings/
 server/config/config.default.js
 # ./app/public
 # ./hdl-node/app/public
+config/
