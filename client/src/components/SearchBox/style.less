@@ -1,0 +1,123 @@
+.searchBox {
+  padding:1rem 1rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  :global {
+    .ant-tabs-top > .ant-tabs-nav::before {
+      border: none;
+    }
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+      border: none;
+      border-radius: 0;
+    }
+  }
+}
+.search {
+  position: absolute;
+  top: 3rem;
+  left:0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  :global {
+    .ant-select-auto-complete {
+      color: #212020;
+      font-size: 0.7rem;
+    }
+  }
+}
+.searchExtra {
+  width: 5rem;
+  font-size: .7rem;
+  text-align: center;
+}
+.sBoxCheck {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+}
+.sHeader {
+  :global {
+    .ant-tabs-nav-wrap > .ant-tabs-nav-list > .ant-tabs-tab {
+      line-height: 1;
+      height: 1.2rem;
+      margin: 2px 5px;
+      box-sizing: border-box;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      background-color: transparent;
+      color: #f0f0f0;
+      border: none;
+      margin-bottom: 8px;
+      padding: 3px 0.6rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: #fff;
+    }
+    .ant-tabs-nav-list .ant-tabs-tab.ant-tabs-tab-active {
+      background-color: #e51c23;
+    }
+    .ant-tabs-nav-list .ant-tabs-tab::after{
+      width: 0;
+      height: 0;
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transition: all 0.3s linear;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid transparent;
+    }
+    .ant-tabs-nav-list .ant-tabs-tab.ant-tabs-tab-active::after {
+      border-top-color: #e51c23;
+
+    }
+  }
+}
+.sBtns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+// 搜索分类按钮样式
+.sbtn {
+  font-size: 0.7rem;
+  border: 1px solid transparent;
+  min-width: 3.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.5rem;
+  padding: 1px 5px;
+  letter-spacing: 1px;
+  box-sizing: content-box;
+  text-align: center;
+  cursor: pointer;
+  background: #f7f7f7;
+  // transition: all 0.3s ease;
+  &.active {
+    background-color: #e51c23;
+    color: #fff;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+  &::before {
+    content: '';
+    transition: padding 0.3s linear;
+    padding-right: 0rem;
+    background: url('~@/assets/img/active.png') no-repeat left center;
+  }
+  &.active::before {
+    padding-left: 0.6rem;
+  }
+}

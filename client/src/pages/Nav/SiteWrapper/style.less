@@ -1,0 +1,120 @@
+.siteEmpty {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+.drag {
+  border: 1px dashed #f0f0f0;
+  cursor: move;
+}
+.addSort {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  border: 1px dashed #f0f0f0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.addSortInput {
+  width: 0rem;
+  transition: width 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &.showSortInput {
+    width: 13rem;
+  }
+  .sortInput {
+    float: left;
+    outline: none;
+    border: none;
+    width: 6rem;
+    height: 1.5rem;
+    padding: 0 5px;
+  }
+  .sortSelect {
+    width: 6rem;
+    height: 1.5rem;
+    border: none;
+  }
+}
+.dropSelect {
+  width: 6rem !important;
+}
+.dropColor {
+  width: 6rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 5px;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+.addSortIcon {
+  display: flex;
+  justify-content: flex-start;
+  span {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    &:hover {
+      opacity: 0.7;
+    }
+    &.yes {
+      color: #0ef30e;
+    }
+    &.del {
+      color: red;
+    }
+  }
+}
+
+.siteForm {
+  :global {
+    .ant-image {
+      position: absolute;
+      right: 50px;
+      bottom: 200px;
+      width: 42px;
+      font-size: 12px;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .grid {
+    width: 50%;
+    padding: 5px;
+  }
+}
+@media screen and (min-width: 798px) and (max-width: 991px) {
+  .grid {
+    width: 100%;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 797px) {
+  .grid {
+    width: 100%;
+    padding: 5px;
+  }
+  .site {
+    width: 4rem;
+    .icon {
+      display: none;
+    }
+    .siteName {
+      left: auto;
+      width: 3.4rem;
+    }
+  }
+}

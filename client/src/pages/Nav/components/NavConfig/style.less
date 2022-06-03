@@ -1,0 +1,27 @@
+.navConfig {
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  color: #fff;
+  :global {
+    button {
+      color: rgba(190, 190, 190, 0.4);
+      transform: rotateZ(0deg);
+      span {
+        font-size: 1rem;
+      }
+      &:hover {
+        color: #fff;
+        transform: rotateZ(90deg);
+      }
+      &:focus {
+        color: rgba(190, 190, 190, 0.4);
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+  .isEdit {
+    transform: rotateZ(90deg);
+    color: #b3b3b3;
+  }
+}

@@ -4,61 +4,26 @@ const sortBy = (props) => {
     return a[props] - b[props]
   }
 }
-// 创建排序函数
-const sortArr = function (arr) {
-  // 深拷贝一份数据
-  var copy = JSON.parse(JSON.stringify(arr))
-  // 创建一个存储数据的对象
-  var obj = {}
-  // 遍历数据，将数据所有数据添加到对象中，key为数据id，value为原数据对象
-  copy.forEach((item, index) => {
-    obj[item.sortId] = item
-  })
-  // 创建一个最终返回的数组
-  var res = []
-  // 遍历数据开始处理
-  copy.forEach((item) => {
-    // 将root数据添加进res数组， 因为数据使引用类型，子元素数据都会带过来，下面的循环会处理子元素数据
-    if (item.parentId == null) {
-      delete item.parentId
-      delete item.orderIndex
-      res.push(item)
-    }
-    // 梳理子元素数据
-    Object.keys(obj).forEach((key) => {
-      if (item.sortId === obj[key].parentId) {
-        let data = obj[key]
-        // 处理数据children
-        if (item.children) {
-          item.children.push({
-            id: data.id,
-            sortId: data.sortId,
-            sortName: data.sortName,
-            orderIndex: data.orderIndex
-          })
-        } else {
-          item.children = [
-            {
-              id: data.id,
-              sortId: data.sortId,
-              sortName: data.sortName,
-              orderIndex: data.orderIndex
-            }
-          ]
+// 创建tree
+const sortArr = (data) => {
+  let parents = data.filter((value) => value.parentId === null)
+  let children = data.filter((value) => value.parentId !== null)
+  let translator = (parents, children) => {
+    parents.forEach((item) => {
+      children.forEach((current, index) => {
+        if (current.parentId === item.sortId) {
+          let temp = JSON.parse(JSON.stringify(children))
+          temp.splice(index, 1)
+          translator([current], temp)
+          typeof item.children !== 'undefined'
+            ? item.children.push(current)
+            : (item.children = [current])
         }
-      }
+      })
     })
-  })
-  let data = []
-  res.forEach((item) => {
-    if (item.children) {
-      item.children = item.children.sort(sortBy('orderIndex'))
-    } else {
-      item.children = []
-    }
-    data.push(item)
-  })
-  return data
+  }
+  translator(parents, children)
+  return parents
 }
 const getFavicon = async (siteUrl) => {
   let domainReg =
@@ -68,23 +33,23 @@ const getFavicon = async (siteUrl) => {
   if (siteHost.slice(siteHost.length - 1) === '/') {
     iconHost = iconHost.slice(0, -1)
   }
-  iconUrl = iconHost + '/favicon.ico'
+  let iconUrl = iconHost + '/favicon.ico'
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
   let resp = {}
   try {
     resp = await axios({
       method: 'get',
       url: siteHost,
-      timeout: 10000,
+      timeout: 12000,
       headers: {
         'Accept-Language':
-        'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6,ko;q=0.5',
+          'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6,ko;q=0.5',
         'sec-ch-ua':
-        '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
+          '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': 'macOS',
         'User-Agent':
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'
       }
     })
   } catch (err) {
@@ -92,31 +57,72 @@ const getFavicon = async (siteUrl) => {
     return null
   }
   let html = resp.data
-  let shortcutReg = /<link[^>]+rel=.(icon|shortcut icon|alternate icon)[^>]+>/img
+  let shortcutReg =
+    /<link[^>]+rel=.(icon|shortcut icon|alternate icon)[^>]+>/gim
   let link = html.match(shortcutReg)
-  if (link&&link.length) {
+  if (link && link.length) {
     link = link[0]
-    let icontest = /href=('|")?.*\.(ico|png|jpg|jpeg|bmp)('|")?/ig
+    let icontest = /href=('|")?.*\.(ico|png|jpg|jpeg|bmp)('|")?/gi
     let icon = link.match(icontest)
+    console.log('icontest: ', icontest,icon);
     if (icon.length > 0) {
       iconUrl = icon[icon.length - 1]
     }
     //*判断是否存在http
     if (
       !/(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/gi.test(iconUrl)
-      ) {
+    ) {
       if (/^\/\/.?/.test(iconUrl)) {
         iconUrl = 'https:' + iconUrl
         return iconUrl
-      } else if(/\=/.test(iconUrl)){
-        iconUrl = iconUrl.match(/\/.*\.(ico|png|jpg|jpeg|bmp)/ig) 
+      } else if (/\=/.test(iconUrl)) {
+        iconUrl = iconUrl.match(/\/.*\.(ico|png|jpg|jpeg|bmp)/gi)
         iconUrl = iconUrl[0]
-      }else if (iconUrl.slice(0, 1) !== '/') {
+        if (/^\/\/.?/.test(iconUrl)) {
+          iconUrl = 'https:' + iconUrl
+          return iconUrl
+        }
+      } else if (iconUrl.slice(0, 1) !== '/') {
         iconUrl = '/' + iconUrl
       }
       iconUrl = iconHost + iconUrl
+    } else {
+      iconUrl = iconUrl.match(
+        /(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/gi
+      )
+      iconUrl = iconUrl[0]
     }
   }
   return iconUrl
 }
-module.exports = { sortArr, getFavicon }
+const getIcon = async (url) => {
+  let domainReg =
+    /(http|https):\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?\/?/i
+  const siteHost = url.match(domainReg)[0]
+  let iconUrl
+  try {
+    iconUrl = await getFavicon(siteHost)
+  } catch (e) {
+    console.log('e: ', e)
+  }
+  let icon
+  if (!iconUrl) {
+    return `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${siteHost}&size=32`
+  }
+  try {
+    icon = await axios({
+      method: 'get',
+      url: iconUrl,
+      timeout: 5000
+    })
+    if (icon && icon.status === 200) {
+      console.log('icon: ', icon.data)
+      return iconUrl
+    } else {
+      return `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${siteHost}&size=32`
+    }
+  } catch (e) {
+    return `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${siteHost}&size=32`
+  }
+}
+module.exports = { sortArr, getFavicon, getIcon }

@@ -1,65 +1,57 @@
-import { Card, Radio, Space, Spin } from 'antd';
-import { Component } from 'react';
-import injector from './injector';
-import Search from './Search';
-import SiteBox from './SiteBox';
-import style from './style.less';
 import bg from '@/assets/img/bg.jpeg';
-@injector
-class NavPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orderVal: 1,
-    };
-  }
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.orderVal === prevState.orderVal) {
-      return null;
-    }
-    return {
-      orderVal: nextProps.orderVal,
-    };
-  }
-  onChange = (e) => {
-    this.props.setOrderVal(e.target.value);
+import SearchBox from '@/components/SearchBox';
+import { useBoolean } from 'ahooks';
+import { Spin } from 'antd';
+import React, { useEffect } from 'react';
+import { useDispatch, useModel, useSelector } from 'umi';
+import OrderConfig from './components/OrderConfig';
+import SiteWrapper from './SiteWrapper';
+import style from './style.less';
+
+export default function NavPage() {
+  const [isLoading, { toggle, setTrue, setFalse }] = useBoolean(false);
+  const siteList = useSelector((state) => state.Nav.siteList);
+  const { initialState } = useModel('@@initialState');
+  const isMobile = initialState.isMobile;
+  const dispatch = useDispatch();
+  const fetchSort = () =>
+    dispatch({
+      type: 'Nav/fetchSort',
+    });
+  const fetchAllSites = () =>
+    dispatch({
+      type: 'Nav/fetchAll',
+    });
+  const handleEdit = () => {
+    dispatch({
+      type: 'Nav/setIsEdit',
+      payload: false,
+    });
   };
-  async componentDidMount() {
-    if (this.props.siteList.length === 0) {
-      this.props.setIsLoading(true);
-      await this.props.fetchSort();
-      await this.props.fetchAllSites();
-      this.props.setIsLoading(false);
+  useEffect(() => {
+    if (siteList.length === 0) {
+      setTrue();
+      fetchSort();
+      fetchAllSites();
     }
-  }
-  render() {
-    const { orderVal } = this.state;
-    return (
-      <Spin tip="加载中..." wrapperClassName={style.loading} spinning={this.props.isLoading} size="large">
-        <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}>
-          <Search className={`${style.search} ${style.clearfix}`} />
-          <SiteBox className={style.siteContainer} />
-          {this.props.isEdit && !this.props.isMobile ? (
-            <Card
-              className={style.orderStyle}
-              title="选择排序"
-              bordered={false}
-              style={{ width: 130 }}
-              headStyle={{ padding: '0 10px' }}
-              bodyStyle={{ padding: '10px' }}
-            >
-              <Radio.Group onChange={this.onChange} value={orderVal}>
-                <Space direction="vertical">
-                  <Radio value={'sort'}>大菜单排序</Radio>
-                  <Radio value={'subSort'}>子菜单排序</Radio>
-                  <Radio value={'site'}>网址排序</Radio>
-                </Space>
-              </Radio.Group>
-            </Card>
-          ) : null}
+    return handleEdit;
+  }, []);
+  useEffect(() => {
+    setTrue();
+    if (siteList.length > 0) {
+      setFalse();
+    }
+    return setFalse;
+  }, [siteList]);
+  return (
+    <Spin tip="加载中..." wrapperClassName={style.loading} spinning={isLoading} size="large">
+      <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}>
+        <div className={style.searchContainer}>
+          <SearchBox />
         </div>
-      </Spin>
-    );
-  }
+        <SiteWrapper className={style.siteContainer} />
+        {!isMobile ? <OrderConfig /> : null}
+      </div>
+    </Spin>
+  );
 }
-export default NavPage;

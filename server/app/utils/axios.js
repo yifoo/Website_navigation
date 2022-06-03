@@ -20,7 +20,6 @@ service.interceptors.response.use(
   res => {
     // // if the custom code is not 200, it is judged as an error.
     // if (res.code !== 200) {
-    //   console.log('asdad');
     //   return Promise.reject(new Error(res.message || 'Error'));
     // }
     return res;

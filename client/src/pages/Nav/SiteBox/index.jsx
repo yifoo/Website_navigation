@@ -1,185 +1,147 @@
-import { Empty } from 'antd';
-import { Component } from 'react';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import injector from '../injector';
-import AddSort from './AddSort';
-import EditSiteModal from './EditSite';
-import EditSubSortModal from './EditSubSort';
-import SiteSort from './SiteSort';
+import { PlusCircleOutlined } from '@ant-design/icons';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'umi';
+import Site from '../Site';
+import SortTitle from '../SortTitle';
 import style from './style.less';
-
-@injector
-class SiteBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      siteList: [],
-      list1: [],
-      list2: [],
-    };
-  }
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (JSON.stringify(nextProps.siteList) === JSON.stringify(prevState.siteList)) {
-      return null;
+const SiteBox = function (props) {
+  const isEdit = useSelector((state) => state.Nav.isEdit);
+  const orderVal = useSelector((state) => state.Nav.orderVal);
+  const dispatch = useDispatch();
+  const [activekey, setActivekey] = useState(0);
+  const [startIndex, setStartIndex] = useState(null);
+  const [dragIndex, setDragIndex] = useState(null);
+  const [siteList, setSiteList] = useState([]);
+  const [isOrderable, setIsOrderable] = useState(false);
+  const { data = {} } = props;
+  useEffect(() => {
+    setIsOrderable(isEdit && orderVal === 'site');
+  }, [orderVal, isEdit]);
+  useEffect(() => {
+    if (data.children) {
+      let listData = data.children[activekey] ? data.children[activekey].children : [];
+      setSiteList(listData);
     }
-    let list1 = [],
-      list2 = [];
-    nextProps.siteList.forEach((item, key) => {
-      if (key % 2 == 0) {
-        list1.push(item);
-      } else {
-        list2.push(item);
-      }
+  }, [data, data.children, activekey]);
+
+  /**
+   * 添加网址
+   */
+  const addSite = () => {
+    let sortData = data.children[activekey];
+    dispatch({
+      type: 'Nav/setSiteInfo',
+      payload: { parentId: data.sortId, sortId: sortData.sortId },
     });
-    return {
-      siteList: nextProps.siteList,
-      list1,
-      list2,
-    };
-  }
-  // a little function to help us with reordering the result
-  reorder = (list, startIndex, endIndex) => {
+    dispatch({
+      type: 'Nav/setShowEditSite',
+      payload: true,
+    });
+  };
+  // * 拖拽排序
+  const reCalcList = (list) => {
+    let orderList = [];
+    list.forEach((item, key) => {
+      orderList.push({ siteId: item.id, index: key });
+    });
+    dispatch({
+      type: 'Nav/updateSiteOrder',
+      payload: orderList,
+    });
+  };
+  const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
-
     return result;
   };
-  move = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const [removed] = sourceClone.splice(droppableSource.index, 1);
-    destClone.splice(droppableDestination.index, 0, removed);
-    const result = {};
-    result[droppableSource.droppableId] = sourceClone;
-    result[droppableDestination.droppableId] = destClone;
-    return result;
-  };
-  reCalcList = (data1, data2) => {
-    let data = [],
-      length = Math.max(data1.length, data2.length) - 1;
-    for (let i = 0; i < length; i++) {
-      if (data1[i]) {
-        data.push(data1[i]);
-      }
-      if (data2[i]) {
-        data.push(data2[i]);
-      }
-    }
-    let order = [];
-    if (
-      JSON.stringify(data1) === JSON.stringify(this.state.list1) &&
-      JSON.stringify(data2) === JSON.stringify(this.state.list2)
-    ) {
-      return false;
-    }
-    this.props.setOrderSiteList(data);
-    data.forEach((item, key) => {
-      order.push({ id: item.id, index: key });
-    });
-    this.props.updateSortOrder(order);
-  };
-  onDragEnd = (result) => {
-    const { source, destination } = result;
-    if (!destination) {
+  // * 拖拽开始
+  const onDragStart = (e) => {
+    let sIndex = e.target.getAttribute('index');
+    if (!sIndex) {
       return;
     }
-    if (source.droppableId === destination.droppableId) {
-      const items = this.reorder(this.state[source.droppableId], source.index, destination.index);
-      if (source.droppableId === 'list1') {
-        this.reCalcList(items, this.state.list2);
-      } else {
-        this.reCalcList(this.state.list1, items);
-      }
-    } else {
-      const result = this.move(
-        this.state[source.droppableId],
-        this.state[destination.droppableId],
-        source,
-        destination,
-      );
-      this.reCalcList(result['list1'], result['list2']);
+    setStartIndex(sIndex);
+  };
+  const onDragEnter = (e) => {
+    e.preventDefault();
+    let dIndex = e.target.getAttribute('index');
+    if (!dIndex) {
+      return;
+    }
+    setDragIndex(dIndex);
+  };
+  const onDragEnd = (e) => {
+    e.preventDefault();
+    let endIndex = e.target.getAttribute('index');
+    if (!endIndex) {
+      return;
+    }
+    let list = reorder(siteList, startIndex, dragIndex);
+    if (endIndex) {
+      setStartIndex(null);
+      setDragIndex(null);
+    }
+    if (JSON.stringify(list) === JSON.stringify(siteList)) {
+      return false;
+    }
+    setSiteList(list);
+    reCalcList(list);
+  };
+  const isDragDisabled = !isEdit || orderVal !== 'sort';
+  const countClick = (e) => {
+    e.preventDefault();
+    if (e.target.getAttribute('data-url')) {
+      window.open(e.target.getAttribute('data-url'));
+      dispatch({
+        type: 'Nav/clickSite',
+        payload: { siteId: e.target.getAttribute('data-id') },
+      });
     }
   };
-  getItemStyle = (isDragging, draggableStyle) => ({
-    userSelect: 'none',
-    background: isDragging ? 'lightgreen' : null,
-    ...draggableStyle,
-  });
-  render() {
-    const { list1, list2 } = this.state;
-    const { isEdit, orderVal } = this.props;
-    const isDragDisabled = !(isEdit && orderVal === 'sort' && !this.props.isMobile);
-    // if (siteList.length === 0) return false;
-    return (
-      <div className={`${this.props.className}`}>
-        <div className={`${style.siteBox} ${!isDragDisabled ? style.sortDrag : ''}`}>
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <Droppable droppableId="list1">
-              {(provided, snapshot) => (
-                <div ref={provided.innerRef} className={style.grid}>
-                  {list1.map((item, key) => {
-                    return (
-                      <Draggable
-                        isDragDisabled={isDragDisabled}
-                        key={item.id}
-                        draggableId={'sort' + item.id}
-                        index={key}
-                      >
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={this.getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-                          >
-                            <SiteSort data={item} dataIndex={JSON.stringify(item)} />
-                          </div>
-                        )}
-                      </Draggable>
-                    );
-                  })}
+  return (
+    <div className={`${isDragDisabled ? '' : style.drag} ${style.sortBox}`}>
+      <SortTitle data={data} activekey={activekey} setActivekey={setActivekey} isEdit={isEdit} orderVal={orderVal} />
+      <div className={style.siteContainBox}>
+        {data.children.map((current, index) => {
+          return (
+            <div
+              key={index}
+              className={style.siteList}
+              style={{
+                opacity: index === activekey ? 1 : 0,
+                transform: index === activekey ? 'rotateX(0deg)' : 'rotateX(-90deg)',
+                height: index === activekey ? 'auto' : 0,
+              }}
+              onClick={countClick}
+              onDragStart={onDragStart}
+              onDragEnter={onDragEnter}
+              onDragEnd={onDragEnd}
+            >
+              {current.children.map((item, key) => {
+                return (
+                  <Site
+                    {...item}
+                    key={key}
+                    index={key}
+                    draggable={isOrderable}
+                    className={`${(typeof dragIndex !== 'object' && Number(dragIndex)) === key ? style.siteDrag : ''} `}
+                  />
+                );
+              })}
+              {isEdit ? (
+                <div className={style.site}>
+                  <div className={style.edit}>
+                    <PlusCircleOutlined onClick={addSite} />
+                  </div>
                 </div>
-              )}
-            </Droppable>
-            <Droppable droppableId="list2">
-              {(provided, snapshot) => (
-                <div ref={provided.innerRef} className={style.grid}>
-                  {list2.map((item, key) => {
-                    return (
-                      <Draggable
-                        isDragDisabled={isDragDisabled}
-                        key={item.id}
-                        draggableId={'sort' + item.id}
-                        index={key}
-                      >
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={this.getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-                          >
-                            <SiteSort data={item} dataIndex={JSON.stringify(item)} />
-                          </div>
-                        )}
-                      </Draggable>
-                    );
-                  })}
-                </div>
-              )}
-            </Droppable>
-            {this.props.isEdit ? <AddSort addSort={this.props.addSort} /> : null}
-            <EditSiteModal />
-            <EditSubSortModal />
-          </DragDropContext>
-        </div>
-        {!this.props.isEdit && this.state.siteList.length === 0 ? (
-          <Empty className={style.siteEmpty} description="暂无数据" />
-        ) : null}
+              ) : null}
+            </div>
+          )
+        })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default SiteBox;

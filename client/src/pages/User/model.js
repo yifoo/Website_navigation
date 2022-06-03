@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import { history } from 'umi';
-import service from './service.js';
+import { userApi } from '@/services';
 
 export default {
   namespace: 'User',
@@ -38,7 +38,7 @@ export default {
   },
   effects: {
     *login({ payload }, { call, put }) {
-      const res = yield call(service.login, payload);
+      const res = yield call(userApi.login, payload);
       if (res.code === 200) {
         localStorage.setItem('token', res.token);
         yield put({
@@ -47,19 +47,19 @@ export default {
         });
         return true;
       } else {
-        res&&message.error(res.msg);
+        res && message.error(res.msg);
         return false;
       }
     },
     *register({ payload }, { call, put }) {
-      const res = yield call(service.register, payload);
+      const res = yield call(userApi.register, payload);
       if (res.code === 200) {
         message.success(res.msg);
         history.push('/user/login');
       }
     },
     *fetchUser({ payload }, { call, put }) {
-        const res = yield call(service.fetchUser, payload);
+      const res = yield call(userApi.fetchUser, payload);
       if (res && res.code === 200) {
         yield put({
           type: 'setUserInfo',
@@ -81,7 +81,7 @@ export default {
       });
       let res;
       if (payload && payload.type === 'logout') {
-        res = yield call(service.logout, payload);
+        res = yield call(userApi.logout, payload);
         if (res.code === 200) {
           message.success(res.msg);
           localStorage.clear('token');
@@ -97,15 +97,15 @@ export default {
       }
     },
     *checkUserEmail({ payload }, { call, put }) {
-      const res = yield call(service.checkUserEmail, payload);
+      const res = yield call(userApi.checkUserEmail, payload);
       return res;
     },
     *checkUname({ payload }, { call, put }) {
-      const res = yield call(service.checkUname, payload);
+      const res = yield call(userApi.checkUname, payload);
       return res;
     },
     *sendCode({ payload }, { call, put }) {
-      const res = yield call(service.sendCode, payload);
+      const res = yield call(userApi.sendCode, payload);
       return res;
     },
   },

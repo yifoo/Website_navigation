@@ -1,24 +1,16 @@
 import { connect } from 'dva';
 
 const mapStateToProps = (state) => ({
-  bgImg: state.Nav.bgImg,
-  searchList: state.Nav.searchList,
   siteList: state.Nav.siteList,
-  placeholder: state.Nav.placeholder,
   isLoading: state.Nav.isLoading,
-  isEdit: state.Nav.isEdit,
   showEditSite: state.Nav.showEditSite,
   orderVal: state.Nav.orderVal,
-  isMobile: state.global.isMobile,
+  // isMobile: state.global.isMobile,
+  sortList: state.Nav.sortList,
+  isEdit: state.Nav.isEdit,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchSearchList(params) {
-    return dispatch({
-      type: 'Nav/querySearchList',
-      payload: params,
-    });
-  },
   setIsLoading(params) {
     return dispatch({
       type: 'Nav/setIsLoading',
@@ -62,6 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
     });
   },
   updateSortOrder(params) {
+    console.log('params: ', params);
     return dispatch({
       type: 'Nav/updateSortOrder',
       payload: params,

@@ -1,12 +1,12 @@
+import { searchApi, navApi } from '@/services';
 import { message } from 'antd';
-import service from './service.js';
 
 export default {
   namespace: 'Nav',
   state: {
+    activeList: [],
     searchList: [],
-    searchVal: '',
-    placeholder: '请输入关键词',
+    activeBtnList: [],
     originSiteList: [],
     siteList: [],
     isLoading: false,
@@ -17,20 +17,38 @@ export default {
     sortInfo: {},
     sortList: [],
     orderVal: 'sort',
-    // bgImg: require('@/assets/img/bg.jpeg'),
   },
-
   reducers: {
+    setSearchList(state, { payload }) {
+      let activeBtnList = [];
+      let activeList = [];
+      payload.forEach((item) => {
+        activeBtnList.push(item.activeBtn);
+        activeList.push(item.keyActive);
+      });
+      return {
+        ...state,
+        searchList: payload,
+        activeBtnList,
+        activeList,
+      };
+    },
+    updateActiveBtnList(state, { payload }) {
+      return {
+        ...state,
+        activeBtnList: payload,
+      };
+    },
+    updateActiveList(state, { payload }) {
+      return {
+        ...state,
+        activeList: payload,
+      };
+    },
     setBgImg(state, { payload }) {
       return {
         ...state,
         bgImg: payload,
-      };
-    },
-    setPlaceholder(state, { payload }) {
-      return {
-        ...state,
-        placeholder: payload,
       };
     },
     clearSiteSort(state, { payload }) {
@@ -39,13 +57,8 @@ export default {
         originSiteList: [],
         siteList: [],
         sortList: [],
-      };
-    },
-    //* 设置操作记录信息
-    setSearchList(state, { payload }) {
-      return {
-        ...state,
-        searchList: payload.list,
+        orderVal: 'sort',
+        isEdit: false,
       };
     },
     setOrderSiteList(state, { payload }) {
@@ -54,24 +67,22 @@ export default {
         siteList: payload,
       };
     },
-    setSiteList(state, { payload, status }) {
-      let siteList = Array.from(state.sortList);
+    setSiteList(state, { payload }) {
+      let siteList = JSON.parse(JSON.stringify(state.sortList));
       if (payload.length === 0) {
         siteList = [];
       }
-      siteList.forEach((item, key) => {
-        if (item.children && item.children.length > 0) {
+      siteList.forEach((item) => {
+        item.children &&
           item.children.forEach((_item, _key) => {
-            _item.children = [];
-            payload.forEach((data, i) => {
+            _item.children = _item.children ? _item.children : [];
+            payload.forEach((data) => {
               if (_item.sortId === data.sortId) {
                 _item.children.push(data);
+                return null;
               }
             });
           });
-        } else {
-          item.children = [];
-        }
       });
       return {
         ...state,
@@ -134,18 +145,21 @@ export default {
   },
   effects: {
     *querySearchList({ payload }, { call, put }) {
-      const res = yield call(service.querySearchList, payload);
-      if (res.code === 200) {
+      const res = yield call(searchApi.querySearchList, payload);
+      if (res && res.code === 200) {
         yield put({
           type: 'setSearchList',
           payload: res.data,
         });
+        return res.data;
+      } else {
+        message.error(res.msg);
       }
     },
     *fetchAll({ payload }, { call, put }) {
       const token = localStorage.getItem('token');
       // yield put({ type: 'setIsLoading', payload: true });
-      const res = yield call(token ? service.fetchAll : service.fetchAllCom, payload);
+      const res = yield call(token ? navApi.fetchAll : navApi.fetchAllCom, payload);
       // yield put({ type: 'setIsLoading', payload: false });
       if (res && res.code === 200) {
         yield put({
@@ -155,7 +169,7 @@ export default {
       }
     },
     *fetchSite({ payload }, { call, put }) {
-      const res = yield call(service.fetchSite, payload);
+      const res = yield call(navApi.fetchSite, payload);
       if (res && res.code === 200) {
         yield put({
           type: 'setSiteInfo',
@@ -168,7 +182,7 @@ export default {
     },
     *fetchSort({ payload }, { call, put, select }) {
       const token = localStorage.getItem('token');
-      const res = yield call(token ? service.fetchSort : service.fetchSortCom, payload);
+      const res = yield call(token ? navApi.fetchSort : navApi.fetchSortCom, payload);
       if (res && res.code === 200) {
         yield put({
           type: 'setSortList',
@@ -184,7 +198,7 @@ export default {
       }
     },
     *addSort({ payload }, { call, put, select }) {
-      const res = yield call(service.addSort, payload);
+      const res = yield call(navApi.addSort, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         // 更新网址分类和所有分类下网址
@@ -198,7 +212,7 @@ export default {
       }
     },
     *delSort({ payload }, { call, put }) {
-      const res = yield call(service.delSort, payload);
+      const res = yield call(navApi.delSort, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         // 更新网址分类和所有分类下网址
@@ -212,7 +226,7 @@ export default {
       }
     },
     *updateSort({ payload }, { call, put, select }) {
-      const res = yield call(service.updateSort, payload);
+      const res = yield call(navApi.updateSort, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         // 更新网址分类和所有分类下网址
@@ -226,7 +240,7 @@ export default {
       }
     },
     *updateSortOrder({ payload }, { call, put, select }) {
-      const res = yield call(service.updateSortOrder, payload);
+      const res = yield call(navApi.updateSortOrder, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         // 更新网址分类和所有分类下网址
@@ -236,12 +250,12 @@ export default {
         });
         return true;
       } else {
-        message.errror(res.msg);
+        message.error(res.msg);
         return false;
       }
     },
     *addSite({ payload }, { call, put }) {
-      const res = yield call(service.addSite, payload);
+      const res = yield call(navApi.addSite, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         yield put({
@@ -253,8 +267,11 @@ export default {
         return false;
       }
     },
+    *clickSite({ payload }, { call, put }) {
+      yield call(navApi.clickSite, payload);
+    },
     *updateSite({ payload }, { call, put }) {
-      const res = yield call(service.updateSite, payload);
+      const res = yield call(navApi.updateSite, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         yield put({
@@ -267,7 +284,7 @@ export default {
       }
     },
     *updateSiteOrder({ payload }, { call, put }) {
-      const res = yield call(service.updateSiteOrder, payload);
+      const res = yield call(navApi.updateSiteOrder, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         yield put({
@@ -276,12 +293,12 @@ export default {
         });
         return true;
       } else {
-        message.errror(res.msg);
+        message.error(res.msg);
         return false;
       }
     },
     *delSite({ payload }, { call, put }) {
-      const res = yield call(service.delSite, payload);
+      const res = yield call(navApi.delSite, payload);
       if (res && res.code === 200) {
         message.success(res.msg);
         yield put({
@@ -294,8 +311,8 @@ export default {
       }
     },
     *checkSite({ payload }, { call, put }) {
-      const res = yield call(service.checkSite, payload);
-      return res
+      const res = yield call(navApi.checkSite, payload);
+      return res;
     },
   },
 };

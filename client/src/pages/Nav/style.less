@@ -10,47 +10,38 @@
 .loading {
   background-color: #565654;
 }
-.search {
-  margin: 0 auto;
-  padding-top: 1rem;
-}
 .siteContainer {
   width: 60rem;
   margin: 0 auto;
+  padding-top: 1rem;
   padding-bottom: 2rem;
   min-height: 100vh;
   overflow: auto;
+  position: relative;
 }
-.orderStyle {
-  position: fixed;
-  top: 40%;
-  right: 0;
-  z-index: 1000;
+.searchContainer {
+  width: 30rem;
+  margin: 0 auto;
 }
 @media screen and (min-width: 1600px) {
   html {
     font-size: 28px;
   }
+}
+@media screen and (min-width: 1222px) {
   .siteContainer {
     width: 60rem;
+    padding: 0 2rem;
   }
-  .search {
-    width: 36rem;
-  }
-}
-@media screen and (min-width: 1222px) and (max-width: 1600px) {
-  .siteContainer {
-    width: 58rem;
-  }
-  .search {
-    width: 36rem;
+  .searchContainer {
+    width: 42rem;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1221px) {
   .siteContainer {
-    width: 47rem;
+    width: 50rem;
   }
-  .search {
+  .searchContainer {
     width: 36rem;
   }
 }
@@ -60,20 +51,18 @@
   }
   .siteContainer {
     width: 100%;
-    padding: 0.4rem;
   }
-  .search {
+  .searchContainer {
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 }
 @media screen and (max-width: 767px) {
   .siteContainer {
     width: 100%;
-    padding: 0.4rem;
   }
-  .search {
+  .searchContainer {
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 }

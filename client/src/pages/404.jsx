@@ -1,25 +1,18 @@
-import { Component } from 'react';
-import { Result, Button } from 'antd';
-import { Redirect } from 'umi';
-class NotFoundPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <Result
-        status="404"
-        title="404"
-        subTitle="抱歉,您访问的网址不存在"
-        extra={
-          <Button type="primary">
-            <Redirect to="/" />
-          </Button>
-        }
-      />
-    );
-  }
-}
+import { Button, Result } from 'antd';
+import React from 'react';
+import { history } from 'umi';
 
-export default NotFoundPage;
+const NoFoundPage = () => (
+  <Result
+    status="404"
+    title="404"
+    subTitle="Sorry, the page you visited does not exist."
+    extra={
+      <Button type="primary" onClick={() => history.push('/')}>
+        Back Home
+      </Button>
+    }
+  />
+);
+
+export default NoFoundPage;

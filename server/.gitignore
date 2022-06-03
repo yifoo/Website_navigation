@@ -12,5 +12,6 @@ run/
 *.un~
 typings/
 .nyc_output/
+server/config/config.default.js
 # ./app/public
 # ./hdl-node/app/public

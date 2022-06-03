@@ -1,21 +1,11 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "baseUrl": "./",
-    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@@/*": ["src/.umi/*"]
-    },
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["mock/**/*", "src/**/*", "config/**/*", ".umirc.js", "typings.d.ts", "public"],
-  "exclude": ["node_modules", "lib", "es", "dist", "typings", "**/__test__", "test", "docs", "tests"]
+      "@/*": ["./src/*"]
+    }
+  }
 }
