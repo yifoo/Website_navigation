@@ -8,7 +8,8 @@ import style from './style.less';
 const { TabPane } = Tabs;
 
 const SearchBox = memo((props) => {
-  const [tabKey, setTabKey] = useState('0');
+  const [tabKey, setTabKey] = useState();
+  const [activeKey, setActiveKey] = useState();
   const [btns, setBtns] = useState([]);
   const [placeholder, setPlaceholder] = useState('');
   const searchList = useSelector((state) => state.Nav.searchList);
@@ -60,16 +61,31 @@ const SearchBox = memo((props) => {
       return false;
     }
   };
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      let btn = btns.filter((item) => item.btnId === Number(activeKey));
+      if (btn && btn.length > 0 && btn[0].btnId === activeKey) {
+        handleSearch(activeKey, btn[0]);
+      }
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);;
+  }, [activeKey, tabKey]);
   //* 避免重复render
-  const searchBtnComponent = useMemo(() => {
-    return searchList.map((item, index) => {
-      return (
-        <TabPane tab={item.title} key={index}>
-          <SearchBtn list={item} index={index} handleSearch={handleSearch} />
-        </TabPane>
-      );
-    });
-  }, [searchList]);
+  const SearchBtnList = useMemo(
+    (props) => {
+      return searchList.map((item, index) => {
+        return (
+          <TabPane tab={item.title} key={index}>
+            <SearchBtn list={item} index={tabKey} handleSearch={handleSearch} updateKey={setActiveKey} />
+          </TabPane>
+        );
+      });
+    },
+    [searchList,tabKey],
+  );
   return (
     <div className={style.searchBox}>
       <div className={style.search}>
@@ -77,7 +93,7 @@ const SearchBox = memo((props) => {
         <SearchInput style={{ width: '100%' }} placeholder={placeholder} ref={inputRef} />
       </div>
       <Tabs type="card" renderTabBar={renderTabBar} centered={true} onTabClick={handleTabClick} activeKey={tabKey}>
-        {searchBtnComponent}
+        {SearchBtnList}
       </Tabs>
     </div>
   );
