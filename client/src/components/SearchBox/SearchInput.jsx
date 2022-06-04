@@ -55,8 +55,8 @@ const DebounceSelect = forwardRef((props, ref) => {
               value: `${site}`,
               orign: '本地',
             });
-            callback(list);
           }
+          callback(list);
         }
       };
     } else {
