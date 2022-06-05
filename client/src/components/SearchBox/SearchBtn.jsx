@@ -5,10 +5,13 @@ const SearchBtn = memo((props) => {
   const [activeKey, setActiveKey] = useState();
   const activeBtnList = useSelector((state) => state.Nav.activeBtnList);
   const dispatch = useDispatch();
+  const updateKey = (key)=>{
+    setActiveKey(key)
+    props.updateKey(key);
+  }
   useEffect(() => {
     if (activeBtnList[props.index] !== activeKey) {
-      setActiveKey(activeBtnList[props.index]);
-      props.updateKey(activeBtnList[props.index]);
+      updateKey(activeBtnList[props.index]);
       // return ()=>setActiveKey()
     }
   }, [activeBtnList,props.index]);
@@ -21,7 +24,7 @@ const SearchBtn = memo((props) => {
         let btn = props.list.btns[e.target.getAttribute('index')];
         const btnId = Number(btn.btnId);
         let arr = Array.from(activeBtnList);
-        setActiveKey(btnId);
+        updateKey(btnId);
         props.handleSearch(activeKey, btn);
         if (arr[props.index] !== btnId) {
           arr[props.index] = btnId;
