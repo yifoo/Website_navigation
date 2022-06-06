@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 import style from './style.less';
 const SearchBtn = memo((props) => {
@@ -9,7 +9,12 @@ const SearchBtn = memo((props) => {
     setActiveKey(key);
     props.updateKey(key);
   };
-
+  useEffect(() => {
+    if (activeBtnList[props.index] !== activeKey) {
+      updateKey(activeBtnList[props.index]);
+      // return ()=>setActiveKey()
+    }
+  }, [activeBtnList,props.index]);
   /**
    * *切换搜索按钮
    */
