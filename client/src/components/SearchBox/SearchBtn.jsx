@@ -5,38 +5,30 @@ const SearchBtn = memo((props) => {
   const [activeKey, setActiveKey] = useState();
   const activeBtnList = useSelector((state) => state.Nav.activeBtnList);
   const dispatch = useDispatch();
-  const updateKey = (key)=>{
-    setActiveKey(key)
+  const updateKey = (key) => {
+    setActiveKey(key);
     props.updateKey(key);
-  }
-  useEffect(() => {
-    if (activeBtnList[props.index] !== activeKey) {
-      updateKey(activeBtnList[props.index]);
-      // return ()=>setActiveKey()
-    }
-  }, [activeBtnList,props.index]);
+  };
+
   /**
    * *切换搜索按钮
    */
-  const changeActiveBtn = useCallback(
-    (e) => {
-      if (e.target.getAttribute('index')) {
-        let btn = props.list.btns[e.target.getAttribute('index')];
-        const btnId = Number(btn.btnId);
-        let arr = Array.from(activeBtnList);
-        updateKey(btnId);
-        props.handleSearch(activeKey, btn);
-        if (arr[props.index] !== btnId) {
-          arr[props.index] = btnId;
-          dispatch({
-            type: 'Nav/updateActiveBtnList',
-            payload: arr,
-          });
-        }
+  const changeActiveBtn = (e) => {
+    if (e.target.getAttribute('index')) {
+      let btn = props.list.btns[e.target.getAttribute('index')];
+      const btnId = Number(btn.btnId);
+      let arr = Array.from(activeBtnList);
+      updateKey(btnId);
+      props.handleSearch(activeKey, btn);
+      if (arr[props.index] !== btnId) {
+        arr[props.index] = btnId;
+        dispatch({
+          type: 'Nav/updateActiveBtnList',
+          payload: arr,
+        });
       }
-    },
-    [props.list.btns, activeBtnList],
-  );
+    }
+  };
   return (
     <>
       <div className={style.sBtns} onClick={changeActiveBtn}>
