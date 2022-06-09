@@ -30,14 +30,18 @@ const AvatarDropdown = ({ menu }) => {
       }
     }
   };
+  const toggleSetting = () => {
+    setInitialState((s) => ({ ...s, settingShow: !initialState.settingShow }));
+  };
   const onMenuClick = useCallback(
     (event) => {
       const { key } = event;
-      if (key === 'logout') {
-        loginOut();
-        return;
+      switch(key){
+        case 'logout':loginOut();history.push(`/setting`);break;
+        case 'layout':toggleSetting();break;
+        default:break;
       }
-      history.push(`/setting`);
+
     },
     [setInitialState],
   );
@@ -72,7 +76,8 @@ const AvatarDropdown = ({ menu }) => {
     );
   }
   let menuNode = [
-    { label: '个人设置', key: 'settings' },
+    { label: '样式配置', key: 'layout' },
+    // { label: '个人设置', key: 'settings' },
     { label: '退出登录', key: 'logout' },
   ];
   const menuHeaderDropdown = <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick} items={menuNode} />;

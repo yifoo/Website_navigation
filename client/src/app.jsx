@@ -3,7 +3,7 @@ import RightContent from '@/components/Layout/RightContent';
 import { userApi } from '@/services';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 import { PageLoading, SettingDrawer } from '@ant-design/pro-layout';
-import {message} from 'antd'
+import { message } from 'antd';
 import { history, Link } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 const isDev = process.env.NODE_ENV === 'development';
@@ -16,7 +16,7 @@ export const request = {
   requestInterceptors: [
     (url, options) => {
       return {
-        url: isDev ? `${url}` : `https://api.haohome.top${url}`,
+        url: isDev ? `${url}` : `生产api`,
         options: {
           ...options,
           headers: {
@@ -82,6 +82,9 @@ export async function getInitialState() {
 } // ProLayout 支持的api https://procomponents.ant.design/components/layout
 
 export const layout = ({ initialState, setInitialState }) => {
+  const onCollapse=(collapsed)=>{
+    setInitialState((s) => ({ ...s, settingShow: !initialState.settingShow }));
+  }
   return {
     rightContentRender: () => <RightContent />,
     disableContentMargin: true,
@@ -121,6 +124,8 @@ export const layout = ({ initialState, setInitialState }) => {
             <SettingDrawer
               disableUrlParams
               enableDarkTheme
+              collapse={initialState.settingShow}
+              onCollapseChange={onCollapse}
               hideHintAlert={true}
               hideCopyButton={true}
               colorList={[
