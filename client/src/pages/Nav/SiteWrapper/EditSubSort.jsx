@@ -1,6 +1,6 @@
 import { Form, Input, message, Modal, Select } from 'antd';
 import { connect } from 'dva';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 const EditSortModal = (props) => {
   const [sortForm] = Form.useForm();
   // 修改网址
@@ -74,7 +74,8 @@ const EditSortModal = (props) => {
             <Select
               labelInValue={true}
               onChange={sortChange}
-              fieldNames={{ label: 'sortName', value: 'sortId', options: props.sortList }}
+              options={props.sortList}
+              fieldNames={{ label: 'sortName', value: 'sortId'}}
             />
           </Form.Item>
           <Form.Item
