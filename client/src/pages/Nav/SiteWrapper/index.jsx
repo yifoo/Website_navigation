@@ -47,7 +47,7 @@ const SiteWrapper = (props) => {
         render={(data) => {return <SiteBox data={data} />}}
         isDragDisabled={isDragDisabled}
       />
-      {isEdit ? <AddSort addSort={props.addSort} /> : null}
+      {isEdit ? <AddSort/> : null}
       <EditSiteModal />
       <EditSubSortModal />
       {siteList.length === 0 ? <Empty className={style.siteEmpty} description="暂无数据" /> : null}

@@ -2,12 +2,13 @@ import ColorPicker from '@/components/ColorPicker';
 import { CheckCircleOutlined, MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Input, Popconfirm, Popover } from 'antd';
 import { useState } from 'react';
+import { useDispatch } from 'umi';
 import style from './style.less';
 const AddSort = (props) => {
   const [showSortInput, setShowSortInput] = useState(false);
   const [sortValue, setSortValue] = useState('');
   const [color, setColor] = useState('#299bf8');
-
+  const dispatch = useDispatch();
   let inputRef;
   const changeSort = (e) => {
     setSortValue(e.target.value.trim());
@@ -19,7 +20,10 @@ const AddSort = (props) => {
     setColor('#299bf8');
   };
   const submitSort = async () => {
-    let res = await props.addSort({ sortName: sortValue, color });
+    let res = await dispatch({
+      type: 'Nav/addSort',
+      payload: { sortName: sortValue, color },
+    });
     if (res) {
       closeAddSort();
     }

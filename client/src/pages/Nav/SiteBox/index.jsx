@@ -103,7 +103,7 @@ const SiteBox = function (props) {
     <div className={`${isDragDisabled ? '' : style.drag} ${style.sortBox}`}>
       <SortTitle data={data} activekey={activekey} setActivekey={setActivekey} isEdit={isEdit} orderVal={orderVal} />
       <div className={style.siteContainBox}>
-        {data.children.map((current, index) => {
+        {data.children&&data.children.map((current, index) => {
           return (
             <div
               key={index}
