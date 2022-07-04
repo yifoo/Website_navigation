@@ -64,12 +64,12 @@ export default (props) => {
       return false;
     }
     let data = [],
-      length = Math.max(data1.length, data2.length);
+      length = Math.max(data1?data1.length:0, data2?data2.length:0);
     for (let i = 0; i < length; i++) {
-      if (data1[i]) {
+      if (data1&&data1[i]) {
         data.push(data1[i]);
       }
-      if (data2[i]) {
+      if (data2&&data2[i]) {
         data.push(data2[i]);
       }
     }
