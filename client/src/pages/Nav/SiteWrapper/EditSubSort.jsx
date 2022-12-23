@@ -35,21 +35,12 @@ const EditSortModal = (props) => {
   const handleCancel = () => {
     props.setShowEditSubSort(false);
   };
-  const sortChange = (value) => {
-    console.log('value: ', value);
-  };
   useEffect(() => {
     sortForm.setFieldsValue({
       sort: { value: props.sortInfo.sortId, label: props.sortInfo.sortName },
       sortName: props.sortInfo.subSortName,
     });
   }, [JSON.stringify(props.sortInfo), sortForm]);
-  // const sortOption = [];
-  // props.sortList &&
-  //   props.sortList.length &&
-  //   props.sortList.forEach((item, index) => {
-  //     sortOption.push({ label: item.sortName, value: item.sortId });
-  //   });
   return (
     <>
       <Modal
@@ -73,9 +64,11 @@ const EditSortModal = (props) => {
           >
             <Select
               labelInValue={true}
-              onChange={sortChange}
               options={props.sortList}
-              fieldNames={{ label: 'sortName', value: 'sortId'}}
+              fieldNames={{
+                label: 'sortName',
+                value: 'sortId',
+              }}
             />
           </Form.Item>
           <Form.Item
