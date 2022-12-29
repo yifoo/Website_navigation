@@ -1,8 +1,9 @@
+// import useClickPreventionOnDoubleClick from '@/utils/doubleClick';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
-import Site from '../Site';
-import SortTitle from '../SortTitle';
+import Site from './Site';
+import SortTitle from './SortTitle';
 import style from './style.less';
 const SiteBox = function (props) {
   const isEdit = useSelector((state) => state.Nav.isEdit);
@@ -23,20 +24,25 @@ const SiteBox = function (props) {
       setSiteList(listData);
     }
   }, [data, data.children, activekey]);
-
+  const setShowEditSite = (params) => {
+    dispatch({
+      type: 'Nav/setShowEditSite',
+      payload: params,
+    });
+  };
+  const setSiteInfo = (params) => {
+    dispatch({
+      type: 'Nav/setSiteInfo',
+      payload: params,
+    });
+  };
   /**
    * 添加网址
    */
   const addSite = () => {
     let sortData = data.children[activekey];
-    dispatch({
-      type: 'Nav/setSiteInfo',
-      payload: { parentId: data.sortId, sortId: sortData.sortId },
-    });
-    dispatch({
-      type: 'Nav/setShowEditSite',
-      payload: true,
-    });
+    setSiteInfo({ parentId: data.sortId, sortId: sortData.sortId });
+    setShowEditSite({ open: true, type: 'edit' });
   };
   // * 拖拽排序
   const reCalcList = (list) => {
@@ -89,56 +95,66 @@ const SiteBox = function (props) {
     reCalcList(list);
   };
   const isDragDisabled = !isEdit || orderVal !== 'sort';
-  const countClick = (e) => {
+  //* 单击打开网址
+  const openClick = (e) => {
     e.preventDefault();
-    if (e.target.getAttribute('data-url')) {
+    if (e.target.getAttribute('mark') === 'url') {
       window.open(e.target.getAttribute('data-url'));
       dispatch({
         type: 'Nav/clickSite',
         payload: { siteId: e.target.getAttribute('data-id') },
       });
+    } else if (e.target.getAttribute('mark') === 'img') {
+      setShowEditSite({ open: true, type: 'show' });
+      dispatch({
+        type: 'Nav/fetchSite',
+        payload: { siteId: e.target.getAttribute('data-id') },
+      });
     }
   };
   return (
-    <div className={`${isDragDisabled ? '' : style.drag} ${style.sortBox}`}>
+    <div className={`${isDragDisabled ? '' : style.drag} ${style.sortBox}`} onClick={openClick}>
       <SortTitle data={data} activekey={activekey} setActivekey={setActivekey} isEdit={isEdit} orderVal={orderVal} />
       <div className={style.siteContainBox}>
-        {data.children&&data.children.map((current, index) => {
-          return (
-            <div
-              key={index}
-              className={style.siteList}
-              style={{
-                opacity: index === activekey ? 1 : 0,
-                transform: index === activekey ? 'rotateX(0deg)' : 'rotateX(-90deg)',
-                height: index === activekey ? 'auto' : 0,
-              }}
-              onClick={countClick}
-              onDragStart={onDragStart}
-              onDragEnter={onDragEnter}
-              onDragEnd={onDragEnd}
-            >
-              {current.children.map((item, key) => {
-                return (
-                  <Site
-                    {...item}
-                    key={key}
-                    index={key}
-                    draggable={isOrderable}
-                    className={`${(typeof dragIndex !== 'object' && Number(dragIndex)) === key ? style.siteDrag : ''} `}
-                  />
-                );
-              })}
-              {isEdit ? (
-                <div className={style.site}>
-                  <div className={style.edit}>
-                    <PlusCircleOutlined onClick={addSite} />
+        {data.children &&
+          data.children.map((current, index) => {
+            return (
+              <div
+                key={index}
+                className={style.siteList}
+                style={{
+                  opacity: index === activekey ? 1 : 0,
+                  transform: index === activekey ? 'rotateX(0deg)' : 'rotateX(-90deg)',
+                  height: index === activekey ? 'auto' : 0,
+                }}
+                onDragStart={onDragStart}
+                onDragEnter={onDragEnter}
+                onDragEnd={onDragEnd}
+              >
+                {index === activekey &&
+                  current.children.map((item, key) => {
+                    return (
+                      <Site
+                        {...item}
+                        key={key}
+                        index={key}
+                        draggable={isOrderable}
+                        className={`${
+                          (typeof dragIndex !== 'object' && Number(dragIndex)) === key ? style.siteDrag : ''
+                        } `}
+                      />
+                    );
+                  })}
+                {isEdit ? (
+                  <div className={style.site}>
+                    <div className={style.edit}>
+                      <PlusCircleOutlined onClick={addSite} />
+                    </div>
                   </div>
-                </div>
-              ) : null}
-            </div>
-          )
-        })}
+                ) : null}
+              </div>
+            );
+          })}
       </div>
     </div>
   );

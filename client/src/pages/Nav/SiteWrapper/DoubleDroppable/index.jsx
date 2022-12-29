@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import style from './style.less';
-// a little function to help us with reordering the result
+// *重新计算
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -39,6 +39,8 @@ const getListStyle = (isDraggingOver) => ({
   padding: `0 ${grid}px`,
   // width: 250,
 });
+
+//! 拖拽组件
 export default (props) => {
   const [list1, setList1] = useState([]);
   const [list2, setList2] = useState([]);
@@ -59,17 +61,19 @@ export default (props) => {
     setList1(list1);
     setList2(list2);
   }, [props.data]);
+
+  // *重新计算拖拽
   const reCalcList = (data1, data2) => {
     if (JSON.stringify(data1) === JSON.stringify(list1) && JSON.stringify(data2) === JSON.stringify(list2)) {
       return false;
     }
     let data = [],
-      length = Math.max(data1?data1.length:0, data2?data2.length:0);
+      length = Math.max(data1 ? data1.length : 0, data2 ? data2.length : 0);
     for (let i = 0; i < length; i++) {
-      if (data1&&data1[i]) {
+      if (data1 && data1[i]) {
         data.push(data1[i]);
       }
-      if (data2&&data2[i]) {
+      if (data2 && data2[i]) {
         data.push(data2[i]);
       }
     }
@@ -81,6 +85,7 @@ export default (props) => {
     props.updateOrder(order); //*更新远程排序
     props.setData(data); //* 更新状态排序数据
   };
+  // *拖拽结束
   const onDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) {
@@ -88,6 +93,9 @@ export default (props) => {
     }
     let state = {};
     if (source.droppableId === destination.droppableId) {
+      if (source.index === destination.index) {
+        return false;
+      }
       const list = reorder(getList(source.droppableId), source.index, destination.index);
       state = { list1: list };
       if (source.droppableId === 'droppable2') {
@@ -103,7 +111,6 @@ export default (props) => {
     let list2 = state.list2 ? state.list2 : list2;
     reCalcList(list1, list2);
   };
-
   if (list1.length === 0) return null;
   return (
     <div className={style['drag-box']}>

@@ -1,8 +1,7 @@
 import ColorPicker from '@/components/ColorPicker';
 import { CheckCircleOutlined, EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
-import { Input, message, Popconfirm, Popover, Button } from 'antd';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { Button, Input, message, Popconfirm, Popover } from 'antd';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 import style from './style.less';
 const SortMainTitle = (props) => {
@@ -84,7 +83,7 @@ const SortMainTitle = (props) => {
           <CheckCircleOutlined />
         </Popconfirm>
       ) : isEdit ? (
-        <Popover content={<ComfirmPicker />} title="" trigger="hover" onVisibleChange={hideColor}>
+        <Popover content={<ComfirmPicker />} title="" trigger="hover" onOpenChange={hideColor}>
           <span style={{ margin: '0 5px' }}>{props.data.sortName}</span>
         </Popover>
       ) : (

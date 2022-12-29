@@ -1,4 +1,4 @@
-import { searchApi, navApi } from '@/services';
+import { navApi, searchApi } from '@/services';
 import { message } from 'antd';
 
 export default {
@@ -12,11 +12,13 @@ export default {
     isLoading: false,
     isEdit: false,
     showEditSite: false,
+    showEditType: 'show',
     showEditSubSort: false,
     siteInfo: {},
     sortInfo: {},
     sortList: [],
     orderVal: 'sort',
+    tagsDic: [],
   },
   reducers: {
     setSearchList(state, { payload }) {
@@ -105,8 +107,9 @@ export default {
     setShowEditSite(state, { payload }) {
       return {
         ...state,
-        showEditSite: payload,
-        siteInfo: payload ? state.siteInfo : {},
+        showEditSite: payload.open,
+        showEditType: payload.type,
+        // siteInfo: payload.open ? state.siteInfo : {},
       };
     },
     setShowEditSubSort(state, { payload }) {
@@ -140,6 +143,12 @@ export default {
       return {
         ...state,
         orderVal: payload,
+      };
+    },
+    setTagsDic(state, { payload }) {
+      return {
+        ...state,
+        tagsDic: payload,
       };
     },
   },
@@ -180,6 +189,19 @@ export default {
         message.error(res.msg);
       }
     },
+    *fetchScreenShot({ payload }, { call, put }) {
+      try {
+        const res = yield call(navApi.fetchScreenShot, payload);
+        if (res && res.code === 200) {
+          return res.data;
+        } else {
+          message.error(res.msg);
+        }
+      } catch (e) {
+        message.error('请求报错');
+        return '';
+      }
+    },
     *fetchSort({ payload }, { call, put, select }) {
       const token = localStorage.getItem('token');
       const res = yield call(token ? navApi.fetchSort : navApi.fetchSortCom, payload);
@@ -195,6 +217,18 @@ export default {
             payload: originSiteList,
           });
         }
+      }
+    },
+    *fetchTagsDic({ payload }, { call, put, select }) {
+      const res = yield call(navApi.fetchTagsDic, payload);
+      if (res && res.code === 200) {
+        yield put({
+          type: 'setTagsDic',
+          payload: res.data.tagsList,
+        });
+        return res.data.tagsList;
+      } else {
+        message.error(res.msg);
       }
     },
     *addSort({ payload }, { call, put, select }) {

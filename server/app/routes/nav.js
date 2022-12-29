@@ -32,14 +32,23 @@ module.exports = (app) => {
   router.post('/api/nav/site/delSort', jwt, controller.nav.site.delSort)
 
   router.post('/api/nav/search/query', controller.nav.search.query)
-  router.post('/api/nav/search/updateActiveBtn', controller.nav.search.updateActiveBtn)
+  router.post(
+    '/api/nav/search/updateActiveBtn',
+    controller.nav.search.updateActiveBtn
+  )
   router.post('/api/nav/search/delBtn', controller.nav.search.delBtn)
   router.post('/api/nav/search/fetchBtn', controller.nav.search.fetchBtn)
   router.post('/api/nav/search/updateBtn', controller.nav.search.updateBtn)
   router.post('/api/nav/search/addBtn', controller.nav.search.addBtn)
   router.post('/api/nav/search/saveExtra', controller.nav.search.saveExtra)
   router.post('/api/nav/search/delExtra', controller.nav.search.delExtra)
-  router.post('/api/nav/search/updateKeyActive', controller.nav.search.updateKeyActive)
+  router.post(
+    '/api/nav/search/updateKeyActive',
+    controller.nav.search.updateKeyActive
+  )
   router.post('/api/nav/site/fetchAllCom', controller.nav.site.fetchAllCom)
   router.post('/api/nav/site/fetchSortCom', controller.nav.site.fetchSortCom)
+  router.get('/api/nav/site/shot', controller.nav.site.fetchScreenShot)
+
+  router.post('/api/nav/dic/fetchTags', jwt, controller.nav.siteDic.fetchTags)
 }

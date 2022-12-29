@@ -16,7 +16,7 @@ class UsersController extends Controller {
         `select u.user_name userName,u.uname,u.email,u.uid,r.rid from nav_users u left join nav_role r using(rid) where uname='${uname}' and upwd='${upwd}'`
       )
       if (result.length === 0) {
-        ctx.body = { code: 402, msg: '登录失败' }
+        ctx.body = { code: 400, msg: '登录失败' }
         return false
       }
       result = result[0]
@@ -34,7 +34,7 @@ class UsersController extends Controller {
         `UPDATE nav_users SET login_time='${result.login_time}' WHERE uid=${result.uid}`
       )
     } catch (err) {
-      ctx.body = { code: 402, msg: '登录失败' }
+      ctx.body = { code: 400, msg: '登录失败' }
       console.log('err: ', err)
     }
     // 成功则生成Token
@@ -191,7 +191,7 @@ class UsersController extends Controller {
     } catch (err) {
       console.log('err: ', err)
     }
-    ctx.body = { code: 402, msg: '注册失败' }
+    ctx.body = { code: 400, msg: '注册失败' }
   }
 }
 module.exports = UsersController

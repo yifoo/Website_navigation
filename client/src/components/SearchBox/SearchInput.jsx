@@ -91,6 +91,7 @@ const DebounceSelect = forwardRef((props, ref) => {
       setData([]);
     }
   };
+
   const options = data.map((item) => {
     return {
       label: (
@@ -109,6 +110,7 @@ const DebounceSelect = forwardRef((props, ref) => {
       value: item.value,
     };
   });
+
   return (
     <>
       <AutoComplete

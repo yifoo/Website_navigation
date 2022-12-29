@@ -140,3 +140,20 @@ export async function updateSubSortOrder(body, options) {
     ...(options || {}),
   });
 }
+
+export async function fetchScreenShot(body, options) {
+  return request('/api/nav/site/shot', {
+    method: 'GET',
+    params: body,
+    ...(options || {}),
+  });
+}
+
+//* 获取tags 词典
+export async function fetchTagsDic(body, options) {
+  return request('/api/nav/dic/fetchTags', {
+    method: 'POST',
+    data: body,
+    ...(options || {}),
+  });
+}

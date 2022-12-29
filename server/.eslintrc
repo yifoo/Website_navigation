@@ -1,3 +1,13 @@
 {
-  "extends": "eslint-config-egg"
+  "extends": "eslint-config-egg",
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "test",
+    "jest.config.js",
+    "typings"
+  ],
+  "env": {
+    "jest": true
+  }
 }

@@ -1,13 +1,8 @@
 import { request } from 'umi';
-// const headers = {
-//   'Content-Type': 'application/json',
-//   Authorization: `Bearer ${localStorage.getItem('token')}`,
-// };
 export async function querySearchList(body, options) {
   return request('/api/nav/search/query', {
     method: 'POST',
     data: body,
-
     ...(options || {}),
   });
 }

@@ -47,7 +47,7 @@ const EditSortModal = (props) => {
         forceRender={true}
         getContainer={false}
         title="编辑分类"
-        visible={props.showEditSubSort}
+        open={props.showEditSubSort}
         onOk={handleOk}
         onCancel={handleCancel}
       >

@@ -14,7 +14,10 @@ module.exports = (appInfo) => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1579272880581_3079'
   // add your middleware config here
-  config.middleware = []
+  config.middleware = ['errorHandler']
+  config.errorHandler = {
+    match: '/api'
+  }
   config.siteFile = {
     '/favicon.ico': 'https://www.haohome.top/favicon.ico'
   }

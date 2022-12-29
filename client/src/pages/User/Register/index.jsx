@@ -1,8 +1,8 @@
 import Footer from '@/components/Layout/Footer';
 import { userApi } from '@/services';
-import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
-import { message, Button } from 'antd';
+import { Button, message } from 'antd';
 import CryptoJS from 'crypto-js';
 import React, { useRef } from 'react';
 import { history, Link } from 'umi';
@@ -58,8 +58,8 @@ const Register = () => {
                   重置
                 </Button>,
                 <Button type="primary" key="submit" onClick={() => handleSubmit(formRef.current.getFieldsValue())}>
-                  提交
-                </Button>,
+                提交
+              </Button>,
               ];
             },
           }}

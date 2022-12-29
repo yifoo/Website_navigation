@@ -1,11 +1,10 @@
 import { searchApi } from '@/services';
 import { CloseCircleFilled, FormOutlined } from '@ant-design/icons';
 import { useRequest } from 'ahooks';
-import { Button, List, message, Popconfirm, Switch, Image } from 'antd';
+import { Button, Image, List, message, Popconfirm, Switch } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 
-import style from './style.less';
 
 const SearchConfig = (props) => {
   const [activeBtn, setActiveBtn] = useState(props.activeBtn);

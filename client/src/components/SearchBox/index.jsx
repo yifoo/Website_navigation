@@ -54,7 +54,7 @@ const SearchBox = memo((props) => {
       let extra = extraRef.current.extra;
       extra = Object.keys(extra).length > 0 ? extra.value : '';
       let query = extra ? extra : btn.query;
-      query = query.replace(/{key}/i, encodeURI(inputRef.current.input.trim()));
+      query = query.replace(/{key}/ig, encodeURI(inputRef.current.input.trim()));
       window.open(query);
       query = null;
       extra = null;

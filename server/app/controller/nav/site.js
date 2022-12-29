@@ -1,13 +1,16 @@
 'use strict'
 
 const Controller = require('egg').Controller
+const puppeteer = require('puppeteer')
+const path = require('path')
+const fs = require('fs')
 const util = require('../../utils/util')
 class SiteController extends Controller {
-  //!获取所有分类
+  // !获取所有分类
   *fetchSort() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10045 }
+    const { uid } = ctx.state.user || { uid: 10046 }
     let res = [],
       sortList = []
     try {
@@ -21,7 +24,7 @@ class SiteController extends Controller {
   *fetchAll() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10045 }
+    const { uid } = ctx.state.user || { uid: 10046 }
     let resp = []
     try {
       resp = yield ctx.service.nav.fetchSites({ uid })
@@ -35,11 +38,11 @@ class SiteController extends Controller {
     const params = ctx.request.body
     const { uid } = ctx.state.user
     // @ts-ignore
-    let siteInfo = yield app.mysql.query(
+    const siteInfo = yield app.mysql.query(
       `select sort_id sortId,site_name siteName,site_id siteId from nav_sites where uid=${uid} and site_name like "%${params.siteName}%"`
     )
     if (siteInfo && siteInfo.length > 0) {
-      ctx.body = { code: 200, msg: `当前网址已存在`, data: siteInfo }
+      ctx.body = { code: 200, msg: '当前网址已存在', data: siteInfo }
     } else {
       ctx.body = { code: 200, msg: '当前网址不存在', data: [] }
     }
@@ -47,7 +50,7 @@ class SiteController extends Controller {
   *fetchAllCom() {
     const { ctx, app } = this
     const uid = 10046
-    let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
+    const sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
       left JOIN nav_logo logo USING(logo_id)  where site.uid=${uid} order by order_index`
     let siteList
     try {
@@ -63,10 +66,10 @@ class SiteController extends Controller {
     const params = ctx.request.body
     const { uid } = ctx.state.user
     if (uid) {
-      let sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,logo.logo_id logoId,logo.logo_src logoSrc,sort.sort_name sortName,sort.parent_id parentId from nav_sites site left JOIN nav_logo logo USING(logo_id) left join  nav_sort sort on  site.sort_id = sort.sort_id  and sort.uid=site.uid where site_id=${params.siteId} and site.uid=${uid}`
+      const sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,site.screen_shot screenShot,site.tags tags,logo.logo_id logoId,logo.logo_src logoSrc,sort.sort_name sortName,sort.parent_id parentId from nav_sites site left JOIN nav_logo logo USING(logo_id) left join  nav_sort sort on  site.sort_id = sort.sort_id  and sort.uid=site.uid where site_id=${params.siteId} and site.uid=${uid}`
       let res
       try {
-        console.log('sql: ', sql)
+        // console.log('sql: ', sql)
         // @ts-ignore
         res = yield app.mysql.query(sql)
         if (res && res.length > 0) {
@@ -83,7 +86,65 @@ class SiteController extends Controller {
       }
     }
   }
-  //!获取所有未登录分类
+  /**
+   * 获取网页截图
+   */
+  *fetchScreenShot() {
+    const { ctx, app } = this
+    const params = ctx.request.query
+    try {
+      const browser = yield puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox']
+      })
+      const page = yield browser.newPage()
+      //*按资源过滤
+      yield page.setRequestInterception(true)
+      page.on('request', (req) => {
+        if (req.resourceType() === 'video') {
+          req.abort()
+        } else {
+          req.continue()
+        }
+      })
+      page.setUserAgent(
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+      )
+      page.setViewport({
+        width: 1200,
+        height: 800
+      })
+      //* 删除原来生成的截图
+      fs.unlink(path.resolve('app/public/img/screenshot.webp'), (err) => {})
+      const options = {
+        waitUntil: 'networkidle2',
+        timeout: 10000
+      }
+      yield page.goto(params.siteUrl, options)
+      yield page.screenshot({
+        path: path.resolve('app/public/img/screenshot.webp'),
+        type: 'webp'
+      })
+      yield browser.close()
+      const isDev = process.env.NODE_ENV === 'development'
+      ctx.body = {
+        code: 200,
+        msg: '获取数据成功',
+        data: isDev
+          ? 'http://localhost:7000/public/img/screenshot.webp?' +
+            new Date().getTime()
+          : '你的api_test地址/public/img/screenshot.webp?' +
+            new Date().getTime()
+      }
+    } catch (e) {
+      console.log('e: ', e)
+      ctx.body = {
+        code: 400,
+        msg: e.name
+      }
+    }
+  }
+  // !获取所有未登录分类
   *fetchSortCom() {
     const { ctx, app } = this
     const uid = 10046
@@ -99,7 +160,7 @@ class SiteController extends Controller {
     }
     ctx.body = { code: 200, msg: '获取数据成功', data: cateData }
   }
-  //!添加网址
+  // !添加网址
   *addSite() {
     const { ctx, app } = this
     const params = ctx.request.body
@@ -121,7 +182,7 @@ class SiteController extends Controller {
         if (logoRes.insertId) {
           logoId = logoRes.insertId
         } else {
-          ctx.body = { code: 402, msg: '添加网址失败' }
+          ctx.body = { code: 400, msg: '添加网址失败' }
         }
       }
       // @ts-ignore
@@ -136,24 +197,26 @@ class SiteController extends Controller {
         logo_id: logoId,
         site_url: params.siteUrl,
         site_desc: params.siteDesc || '',
+        screen_shot: params.screenShot,
+        tags: params.tags,
         order_index: max[0].maxSiteOrderIndex,
         count: 0
       })
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '添加网址成功' }
       } else {
-        ctx.body = { code: 402, msg: '添加网址失败' }
+        ctx.body = { code: 400, msg: '添加网址失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '添加网址失败' }
+      ctx.body = { code: 400, msg: '添加网址失败' }
     }
   }
   *delSite() {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let sql = `Delete from nav_sites where uid=${uid} and site_id =${params.siteId} `
+    const sql = `Delete from nav_sites where uid=${uid} and site_id =${params.siteId} `
     let res
     try {
       // @ts-ignore
@@ -161,19 +224,19 @@ class SiteController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '删除网址成功' }
       } else {
-        ctx.body = { code: 402, msg: '删除网址失败' }
+        ctx.body = { code: 400, msg: '删除网址失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '删除网址失败' }
+      ctx.body = { code: 400, msg: '删除网址失败' }
     }
   }
   *updateSite() {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
-    site.site_name='${params.siteName}', site.site_desc='${params.siteDesc}',site.site_url='${params.siteUrl}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
+    const sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
+    site.site_name='${params.siteName}', site.site_desc='${params.siteDesc}',site.screen_shot='${params.screenShot}',site.site_url='${params.siteUrl}',site.tags='${params.tags}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
     WHERE uid=${uid} and site.site_id=${params.siteId}`
     console.log('sql: ', sql)
     let res
@@ -183,7 +246,7 @@ class SiteController extends Controller {
       if (res.changedRows > 0) {
         ctx.body = { code: 200, msg: '更新网址成功' }
       } else {
-        ctx.body = { code: 402, msg: '更新网址失败' }
+        ctx.body = { code: 400, msg: '没有更新' }
       }
     } catch (err) {
       console.log('err: ', err)
@@ -193,26 +256,26 @@ class SiteController extends Controller {
   *clickSite() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10045 }
+    const { uid } = ctx.state.user || { uid: 10046 }
     const params = ctx.request.body
     let resp = []
     try {
       resp = yield ctx.service.nav.ClickSites({ uid, siteId: params.siteId })
-      if(resp.changedRows>0){
-        ctx.body = { code: 200, msg: ''}
-      }else{
-        ctx.body = { code: 201, msg: ''}
+      if (resp.changedRows > 0) {
+        ctx.body = { code: 200, msg: '' }
+      } else {
+        ctx.body = { code: 201, msg: '' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 202, msg: ''}
+      ctx.body = { code: 202, msg: '' }
     }
   }
   *updateSiteOrder() {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let sql = `insert into nav_sites (site_id,uid,order_index) values `
+    let sql = 'insert into nav_sites (site_id,uid,order_index) values '
     params.forEach((item, key) => {
       if (key === params.length - 1) {
         sql += `(${item.siteId},${uid},${item.index})`
@@ -220,7 +283,7 @@ class SiteController extends Controller {
         sql += `(${item.siteId},${uid},${item.index}),`
       }
     })
-    sql += ` on duplicate key update order_index=values(order_index);`
+    sql += ' on duplicate key update order_index=values(order_index);'
     console.log('sql: ', sql)
     let res
     try {
@@ -229,14 +292,14 @@ class SiteController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '更新网址排序成功' }
       } else {
-        ctx.body = { code: 402, msg: '更新网址排序失败' }
+        ctx.body = { code: 400, msg: '更新网址排序失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '更新网址排序失败' }
+      ctx.body = { code: 400, msg: '更新网址排序失败' }
     }
   }
-  //!添加二级分类
+  // !添加二级分类
   *addSort() {
     const { ctx, app } = this
     const params = ctx.request.body
@@ -260,11 +323,11 @@ class SiteController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '添加分类成功' }
       } else {
-        ctx.body = { code: 402, msg: '添加分类失败' }
+        ctx.body = { code: 400, msg: '添加分类失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '添加分类失败' }
+      ctx.body = { code: 400, msg: '添加分类失败' }
     }
   }
   *updateSort() {
@@ -281,18 +344,18 @@ class SiteController extends Controller {
       if (res.changedRows > 0) {
         ctx.body = { code: 200, msg: '更新成功' }
       } else {
-        ctx.body = { code: 402, msg: '更新失败' }
+        ctx.body = { code: 400, msg: '更新失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '更新失败' }
+      ctx.body = { code: 400, msg: '更新失败' }
     }
   }
   *updateSortOrder() {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let sql = `insert into nav_sort (id,uid,order_index) values `
+    let sql = 'insert into nav_sort (id,uid,order_index) values '
     params.forEach((item, key) => {
       if (key === params.length - 1) {
         sql += `(${item.id},${uid},${item.index})`
@@ -300,7 +363,7 @@ class SiteController extends Controller {
         sql += `(${item.id},${uid},${item.index}),`
       }
     })
-    sql += ` on duplicate key update order_index=values(order_index);`
+    sql += ' on duplicate key update order_index=values(order_index);'
     console.log('sql: ', sql)
     let res
     try {
@@ -309,11 +372,11 @@ class SiteController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '更新分类排序成功' }
       } else {
-        ctx.body = { code: 402, msg: '更新分类排序失败' }
+        ctx.body = { code: 400, msg: '更新分类排序失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '更新分类排序失败' }
+      ctx.body = { code: 400, msg: '更新分类排序失败' }
     }
   }
 
@@ -321,7 +384,7 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let sql = `Delete from nav_sort where uid=${uid} and sort_id =${params.sortId} `
+    const sql = `Delete from nav_sort where uid=${uid} and sort_id =${params.sortId} `
     let res
     try {
       // @ts-ignore
@@ -329,14 +392,14 @@ class SiteController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '删除分类成功' }
       } else {
-        ctx.body = { code: 402, msg: '删除分类失败' }
+        ctx.body = { code: 400, msg: '删除分类失败' }
       }
     } catch (err) {
       console.log('err: ', err)
-      ctx.body = { code: 402, msg: '删除分类失败' }
+      ctx.body = { code: 400, msg: '删除分类失败' }
     }
   }
-  //!检查网址
+  // !检查网址
   *checkSite() {
     // @ts-ignore
     const { ctx, app } = this
@@ -349,13 +412,13 @@ class SiteController extends Controller {
       if (iconUrl) {
         ctx.body = {
           code: 200,
-          msg: `已获取图标`,
+          msg: '已获取图标',
           data: { logoSrc: iconUrl }
         }
       } else {
         ctx.body = {
           code: 400,
-          msg: `网站访问存在问题`
+          msg: '网站访问存在问题'
         }
       }
       return false
@@ -371,50 +434,49 @@ class SiteController extends Controller {
         if (iconUrl) {
           ctx.body = {
             code: 200,
-            msg: `已获取图标`,
+            msg: '已获取图标',
             data: { logoSrc: iconUrl }
           }
         } else {
           ctx.body = {
             code: 400,
-            msg: `网站服务存在问题`
+            msg: '网站服务存在问题'
           }
         }
         return false
-      } else {
-        // *存在网址则查询网址所关联的图标
-        siteInfo = siteInfo[0]
-        iconUrl = yield ctx.service.nav.getLogo({
-          logo_id: siteInfo.logo_id
-        })
-        if (iconUrl && iconUrl.length > 0) {
+      }
+      // *存在网址则查询网址所关联的图标
+      siteInfo = siteInfo[0]
+      iconUrl = yield ctx.service.nav.getLogo({
+        logo_id: siteInfo.logo_id
+      })
+      if (iconUrl && iconUrl.length > 0) {
+        // @ts-ignore
+        iconUrl = iconUrl[0].logo_src
+      }
+      // *查询网址是否为当前账号名下的
+      let sortId = yield ctx.service.nav.findSite({
+        uid,
+        site_url: params.siteUrl
+      })
+      if (sortId.length === 0) {
+        ctx.body = {
+          code: 200,
+          msg: '获取图标成功',
           // @ts-ignore
-          iconUrl = iconUrl[0].logo_src
+          data: { logoId: iconUrl.logo_id, logoSrc: iconUrl }
         }
-        // *查询网址是否为当前账号名下的
-        let sortId = yield ctx.service.nav.findSite({
-          uid,
-          site_url: params.siteUrl
-        })
-        if (sortId.length === 0) {
-          ctx.body = {
-            code: 200,
-            msg: `获取图标成功`,
-            // @ts-ignore
-            data: { logoId: iconUrl.logo_id, logoSrc: iconUrl }
-          }
-        } else {
-          // * 属于账号名下返回账号名下的sortID和logo的图片地址
-          sortId = sortId[0]
-          ctx.body = {
-            code: 200,
-            msg: `当前网址已存在`,
-            data: {
-              siteId: sortId.site_id,
-              siteName: sortId.site_name,
-              sortId: sortId.sort_id,
-              logoSrc: iconUrl
-            }
+      } else {
+        // * 属于账号名下返回账号名下的sortID和logo的图片地址
+        sortId = sortId[0]
+        ctx.body = {
+          code: 200,
+          msg: '当前网址已存在',
+          data: {
+            siteId: sortId.site_id,
+            siteName: sortId.site_name,
+            sortId: sortId.sort_id,
+            logoSrc: iconUrl
           }
         }
       }

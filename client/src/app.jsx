@@ -11,7 +11,7 @@ const loginPath = '/user/login';
 const regPath = '/user/register';
 
 export const request = {
-  timeout: 10000,
+  timeout: 15000,
   middlewares: [],
   requestInterceptors: [
     (url, options) => {
@@ -30,11 +30,12 @@ export const request = {
   ],
   errorHandler: (error) => {
     const { response } = error;
-    message.error(response.status+response.statusText)
-    if(response.status===401){
-      localStorage.clear('token')
+    message.error(response.status + response.statusText);
+    if (response && response.status === 401) {
+      localStorage.clear('token');
       window.location.reload();
     }
+    return error;
   },
 };
 /** 获取用户信息比较慢的时候会展示一个 loading */
@@ -82,9 +83,9 @@ export async function getInitialState() {
 } // ProLayout 支持的api https://procomponents.ant.design/components/layout
 
 export const layout = ({ initialState, setInitialState }) => {
-  const onCollapse=(collapsed)=>{
+  const onCollapse = (collapsed) => {
     setInitialState((s) => ({ ...s, settingShow: !initialState.settingShow }));
-  }
+  };
   return {
     rightContentRender: () => <RightContent />,
     disableContentMargin: true,

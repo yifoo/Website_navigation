@@ -29,7 +29,13 @@ class SearchController extends Controller {
             icon: item.icon,
             query: item.query,
             extra: item.label
-              ? [{ label: item.label, value: item.value, placeholder:  item.tips||''  }]
+              ? [
+                  {
+                    label: item.label,
+                    value: item.value,
+                    placeholder: item.tips || ''
+                  }
+                ]
               : []
           })
           i++
@@ -39,7 +45,7 @@ class SearchController extends Controller {
               list[i - 1]['extra'].push({
                 label: item.label,
                 value: item.value,
-                placeholder:  item.tips||'' 
+                placeholder: item.tips || ''
               })
           } else {
             list.push({
@@ -49,7 +55,13 @@ class SearchController extends Controller {
               icon: item.icon,
               query: item.query,
               extra: item.label
-                ? [{ label: item.label, value: item.value, placeholder: item.tips||'' }]
+                ? [
+                    {
+                      label: item.label,
+                      value: item.value,
+                      placeholder: item.tips || ''
+                    }
+                  ]
                 : []
             })
             i++
@@ -85,7 +97,7 @@ class SearchController extends Controller {
       if (res.changedRows > 0) {
         ctx.body = { code: 200, msg: '更新成功' }
       } else {
-        ctx.body = { code: 402, msg: '更新失败' }
+        ctx.body = { code: 400, msg: '更新失败' }
       }
     } catch (err) {
       console.log('err: ', err)
@@ -101,7 +113,7 @@ class SearchController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '删除成功' }
       } else {
-        ctx.body = { code: 402, msg: '删除失败' }
+        ctx.body = { code: 400, msg: '删除失败' }
       }
     } catch (err) {
       console.log('err: ', err)
@@ -123,14 +135,14 @@ class SearchController extends Controller {
             name: item.name,
             icon: item.icon,
             query: item.query,
-            btnIndex:item.btnIndex,
+            btnIndex: item.btnIndex,
             extra: item.id
               ? [
                   {
                     id: item.id,
                     label: item.label,
                     value: item.value,
-                    eIndex:item.eIndex,
+                    eIndex: item.eIndex,
                     placeholder: item.placeholder
                   }
                 ]
@@ -143,7 +155,7 @@ class SearchController extends Controller {
                   id: item.id,
                   label: item.label,
                   value: item.value,
-                  eIndex:item.eIndex,
+                  eIndex: item.eIndex,
                   placeholder: item.placeholder
                 }
               : []
@@ -169,7 +181,7 @@ class SearchController extends Controller {
       if (res.changedRows > 0) {
         ctx.body = { code: 200, msg: '更新成功' }
       } else {
-        ctx.body = { code: 402, msg: '无更新' }
+        ctx.body = { code: 400, msg: '无更新' }
       }
     } catch (err) {
       console.log('err: ', err)
@@ -185,7 +197,7 @@ class SearchController extends Controller {
       if (res.insertId) {
         ctx.body = { code: 200, msg: '添加成功' }
       } else {
-        ctx.body = { code: 402, msg: '无更新' }
+        ctx.body = { code: 400, msg: '无更新' }
       }
     } catch (err) {
       console.log('err: ', err)
@@ -201,7 +213,7 @@ class SearchController extends Controller {
       if (res.affectedRows > 0) {
         ctx.body = { code: 200, msg: '删除成功' }
       } else {
-        ctx.body = { code: 402, msg: '删除失败' }
+        ctx.body = { code: 400, msg: '删除失败' }
       }
     } catch (err) {
       console.log('err: ', err)
@@ -218,16 +230,15 @@ class SearchController extends Controller {
         if (res.changedRows > 0) {
           ctx.body = { code: 200, msg: '更新成功' }
         } else {
-          ctx.body = { code: 402, msg: '无更新' }
+          ctx.body = { code: 400, msg: '无更新' }
         }
         return
       } else {
-        
         res = yield ctx.service.search.addExtra(params)
         if (res.insertId) {
-          ctx.body = { code: 200, msg: '添加成功',data:res.insertId }
+          ctx.body = { code: 200, msg: '添加成功', data: res.insertId }
         } else {
-          ctx.body = { code: 402, msg: '无更新' }
+          ctx.body = { code: 400, msg: '无更新' }
         }
         return
       }
@@ -245,7 +256,7 @@ class SearchController extends Controller {
         if (res.length === 2) {
           ctx.body = { code: 200, msg: '更新成功' }
         } else {
-          ctx.body = { code: 402, msg: '更新失败' }
+          ctx.body = { code: 400, msg: '更新失败' }
         }
       })
       .catch((err) => {
