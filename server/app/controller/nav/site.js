@@ -10,7 +10,7 @@ class SiteController extends Controller {
   *fetchSort() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10046 }
+    const { uid } = ctx.state.user
     let res = [],
       sortList = []
     try {
@@ -24,7 +24,7 @@ class SiteController extends Controller {
   *fetchAll() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10046 }
+    const { uid } = ctx.state.user
     let resp = []
     try {
       resp = yield ctx.service.nav.fetchSites({ uid })
@@ -256,7 +256,7 @@ class SiteController extends Controller {
   *clickSite() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10046 }
+    const { uid } = ctx.state.user
     const params = ctx.request.body
     let resp = []
     try {

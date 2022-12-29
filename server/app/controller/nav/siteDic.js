@@ -5,7 +5,7 @@ class SiteDicController extends Controller {
   *fetchTags() {
     // @ts-ignore
     const { ctx, app } = this
-    const { uid } = ctx.state.user || { uid: 10046 }
+    const { uid } = ctx.state.user
     let res = []
     try {
       res = yield ctx.service.nav.fetchTags({ uid })

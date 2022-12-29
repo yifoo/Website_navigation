@@ -1,6 +1,6 @@
+import { userApi } from '@/services';
 import { message } from 'antd';
 import { history } from 'umi';
-import { userApi } from '@/services';
 
 export default {
   namespace: 'User',
@@ -78,6 +78,10 @@ export default {
       yield put({
         type: 'Nav/setIsEdit',
         payload: false,
+      });
+      yield put({
+        type: 'Nav/setTagsDic',
+        payload: [],
       });
       let res;
       if (payload && payload.type === 'logout') {

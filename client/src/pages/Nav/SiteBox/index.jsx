@@ -1,13 +1,15 @@
 // import useClickPreventionOnDoubleClick from '@/utils/doubleClick';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'umi';
+import { useDispatch, useModel, useSelector } from 'umi';
 import Site from './Site';
 import SortTitle from './SortTitle';
 import style from './style.less';
 const SiteBox = function (props) {
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const orderVal = useSelector((state) => state.Nav.orderVal);
+  const { initialState } = useModel('@@initialState');
+  const isLogin = initialState.isLogin;
   const dispatch = useDispatch();
   const [activekey, setActivekey] = useState(0);
   const [startIndex, setStartIndex] = useState(null);
@@ -100,11 +102,12 @@ const SiteBox = function (props) {
     e.preventDefault();
     if (e.target.getAttribute('mark') === 'url') {
       window.open(e.target.getAttribute('data-url'));
-      dispatch({
-        type: 'Nav/clickSite',
-        payload: { siteId: e.target.getAttribute('data-id') },
-      });
-    } else if (e.target.getAttribute('mark') === 'img') {
+      isLogin &&
+        dispatch({
+          type: 'Nav/clickSite',
+          payload: { siteId: e.target.getAttribute('data-id') },
+        });
+    } else if (e.target.getAttribute('mark') === 'img' && isLogin) {
       setShowEditSite({ open: true, type: 'show' });
       dispatch({
         type: 'Nav/fetchSite',
