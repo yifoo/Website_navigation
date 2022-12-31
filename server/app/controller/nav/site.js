@@ -63,7 +63,7 @@ class SiteController extends Controller {
     const params = ctx.request.body
     const { uid } = ctx.state.user
     if (uid) {
-      const sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,site.screen_shot screenShot,site.tags tags,logo.logo_id logoId,logo.logo_src logoSrc,sort.sort_name sortName,sort.parent_id parentId from nav_sites site left JOIN nav_logo logo USING(logo_id) left join  nav_sort sort on  site.sort_id = sort.sort_id  and sort.uid=site.uid where site_id=${params.siteId} and site.uid=${uid}`
+      const sql = `select site.sort_id sortId,site.site_id siteId,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,site.tags tags,logo.logo_id logoId,logo.logo_src logoSrc,sort.sort_name sortName,sort.parent_id parentId from nav_sites site left JOIN nav_logo logo USING(logo_id) left join  nav_sort sort on  site.sort_id = sort.sort_id  and sort.uid=site.uid where site_id=${params.siteId} and site.uid=${uid}`
       let res
       try {
         // console.log('sql: ', sql)
@@ -136,7 +136,6 @@ class SiteController extends Controller {
         logo_id: logoId,
         site_url: params.siteUrl,
         site_desc: params.siteDesc || '',
-        screen_shot: params.screenShot,
         tags: params.tags,
         order_index: max[0].maxSiteOrderIndex,
         count: 0
@@ -175,7 +174,7 @@ class SiteController extends Controller {
     const params = ctx.request.body
     const { uid } = ctx.state.user
     const sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
-    site.site_name='${params.siteName}', site.site_desc='${params.siteDesc}',site.screen_shot='${params.screenShot}',site.site_url='${params.siteUrl}',site.tags='${params.tags}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
+    site.site_name='${params.siteName}', site.site_desc='${params.siteDesc}',site.site_url='${params.siteUrl}',site.tags='${params.tags}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
     WHERE uid=${uid} and site.site_id=${params.siteId}`
     console.log('sql: ', sql)
     let res

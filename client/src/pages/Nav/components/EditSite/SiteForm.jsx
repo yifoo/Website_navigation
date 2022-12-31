@@ -9,7 +9,6 @@ const SiteForm = forwardRef((props, ref) => {
   const tagsDic = useSelector((state) => state.Nav.tagsDic);
   const func = useSelector((state) => state.User.func);
   const [logoSrc, setLogoSrc] = useState();
-  const [screenShot, setScreenShot] = useState();
   const [siteForm] = Form.useForm();
   const [options, setOptions] = useState([]);
   const [tagOptions, setTagOptions] = useState([]);
@@ -29,7 +28,6 @@ const SiteForm = forwardRef((props, ref) => {
     return {
       reset: () => {
         setLogoSrc('');
-        setScreenShot('');
       },
     };
   });
@@ -98,7 +96,6 @@ const SiteForm = forwardRef((props, ref) => {
             if (resp) {
               setSiteInfo({});
               setLogoSrc('');
-              setScreenShot('');
               setShowEditSite({ open: false });
             }
           });
@@ -107,7 +104,6 @@ const SiteForm = forwardRef((props, ref) => {
             if (resp) {
               setSiteInfo({});
               setLogoSrc('');
-              setScreenShot('');
               setShowEditSite({ open: false });
             }
           });
@@ -119,13 +115,11 @@ const SiteForm = forwardRef((props, ref) => {
   };
   useEffect(() => {
     setLogoSrc(siteInfo.logoSrc);
-    setScreenShot(siteInfo.screenShot);
     siteForm.setFieldsValue({
       sort: siteInfo.sort,
       siteName: siteInfo.siteName,
       siteUrl: siteInfo.siteUrl,
       logoSrc: siteInfo.logoSrc,
-      screenShot: siteInfo.screenShot,
       siteDesc: siteInfo.siteDesc,
       tags: siteInfo.tags ? siteInfo.tags.split(',') : [],
     });
@@ -240,12 +234,6 @@ const SiteForm = forwardRef((props, ref) => {
           />
         </Form.Item>
         <Image src={logoSrc} />
-      </div>
-      <div style={{ position: 'relative' }}>
-        <Form.Item label="截图地址" name="screenShot">
-          <Input onChange={(e) => setScreenShot(e.target.value)} allowClear placeholder="请输入截图的网络地址" />
-        </Form.Item>
-        <Image src={screenShot} />
       </div>
       <Form.Item label="网站标签" name="tags">
         <Select mode="tags" allowClear placeholder="请输入网站标签" tokenSeparators={[',']} options={tagOptions} />
