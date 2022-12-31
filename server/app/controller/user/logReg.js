@@ -126,7 +126,6 @@ class UsersController extends Controller {
     try {
       user = ctx.state.user
       ctx.session = null
-      console.log('ctx.state: ', ctx.state.user)
     } catch (err) {
       console.log('err: ', err)
     }

@@ -29,7 +29,7 @@ const EditSiteDrawer = () => {
     });
   };
   const handleCancel = () => {
-    isEditSite ? formRef.current.reset() : infoRef.current.reset();
+    isEditSite && formRef.current.reset();
     setSiteInfo({});
     setShowEditSite({ open: false });
     setFalse();

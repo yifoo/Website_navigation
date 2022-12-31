@@ -1,6 +1,6 @@
 import { userApi } from '@/services';
 import { Avatar, Menu, message, Spin } from 'antd';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { history, Link, useDispatch, useModel } from 'umi';
 import HeaderDropdown from '../HeaderDropdown';
 import styles from './index.less';
@@ -22,6 +22,10 @@ const AvatarDropdown = ({ menu }) => {
       dispatch({ type: 'Nav/clearSiteSort' });
       dispatch({ type: 'Nav/fetchSort' });
       dispatch({ type: 'Nav/fetchAll' });
+      dispatch({
+        type: 'Nav/setTagsDic',
+        payload: [],
+      });
       // window.location.reload();
       if (window.location.pathname !== '/user/login' && window.location.pathname !== '/nav') {
         history.replace({
@@ -36,10 +40,16 @@ const AvatarDropdown = ({ menu }) => {
   const onMenuClick = useCallback(
     (event) => {
       const { key } = event;
-      switch(key){
-        case 'logout':loginOut();history.push(`/setting`);break;
-        case 'layout':toggleSetting();break;
-        default:break;
+      switch (key) {
+        case 'logout':
+          loginOut();
+          history.push(`/setting`);
+          break;
+        case 'layout':
+          toggleSetting();
+          break;
+        default:
+          break;
       }
 
     },

@@ -10,16 +10,7 @@ const { TabPane } = Tabs;
 
 const NoticeIcon = (props) => {
   const getNotificationBox = () => {
-    const {
-      children,
-      loading,
-      onClear,
-      onTabChange,
-      onItemClick,
-      onViewMore,
-      clearText,
-      viewMoreText,
-    } = props;
+    const { children, loading, onClear, onTabChange, onItemClick, onViewMore, clearText, viewMoreText } = props;
 
     if (!children) {
       return null;

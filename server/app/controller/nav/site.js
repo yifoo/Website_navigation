@@ -1,9 +1,6 @@
 'use strict'
 
 const Controller = require('egg').Controller
-const puppeteer = require('puppeteer')
-const path = require('path')
-const fs = require('fs')
 const util = require('../../utils/util')
 class SiteController extends Controller {
   // !获取所有分类
@@ -83,64 +80,6 @@ class SiteController extends Controller {
       ctx.body = {
         code: '-1',
         msg: '参数不能为空'
-      }
-    }
-  }
-  /**
-   * 获取网页截图
-   */
-  *fetchScreenShot() {
-    const { ctx, app } = this
-    const params = ctx.request.query
-    try {
-      const browser = yield puppeteer.launch({
-        headless: true,
-        args: ['--no-sandbox']
-      })
-      const page = yield browser.newPage()
-      //*按资源过滤
-      yield page.setRequestInterception(true)
-      page.on('request', (req) => {
-        if (req.resourceType() === 'video') {
-          req.abort()
-        } else {
-          req.continue()
-        }
-      })
-      page.setUserAgent(
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
-      )
-      page.setViewport({
-        width: 1200,
-        height: 800
-      })
-      //* 删除原来生成的截图
-      fs.unlink(path.resolve('app/public/img/screenshot.webp'), (err) => {})
-      const options = {
-        waitUntil: 'networkidle2',
-        timeout: 10000
-      }
-      yield page.goto(params.siteUrl, options)
-      yield page.screenshot({
-        path: path.resolve('app/public/img/screenshot.webp'),
-        type: 'webp'
-      })
-      yield browser.close()
-      const isDev = process.env.NODE_ENV === 'development'
-      ctx.body = {
-        code: 200,
-        msg: '获取数据成功',
-        data: isDev
-          ? 'http://localhost:7000/public/img/screenshot.webp?' +
-            new Date().getTime()
-          : '你的api_test地址/public/img/screenshot.webp?' +
-            new Date().getTime()
-      }
-    } catch (e) {
-      console.log('e: ', e)
-      ctx.body = {
-        code: 400,
-        msg: e.name
       }
     }
   }

@@ -61,8 +61,7 @@
 ### update 2022-12-29
 
 - 优化网站代码结构；
-- 添加点击图标查看网站基础信息，添加网站标签编辑；
-- 添加了 `puppeteer`获取网站截图，若出现 `centos7 puppeteer Error: Failed to launch the browser process!`请参考[Segmentfault](https://segmentfault.com/a/1190000041615716);
+- 添加点击图标查看网站基础信息，添加网站标签编辑和点击图标实时网站查看
 
 ### update 2022-06-04
 

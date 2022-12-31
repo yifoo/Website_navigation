@@ -48,7 +48,6 @@ module.exports = (app) => {
   )
   router.post('/api/nav/site/fetchAllCom', controller.nav.site.fetchAllCom)
   router.post('/api/nav/site/fetchSortCom', controller.nav.site.fetchSortCom)
-  router.get('/api/nav/site/shot', controller.nav.site.fetchScreenShot)
 
   router.post('/api/nav/dic/fetchTags', jwt, controller.nav.siteDic.fetchTags)
 }

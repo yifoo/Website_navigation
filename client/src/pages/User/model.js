@@ -69,6 +69,10 @@ export default {
     },
     *logout({ payload }, { call, put }) {
       yield put({
+        type: 'Nav/setTagsDic',
+        payload: [],
+      });
+      yield put({
         type: 'clearUserInfo',
       });
       yield put({
@@ -79,10 +83,7 @@ export default {
         type: 'Nav/setIsEdit',
         payload: false,
       });
-      yield put({
-        type: 'Nav/setTagsDic',
-        payload: [],
-      });
+
       let res;
       if (payload && payload.type === 'logout') {
         res = yield call(userApi.logout, payload);

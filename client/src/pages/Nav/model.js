@@ -146,6 +146,7 @@ export default {
       };
     },
     setTagsDic(state, { payload }) {
+
       return {
         ...state,
         tagsDic: payload,
@@ -187,19 +188,6 @@ export default {
         return res.data.length ? true : false;
       } else {
         message.error(res.msg);
-      }
-    },
-    *fetchScreenShot({ payload }, { call, put }) {
-      try {
-        const res = yield call(navApi.fetchScreenShot, payload);
-        if (res && res.code === 200) {
-          return res.data;
-        } else {
-          message.error(res.msg);
-        }
-      } catch (e) {
-        message.error('请求报错');
-        return '';
       }
     },
     *fetchSort({ payload }, { call, put, select }) {

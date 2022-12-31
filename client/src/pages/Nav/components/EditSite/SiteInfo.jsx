@@ -1,36 +1,9 @@
-import { useBoolean } from 'ahooks';
-import { Button, Descriptions, Image, Tag } from 'antd';
-import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
-import { useDispatch, useSelector } from 'umi';
+import { Descriptions, Image, Tag } from 'antd';
+import { forwardRef } from 'react';
+import { useSelector } from 'umi';
+import style from './style.less';
 const SiteInfo = forwardRef((props, ref) => {
-  const dispatch = useDispatch();
   const siteInfo = useSelector((state) => state.Nav.siteInfo);
-  const [screenShot, setScreenShot] = useState('');
-  const [isLoading, { toggle, setTrue, setFalse }] = useBoolean(false);
-  useImperativeHandle(ref, () => {
-    return {
-      reset: () => {
-        setScreenShot('');
-      },
-    };
-  });
-  const refreshShot = async () => {
-    setTrue();
-    let screenShot = await dispatch({
-      type: 'Nav/fetchScreenShot',
-      payload: { siteUrl: siteInfo.siteUrl },
-    });
-    setFalse();
-    setScreenShot(screenShot);
-  };
-  useEffect(() => {
-    if (siteInfo.siteUrl && !siteInfo.screenShot) {
-      refreshShot();
-    } else {
-      setScreenShot('');
-    }
-  }, [siteInfo]);
-
   return (
     <Descriptions column={1} labelStyle={{ fontWeight: 'bold' }}>
       <Descriptions.Item label="网站名称">{siteInfo.siteName}</Descriptions.Item>
@@ -53,14 +26,17 @@ const SiteInfo = forwardRef((props, ref) => {
       <Descriptions.Item label="网站图标">
         <Image src={siteInfo.logoSrc} width={30} />
       </Descriptions.Item>
-      <Descriptions.Item label="网站截图">
-        <Image src={screenShot ? screenShot : siteInfo.screenShot} width={260} />
-        <Button loading={isLoading} onClick={refreshShot} type="primary" size="small">
-          更新截图
-        </Button>
-      </Descriptions.Item>
-      <Descriptions.Item label="截图说明">
-        <p>截图需要手动将图片传到图片服务器，再将地址更新到网站信息中才能永久更新</p>
+      <Descriptions.Item label="网站实时">
+        <div className={style.iframeBox}>
+          <iframe
+            name="shot"
+            className={style.iframe}
+            src={siteInfo.siteUrl}
+            frameBorder="0"
+            security="restricted"
+            sandbox="allow-same-origin allow-scripts"
+          ></iframe>
+        </div>
       </Descriptions.Item>
     </Descriptions>
   );
