@@ -1,8 +1,9 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Cascader, Divider, Form, Image, Input, message, Select, Space } from 'antd';
+import { Button, Cascader, Divider, Form, Image, Input, message, Select, Space, Typography } from 'antd';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { useDispatch, useModel, useSelector } from 'umi';
 import style from './style.less';
+const { Paragraph } = Typography;
 const SiteForm = forwardRef((props, ref) => {
   const { initialState } = useModel('@@initialState');
   const { userInfo } = initialState || {};
@@ -194,8 +195,13 @@ const SiteForm = forwardRef((props, ref) => {
                     });
                     return Promise.reject(new Error(`当前网址已存在于 "${sitePath}" `));
                   } else {
-                    setIconOptions(data.logo);
-                    siteForm.setFieldsValue({ logoSrc: data.logo[0], siteDesc: data.desc });
+                    let arr = [...iconOptions, ...data.logo];
+                    arr = [...new Set(arr)];
+                    setIconOptions(arr);
+                    siteForm.setFieldsValue({
+                      logoSrc: arr[0],
+                      siteDesc: siteForm.getFieldValue('siteDesc') || data.desc,
+                    });
                     return Promise.resolve();
                   }
                 } else {
@@ -236,7 +242,15 @@ const SiteForm = forwardRef((props, ref) => {
                   label: (
                     <div key={index}>
                       <div className={style.logoOption}>
-                        <span className={style.logoLink}>{item.split('/')[item.split('/').length - 1]}</span>
+                        <Paragraph
+                          className={style.paragraph}
+                          copyable={{
+                            text: item,
+                            tooltips: ['点击复制链接', '已复制'],
+                          }}
+                        >
+                          <span className={style.logoLink}>{item.split('/')[item.split('/').length - 1]}</span>
+                        </Paragraph>
                         <Image src={item} width={25} />
                       </div>
                     </div>
