@@ -29,6 +29,7 @@ export const request = {
     },
   ],
   errorHandler: (error) => {
+    console.log('error: ', error);
     const { response } = error;
     message.error(response.status + response.statusText);
     if (response && response.status === 401) {

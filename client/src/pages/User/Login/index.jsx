@@ -4,8 +4,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { message } from 'antd';
 import CryptoJS from 'crypto-js';
-import React from 'react';
-import { history, Link, useModel, useDispatch } from 'umi';
+import { history, Link, useDispatch, useModel } from 'umi';
 import styles from './index.less';
 window.CryptoJS = CryptoJS;
 const Login = () => {
@@ -32,8 +31,9 @@ const Login = () => {
         dispatch({ type: 'Nav/fetchSort' });
         dispatch({ type: 'Nav/fetchAll' });
         return;
+      } else {
+        message.error(res.msg);
       }
-      console.log(res); // 如果失败去设置用户错误信息
     } catch (error) {
       console.log('error: ', error);
       message.error('登录失败，请重试');
