@@ -14,3 +14,4 @@ typings/
 .nyc_output/
 app/public/img
 # ./hdl-node/app/public
+./config/

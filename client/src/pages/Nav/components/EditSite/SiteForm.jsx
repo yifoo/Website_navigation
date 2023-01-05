@@ -1,36 +1,29 @@
-import { Button, Cascader, Form, Image, Input, message, Select } from 'antd';
-import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
-import { useDispatch, useSelector } from 'umi';
+import { PlusOutlined } from '@ant-design/icons';
+import { Button, Cascader, Divider, Form, Image, Input, message, Select, Space } from 'antd';
+import { forwardRef, useEffect, useRef, useState } from 'react';
+import { useDispatch, useModel, useSelector } from 'umi';
 import style from './style.less';
 const SiteForm = forwardRef((props, ref) => {
+  const { initialState } = useModel('@@initialState');
+  const { userInfo } = initialState || {};
   const dispatch = useDispatch();
   const siteInfo = useSelector((state) => state.Nav.siteInfo);
   const sortList = useSelector((state) => state.Nav.sortList);
   const tagsDic = useSelector((state) => state.Nav.tagsDic);
-  const func = useSelector((state) => state.User.func);
-  const [logoSrc, setLogoSrc] = useState();
+  const [logoInput, setLogoInput] = useState();
+  const logoRef = useRef(null);
   const [siteForm] = Form.useForm();
   const [options, setOptions] = useState([]);
   const [tagOptions, setTagOptions] = useState([]);
+  const [iconOptions, setIconOptions] = useState([]);
   useEffect(async () => {
     if (tagsDic.length === 0) {
       await dispatch({
         type: 'Nav/fetchTagsDic',
       });
     }
-    let items = [];
-    items = tagsDic.map((item) => {
-      return { label: item, value: item };
-    });
-    setTagOptions(items);
+    setTagOptions(tagsDic);
   }, [JSON.stringify(tagsDic)]);
-  useImperativeHandle(ref, () => {
-    return {
-      reset: () => {
-        setLogoSrc('');
-      },
-    };
-  });
 
   const updateSite = (params) => {
     return dispatch({
@@ -61,6 +54,16 @@ const SiteForm = forwardRef((props, ref) => {
       type: 'Nav/checkSite',
       payload: params,
     });
+  };
+  const addLogoOption = (e) => {
+    e.preventDefault();
+    let option = [...new Set(iconOptions)];
+    option.push(logoRef.current.input.value);
+    setIconOptions(option);
+    setLogoInput('');
+    setTimeout(() => {
+      logoRef.current?.focus();
+    }, 0);
   };
   useEffect(() => {
     let list = sortList ? JSON.parse(JSON.stringify(sortList)) : [];
@@ -95,7 +98,6 @@ const SiteForm = forwardRef((props, ref) => {
           updateSite(params).then((resp) => {
             if (resp) {
               setSiteInfo({});
-              setLogoSrc('');
               setShowEditSite({ open: false });
             }
           });
@@ -103,7 +105,6 @@ const SiteForm = forwardRef((props, ref) => {
           addSite(params).then((resp) => {
             if (resp) {
               setSiteInfo({});
-              setLogoSrc('');
               setShowEditSite({ open: false });
             }
           });
@@ -114,7 +115,7 @@ const SiteForm = forwardRef((props, ref) => {
       });
   };
   useEffect(() => {
-    setLogoSrc(siteInfo.logoSrc);
+    siteInfo.logoSrc && setIconOptions([siteInfo.logoSrc]);
     siteForm.setFieldsValue({
       sort: siteInfo.sort,
       siteName: siteInfo.siteName,
@@ -129,7 +130,7 @@ const SiteForm = forwardRef((props, ref) => {
       form={siteForm}
       className={style.siteForm}
       name="siteForm"
-      labelCol={{ span: 4 }}
+      labelCol={{ span: 5 }}
       wrapperCol={{ span: 16 }}
       autoComplete="off"
       colon={false}
@@ -193,8 +194,8 @@ const SiteForm = forwardRef((props, ref) => {
                     });
                     return Promise.reject(new Error(`当前网址已存在于 "${sitePath}" `));
                   } else {
-                    setLogoSrc(data.logoSrc);
-                    siteForm.setFieldsValue({ logoSrc: data.logoSrc });
+                    setIconOptions(data.logo);
+                    siteForm.setFieldsValue({ logoSrc: data.logo[0], siteDesc: data.desc });
                     return Promise.resolve();
                   }
                 } else {
@@ -206,14 +207,13 @@ const SiteForm = forwardRef((props, ref) => {
           },
         ]}
       >
-        <Input allowClear />
+        <Input allowClear placeholder="请输入网站地址" />
       </Form.Item>
       <div style={{ position: 'relative' }}>
         <Form.Item
-          label="图标地址"
+          label="网站图标"
           name="logoSrc"
           extra={'Tips: 输入正确的网址后自动更新图标'}
-          hasFeedback
           rules={[
             {
               required: true,
@@ -225,18 +225,67 @@ const SiteForm = forwardRef((props, ref) => {
             },
           ]}
         >
-          {/* <Input disabled={!func[1020]} onChange={(e) => setLogoSrc(e.target.value)} /> */}
-          <Input
-            // disabled={!func[1020]}
-            onChange={(e) => setLogoSrc(e.target.value)}
+          <Select
             allowClear
+            disabled={!userInfo.func.includes(1003)}
             placeholder="请输入网站图标地址"
-          />
+            options={
+              iconOptions.length &&
+              iconOptions.map((item, index) => {
+                return {
+                  label: (
+                    <div key={index}>
+                      <div className={style.logoOption}>
+                        <span className={style.logoLink}>{item.split('/')[item.split('/').length - 1]}</span>
+                        <Image src={item} width={25} />
+                      </div>
+                    </div>
+                  ),
+                  value: item,
+                };
+              })
+            }
+            dropdownRender={(menu) => {
+              return (
+                <>
+                  {menu}
+                  <Divider
+                    style={{
+                      margin: '8px 0',
+                    }}
+                  />
+                  <Space
+                    style={{
+                      padding: '0 8px 4px',
+                    }}
+                  >
+                    <Input
+                      value={logoInput}
+                      onChange={(e) => setLogoInput(e.target.value)}
+                      placeholder="请输入图标地址"
+                      ref={logoRef}
+                    />
+                    <Button type="text" icon={<PlusOutlined />} onClick={addLogoOption}>
+                      添加
+                    </Button>
+                  </Space>
+                </>
+              );
+            }}
+          ></Select>
         </Form.Item>
-        <Image src={logoSrc} />
+        {/* <Image src={logoSrc} /> */}
       </div>
       <Form.Item label="网站标签" name="tags">
-        <Select mode="tags" allowClear placeholder="请输入网站标签" tokenSeparators={[',']} options={tagOptions} />
+        <Select
+          mode="tags"
+          allowClear
+          placeholder="请输入网站标签"
+          tokenSeparators={[',']}
+          options={tagOptions.map((item) => {
+            return { label: item, value: item };
+          })}
+        />
       </Form.Item>
       <Form.Item
         label="网站描述"
@@ -248,11 +297,11 @@ const SiteForm = forwardRef((props, ref) => {
           },
         ]}
       >
-        <Input.TextArea allowClear placeholder="请输入网站描述" />
+        <Input.TextArea rows={4} allowClear placeholder="请输入网站描述" />
       </Form.Item>
       <Form.Item
         wrapperCol={{
-          offset: 4,
+          offset: 5,
           span: 16,
         }}
       >

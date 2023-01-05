@@ -13,7 +13,7 @@ const AvatarDropdown = ({ menu }) => {
    */
   const loginOut = async () => {
     const { query = {}, search, pathname } = history.location;
-    const { redirect } = query; // Note: There may be security issues, please note
+    // const { redirect } = query; // Note: There may be security issues, please note
     let res = await userApi.logout();
     if (res.code === 200) {
       message.success(res.msg);
@@ -43,7 +43,6 @@ const AvatarDropdown = ({ menu }) => {
       switch (key) {
         case 'logout':
           loginOut();
-          history.push(`/setting`);
           break;
         case 'layout':
           toggleSetting();
@@ -51,7 +50,6 @@ const AvatarDropdown = ({ menu }) => {
         default:
           break;
       }
-
     },
     [setInitialState],
   );

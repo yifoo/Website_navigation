@@ -1,9 +1,5 @@
+// @ts-nocheck
 const axios = require('./axios')
-const sortBy = (props) => {
-  return function (a, b) {
-    return a[props] - b[props]
-  }
-}
 // 创建tree
 const sortArr = (data) => {
   let parents = data.filter((value) => value.parentId === null)
@@ -26,6 +22,17 @@ const sortArr = (data) => {
   return parents
 }
 const getFavicon = async (siteUrl) => {
+  let headers = {
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6',
+    'sec-ch-ua-platform': '"macOS"',
+    'user-agent':
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+  }
+  let host = siteUrl.match(
+    /[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/i
+  )[0]
   let domainReg =
     /(http|https):\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?\/?/i
   const siteHost = siteUrl.match(domainReg)[0]
@@ -33,24 +40,14 @@ const getFavicon = async (siteUrl) => {
   if (siteHost.slice(siteHost.length - 1) === '/') {
     iconHost = iconHost.slice(0, -1)
   }
-  let iconUrl = iconHost + '/favicon.ico'
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
   let resp = {}
   try {
     resp = await axios({
       method: 'get',
       url: siteHost,
       timeout: 12000,
-      headers: {
-        'Accept-Language':
-          'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6,ko;q=0.5',
-        'sec-ch-ua':
-          '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': 'macOS',
-        'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'
-      }
+      headers: headers
+      // responseEncoding: 'utf8',
     })
   } catch (err) {
     console.log('err: ', err.response)
@@ -58,42 +55,70 @@ const getFavicon = async (siteUrl) => {
   }
   let html = resp.data
   let shortcutReg =
-    /<link[^>]+rel=.(icon|shortcut icon|alternate icon)[^>]+>/gim
+    /<link[^>]+rel=.?(icon|shortcut icon|alternate icon|apple-touch-icon|apple-touch-icon-precomposed|fluid-icon|mask-icon)[^>]+>/gi
   let link = html.match(shortcutReg)
-  if (link && link.length) {
-    link = link[0]
-    let icontest = /href=('|")?.*\.(ico|png|jpg|jpeg|bmp)('|")?/gi
-    let icon = link.match(icontest)
-    console.log('icontest: ', icontest,icon);
-    if (icon.length > 0) {
-      iconUrl = icon[icon.length - 1]
-    }
-    //*判断是否存在http
-    if (
-      !/(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/gi.test(iconUrl)
-    ) {
-      if (/^\/\/.?/.test(iconUrl)) {
-        iconUrl = 'https:' + iconUrl
-        return iconUrl
-      } else if (/\=/.test(iconUrl)) {
-        iconUrl = iconUrl.match(/\/.*\.(ico|png|jpg|jpeg|bmp)/gi)
-        iconUrl = iconUrl[0]
-        if (/^\/\/.?/.test(iconUrl)) {
-          iconUrl = 'https:' + iconUrl
-          return iconUrl
+  console.log('link: ', link)
+  // return link
+  let iconList = []
+  try {
+    if (link && link.length) {
+      let icontest = /href=('|")?\S*\.(svg|ico|gif|png|jpg|jpeg|bmp)('|")?/gi
+      link.map((item, index) => {
+        let icon = item.match(icontest)
+        if (icon && icon.length > 0) {
+          icon = icon[0]
+          if (/'/.test(icon)) {
+            icon = icon.split(`'`)[1]
+          } else if (/"/.test(icon)) {
+            icon = icon.split(`"`)[1]
+          } else {
+            icon = icon.split('=')[1]
+          }
+          //*判断是否存在http
+          if (
+            /(http|https)\:\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/gi.test(icon)
+          ) {
+            icon = icon.match(
+              /(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/gi
+            )
+            icon = icon[0]
+          } else {
+            //* 如果以/开头，
+            if (/^\//.test(icon) && !/^\/\//.test(icon)) {
+              icon = iconHost + icon
+            } else if (icon.slice(0, 1) === '.') {
+              icon = icon.slice(1)
+              icon = iconHost + '/' + icon
+            }
+          }
+          iconList.push(icon)
         }
-      } else if (iconUrl.slice(0, 1) !== '/') {
-        iconUrl = '/' + iconUrl
-      }
-      iconUrl = iconHost + iconUrl
+      })
     } else {
-      iconUrl = iconUrl.match(
-        /(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/gi
-      )
-      iconUrl = iconUrl[0]
+      iconList.push('https://img.haohome.top/uPic/blankico.jpg')
+      iconList.push(iconHost + '/favicon.ico')
     }
+  } catch (e) {
+    console.log('e: ', e)
   }
-  return iconUrl
+  let logoList = [...new Set(iconList)] //利用了Set结构不能接收重复数据的特点
+  let descContent = html.match(
+    /<meta[^>]+name="[D|d]escription"\s*content=?[^>]+>/gi
+  )
+  try {
+    if (descContent && descContent.length) {
+      descContent = descContent[0].match(/content=?[^>]+[^/>]/gi)[0]
+      console.log('descContent: ', descContent)
+      descContent = descContent.split('"')[1]
+      console.log('descContent: ', descContent)
+    }
+  } catch (e) {
+    console.log('e: ', e)
+  }
+  return {
+    logo: logoList,
+    desc: descContent
+  }
 }
 const getIcon = async (url) => {
   let domainReg =

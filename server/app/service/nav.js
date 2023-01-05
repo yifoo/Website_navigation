@@ -53,7 +53,7 @@ class NavService extends Service {
       const siteInfo = await this.app.mysql.select('nav_sites', {
         // 搜索 post 表
         where: params, // WHERE 条件
-        columns: ['site_id', 'site_name', 'logo_id', 'sort_id'], // 要查询的表字段
+        columns: ['site_id', 'site_name', 'logo_id', 'sort_id', 'site_desc'], // 要查询的表字段
         limit: 1 // 返回数据量
       })
       return siteInfo

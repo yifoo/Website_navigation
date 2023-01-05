@@ -343,15 +343,15 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
-    let iconUrl = ''
+    let parseHtml = {}
+    //* 存在网址id的情况下更新图标信息
     if (params.siteId) {
-      // *不存在网址则解析得到图标并直接返回
-      iconUrl = yield util.getFavicon(params.siteUrl)
-      if (iconUrl) {
+      parseHtml = yield util.getFavicon(params.siteUrl)
+      if (parseHtml) {
         ctx.body = {
           code: 200,
-          msg: '已获取图标',
-          data: { logoSrc: iconUrl }
+          msg: '已获取解析图标和描述',
+          data: parseHtml
         }
       } else {
         ctx.body = {
@@ -362,18 +362,18 @@ class SiteController extends Controller {
       return false
     }
     try {
+      // *判断是否已经存在网址
       let siteInfo = yield ctx.service.nav.findSite({
         site_url: params.siteUrl
       })
-      // *判断是否已经存在网址
       if (siteInfo.length === 0) {
         // *不存在网址则解析得到图标并直接返回
-        iconUrl = yield util.getFavicon(params.siteUrl)
-        if (iconUrl) {
+        parseHtml = yield util.getFavicon(params.siteUrl)
+        if (parseHtml) {
           ctx.body = {
             code: 200,
             msg: '已获取图标',
-            data: { logoSrc: iconUrl }
+            data: parseHtml
           }
         } else {
           ctx.body = {
@@ -382,39 +382,41 @@ class SiteController extends Controller {
           }
         }
         return false
-      }
-      // *存在网址则查询网址所关联的图标
-      siteInfo = siteInfo[0]
-      iconUrl = yield ctx.service.nav.getLogo({
-        logo_id: siteInfo.logo_id
-      })
-      if (iconUrl && iconUrl.length > 0) {
-        // @ts-ignore
-        iconUrl = iconUrl[0].logo_src
-      }
-      // *查询网址是否为当前账号名下的
-      let sortId = yield ctx.service.nav.findSite({
-        uid,
-        site_url: params.siteUrl
-      })
-      if (sortId.length === 0) {
-        ctx.body = {
-          code: 200,
-          msg: '获取图标成功',
-          // @ts-ignore
-          data: { logoId: iconUrl.logo_id, logoSrc: iconUrl }
-        }
       } else {
-        // * 属于账号名下返回账号名下的sortID和logo的图片地址
-        sortId = sortId[0]
-        ctx.body = {
-          code: 200,
-          msg: '当前网址已存在',
-          data: {
-            siteId: sortId.site_id,
-            siteName: sortId.site_name,
-            sortId: sortId.sort_id,
-            logoSrc: iconUrl
+        // *存在网址则查询网址所关联的图标
+        siteInfo = siteInfo[0]
+        parseHtml.logo = yield ctx.service.nav.getLogo({
+          logo_id: siteInfo.logo_id
+        })
+        if (parseHtml.logo && parseHtml.logo.length > 0) {
+          parseHtml.logo = parseHtml.logo[0].logo_src
+          parseHtml.logoId = siteInfo.logo_id
+        }
+        // *查询网址是否为当前账号名下的
+        let userSiteInfo = yield ctx.service.nav.findSite({
+          uid,
+          site_url: params.siteUrl
+        })
+        if (userSiteInfo.length === 0) {
+          ctx.body = {
+            code: 200,
+            msg: '获取图标成功',
+            data: {
+              logoId: parseHtml.logo.logo_id,
+              logoSrc: parseHtml.logo,
+              desc: parseHtml.desc
+            }
+          }
+        } else {
+          // * 属于账号名下返回账号名下的sortID和logo的图片地址
+          userSiteInfo = userSiteInfo[0]
+          ctx.body = {
+            code: 200,
+            msg: '当前网址已存在',
+            data: {
+              siteName: userSiteInfo.site_name,
+              sortId: userSiteInfo.sort_id
+            }
           }
         }
       }

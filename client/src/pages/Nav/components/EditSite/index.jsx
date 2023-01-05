@@ -6,8 +6,8 @@ import SiteForm from './SiteForm';
 import SiteInfo from './SiteInfo';
 const EditSiteDrawer = () => {
   const dispatch = useDispatch();
-  const formRef = useRef(null);
-  const infoRef = useRef(null);
+  // const formRef = useRef(null);
+  // const infoRef = useRef(null);
   const showEditSite = useSelector((state) => state.Nav.showEditSite);
   const showEditType = useSelector((state) => state.Nav.showEditType);
   const [isEditSite, { toggle, setTrue, setFalse }] = useBoolean(false);
@@ -29,7 +29,7 @@ const EditSiteDrawer = () => {
     });
   };
   const handleCancel = () => {
-    isEditSite && formRef.current.reset();
+    // isEditSite && formRef.current.reset();
     setSiteInfo({});
     setShowEditSite({ open: false });
     setFalse();
@@ -39,16 +39,16 @@ const EditSiteDrawer = () => {
     <>
       <Drawer
         forceRender={true}
-        width={500}
+        width={480}
         placement="left"
         title={isEditSite ? '编辑网址' : '查看网址'}
         open={showEditSite}
         onClose={handleCancel}
         extra={<Button onClick={toggle}>{isEditSite ? '查看' : '编辑'}</Button>}
       >
-        {isEditSite && <SiteForm ref={formRef} />}
+        {isEditSite && <SiteForm />}
         <div style={{ display: isEditSite ? 'none' : 'block' }}>
-          <SiteInfo ref={infoRef} />
+          <SiteInfo />
         </div>
       </Drawer>
     </>
