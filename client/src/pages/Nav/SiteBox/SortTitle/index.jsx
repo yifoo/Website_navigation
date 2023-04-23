@@ -1,3 +1,4 @@
+import { DashboardOutlined } from '@ant-design/icons';
 import hexAlpha from 'hex-alpha';
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
@@ -5,6 +6,7 @@ import { useDispatch } from 'umi';
 import SortMainTitle from './sortMainTitle';
 import style from './style.less';
 import { EditSubSort, SubSort } from './subSort';
+
 const SortTitle = (props) => {
   const dispatch = useDispatch();
   const { data, activekey, setActivekey } = props;
@@ -55,6 +57,12 @@ const SortTitle = (props) => {
     background: isDragging ? 'lightgreen' : null,
     ...draggableStyle,
   });
+  const pingSite = async () => {
+    dispatch({
+      type: 'Nav/setPingSite',
+      payload: sortList[activekey].sortId,
+    });
+  };
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId={sortName} direction="horizontal">
@@ -93,6 +101,11 @@ const SortTitle = (props) => {
               );
             })}
             <EditSubSort sortId={data.sortId} />
+            {props.isEdit && (
+              <span className={style.subSort}>
+                <DashboardOutlined onClick={pingSite} />
+              </span>
+            )}
           </dl>
         )}
       </Droppable>

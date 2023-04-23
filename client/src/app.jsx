@@ -4,11 +4,10 @@ import { userApi } from '@/services';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 import { PageLoading, SettingDrawer } from '@ant-design/pro-layout';
 import { message } from 'antd';
-import { history, Link } from 'umi';
+import { Link, history } from 'umi';
 import defaultSettings from '../config/defaultSettings';
+import paramConfig from '../config/paramConfig';
 const isDev = process.env.NODE_ENV === 'development';
-const loginPath = '/user/login';
-const regPath = '/user/register';
 
 export const request = {
   timeout: 15000,
@@ -66,7 +65,7 @@ export async function getInitialState() {
     return {};
   };
   // 如果不是登录页面，执行
-  if (history.location.pathname !== loginPath) {
+  if (history.location.pathname !== paramConfig.loginPath) {
     try {
       const { userInfo, isLogin } = await fetchUserInfo();
       const isMobile = window.document.body.clientWidth <= 768;
@@ -97,8 +96,8 @@ export const layout = ({ initialState, setInitialState }) => {
     onPageChange: () => {
       // console.log('initialState: ', initialState);
       // const { location } = history; // 如果没有登录，重定向到 login
-      // if (!initialState?.userInfo && location.pathname !== loginPath && location.pathname !== regPath) {
-      //   history.push(loginPath);
+      // if (!initialState?.userInfo && location.pathname !== paramConfig.loginPath && location.pathname !== regPath) {
+      //   history.push(paramConfig.loginPath);
       // }
     },
     links: isDev

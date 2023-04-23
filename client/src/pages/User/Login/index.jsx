@@ -4,7 +4,8 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { message } from 'antd';
 import CryptoJS from 'crypto-js';
-import { history, Link, useDispatch, useModel } from 'umi';
+import React from 'react';
+import { history, Link, useModel, useDispatch } from 'umi';
 import styles from './index.less';
 window.CryptoJS = CryptoJS;
 const Login = () => {

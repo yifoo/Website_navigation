@@ -19,6 +19,7 @@ export default {
     sortList: [],
     orderVal: 'sort',
     tagsDic: [],
+    pingSite: null,
   },
   reducers: {
     setSearchList(state, { payload }) {
@@ -146,10 +147,15 @@ export default {
       };
     },
     setTagsDic(state, { payload }) {
-
       return {
         ...state,
         tagsDic: payload,
+      };
+    },
+    setPingSite(state, { payload }) {
+      return {
+        ...state,
+        pingSite: payload,
       };
     },
   },
@@ -334,6 +340,10 @@ export default {
     },
     *checkSite({ payload }, { call, put }) {
       const res = yield call(navApi.checkSite, payload);
+      return res;
+    },
+    *pingSiteStatus({ payload }, { call, put }) {
+      const res = yield call(navApi.pingSiteStatus, payload);
       return res;
     },
   },

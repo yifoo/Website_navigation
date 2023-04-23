@@ -1,19 +1,39 @@
 import { useBoolean } from 'ahooks';
 import { Button, Drawer } from 'antd';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 import SiteForm from './SiteForm';
 import SiteInfo from './SiteInfo';
 const EditSiteDrawer = () => {
   const dispatch = useDispatch();
-  // const formRef = useRef(null);
-  // const infoRef = useRef(null);
+  const [pingStatus, setPingStatus] = useState('default');
   const showEditSite = useSelector((state) => state.Nav.showEditSite);
   const showEditType = useSelector((state) => state.Nav.showEditType);
   const [isEditSite, { toggle, setTrue, setFalse }] = useBoolean(false);
-
+  const siteInfo = useSelector((state) => state.Nav.siteInfo);
+  useEffect(() => {
+    if (siteInfo.siteUrl) {
+      dispatch({
+        type: 'Nav/pingSiteStatus',
+        payload: { siteUrl: siteInfo.siteUrl },
+      }).then((res) => {
+        if (res.data === '200') {
+          setPingStatus('success');
+        } else if (res.data === '301' || res.data === '302') {
+          setPingStatus('warning');
+        } else if (res.data === '000') {
+          setPingStatus('error');
+        } else {
+          setPingStatus('default');
+        }
+      });
+    }
+  }, [siteInfo]);
   useEffect(() => {
     showEditType === 'edit' ? setTrue() : setFalse();
+    if (showEditSite == false) {
+      setPingStatus('default');
+    }
   }, [showEditType]);
 
   const setSiteInfo = (params) => {
@@ -46,10 +66,8 @@ const EditSiteDrawer = () => {
         onClose={handleCancel}
         extra={<Button onClick={toggle}>{isEditSite ? '查看' : '编辑'}</Button>}
       >
-        {isEditSite && <SiteForm />}
-        <div style={{ display: isEditSite ? 'none' : 'block' }}>
-          <SiteInfo />
-        </div>
+        {isEditSite && <SiteForm pingStatus={pingStatus} />}
+        {!isEditSite && <SiteInfo pingStatus={pingStatus} />}
       </Drawer>
     </>
   );

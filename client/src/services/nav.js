@@ -67,6 +67,13 @@ export async function checkSite(body, options) {
     ...(options || {}),
   });
 }
+export async function pingSiteStatus(body, options) {
+  return request('/api/nav/site/pingSiteStatus', {
+    method: 'GET',
+    params: body,
+    ...(options || {}),
+  });
+}
 export async function fetchSort(body, options) {
   return request('/api/nav/site/fetchSort', {
     method: 'POST',

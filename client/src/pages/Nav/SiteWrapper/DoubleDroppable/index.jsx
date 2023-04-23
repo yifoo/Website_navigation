@@ -119,15 +119,11 @@ export default (props) => {
           {(provided, snapshot) => (
             <div ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)} className={style.grid}>
               {getList('droppable').map((item, index) => (
-                <Draggable
-                  key={item.id}
-                  draggableId={item.id + item.sortName}
-                  index={index}
-                  isDragDisabled={props.isDragDisabled}
-                >
+                <Draggable key={item.id} draggableId={item.id + item.sortName} index={index} isDragDisabled={props.isDragDisabled}>
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
+                      id={item.sortId}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
@@ -145,15 +141,11 @@ export default (props) => {
           {(provided, snapshot) => (
             <div ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)} className={style.grid}>
               {getList('droppable2').map((item, index) => (
-                <Draggable
-                  key={item.id}
-                  draggableId={item.id + item.sortName}
-                  index={index}
-                  isDragDisabled={props.isDragDisabled}
-                >
+                <Draggable key={item.id} draggableId={item.id + item.sortName} index={index} isDragDisabled={props.isDragDisabled}>
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
+                      id={item.sortId}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}

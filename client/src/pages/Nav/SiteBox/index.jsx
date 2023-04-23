@@ -16,16 +16,15 @@ const SiteBox = function (props) {
   const [dragIndex, setDragIndex] = useState(null);
   const [siteList, setSiteList] = useState([]);
   const [isOrderable, setIsOrderable] = useState(false);
-  const { data = {} } = props;
   useEffect(() => {
     setIsOrderable(isEdit && orderVal === 'site');
   }, [orderVal, isEdit]);
   useEffect(() => {
-    if (data.children) {
-      let listData = data.children[activekey] ? data.children[activekey].children : [];
+    if (props.data.children) {
+      let listData = props.data.children[activekey] ? props.data.children[activekey].children : [];
       setSiteList(listData);
     }
-  }, [data, data.children, activekey]);
+  }, [props.data, props.data.children, activekey]);
   const setShowEditSite = (params) => {
     dispatch({
       type: 'Nav/setShowEditSite',
@@ -42,8 +41,8 @@ const SiteBox = function (props) {
    * 添加网址
    */
   const addSite = () => {
-    let sortData = data.children[activekey];
-    setSiteInfo({ parentId: data.sortId, sortId: sortData.sortId });
+    let sortData = props.data.children[activekey];
+    setSiteInfo({ parentId: props.data.sortId, sortId: sortData.sortId });
     setShowEditSite({ open: true, type: 'edit' });
   };
   // * 拖拽排序
@@ -117,10 +116,16 @@ const SiteBox = function (props) {
   };
   return (
     <div className={`${isDragDisabled ? '' : style.drag} ${style.sortBox}`} onClick={openClick}>
-      <SortTitle data={data} activekey={activekey} setActivekey={setActivekey} isEdit={isEdit} orderVal={orderVal} />
+      <SortTitle
+        data={props.data}
+        activekey={activekey}
+        setActivekey={setActivekey}
+        isEdit={isEdit}
+        orderVal={orderVal}
+      />
       <div className={style.siteContainBox}>
-        {data.children &&
-          data.children.map((current, index) => {
+        {props.data.children &&
+          props.data.children.map((current, index) => {
             return (
               <div
                 key={index}

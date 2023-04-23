@@ -16,7 +16,14 @@ class UsersController extends Controller {
         `select u.user_name userName,u.uname,u.email,u.uid,r.rid from nav_users u left join nav_role r using(rid) where uname='${uname}' and upwd='${upwd}'`
       )
       if (result.length === 0) {
-        ctx.body = { code: 400, msg: '用户不存在！' }
+        let res = yield app.mysql.query(
+          `select u.user_name userName,u.uname,u.email,u.uid,r.rid from nav_users u left join nav_role r using(rid) where uname='${uname}'`
+        )
+        if (res.length === 0) {
+          ctx.body = { code: 400, msg: '用户不存在' }
+        } else {
+          ctx.body = { code: 400, msg: '密码错误' }
+        }
         return false
       }
       result = result[0]

@@ -1,17 +1,24 @@
-import { Empty } from 'antd';
+import { Anchor, Empty } from 'antd';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
+import SiteBox from '../SiteBox';
 import AddSort from '../components/AddSort';
-import DoubleDroppable from './DoubleDroppable';
 import EditSiteModal from '../components/EditSite';
 import EditSubSortModal from '../components/EditSubSort';
 import NavConfig from '../components/NavConfig';
-import SiteBox from '../SiteBox';
+import DoubleDroppable from './DoubleDroppable';
 import style from './style.less';
+const { Link } = Anchor;
 const SiteWrapper = (props) => {
   const dispatch = useDispatch();
   const siteList = useSelector((state) => state.Nav.siteList);
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const orderVal = useSelector((state) => state.Nav.orderVal);
+  const [targetOffset, setTargetOffset] = useState(undefined);
+  const isMobile = window.document.body.clientWidth <= 991;
+  useEffect(() => {
+    setTargetOffset(50);
+  }, []);
   const setOrderSiteList = (params) => {
     dispatch({
       type: 'Nav/setOrderSiteList',
@@ -25,7 +32,16 @@ const SiteWrapper = (props) => {
     });
   const isDragDisabled = !isEdit || orderVal !== 'sort';
   return (
-    <div className={`${props.className}`}>
+    <div className={props.className}>
+      {!isMobile ? (
+        <div className={style.anchor}>
+          <Anchor targetOffset={targetOffset}>
+            {siteList.map((item, key) => {
+              return <Link href={`#${item.sortId}`} className={style.anchorBtn} key={key} title={item.sortName} />;
+            })}
+          </Anchor>
+        </div>
+      ) : null}
       <NavConfig />
       <DoubleDroppable
         data={siteList}

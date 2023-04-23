@@ -1,4 +1,4 @@
-import { Descriptions, Image, Tag } from 'antd';
+import { Badge, Descriptions, Image, Tag } from 'antd';
 import { forwardRef } from 'react';
 import { useSelector } from 'umi';
 import style from './style.less';
@@ -8,9 +8,12 @@ const SiteInfo = forwardRef((props, ref) => {
     <Descriptions column={1} labelStyle={{ fontWeight: 'bold' }}>
       <Descriptions.Item label="网站名称">{siteInfo.siteName}</Descriptions.Item>
       <Descriptions.Item label="网站地址">
-        <a href={siteInfo.siteUrl} target="_blank">
-          {siteInfo.siteUrl}
-        </a>
+        <div className={style.siteUrl}>
+          <a href={siteInfo.siteUrl} target="_blank">
+            {siteInfo.siteUrl}
+          </a>
+          <Badge status={props.pingStatus} />
+        </div>
       </Descriptions.Item>
       <Descriptions.Item label="网站标签">
         {siteInfo.tags &&

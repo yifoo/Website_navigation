@@ -49,7 +49,7 @@ export default function NavPage() {
         <div className={style.searchContainer}>
           <SearchBox />
         </div>
-        <SiteWrapper className={`${style.siteContainer}`} />
+        <SiteWrapper className={style.siteContainer} />
         {!isMobile ? <OrderConfig /> : null}
       </div>
     </Spin>

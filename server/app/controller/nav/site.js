@@ -174,7 +174,11 @@ class SiteController extends Controller {
     const params = ctx.request.body
     const { uid } = ctx.state.user
     const sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
-    site.site_name='${params.siteName}', site.site_desc='${params.siteDesc}',site.site_url='${params.siteUrl}',site.tags='${params.tags}',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
+    site.site_name='${params.siteName}', site.site_desc='${
+      params.siteDesc || ''
+    }',site.site_url='${params.siteUrl}',site.tags='${
+      params.tags || ''
+    }',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
     WHERE uid=${uid} and site.site_id=${params.siteId}`
     console.log('sql: ', sql)
     let res
@@ -422,6 +426,17 @@ class SiteController extends Controller {
       }
     } catch (e) {
       console.log('checkSite: ', e)
+    }
+  }
+  *pingSiteStatus() {
+    // @ts-ignore
+    const { ctx, app } = this
+    const params = ctx.request.query
+    try {
+      const stdout = yield ctx.service.nav.getSiteStatus(params)
+      ctx.body = { code: 200, msg: '请求成功', data: stdout }
+    } catch (e) {
+      ctx.body = { code: 402, msg: '请求失败', data: e }
     }
   }
 }

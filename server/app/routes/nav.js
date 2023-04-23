@@ -20,6 +20,7 @@ module.exports = (app) => {
   )
   router.post('/api/nav/site/delSite', jwt, controller.nav.site.delSite)
   router.post('/api/nav/site/clickSite', jwt, controller.nav.site.clickSite)
+  router.get('/api/nav/site/pingSiteStatus', controller.nav.site.pingSiteStatus)
   // router.pos/apit('/nav/site/addSubSort',jwt, controller.nav.site.addSubSort);
   // router.pos/apit('/nav/site/updateSubSort',jwt, controller.nav.site.updateSubSort);
   router.post('/api/nav/site/addSort', jwt, controller.nav.site.addSort)
