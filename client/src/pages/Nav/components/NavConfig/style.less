@@ -1,27 +1,10 @@
 .navConfig {
   position: fixed;
   right: 1rem;
-  top: 8rem;
-  color: #fff;
+  bottom: 3rem;
   :global {
-    button {
-      color: rgba(190, 190, 190, 0.4);
-      transform: rotateZ(0deg);
-      span {
-        font-size: 1rem;
-      }
-      &:hover {
-        color: #fff;
-        transform: rotateZ(90deg);
-      }
-      &:focus {
-        color: rgba(190, 190, 190, 0.4);
-        transform: rotateZ(90deg);
-      }
+    .ant-popover-inner-content {
+      padding: 0;
     }
-  }
-  .isEdit {
-    transform: rotateZ(90deg);
-    color: #b3b3b3;
   }
 }

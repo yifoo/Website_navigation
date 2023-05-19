@@ -16,11 +16,26 @@ const SearchBox = memo((props) => {
   const dispatch = useDispatch();
   const extraRef = useRef(); //*获取高级搜索附加组件内容
   const inputRef = useRef('');
+  const updateLocalSearchList = () => {
+    let search = localStorage.getItem('search');
+    if (search) {
+      search = JSON.parse(search);
+      dispatch({
+        type: 'Nav/setSearchList',
+        payload: search,
+      });
+      return true;
+    } else {
+      return false;
+    }
+  };
   useEffect(() => {
     if (searchList.length === 0) {
-      dispatch({
-        type: 'Nav/querySearchList',
-      });
+      if (!updateLocalSearchList()) {
+        dispatch({
+          type: 'Nav/querySearchList',
+        });
+      }
     }
   }, []);
   useEffect(() => {
@@ -54,7 +69,7 @@ const SearchBox = memo((props) => {
       let extra = extraRef.current.extra;
       extra = Object.keys(extra).length > 0 ? extra.value : '';
       let query = extra ? extra : btn.query;
-      query = query.replace(/{key}/ig, encodeURI(inputRef.current.input.trim()));
+      query = query.replace(/{key}/gi, encodeURI(inputRef.current.input.trim()));
       window.open(query);
       query = null;
       extra = null;
@@ -71,7 +86,7 @@ const SearchBox = memo((props) => {
   };
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);;
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [activeKey, tabKey]);
   //* 避免重复render
   const SearchBtnList = useMemo(
@@ -84,7 +99,7 @@ const SearchBox = memo((props) => {
         );
       });
     },
-    [searchList,tabKey],
+    [searchList, tabKey],
   );
   return (
     <div className={style.searchBox}>

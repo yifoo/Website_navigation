@@ -1,11 +1,11 @@
-import { Anchor, Empty } from 'antd';
+import { Affix, Anchor, Empty, Button } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 import SiteBox from '../SiteBox';
 import AddSort from '../components/AddSort';
 import EditSiteModal from '../components/EditSite';
 import EditSubSortModal from '../components/EditSubSort';
-import NavConfig from '../components/NavConfig';
+
 import DoubleDroppable from './DoubleDroppable';
 import style from './style.less';
 const { Link } = Anchor;
@@ -42,7 +42,7 @@ const SiteWrapper = (props) => {
           </Anchor>
         </div>
       ) : null}
-      <NavConfig />
+
       <DoubleDroppable
         data={siteList}
         setData={setOrderSiteList}

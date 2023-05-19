@@ -4,9 +4,11 @@ import { useBoolean } from 'ahooks';
 import { Spin } from 'antd';
 import { useEffect } from 'react';
 import { useDispatch, useModel, useSelector } from 'umi';
-import OrderConfig from './components/OrderConfig'; //? 网址排序组件
 import SiteWrapper from './SiteWrapper';
+import OrderConfig from './components/OrderConfig'; //? 网址排序组件
+
 import style from './style.less';
+import NavConfig from './components/NavConfig';
 
 export default function NavPage() {
   const [isLoading, { toggle, setTrue, setFalse }] = useBoolean(false);
@@ -28,11 +30,33 @@ export default function NavPage() {
       payload: false,
     });
   };
+  const updateFromLocalSiteList = () => {
+    let localSiteList = localStorage.getItem('siteList');
+    let localSorList = localStorage.getItem('sortList');
+    if (localSiteList && localSorList) {
+      localSiteList = JSON.parse(localSiteList);
+      dispatch({
+        type: 'Nav/setOrderSiteList',
+        payload: localSiteList,
+      });
+      localSorList = JSON.parse(localSorList);
+      dispatch({
+        type: 'Nav/setSortList',
+        payload: localSorList,
+      });
+      return true;
+    } else {
+      return false;
+    }
+  };
   useEffect(() => {
     if (siteList.length === 0) {
-      setTrue();
-      fetchSort();
-      fetchAllSites();
+      let status = updateFromLocalSiteList();
+      if (!status) {
+        setTrue();
+        fetchSort();
+        fetchAllSites();
+      }
     }
     return handleEdit;
   }, []);
@@ -50,6 +74,7 @@ export default function NavPage() {
           <SearchBox />
         </div>
         <SiteWrapper className={style.siteContainer} />
+        <NavConfig refresh={{ setTrue, setFalse }} />
         {!isMobile ? <OrderConfig /> : null}
       </div>
     </Spin>

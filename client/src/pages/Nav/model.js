@@ -29,6 +29,7 @@ export default {
         activeBtnList.push(item.activeBtn);
         activeList.push(item.keyActive);
       });
+      localStorage.setItem('search', JSON.stringify(payload));
       return {
         ...state,
         searchList: payload,
@@ -87,6 +88,7 @@ export default {
             });
           });
       });
+      localStorage.setItem('siteList', JSON.stringify(siteList));
       return {
         ...state,
         siteList: siteList,
@@ -135,6 +137,7 @@ export default {
       };
     },
     setSortList(state, { payload }) {
+      localStorage.setItem('sortList', JSON.stringify(payload));
       return {
         ...state,
         sortList: payload,

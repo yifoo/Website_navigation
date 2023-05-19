@@ -4,7 +4,7 @@ import { userApi } from '@/services';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 import { PageLoading, SettingDrawer } from '@ant-design/pro-layout';
 import { message } from 'antd';
-import { Link, history } from 'umi';
+import { history, Link } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 import paramConfig from '../config/paramConfig';
 const isDev = process.env.NODE_ENV === 'development';
