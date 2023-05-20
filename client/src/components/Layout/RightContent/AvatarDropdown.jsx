@@ -17,7 +17,7 @@ const AvatarDropdown = ({ menu }) => {
     let res = await userApi.logout();
     if (res.code === 200) {
       message.success(res.msg);
-      localStorage.clear('token');
+      localStorage.removeItem('token');
       setInitialState((s) => ({ ...s, userInfo: undefined, isLogin: false, token: null }));
       dispatch({ type: 'Nav/clearSiteSort' });
       dispatch({ type: 'Nav/fetchSort' });

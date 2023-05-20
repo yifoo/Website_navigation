@@ -56,6 +56,8 @@ export default {
       };
     },
     clearSiteSort(state, { payload }) {
+      localStorage.removeItem('siteList');
+      localStorage.removeItem('sortList');
       return {
         ...state,
         originSiteList: [],
