@@ -2,7 +2,7 @@ export default [
   {
     path: '/user',
     layout: false,
-    name:'用户',
+    name: '用户',
     hideInMenu: true,
     routes: [
       {
@@ -31,7 +31,7 @@ export default [
   {
     path: '/setting',
     name: '配置中心',
-    hideInMenu: true,
+    hideInMenu: false,
     icon: 'crown',
     access: '1099',
     routes: [
