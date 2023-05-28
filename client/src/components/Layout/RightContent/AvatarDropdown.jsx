@@ -1,5 +1,5 @@
 import { userApi } from '@/services';
-import { Avatar, Menu, message, Spin } from 'antd';
+import { Avatar, message, Spin } from 'antd';
 import { useCallback } from 'react';
 import { history, Link, useDispatch, useModel } from 'umi';
 import HeaderDropdown from '../HeaderDropdown';
@@ -83,14 +83,16 @@ const AvatarDropdown = ({ menu }) => {
       </div>
     );
   }
-  let menuNode = [
-    { label: '样式配置', key: 'layout' },
-    // { label: '个人设置', key: 'settings' },
-    { label: '退出登录', key: 'logout' },
-  ];
-  const menuHeaderDropdown = <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick} items={menuNode} />;
+  let menuNode = {
+    items: [
+      { label: '样式配置', key: 'layout' },
+      { label: '退出登录', key: 'logout' },
+    ],
+    onClick: onMenuClick,
+  };
+  // const menuHeaderDropdown = <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick} items={menuNode} />;
   return (
-    <HeaderDropdown overlay={menuHeaderDropdown}>
+    <HeaderDropdown menu={menuNode}>
       <span className={`${styles.action} ${styles.account}`}>
         <Avatar size="small" className={styles.avatar} src={userInfo.avatar} alt="avatar" />
         <span className={`${styles.name} `}>{userInfo.userName}</span>
