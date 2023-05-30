@@ -1,0 +1,13 @@
+logs/
+npm-debug.log
+yarn-error.log
+node_modules/
+package-lock.json
+yarn.lock
+.idea/
+.DS_Store
+*.sw*
+*.un~
+.nyc_output/
+app/public/img
+# ./hdl-node/app/public

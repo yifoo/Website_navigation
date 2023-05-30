@@ -1,0 +1,37 @@
+/*颜色选择器样式*/
+
+.picker {
+  background: #f0f0f4;
+  border-radius: 9px;
+  width: 100%;
+  margin: 5px 0;
+  :global {
+    input {
+      outline: none;
+      border: none;
+      width: 4rem;
+      margin: 5px;
+    }
+  }
+}
+
+.picker .react-colorful {
+  width: auto;
+}
+
+.picker__swatches {
+  display: flex;
+  padding: 6px;
+  flex-wrap: wrap;
+}
+
+.picker__swatch {
+  width: 24px;
+  height: 24px;
+  margin: 4px;
+  border: none;
+  padding: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
