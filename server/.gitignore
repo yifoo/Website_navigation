@@ -10,8 +10,6 @@ run/
 .DS_Store
 *.sw*
 *.un~
-typings/
 .nyc_output/
 app/public/img
 # ./hdl-node/app/public
-./config/
