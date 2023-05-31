@@ -15,7 +15,7 @@ export const request = {
   requestInterceptors: [
     (url, options) => {
       return {
-        url: isDev ? `${url}` : `生产api`,
+        url: isDev ? `${url}` : `${paramConfig.apiUrl}${url}`,
         options: {
           ...options,
           headers: {

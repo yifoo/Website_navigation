@@ -5,8 +5,7 @@
     "match": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-    "cacheControl": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "/favicon.ico": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js"
   },
   "mysql": {
     "client": {
@@ -20,8 +19,8 @@
     "app": "/Users/yifoo/03-Code/Website_navigation/server/config/config.local.js",
     "agent": "/Users/yifoo/03-Code/Website_navigation/server/config/config.local.js",
     "default": {
-      "database": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-mysql@3.1.0/node_modules/egg-mysql/config/config.default.js",
-      "connectionLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-mysql@3.1.0/node_modules/egg-mysql/config/config.default.js"
+      "database": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-mysql@3.0.0/node_modules/egg-mysql/config/config.default.js",
+      "connectionLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-mysql@3.0.0/node_modules/egg-mysql/config/config.default.js"
     }
   },
   "cors": {
@@ -32,64 +31,64 @@
   "cluster": {
     "listen": {
       "port": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "hostname": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "hostname": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     }
   },
   "security": {
     "csrf": {
       "enable": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-      "type": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "ignoreJSON": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "useSession": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "cookieName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "sessionName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "headerName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "bodyName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "queryName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "supportedRequests": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "refererWhiteList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "type": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "useSession": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "headerName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "queryName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "supportedRequests": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "refererWhiteList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "domainWhiteList": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-    "protocolWhiteList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-    "defaultMiddleware": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
     "xframe": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "value": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "hsts": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.local.js",
-      "maxAge": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "includeSubdomains": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.local.js",
+      "maxAge": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "dta": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "methodnoallow": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "noopen": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "nosniff": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "referrerPolicy": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "value": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "xssProtection": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "value": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "csp": {
-      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "policy": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "policy": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     },
     "ssrf": {
-      "ipBlackList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "ipExceptionList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js",
-      "checkAddress": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+      "ipBlackList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "ipExceptionList": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
     }
   },
   "multipart": {
@@ -98,239 +97,231 @@
     "defaultCharset": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
     "fileExtensions": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
     "whitelist": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-    "fieldNameSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-    "fieldSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-    "fields": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-    "fileSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-    "files": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-    "allowArrayField": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-    "tmpdir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js",
     "cleanSchedule": {
-      "cron": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js",
-      "disable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-multipart@2.13.1/node_modules/egg-multipart/config/config.default.js"
+      "cron": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.10.1/node_modules/egg-multipart/config/config.default.js"
     }
   },
   "logger": {
     "dir": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
     "level": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
     "consoleLevel": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-    "encoding": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "env": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "disableConsoleAfterReady": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "outputJSON": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "buffer": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "appLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "coreLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "agentLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "errorLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "env": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "outputJSON": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "buffer": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "coreLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "agentLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "errorLogName": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
     "coreLogger": {
-      "consoleLevel": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.local.js"
+      "consoleLevel": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.local.js"
     },
-    "allowDebugAtProd": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "enablePerformanceTimer": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "allowDebugAtProd": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
   "jwt": {
     "secret": "/Users/yifoo/03-Code/Website_navigation/server/config/config.default.js",
-    "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-jwt@3.1.7/node_modules/egg-jwt/config/config.default.js"
+    "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jwt@3.1.7/node_modules/egg-jwt/config/config.default.js"
   },
   "session": {
-    "maxAge": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
-    "key": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
-    "httpOnly": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
-    "encrypt": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
-    "logValue": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-session@3.3.0/node_modules/egg-session/config/config.default.js"
+    "maxAge": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session/config/config.default.js",
+    "logValue": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session/config/config.default.js"
   },
   "helper": {
-    "shtml": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-security@2.10.1/node_modules/egg-security/config/config.default.js"
+    "shtml": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/config.default.js"
   },
   "jsonp": {
-    "limit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-jsonp@2.0.0/node_modules/egg-jsonp/config/config.default.js",
-    "callback": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-jsonp@2.0.0/node_modules/egg-jsonp/config/config.default.js",
-    "csrf": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-jsonp@2.0.0/node_modules/egg-jsonp/config/config.default.js"
+    "limit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jsonp@2.0.0/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jsonp@2.0.0/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jsonp@2.0.0/node_modules/egg-jsonp/config/config.default.js"
   },
   "onerror": {
-    "errorPageUrl": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-onerror@2.1.0/node_modules/egg-onerror/config/config.default.js",
-    "appErrorFilter": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-onerror@2.1.0/node_modules/egg-onerror/config/config.default.js",
-    "templatePath": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-onerror@2.1.0/node_modules/egg-onerror/config/config.default.js"
+    "errorPageUrl": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.2.0/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.2.0/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.2.0/node_modules/egg-onerror/config/config.default.js"
   },
   "i18n": {
-    "defaultLocale": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
-    "dirs": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
-    "queryField": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
-    "cookieField": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
-    "cookieDomain": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
-    "cookieMaxAge": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js"
+    "defaultLocale": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
+    "cookieDomain": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/config.default.js"
   },
   "watcher": {
-    "type": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-watcher@3.1.1/node_modules/egg-watcher/config/config.local.js",
+    "type": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher/config/config.local.js",
     "eventSources": {
-      "default": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-watcher@3.1.1/node_modules/egg-watcher/config/config.default.js",
-      "development": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-watcher@3.1.1/node_modules/egg-watcher/config/config.default.js"
+      "default": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher/config/config.default.js",
+      "development": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher/config/config.default.js"
     }
   },
   "customLogger": {
     "scheduleLogger": {
-      "consoleLevel": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-schedule@3.6.6/node_modules/egg-schedule/config/config.default.js",
-      "file": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-schedule@3.6.6/node_modules/egg-schedule/config/config.default.js"
+      "consoleLevel": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@3.7.0/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@3.7.0/node_modules/egg-schedule/config/config.default.js"
     }
   },
   "schedule": {
-    "directory": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-schedule@3.6.6/node_modules/egg-schedule/config/config.default.js"
+    "directory": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@3.7.0/node_modules/egg-schedule/config/config.default.js"
   },
   "development": {
-    "watchDirs": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
-    "ignoreDirs": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
-    "fastReady": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
-    "reloadOnDebug": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
-    "overrideDefault": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
-    "overrideIgnore": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-development@2.7.0/node_modules/egg-development/config/config.default.js"
+    "watchDirs": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
+    "fastReady": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
+    "overrideDefault": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/config.default.js",
+    "overrideIgnore": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/config.default.js"
   },
   "logrotator": {
-    "filesRotateByHour": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
-    "hourDelimiter": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
-    "filesRotateBySize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
-    "maxFileSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
-    "maxFiles": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
-    "rotateDuration": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
-    "maxDays": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js"
+    "filesRotateByHour": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/config.default.js"
   },
   "static": {
-    "prefix": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-static@2.2.0/node_modules/egg-static/config/config.default.js",
-    "dir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-static@2.2.0/node_modules/egg-static/config/config.default.js",
-    "dynamic": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-static@2.2.0/node_modules/egg-static/config/config.default.js",
-    "preload": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-static@2.2.0/node_modules/egg-static/config/config.default.js",
-    "buffer": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-static@2.2.0/node_modules/egg-static/config/config.default.js",
-    "maxFiles": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-static@2.2.0/node_modules/egg-static/config/config.default.js"
+    "prefix": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/config.default.js",
+    "dir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/config.default.js",
+    "preload": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/config.default.js",
+    "buffer": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/config.default.js",
+    "maxFiles": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/config.default.js"
   },
   "view": {
-    "root": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-view@2.1.3/node_modules/egg-view/config/config.default.js",
-    "cache": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-view@2.1.3/node_modules/egg-view/config/config.local.js",
-    "defaultExtension": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-view@2.1.3/node_modules/egg-view/config/config.default.js",
-    "defaultViewEngine": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-view@2.1.3/node_modules/egg-view/config/config.default.js",
-    "mapping": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg-view@2.1.3/node_modules/egg-view/config/config.default.js"
+    "root": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view/config/config.default.js"
   },
-  "env": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "name": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "cookies": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "proxy": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "maxIpsCount": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "maxProxyCount": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "protocolHeaders": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "ipHeaders": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "hostHeaders": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+  "env": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "name": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "proxy": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
   "pkg": {
-    "name": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "version": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "description": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "private": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+    "name": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "version": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "description": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "private": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
     "egg": {
-      "declarations": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "declarations": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "dependencies": {
-      "axios": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-cors": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-jwt": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-multipart": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-mysql": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-scripts": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "moment": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "tree-tool": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "axios": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-cors": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-jwt": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-multipart": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-mysql": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-scripts": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "moment": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "tree-tool": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
-      "autod": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "autod-egg": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-bin": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-ci": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "egg-mock": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "eslint": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "eslint-config-egg": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "autod": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "autod-egg": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-bin": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-ci": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "egg-mock": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "eslint": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "eslint-config-egg": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "engines": {
-      "node": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "node": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "scripts": {
-      "dev": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "start": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "stop": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "debug": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "test": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "test-local": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "cov": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "lint": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "ci": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "autod": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "dev": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "start": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "stop": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "debug": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "test": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "test-local": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "cov": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "lint": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "ci": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "autod": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "ci": {
-      "version": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "version": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "repository": {
-      "type": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "url": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "type": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "url": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
-    "author": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "license": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "author": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "license": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
-  "baseDir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "HOME": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "rundir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+  "baseDir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "HOME": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "rundir": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
   "dump": {
-    "ignore": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "ignore": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "notFound": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "sitefile": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "middlewares": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "httpClient": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "bodyparser": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "notFound": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "sitefile": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "middlewares": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "httpClient": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
   "notfound": {
-    "pageUrl": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "pageUrl": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
   "bodyParser": {
-    "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "encoding": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "formLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "jsonLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "textLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "strict": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+    "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "formLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "strict": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
     "queryString": {
-      "arrayLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "depth": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "parameterLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
-    },
-    "onerror": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "arrayLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "depth": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
+    }
   },
   "httpclient": {
-    "enableDNSCache": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "dnsCacheLookupInterval": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "dnsCacheMaxLength": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+    "enableDNSCache": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
     "request": {
-      "timeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "timeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "httpAgent": {
-      "keepAlive": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "freeSocketTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "maxSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "maxFreeSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "keepAlive": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "freeSocketTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "maxSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-      "maxFreeSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+      "keepAlive": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
     }
   },
   "meta": {
-    "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "logging": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "enable": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "logging": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
-  "coreMiddleware": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "workerStartTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-  "serverTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
+  "coreMiddleware": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
   "clusterClient": {
-    "maxWaitTime": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js",
-    "responseTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+    "maxWaitTime": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
   },
-  "onClientError": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/registry.npmmirror.com+egg@2.35.0/node_modules/egg/config/config.default.js"
+  "onClientError": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.15.1/node_modules/egg/config/config.default.js"
 }

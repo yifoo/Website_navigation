@@ -12,6 +12,7 @@ export default {
     '/api/': {
       // 要代理的地址
       target: 'http://localhost:7000/',
+      // target: 'https://api.haohome.top/',
       // 配置了这个可以从 http 代理到 https
       // 依赖 origin 的功能可能需要这个，比如 cookie
       changeOrigin: true,
@@ -19,7 +20,7 @@ export default {
   },
   test: {
     '/api/': {
-      target: 'test api',
+      target: 'https://proapi.azurewebsites.net',
       changeOrigin: true,
       pathRewrite: {
         '^': '',
@@ -28,7 +29,7 @@ export default {
   },
   pre: {
     '/api/': {
-      target: 'your site api',
+      target: '你的api',
       changeOrigin: true,
       // pathRewrite: {
       //   '^': '',
