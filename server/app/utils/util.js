@@ -57,7 +57,7 @@ const getFavicon = async (siteUrl) => {
   let shortcutReg =
     /<link[^>]+rel=.?(icon|shortcut icon|alternate icon|apple-touch-icon|apple-touch-icon-precomposed|fluid-icon|mask-icon)[^>]+>/gi
   let link = html.match(shortcutReg)
-  console.log('link: ', link)
+
   // return link
   let iconList = []
   try {
@@ -89,14 +89,16 @@ const getFavicon = async (siteUrl) => {
             } else if (icon.slice(0, 1) === '.') {
               icon = icon.slice(1)
               icon = iconHost + '/' + icon
+            } else {
+              icon = iconHost + '/' + icon
             }
           }
           iconList.push(icon)
         }
       })
     } else {
-      iconList.push('https://img.haohome.top/uPic/blankico.jpg')
       iconList.push(iconHost + '/favicon.ico')
+      iconList.push('https://img.haohome.top/uPic/blankico.jpg')
     }
   } catch (e) {
     console.log('e: ', e)
@@ -108,9 +110,7 @@ const getFavicon = async (siteUrl) => {
   try {
     if (descContent && descContent.length) {
       descContent = descContent[0].match(/content=?[^>]+[^/>]/gi)[0]
-      console.log('descContent: ', descContent)
       descContent = descContent.split('"')[1]
-      console.log('descContent: ', descContent)
     }
   } catch (e) {
     console.log('e: ', e)

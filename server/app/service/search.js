@@ -9,9 +9,6 @@ class SearchService extends Service {
       const list = await this.app.mysql.query(
         `select n.key_active keyActive,n.sid, i.btn_id btnId,n.placeholder,n.title,i.name,i.query,i.icon,n.active_btn activeBtn,e.label,e.value,e.placeholder tips from nav_search n left join nav_search_item i using(sid) left join nav_search_extra e  USING(btn_id)  where n.status =1 and i.status=1 order by n.s_index ASC,i.btn_index ASC,e.e_index ASC `
       )
-      // const list = await this.app.mysql.query(
-      //   `select n.key_active keyActive,n.sid, i.btn_id btnId,n.placeholder,n.text,i.name,i.query,n.active_btn activeBtn, i.extra,e.label,e.value,e.placeholder from nav_search n left join nav_search_item i using(sid) left join nav_search_extra e  USING(btn_id)  where n.status =1 and i.status=1 order by n.s_index,i.btn_index ASC `
-      // )
       return list
     } catch (e) {
       console.log('e: ', e)
@@ -19,10 +16,7 @@ class SearchService extends Service {
   }
   async updateSbtnActive(params) {
     try {
-      // @ts-ignore
-      const btnInfo = await this.app.mysql.query(
-        `update nav_search set active_btn=${params.activeBtn} where sid=${params.sid}`
-      )
+      const btnInfo = await this.app.mysql.query(`update nav_search set active_btn=${params.activeBtn} where sid=${params.sid}`)
       return btnInfo
     } catch (e) {
       console.log('e: ', e)
@@ -45,9 +39,6 @@ class SearchService extends Service {
       const btnInfo = await this.app.mysql.query(
         `select i.btn_id btnId,i.name,i.query,i.icon,i.btn_index btnIndex,e.id,e.value,e.label,e.placeholder,e.e_index eIndex from nav_search_item i left join nav_search_extra e using(btn_id) where btn_id=${params.btnId} order by e.e_index ASC`
       )
-      // const btnInfo = await this.app.mysql.select('nav_search_item', {
-      //   where: { btn_id: params.btnId }
-      // })
       return btnInfo
     } catch (e) {
       console.log('e: ', e)
@@ -57,9 +48,9 @@ class SearchService extends Service {
     try {
       // @ts-ignore
       const btnInfo = await this.app.mysql.query(
-        `update nav_search_item set name='${params.name || ''}',icon='${
-          params.icon || ''
-        }',query='${params.query || ''}',btn_index=${params.btnIndex} where btn_id=${params.btnId}`
+        `update nav_search_item set name='${params.name || ''}',icon='${params.icon || ''}',query='${params.query || ''}',btn_index=${
+          params.btnIndex
+        } where btn_id=${params.btnId}`
       )
       return btnInfo
     } catch (e) {
@@ -70,11 +61,9 @@ class SearchService extends Service {
     try {
       // @ts-ignore
       const btnInfo = await this.app.mysql.query(
-        `update nav_search_extra set label='${params.label || ''}',value='${
-          params.value || ''
-        }',placeholder="${params.placeholder || ''}",e_index=${
-          params.eIndex
-        } where id=${params.id}`
+        `update nav_search_extra set label='${params.label || ''}',value='${params.value || ''}',placeholder="${
+          params.placeholder || ''
+        }",e_index=${params.eIndex} where id=${params.id}`
       )
       return btnInfo
     } catch (e) {
@@ -129,9 +118,7 @@ class SearchService extends Service {
       let action1 = new Promise(async (resolve, reject) => {
         try {
           // @ts-ignore
-          const res1 = await this.app.mysql.query(
-            `update nav_search set key_active=${params[0].keyActive} where sid=${params[0].sid}`
-          )
+          const res1 = await this.app.mysql.query(`update nav_search set key_active=${params[0].keyActive} where sid=${params[0].sid}`)
           if (res1.changedRows > 0) {
             resolve(true)
           } else {
@@ -145,9 +132,7 @@ class SearchService extends Service {
       let action2 = new Promise(async (resolve, reject) => {
         try {
           // @ts-ignore
-          const res1 = await this.app.mysql.query(
-            `update nav_search set key_active=${params[1].keyActive} where sid=${params[1].sid}`
-          )
+          const res1 = await this.app.mysql.query(`update nav_search set key_active=${params[1].keyActive} where sid=${params[1].sid}`)
           if (res1.changedRows > 0) {
             resolve(true)
           } else {

@@ -41,8 +41,8 @@ class UsersController extends Controller {
         `UPDATE nav_users SET login_time='${result.login_time}' WHERE uid=${result.uid}`
       )
     } catch (err) {
-      ctx.body = { code: 400, msg: '登录失败' }
       console.log('err: ', err)
+      ctx.body = { code: 400, msg: '登录失败' }
     }
     // 成功则生成Token
     // 生成Token

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint valid-jsdoc: "off" */
 
 'use strict'
@@ -115,7 +116,7 @@ module.exports = (appInfo) => {
     consoleLevel: 'NONE'
   }
   config.jwt = {
-    secret: '123456' //自定义token的加密条件字符串，可按各自的需求填写
+    secret: '123456' // 自定义token的加密条件字符串，可按各自的需求填写
     // sign: { expiresIn: 2592000 }
   }
   console.log('运行环境', appInfo.env)

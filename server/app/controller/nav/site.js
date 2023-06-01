@@ -125,9 +125,7 @@ class SiteController extends Controller {
         }
       }
       // @ts-ignore
-      max = yield app.mysql.query(
-        `select max(order_index) maxSiteOrderIndex from nav_sites where uid=${uid}`
-      )
+      max = yield app.mysql.query(`select max(order_index) maxSiteOrderIndex from nav_sites where uid=${uid}`)
       // @ts-ignore
       res = yield app.mysql.insert('nav_sites', {
         uid,
@@ -174,9 +172,7 @@ class SiteController extends Controller {
     const params = ctx.request.body
     const { uid } = ctx.state.user
     const sql = `UPDATE nav_sites site INNER JOIN nav_logo logo USING(logo_id) SET
-    site.site_name='${params.siteName}', site.site_desc='${
-      params.siteDesc || ''
-    }',site.site_url='${params.siteUrl}',site.tags='${
+    site.site_name='${params.siteName}', site.site_desc='${params.siteDesc || ''}',site.site_url='${params.siteUrl}',site.tags='${
       params.tags || ''
     }',site.sort_id=${params.sortId},logo.logo_src='${params.logoSrc}'
     WHERE uid=${uid} and site.site_id=${params.siteId}`
@@ -249,9 +245,7 @@ class SiteController extends Controller {
     let res, max
     try {
       // @ts-ignore
-      max = yield app.mysql.query(
-        `select max(sort_id) maxSortId,max(order_index) maxOrderIndex from nav_sort where uid=${uid}`
-      )
+      max = yield app.mysql.query(`select max(sort_id) maxSortId,max(order_index) maxOrderIndex from nav_sort where uid=${uid}`)
       // @ts-ignore
       res = yield app.mysql.insert('nav_sort', {
         uid,

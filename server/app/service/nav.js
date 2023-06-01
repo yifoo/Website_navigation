@@ -29,9 +29,9 @@ class NavService extends Service {
   async fetchTags(params) {
     try {
       // @ts-ignore
-      const tagsList = await this.app.mysql.query(
-        `select tags from nav_sites where uid=${params.uid} group by tags`
-      )
+      // 获得一个
+      const tagsList = await this.app.mysql.query(`select tags from nav_sites where uid=${params.uid} group by tags`)
+      console.log('tagsList: ', tagsList)
       let list =
         tagsList.length &&
         tagsList.map((item) => {
@@ -61,6 +61,11 @@ class NavService extends Service {
       console.log('e: ', e)
     }
   }
+  /**
+   * *记录网址点击次数
+   * @param {网址信息} params
+   * @returns siteInfo
+   */
   async ClickSites(params) {
     try {
       // @ts-ignore
@@ -68,6 +73,17 @@ class NavService extends Service {
         `update nav_sites set count=count+1 where uid=${params.uid} and site_id = ${params.siteId}`
       )
       return siteInfo
+    } catch (e) {
+      console.log('e: ', e)
+    }
+  }
+  async getSiteStatus(params) {
+    try {
+      const util = require('util')
+      const exec = util.promisify(require('child_process').exec)
+      let curl = `curl -I -m 5 -s -w "%{http_code}" -o /dev/null  ${params.siteUrl}`
+      const { stdout, stderr } = await exec(curl)
+      return stdout
     } catch (e) {
       console.log('e: ', e)
     }
