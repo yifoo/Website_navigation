@@ -234,7 +234,7 @@
         "host": "127.0.0.1",
         "port": "3306",
         "user": "root",
-        "password": "<String len: 4>",
+        "password": "<String len: 10>",
         "database": "nav_test",
         "multipleStatements": true
       }
