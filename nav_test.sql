@@ -1434,7 +1434,6 @@ CREATE TABLE `nav_role` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1005, 10099, 'admin', 1001, 'menu_nav', '导航菜单');
-INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1006, 10099, 'admin', 1002, 'menu_service', '行业洞察');
 INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1011, 10000, 'guest', 1001, 'menu_nav', '导航菜单');
 INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1020, 10001, 'reguser', 1001, 'menu_nav', '导航菜单');
 INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1024, 10099, 'admin', 1099, 'menu_admin', '超级权限');

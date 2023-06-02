@@ -206,7 +206,7 @@
         "port": "3306",
         "user": "root",
         "password": "<String len: 10>",
-        "database": "nav",
+        "database": "nav_test",
         "multipleStatements": true
       }
     },
