@@ -92,7 +92,7 @@ export const layout = ({ initialState, setInitialState }) => {
     waterMarkProps: {
       content: initialState?.userInfo?.uname,
     },
-    footerRender: () => null,
+    // footerRender: () => <Footer />,
     onPageChange: () => {
       // console.log('initialState: ', initialState);
       // const { location } = history; // 如果没有登录，重定向到 login

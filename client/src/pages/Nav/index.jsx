@@ -68,7 +68,7 @@ export default function NavPage() {
     return setFalse;
   }, [siteList]);
   return (
-    <Spin tip="加载中..." wrapperClassName={style.loading} spinning={isLoading} size="large">
+    <Spin tip="加载中..." spinning={isLoading} size="large">
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}>
         <div className={style.searchContainer}>
           <SearchBox />
