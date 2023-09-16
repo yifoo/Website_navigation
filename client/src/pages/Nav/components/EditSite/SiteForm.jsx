@@ -233,7 +233,6 @@ const SiteForm = forwardRef((props, ref) => {
         >
           <Select
             allowClear
-            disabled={!userInfo.func.includes(1003)}
             placeholder="请输入网站图标地址"
             options={
               iconOptions.length &&
@@ -263,26 +262,31 @@ const SiteForm = forwardRef((props, ref) => {
               return (
                 <>
                   {menu}
-                  <Divider
-                    style={{
-                      margin: '8px 0',
-                    }}
-                  />
-                  <Space
-                    style={{
-                      padding: '0 8px 4px',
-                    }}
-                  >
-                    <Input
-                      value={logoInput}
-                      onChange={(e) => setLogoInput(e.target.value)}
-                      placeholder="请输入图标地址"
-                      ref={logoRef}
-                    />
-                    <Button type="text" icon={<PlusOutlined />} onClick={addLogoOption}>
-                      添加
-                    </Button>
-                  </Space>
+                  {userInfo.func.includes(1003) && (
+                    <>
+                      <Divider
+                        style={{
+                          margin: '8px 0',
+                        }}
+                      />
+                      <Space
+                        style={{
+                          padding: '0 8px 4px',
+                        }}
+                      >
+                        <Input
+                          value={logoInput}
+                          onChange={(e) => setLogoInput(e.target.value)}
+                          placeholder="输入自定义图标地址"
+                          ref={logoRef}
+                          // disabled={!userInfo.func.includes(1003)}
+                        />
+                        <Button type="text" icon={<PlusOutlined />} onClick={addLogoOption}>
+                          添加
+                        </Button>
+                      </Space>
+                    </>
+                  )}
                 </>
               );
             }}
