@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   axios:
     specifier: ^0.21.4
@@ -2742,7 +2746,7 @@ packages:
     resolution: {integrity: sha512-evfuh7k4fQKjgN8uSsnybtITYPCbOrVIyAouq7ImbECAoaYk1vjeipoYyu66PPi9CjUZal0t2S6+MOPo799FjQ==}
     requiresBuild: true
     dependencies:
-      nunjucks: 3.2.3
+      nunjucks: 3.2.4
     transitivePeerDependencies:
       - chokidar
     dev: true
@@ -5790,8 +5794,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /nunjucks@3.2.3:
-    resolution: {integrity: sha512-psb6xjLj47+fE76JdZwskvwG4MYsQKXUtMsPh6U0YMvmyjRtKRFcxnlXGWglNybtNTNVmGdp94K62/+NjF5FDQ==}
+  /nunjucks@3.2.4:
+    resolution: {integrity: sha512-26XRV6BhkgK0VOxfbU5cQI+ICFUtMLixv1noZn1tGU38kQH5A5nmmbk/O45xdyBhD1esk47nKrY0mvQpZIhRjQ==}
     engines: {node: '>= 6.9.0'}
     hasBin: true
     peerDependencies:
