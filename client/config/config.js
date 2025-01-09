@@ -32,7 +32,7 @@ export default defineConfig({
   targets: {
     ie: 11,
   },
-  devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
+  devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : false,
   // umi routes: https://umijs.org/docs/routing
   routes,
   access: {},

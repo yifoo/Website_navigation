@@ -1,10 +1,9 @@
-import { Affix, Anchor, Empty, Button } from 'antd';
+import { Anchor, Empty } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
-import SiteBox from '../SiteBox';
+import SortBox from '../SortBox';
 import AddSort from '../components/AddSort';
-import EditSiteModal from '../components/EditSite';
-import EditSubSortModal from '../components/EditSubSort';
+
 
 import DoubleDroppable from './DoubleDroppable';
 import style from './style.less';
@@ -14,11 +13,7 @@ const SiteWrapper = (props) => {
   const siteList = useSelector((state) => state.Nav.siteList);
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const orderVal = useSelector((state) => state.Nav.orderVal);
-  const [targetOffset, setTargetOffset] = useState(undefined);
   const isMobile = window.document.body.clientWidth <= 991;
-  useEffect(() => {
-    setTargetOffset(50);
-  }, []);
   const setOrderSiteList = (params) => {
     dispatch({
       type: 'Nav/setOrderSiteList',
@@ -35,7 +30,7 @@ const SiteWrapper = (props) => {
     <div className={props.className}>
       {!isMobile ? (
         <div className={style.anchor}>
-          <Anchor targetOffset={targetOffset}>
+          <Anchor targetOffset={50}>
             {siteList.map((item, key) => {
               return <Link href={`#${item.sortId}`} className={style.anchorBtn} key={key} title={item.sortName} />;
             })}
@@ -48,14 +43,12 @@ const SiteWrapper = (props) => {
         setData={setOrderSiteList}
         updateOrder={updateSortOrder}
         render={(data) => {
-          return <SiteBox data={data} />;
+          return <SortBox data={data} />;
         }}
         isDragDisabled={isDragDisabled}
       />
       {isEdit ? <AddSort /> : null}
       {siteList.length === 0 ? <Empty className={style.siteEmpty} description="暂无数据" /> : null}
-      <EditSiteModal />
-      <EditSubSortModal />
     </div>
   );
 };

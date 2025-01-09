@@ -17,7 +17,7 @@ class NavService extends Service {
       console.time('site')
       // @ts-ignore
       const siteInfo = await this.app.mysql
-        .query(`select site.sort_id sortId,site.site_id id,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
+        .query(`select site.sort_id sortId,site.site_id id,site.site_name siteName,site.site_url siteUrl,site.site_desc siteDesc,site.tags tags,logo.logo_id logoId,logo.logo_src logoSrc from nav_sites site
         left JOIN nav_logo logo USING(logo_id)  where site.uid=${params.uid} order by order_index`)
       console.timeEnd('site')
       return siteInfo
@@ -31,7 +31,6 @@ class NavService extends Service {
       // @ts-ignore
       // 获得一个
       const tagsList = await this.app.mysql.query(`select tags from nav_sites where uid=${params.uid} group by tags`)
-      console.log('tagsList: ', tagsList)
       let list =
         tagsList.length &&
         tagsList.map((item) => {

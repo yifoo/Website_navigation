@@ -1,0 +1,122 @@
+import { CloseCircleFilled, EditOutlined } from '@ant-design/icons';
+import { Badge, Button, Popconfirm, Tag, Tooltip, Divider } from 'antd';
+import { memo, useEffect, useState } from 'react';
+import LazyLoad from 'react-lazyload';
+import { useDispatch, useModel, useSelector } from 'umi';
+import style from './style.less';
+const Site = memo((props) => {
+  const { initialState } = useModel('@@initialState');
+  const isEdit = useSelector((state) => state.Nav.isEdit);
+  const pingSite = useSelector((state) => state.Nav.pingSite);
+  const [pingStatus, setPingStatus] = useState('default');
+  const [pingLoading, setPingLoading] = useState(false);
+  const isMobile = initialState.isMobile;
+  const dispatch = useDispatch();
+  const tagColor = {
+    新闻: '#299bf8',
+    工具: '#f8b629',
+    AI: '#7829f8',
+    搜索: '#ed556a',
+    办公: '#7829f8',
+    学习: '#0eb0c9',
+    市场: '#248067',
+    管理: '#49627a',
+  };
+  useEffect(() => {
+    if (pingSite && props.sortId === pingSite) {
+      setPingLoading(true);
+      dispatch({
+        type: 'Nav/pingSiteStatus',
+        payload: { siteUrl: props.siteUrl },
+      }).then((res) => {
+        setPingLoading(false);
+        if (res.data === '200') {
+          setPingStatus('success');
+        } else if (res.data === '301' || res.data === '302') {
+          setPingStatus('warning');
+        } else if (res.data === '000') {
+          setPingStatus('error');
+        } else {
+          setPingStatus('default');
+        }
+        dispatch({
+          type: 'Nav/setPingSite',
+          payload: null,
+        });
+      });
+    }
+  }, [pingSite]);
+  const editSite = () => {
+    dispatch({
+      type: 'Nav/fetchSite',
+      payload: { siteId: props.id },
+    });
+    dispatch({
+      type: 'Nav/setShowEditSite',
+      payload: { open: true, type: 'edit' },
+    });
+  };
+  const confirmDel = () => {
+    dispatch({
+      type: 'Nav/delSite',
+      payload: { siteId: props.id },
+    });
+  };
+  return (
+    <div
+      className={`${style.site} ${props.draggable ? style.drag : ''} ${props.className} ${style.siteWrapper}`}
+      draggable={props.draggable}
+      index={props.index}
+    >
+      <Tooltip title={props.siteDesc} placement="bottom" s="true">
+        <Button className={style.siteLink} type="text" loading={pingLoading}s>
+          {!isMobile ? (
+            <LazyLoad overflow={false} once={true} throttle={200} debounce={200} className={style.lineimg}>
+              <img
+                className={style.icon}
+                src={props.logoSrc}
+                mark="img"
+                data-id={props.id}
+                onError={(e) => {
+                  e.target.src = 'https://img.haohome.top/uPic/blankico.jpg';
+                }}
+              />
+            </LazyLoad>
+          ) : null}
+          <div className={style.content} mark="url" data-url={props.siteUrl} data-id={props.id}>
+            <div className={style.siteName} mark="url" data-url={props.siteUrl} data-id={props.id}>
+              {props.siteName}
+            </div>
+            <div className={style.ellipsis} mark="url" data-url={props.siteUrl} data-id={props.id}>
+              {props.siteDesc}
+            </div>
+          </div>
+        </Button>
+      </Tooltip>
+      <Divider orientation="left" style={{ margin: 0 }}></Divider>
+      {props.tags && !isMobile && (
+        <div className={style.tagClass}>
+          {props.tags.split(',').map((item, key) => {
+            return (
+              <Tag color={tagColor[item] || '#5bae23'} key={key} className={style.tag}>
+                {item}
+              </Tag>
+            );
+          })}
+        </div>
+      )}
+      {/* </div> */}
+      {isEdit ? (
+        <div className={style.edit} index={props.index}>
+          <EditOutlined className={style.editSite} onClick={editSite} mark="edit" />
+          <Popconfirm title="确认删除该网址吗" onConfirm={confirmDel} okText="是" cancelText="否">
+            <CloseCircleFilled className={style.delSite} />
+          </Popconfirm>
+          <Badge status={pingStatus} className={style.pingStatus} />
+        </div>
+      ) : null}
+    </div>
+  );
+});
+
+export default Site;

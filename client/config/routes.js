@@ -20,14 +20,7 @@ export default [
       },
     ],
   },
-  {
-    path: '/',
-    name: '个人收藏夹',
-    icon: 'home',
-    hideInMenu: true,
-    access: '1001',
-    component: './Nav',
-  },
+
   {
     path: '/setting',
     name: '配置中心',
@@ -45,6 +38,29 @@ export default [
     ],
   },
   {
+    path: '/',
+    name: '我的收藏夹',
+    icon: 'home',
+    hideInMenu: true,
+    access: '1001',
+    component: '@/components/Layout/NavLayout',
+    routes: [
+      {
+        name: '我的收藏夹',
+        path: '/',
+        icon: 'dotChart',
+        access: '1001',
+        component: './Nav',
+      },
+      {
+        name: '我的收藏夹',
+        path: '/nav/:sortId/',
+        icon: 'dotChart',
+        access: '1001',
+        component: './Nav/ChildNav',
+      },
+    ],
+  },
     component: './404',
   },
 ];

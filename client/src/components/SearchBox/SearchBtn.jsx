@@ -1,3 +1,4 @@
+import { Image } from 'antd';
 import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 import style from './style.less';
@@ -14,7 +15,7 @@ const SearchBtn = memo((props) => {
       updateKey(activeBtnList[props.index]);
       // return ()=>setActiveKey()
     }
-  }, [activeBtnList,props.index]);
+  }, [activeBtnList, props.index]);
   /**
    * *切换搜索按钮
    */
@@ -39,11 +40,16 @@ const SearchBtn = memo((props) => {
       <div className={style.sBtns} onClick={changeActiveBtn}>
         {props.list.btns.map((btn, key) => {
           return (
-            <span
-              className={`${style.sbtn} ${btn.btnId === activeKey ? style.active : ''}`}
-              key={btn.btnId}
-              index={key}
-            >
+            <span className={`${style.sbtn} ${btn.btnId === activeKey ? style.active : ''}`} key={btn.btnId} index={key}>
+              {btn.icon && (
+                <Image
+                  src={btn.icon}
+                  preview={false}
+                  width={'0.8rem'}
+                  style={{marginRight:'2px',marginBottom:'2px'}}
+                  rootClassName={style.stbnImg}
+                />
+              )}
               {btn.name}
             </span>
           );
