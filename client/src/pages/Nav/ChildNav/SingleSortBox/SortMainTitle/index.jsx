@@ -1,4 +1,4 @@
-import { CheckCircleOutlined, EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, DashboardOutlined, EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { Input, message, Popconfirm } from 'antd';
 import hexAlpha from 'hex-alpha';
 import { useEffect, useState } from 'react';
@@ -47,8 +47,14 @@ const SortMainTitle = (props) => {
       payload: { sortId: props.data.sortId },
     });
   };
+  const pingSite = async () => {
+    dispatch({
+      type: 'Nav/setPingSite',
+      payload: props.data.sortId,
+    });
+  };
   return (
-    <div className={style.sortTop} style={{ backgroundColor: hexAlpha(color||"#299bf8", 0.1) }}>
+    <div className={style.sortTop} style={{ backgroundColor: hexAlpha(color || '#299bf8', 0.1) }}>
       <div className={style.sortTitle} style={{ backgroundColor: color }}>
         {isEdit && (
           <span className={style.edit}>
@@ -80,6 +86,11 @@ const SortMainTitle = (props) => {
           </Popconfirm>
         ) : null}
       </div>
+      {isEdit && (
+        <span className={style.subSort}>
+          <DashboardOutlined onClick={pingSite} />
+        </span>
+      )}
     </div>
   );
 };

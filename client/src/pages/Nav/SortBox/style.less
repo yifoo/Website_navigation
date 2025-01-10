@@ -11,12 +11,10 @@
   cursor: move;
 }
 .siteContainBox {
-  // float: left;
   padding: 0px .5rem;
   margin-bottom: 0.2rem;
-  .siteList {
+  .siteBox {
     z-index: 10;
-    // float: left;
     width: 100%;
     transform: rotateX(0deg);
     transform-origin: center 0;
@@ -74,27 +72,27 @@
 }
 
 @media screen and (min-width: 1600px) {
-  .siteContainBox .siteList {
+  .siteContainBox .siteBox {
     grid-template-columns: repeat(6, 1fr);
   }
 }
 @media screen and (min-width: 1222px) {
-  .siteContainBox .siteList {
+  .siteContainBox .siteBox {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1221px) {
-  .siteContainBox .siteList {
+  .siteContainBox .siteBox {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .siteContainBox .siteList {
+  .siteContainBox .siteBox {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 @media screen and (max-width: 767px) {
-  .siteContainBox .siteList {
+  .siteContainBox .siteBox {
     grid-template-columns: repeat(4, 1fr);
   }
 }

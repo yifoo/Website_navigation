@@ -1,7 +1,7 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
+import { Anchor } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useModel, useSelector } from 'umi';
-import { Anchor } from 'antd';
 import Site from './Site';
 import SortMainTitle from './SortMainTitle';
 import style from './style.less';
@@ -21,7 +21,7 @@ const SingleSortBox = function (props) {
     setIsOrderable(isEdit);
   }, [isEdit]);
   useEffect(() => {
-    setTargetOffset(50);
+    setTargetOffset(60);
   }, []);
   useEffect(() => {
     if (props.data.children) {
@@ -70,14 +70,14 @@ const SingleSortBox = function (props) {
     return result;
   };
   // * 拖拽开始
-  const onDragStart = (e, index) => {
+  const onDragStart = (e) => {
     let sIndex = e.target.getAttribute('index');
     if (!sIndex) {
       return;
     }
     setStartIndex(sIndex);
   };
-  const onDragEnter = (e, index) => {
+  const onDragEnter = (e) => {
     e.preventDefault();
     let dIndex = e.target.getAttribute('index');
     if (!dIndex) {
@@ -126,15 +126,9 @@ const SingleSortBox = function (props) {
       <div className={style.sortBox} onClick={openClick}>
         {siteBoxList.map((current, index) => {
           return (
-            <div className={style.siteContainBox} key={index}>
+            <div className={style.siteContainBox} key={index} id={current.sortId}>
               <SortMainTitle data={current} />
-              <div>
-                <div
-                  className={style.siteList}
-                  onDragStart={(e) => onDragStart(e, index)}
-                  onDragEnter={(e) => onDragEnter(e, index)}
-                  onDragEnd={(e) => onDragEnd(e, index)}
-                >
+                <div className={style.siteBox} onDragStart={onDragStart} onDragEnter={onDragEnter} onDragEnd={(e) => onDragEnd(e, index)}>
                   {current.children.map((item, key) => {
                     return (
                       <Site
@@ -154,12 +148,11 @@ const SingleSortBox = function (props) {
                     </div>
                   ) : null}
                 </div>
-              </div>
             </div>
           );
         })}
       </div>
-      {/* {!isMobile ? (
+      {!isMobile ? (
         <div className={style.anchor}>
           <Anchor targetOffset={targetOffset}>
             {siteBoxList.map((item, key) => {
@@ -167,7 +160,7 @@ const SingleSortBox = function (props) {
             })}
           </Anchor>
         </div>
-      ) : null} */}
+      ) : null}
     </>
   );
 };

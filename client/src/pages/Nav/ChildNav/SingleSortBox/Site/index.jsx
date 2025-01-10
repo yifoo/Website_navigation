@@ -15,12 +15,17 @@ const Site = memo((props) => {
   const tagColor = {
     新闻: '#299bf8',
     工具: '#f8b629',
-    AI: '#7829f8',
+    AI: '#3370FF',
     搜索: '#ed556a',
-    办公: '#7829f8',
+    办公: '#1a92f8',
     学习: '#0eb0c9',
     市场: '#248067',
     管理: '#49627a',
+    阅读:'#42B883',
+    效率:'#A255FC',
+    艺术:'#F2574F',
+    音乐:'#DE181B',
+    网盘:'#FABD14'
   };
   useEffect(() => {
     if (pingSite && props.sortId === pingSite) {
