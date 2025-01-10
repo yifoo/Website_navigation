@@ -62,7 +62,7 @@ const SortMainTitle = (props) => {
   const goToSortPage = (e)=>{
     e.preventDefault()
     if(!isEdit){
-      history.push(`/nav/${props.data.sortId}`)
+      history.push(`/nav/${props.data.sortName}`)
     }
   }
   return (

@@ -46,6 +46,20 @@ class NavService extends Service {
       console.log('e: ', e)
     }
   }
+  async findSort(params) {
+    try {
+      // @ts-ignore
+      const sortInfo = await this.app.mysql.select('nav_sort', {
+        // 搜索 post 表
+        where: params, // WHERE 条件
+        columns: ['sort_id', 'sort_name', 'uid'], // 要查询的表字段
+        limit: 1 // 返回数据量
+      })
+      return sortInfo
+    } catch (e) {
+      console.log('e: ', e)
+    }
+  }
   async findSite(params) {
     try {
       // @ts-ignore

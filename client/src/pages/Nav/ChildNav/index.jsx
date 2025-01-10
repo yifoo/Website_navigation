@@ -57,9 +57,9 @@ export default function ChildNavPage(props) {
     setTrue();
     if (siteList.length > 0) {
       setFalse();
-      const sortId = props.match.params.sortId;
+      const sortName = props.match.params.sort;
       siteList.map((item) => {
-        if (Number(sortId) === item.sortId) {
+        if (sortName === item.sortName) {
           setSortData(item);
           return false;
         }

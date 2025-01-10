@@ -25,7 +25,9 @@ const Site = memo((props) => {
     效率:'#A255FC',
     艺术:'#F2574F',
     音乐:'#DE181B',
-    网盘:'#FABD14'
+    网盘:'#FEAD62',
+    导航:'#F4DCAE',
+    日常:'#EC8C89'
   };
   useEffect(() => {
     if (pingSite && props.sortId === pingSite) {
@@ -39,7 +41,7 @@ const Site = memo((props) => {
           setPingStatus('success');
         } else if (res.data === '301' || res.data === '302') {
           setPingStatus('warning');
-        } else if (res.data === '000') {
+        } else if (res.data === '000' || res.data === '500'|| res.data === '501'|| res.data === '502') {
           setPingStatus('error');
         } else {
           setPingStatus('default');

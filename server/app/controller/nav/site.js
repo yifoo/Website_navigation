@@ -270,6 +270,15 @@ class SiteController extends Controller {
     const { ctx, app } = this
     const params = ctx.request.body
     const { uid } = ctx.state.user
+    // *判断是否已经存在同名
+    let sortInfo = yield ctx.service.nav.findSort({
+      sort_name: params.sortName,
+      uid
+    })
+    if (sortInfo.length !== 0) {
+      ctx.body = { code: 201, msg: '已经存在相同分类' }
+      return false
+    }
     let sql = `UPDATE nav_sort set sort_name='${params.sortName}',color='${params.color}'`
     sql += params.parentId ? ` ,parent_id='${params.parentId}'` : ''
     sql += ` where uid=${uid} and sort_id =${params.sortId} `
