@@ -2,7 +2,6 @@ import { useBoolean } from 'ahooks';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'umi';
 import SingleSortBox from './SingleSortBox';
-import { Anchor, Empty } from 'antd';
 export default function ChildNavPage(props) {
   const [isLoading, { toggle, setTrue, setFalse }] = useBoolean(false);
   const [sortData, setSortData] = useState({});

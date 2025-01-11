@@ -80,7 +80,7 @@ const Site = memo((props) => {
       index={props.index}
     >
       <Tooltip title={props.siteDesc} placement="bottom">
-        <Button className={style.siteLink} type="text" loading={pingLoading} s>
+        <Button className={style.siteLink} type="text" loading={pingLoading}>
           {!isMobile ? (
             <LazyLoad overflow={false} once={true} throttle={200} debounce={200} className={style.lineimg}>
               <img

@@ -28,7 +28,7 @@ const EditSiteDrawer = () => {
         }
       });
     }
-  }, [siteInfo]);
+  }, [JSON.stringify(siteInfo)]);
   useEffect(() => {
     showEditType === 'edit' ? setTrue() : setFalse();
     if (showEditSite == false) {
@@ -49,27 +49,22 @@ const EditSiteDrawer = () => {
     });
   };
   const handleCancel = () => {
-    // isEditSite && formRef.current.reset();
     setSiteInfo({});
-    setShowEditSite({ open: false });
-    setFalse();
+    setShowEditSite({ open: false, showEditType: 'show' });
   };
 
   return (
-    <>
-      <Drawer
-        forceRender={true}
-        width={480}
-        placement="left"
-        title={isEditSite ? '编辑网址' : '查看网址'}
-        open={showEditSite}
-        onClose={handleCancel}
-        extra={<Button onClick={toggle}>{isEditSite ? '查看' : '编辑'}</Button>}
-      >
-        {isEditSite && <SiteForm pingStatus={pingStatus} />}
-        {!isEditSite && <SiteInfo pingStatus={pingStatus} />}
-      </Drawer>
-    </>
+    <Drawer
+      forceRender={true}
+      width={480}
+      placement="left"
+      title={isEditSite ? '编辑网址' : '查看网址'}
+      open={showEditSite}
+      onClose={handleCancel}
+      extra={<Button onClick={toggle}>{isEditSite ? '查看' : '编辑'}</Button>}
+    >
+      {isEditSite ? <SiteForm pingStatus={pingStatus} /> : <SiteInfo pingStatus={pingStatus} />}
+    </Drawer>
   );
 };
 

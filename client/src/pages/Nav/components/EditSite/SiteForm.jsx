@@ -37,13 +37,20 @@ const SiteForm = forwardRef((props, ref) => {
   const [tagOptions, setTagOptions] = useState([]);
   const [iconOptions, setIconOptions] = useState([]);
   useEffect(async () => {
+    let options = [];
     if (tagsDic.length === 0) {
       await dispatch({
         type: 'Nav/fetchTagsDic',
       });
     }
-    setTagOptions(tagsDic);
-  }, [JSON.stringify(tagsDic)]);
+    tagsDic.map((item) => {
+      options.push({ label: item, value: item });
+    });
+    setTagOptions(options);
+    return () => {
+      options = [];
+    };
+  }, [tagsDic]);
 
   const updateSite = (params) => {
     return dispatch({
@@ -88,6 +95,9 @@ const SiteForm = forwardRef((props, ref) => {
   useEffect(() => {
     let list = sortList ? JSON.parse(JSON.stringify(sortList)) : [];
     setOptions(list);
+    return () => {
+      list = [];
+    };
   }, [JSON.stringify(sortList)]);
   // 修改网址
   const handleOk = () => {
@@ -144,6 +154,7 @@ const SiteForm = forwardRef((props, ref) => {
       siteDesc: siteInfo.siteDesc,
       tags: siteInfo.tags ? siteInfo.tags.split(',') : [],
     });
+    // return siteForm.resetFields
   }, [JSON.stringify(siteInfo), siteForm]);
 
   const tagRender = (props) => {
@@ -212,6 +223,7 @@ const SiteForm = forwardRef((props, ref) => {
           },
           {
             validator: async (rule, val, callback) => {
+              setIconOptions([]);
               if (siteForm.getFieldValue('logoSrc')) {
                 return Promise.resolve();
               }
@@ -343,16 +355,7 @@ const SiteForm = forwardRef((props, ref) => {
           },
         ]}
       >
-        <Select
-          mode="tags"
-          tagRender={tagRender}
-          allowClear
-          placeholder="请输入网站标签"
-          tokenSeparators={[',']}
-          options={tagOptions.map((item) => {
-            return { label: item, value: item };
-          })}
-        />
+        <Select mode="tags" tagRender={tagRender} allowClear placeholder="请输入网站标签" tokenSeparators={[',']} options={tagOptions} />
       </Form.Item>
       <Form.Item
         label="网站描述"
