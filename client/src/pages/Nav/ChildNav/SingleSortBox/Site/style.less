@@ -12,6 +12,18 @@
       height: 0.8rem;
       line-height: 0.7rem;
       font-size: 0.5rem;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        width: 100%;
+        filter: blur(70px); /* 调整这个值来设置虚化程度 */
+        z-index: -1;
+      }
     }
   }
 }
@@ -20,6 +32,18 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        width: 100%;
+        filter: blur(10px); /* 调整这个值来设置虚化程度 */
+        z-index: -1;
+      }
   &.drag {
     border: 1px dashed #f0f0f0;
     cursor: move;
@@ -38,13 +62,13 @@
   justify-content: flex-start;
 }
 .siteLink:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-    font-weight: 700;
-    .icon {
-      padding-bottom: 0.1rem;
-    }
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  font-weight: 700;
+  .icon {
+    padding-bottom: 0.1rem;
   }
+}
 .content {
   display: flex;
   flex-direction: column;

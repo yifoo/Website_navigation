@@ -1,9 +1,28 @@
+import utils from '@/utils/libs';
 import { CloseCircleFilled, EditOutlined } from '@ant-design/icons';
-import { Badge, Button, Popconfirm, Tag, Tooltip, Divider } from 'antd';
+import { Badge, Button, Divider, Popconfirm, Tag, Tooltip } from 'antd';
 import { memo, useEffect, useState } from 'react';
 import LazyLoad from 'react-lazyload';
 import { useDispatch, useModel, useSelector } from 'umi';
 import style from './style.less';
+const tagColor = {
+    新闻: '#299bf8',
+    工具: '#f8b629',
+    AI: '#3370FF',
+    IT: '#76a0FF',
+    NAS: '#a6c0FF',
+    搜索: '#ed556a',
+    办公: '#1a92f8',
+    学习: '#0eb0c9',
+    市场: '#248067',
+    阅读: '#42B883',
+    效率: '#A255FC',
+    艺术: '#F2574F',
+    音乐: '#DE181B',
+    网盘: '#FEAD62',
+    导航: '#E4DCAE',
+    日常: '#EC8C89',
+  };
 const Site = memo((props) => {
   const { initialState } = useModel('@@initialState');
   const isEdit = useSelector((state) => state.Nav.isEdit);
@@ -12,23 +31,7 @@ const Site = memo((props) => {
   const [pingLoading, setPingLoading] = useState(false);
   const isMobile = initialState.isMobile;
   const dispatch = useDispatch();
-  const tagColor = {
-    新闻: '#299bf8',
-    工具: '#f8b629',
-    AI: '#3370FF',
-    搜索: '#ed556a',
-    办公: '#1a92f8',
-    学习: '#0eb0c9',
-    市场: '#248067',
-    管理: '#49627a',
-    阅读:'#42B883',
-    效率:'#A255FC',
-    艺术:'#F2574F',
-    音乐:'#DE181B',
-    网盘:'#FEAD62',
-    导航:'#F4DCAE',
-    日常:'#EC8C89'
-  };
+
   useEffect(() => {
     if (pingSite && props.sortId === pingSite) {
       setPingLoading(true);
@@ -41,7 +44,7 @@ const Site = memo((props) => {
           setPingStatus('success');
         } else if (res.data === '301' || res.data === '302') {
           setPingStatus('warning');
-        } else if (res.data === '000' || res.data === '500'|| res.data === '501'|| res.data === '502') {
+        } else if (res.data === '000' || res.data === '500' || res.data === '501' || res.data === '502') {
           setPingStatus('error');
         } else {
           setPingStatus('default');
@@ -69,14 +72,15 @@ const Site = memo((props) => {
       payload: { siteId: props.id },
     });
   };
+
   return (
     <div
       className={`${style.site} ${props.draggable ? style.drag : ''} ${props.className} ${style.siteWrapper}`}
       draggable={props.draggable}
       index={props.index}
     >
-      <Tooltip title={props.siteDesc} placement="bottom" s="true">
-        <Button className={style.siteLink} type="text" loading={pingLoading}s>
+      <Tooltip title={props.siteDesc} placement="bottom">
+        <Button className={style.siteLink} type="text" loading={pingLoading} s>
           {!isMobile ? (
             <LazyLoad overflow={false} once={true} throttle={200} debounce={200} className={style.lineimg}>
               <img
@@ -105,7 +109,7 @@ const Site = memo((props) => {
         <div className={style.tagClass}>
           {props.tags.split(',').map((item, key) => {
             return (
-              <Tag color={tagColor[item] || '#5bae23'} key={key} className={style.tag}>
+              <Tag color={tagColor[item] || utils.stringToColor(item)} key={key} className={style.tag}>
                 {item}
               </Tag>
             );

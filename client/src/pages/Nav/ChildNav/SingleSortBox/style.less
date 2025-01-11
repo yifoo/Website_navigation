@@ -22,17 +22,6 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 2px;
-    ::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: inherit;
-      filter: blur(10px); /* 调整这个值来设置虚化程度 */
-      z-index: -1;
-    }
   }
 }
 .siteAdd {

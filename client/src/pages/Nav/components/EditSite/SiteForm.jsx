@@ -1,8 +1,27 @@
+import utils from '@/utils/libs';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Cascader, Divider, Form, Image, Input, message, Select, Space, Typography } from 'antd';
+import { Button, Cascader, Divider, Form, Image, Input, message, Select, Space, Tag, Typography } from 'antd';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { useDispatch, useModel, useSelector } from 'umi';
 import style from './style.less';
+const tagColor = {
+  新闻: '#299bf8',
+  工具: '#f8b629',
+  AI: '#3370FF',
+  IT: '#76a0FF',
+  NAS: '#a6c0FF',
+  搜索: '#ed556a',
+  办公: '#1a92f8',
+  学习: '#0eb0c9',
+  市场: '#248067',
+  阅读: '#42B883',
+  效率: '#A255FC',
+  艺术: '#F2574F',
+  音乐: '#DE181B',
+  网盘: '#FEAD62',
+  导航: '#E4DCAE',
+  日常: '#EC8C89',
+};
 const { Paragraph } = Typography;
 const SiteForm = forwardRef((props, ref) => {
   const { initialState } = useModel('@@initialState');
@@ -126,6 +145,25 @@ const SiteForm = forwardRef((props, ref) => {
       tags: siteInfo.tags ? siteInfo.tags.split(',') : [],
     });
   }, [JSON.stringify(siteInfo), siteForm]);
+
+  const tagRender = (props) => {
+    const { label, value, closable, onClose } = props;
+    const onPreventMouseDown = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+    };
+    return (
+      <Tag
+        color={tagColor[value] || utils.stringToColor(value)}
+        onMouseDown={onPreventMouseDown}
+        closable={closable}
+        onClose={onClose}
+        className={style.tag}
+      >
+        {label}
+      </Tag>
+    );
+  };
   return (
     <Form
       form={siteForm}
@@ -294,9 +332,20 @@ const SiteForm = forwardRef((props, ref) => {
         </Form.Item>
         {/* <Image src={logoSrc} /> */}
       </div>
-      <Form.Item label="网站标签" name="tags">
+      <Form.Item
+        label="网站标签"
+        name="tags"
+        rules={[
+          {
+            type: 'array',
+            max: 4,
+            message: '请不要超过四个标签',
+          },
+        ]}
+      >
         <Select
           mode="tags"
+          tagRender={tagRender}
           allowClear
           placeholder="请输入网站标签"
           tokenSeparators={[',']}

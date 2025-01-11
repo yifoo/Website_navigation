@@ -5,6 +5,18 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    width: 100%;
+    filter: blur(30px); /* 调整这个值来设置虚化程度 */
+    z-index: -1;
+  }
   &.drag {
     border: 1px dashed #f0f0f0;
     cursor: move;
