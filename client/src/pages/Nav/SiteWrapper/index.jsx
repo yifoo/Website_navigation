@@ -1,6 +1,5 @@
 import { Anchor, Empty } from 'antd';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'umi';
+import { useDispatch, useModel, useSelector } from 'umi';
 import SortBox from '../SortBox';
 import AddSort from '../components/AddSort';
 
@@ -10,10 +9,11 @@ import style from './style.less';
 const { Link } = Anchor;
 const SiteWrapper = (props) => {
   const dispatch = useDispatch();
+  const { initialState } = useModel('@@initialState');
   const siteList = useSelector((state) => state.Nav.siteList);
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const orderVal = useSelector((state) => state.Nav.orderVal);
-  const isMobile = window.document.body.clientWidth <= 991;
+  const isMobile = initialState.isMobile;
   const setOrderSiteList = (params) => {
     dispatch({
       type: 'Nav/setOrderSiteList',

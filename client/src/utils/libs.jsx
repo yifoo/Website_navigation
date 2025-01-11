@@ -1,4 +1,11 @@
 export default {
+  sort: (a, b, item) => {
+    if (a[item] > b[item]) {
+      return 1;
+    } else {
+      return -1;
+    }
+  },
   myBrowser: () => {
     var userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
     var isOpera = userAgent.indexOf('Opera') > -1; // 判断是否Opera浏览器
@@ -40,6 +47,35 @@ export default {
     }
     if (isChrome) {
       return 'Chrome';
+    }
+  },
+  /**
+   * 导出文件
+   * @param {*} data
+   * @param {*} filename
+   */
+  exportXlsx: (data, filename) => {
+    console.log('data: ', data);
+    const blob = new Blob([data], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8',
+    });
+    if ('download' in document.createElement('a')) {
+      // 非IE下载
+      const elink = document.createElement('a');
+      // console.log('myBrowser(): ', this.myBrowser());
+      // if (this.myBrowser() === 'Safari' || this.myBrowser() === 'Chrome') {
+      //   filename += '.xlsx'
+      // }
+      elink.download = filename;
+      elink.style.display = 'none';
+      elink.href = URL.createObjectURL(blob);
+      document.body.appendChild(elink);
+      elink.click();
+      URL.revokeObjectURL(elink.href); // 释放URL 对象
+      document.body.removeChild(elink);
+    } else {
+      // IE10+下载
+      navigator.msSaveBlob(blob, filename);
     }
   },
   /**
