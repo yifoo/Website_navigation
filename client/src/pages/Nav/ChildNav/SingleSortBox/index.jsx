@@ -10,6 +10,7 @@ const SingleSortBox = function (props) {
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const { initialState } = useModel('@@initialState');
   const isLogin = initialState.isLogin;
+  const isPad = initialState.isPad;
   const isMobile = initialState.isMobile;
   const dispatch = useDispatch();
   const [startIndex, setStartIndex] = useState(null);
@@ -152,7 +153,7 @@ const SingleSortBox = function (props) {
           );
         })}
       </div>
-      {!isMobile ? (
+      {!(isPad|| isMobile) ? (
         <div className={style.anchor}>
           <Anchor targetOffset={targetOffset}>
             {siteBoxList.map((item, key) => {

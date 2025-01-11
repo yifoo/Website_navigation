@@ -4,7 +4,7 @@ import { userApi } from '@/services';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 import { PageLoading, SettingDrawer } from '@ant-design/pro-layout';
 import { message } from 'antd';
-import { history, Link } from 'umi';
+import { Link, history } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 import paramConfig from '../config/paramConfig';
 const isDev = process.env.NODE_ENV === 'development';
@@ -68,11 +68,13 @@ export async function getInitialState() {
   if (history.location.pathname !== paramConfig.loginPath) {
     try {
       const { userInfo, isLogin } = await fetchUserInfo();
+      const isPad = window.document.body.clientWidth <= 991&&window.document.body.clientWidth>768;
       const isMobile = window.document.body.clientWidth <= 768;
       return {
         userInfo,
         isLogin,
         isMobile,
+        isPad,
         fetchUserInfo,
         settings: defaultSettings,
       };

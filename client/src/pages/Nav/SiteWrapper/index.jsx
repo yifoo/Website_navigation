@@ -13,6 +13,7 @@ const SiteWrapper = (props) => {
   const siteList = useSelector((state) => state.Nav.siteList);
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const orderVal = useSelector((state) => state.Nav.orderVal);
+  const isPad = initialState.isPad;
   const isMobile = initialState.isMobile;
   const setOrderSiteList = (params) => {
     dispatch({
@@ -28,7 +29,7 @@ const SiteWrapper = (props) => {
   const isDragDisabled = !isEdit || orderVal !== 'sort';
   return (
     <div className={props.className}>
-      {!isMobile ? (
+      {!(isPad|| isMobile)? (
         <div className={style.anchor}>
           <Anchor targetOffset={50}>
             {siteList.map((item, key) => {
