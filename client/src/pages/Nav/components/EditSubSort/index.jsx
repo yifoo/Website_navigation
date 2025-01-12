@@ -115,12 +115,6 @@ const mapDispatchToProps = (dispatch) => ({
       payload: params,
     });
   },
-  fetchSort(params) {
-    return dispatch({
-      type: 'Nav/fetchSort',
-      payload: params,
-    });
-  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditSortModal);

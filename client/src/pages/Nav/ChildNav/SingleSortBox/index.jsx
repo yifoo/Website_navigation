@@ -1,37 +1,31 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { Anchor } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useModel, useSelector } from 'umi';
+import AddSubSort from './AddSubSort';
 import Site from './Site';
-import SortMainTitle from './SortMainTitle';
+import SubSortTitle from './SubSortTitle';
 import style from './style.less';
-const { Link } = Anchor;
 const SingleSortBox = function (props) {
   const isEdit = useSelector((state) => state.Nav.isEdit);
   const { initialState } = useModel('@@initialState');
   const isLogin = initialState.isLogin;
-  const isPad = initialState.isPad;
-  const isMobile = initialState.isMobile;
   const dispatch = useDispatch();
   const [startIndex, setStartIndex] = useState(null);
   const [dragIndex, setDragIndex] = useState(null);
   const [siteBoxList, setSiteBoxList] = useState([]);
   const [isOrderable, setIsOrderable] = useState(false);
-  const [targetOffset, setTargetOffset] = useState(undefined);
   useEffect(() => {
     setIsOrderable(isEdit);
   }, [isEdit]);
   useEffect(() => {
-    setTargetOffset(60);
-  }, []);
-  useEffect(() => {
+    let keys = [];
     if (props.data.children) {
-      let keys = [];
       props.data.children.map((item, key) => {
         keys.push(key);
       });
       setSiteBoxList(props.data.children);
     }
+    return ()=>keys = null
   }, [props.data, props.data.sortId]);
   const setShowEditSite = (params) => {
     dispatch({
@@ -128,40 +122,33 @@ const SingleSortBox = function (props) {
         {siteBoxList.map((current, index) => {
           return (
             <div className={style.siteContainBox} key={index} id={current.sortId}>
-              <SortMainTitle data={current} />
-                <div className={style.siteBox} onDragStart={onDragStart} onDragEnter={onDragEnter} onDragEnd={(e) => onDragEnd(e, index)}>
-                  {current.children.map((item, key) => {
-                    return (
-                      <Site
-                        {...item}
-                        key={key}
-                        index={key}
-                        draggable={isOrderable}
-                        className={`${(typeof dragIndex !== 'object' && Number(dragIndex)) === key ? style.siteDrag : ''} `}
-                      />
-                    );
-                  })}
-                  {isEdit ? (
-                    <div className={style.siteAdd}>
-                      <div className={style.edit}>
-                        <PlusCircleOutlined onClick={() => addSite(index)} />
-                      </div>
+              <SubSortTitle data={current} />
+              <div className={style.siteBox} onDragStart={onDragStart} onDragEnter={onDragEnter} onDragEnd={(e) => onDragEnd(e, index)}>
+                {current.children.map((item, key) => {
+                  return (
+                    <Site
+                      {...item}
+                      key={key}
+                      index={key}
+                      draggable={isOrderable}
+                      className={`${(typeof dragIndex !== 'object' && Number(dragIndex)) === key ? style.siteDrag : ''} `}
+                    />
+                  );
+                })}
+                {isEdit && (
+                  <div className={style.siteAdd}>
+                    <div className={style.edit}>
+                      <PlusCircleOutlined onClick={() => addSite(index)} />
                     </div>
-                  ) : null}
-                </div>
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}
+        {isEdit && <AddSubSort sortId={props.data.sortId} color={props.data.color} />}
       </div>
-      {!(isPad|| isMobile) ? (
-        <div className={style.anchor}>
-          <Anchor targetOffset={targetOffset}>
-            {siteBoxList.map((item, key) => {
-              return <Link href={`#${item.sortId}`} className={style.anchorBtn} key={key} title={item.sortName} />;
-            })}
-          </Anchor>
-        </div>
-      ) : null}
+
     </>
   );
 };

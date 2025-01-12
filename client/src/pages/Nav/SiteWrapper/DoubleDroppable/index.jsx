@@ -60,6 +60,10 @@ export default (props) => {
     });
     setList1(list1);
     setList2(list2);
+    return ()=>{
+      list1 = null
+      list2 = null
+    }
   }, [props.data]);
 
   // *重新计算拖拽

@@ -273,6 +273,7 @@ class SiteController extends Controller {
     // *判断是否已经存在同名
     let sortInfo = yield ctx.service.nav.findSort({
       sort_name: params.sortName,
+      parent_id: params.parentId,
       uid
     })
     if (sortInfo.length !== 0) {

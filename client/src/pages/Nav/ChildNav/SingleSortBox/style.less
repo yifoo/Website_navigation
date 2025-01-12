@@ -28,6 +28,8 @@
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  min-height: calc(2.7rem + 3px);
+  border: 1px dashed #f0f0f0;
   a {
     color: #000;
     box-sizing: border-box;
@@ -65,31 +67,6 @@
     height: 100%;
     content: '';
     display: block;
-  }
-}
-.anchor {
-  position: fixed;
-  top: 10rem;
-  left: 1rem;
-  width: 5rem;
-  padding:10px;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    filter: blur(5px); /* 调整这个值来设置虚化程度 */
-    z-index: -1;
-    background: #243851;
-  }
-  a {
-    color: #c0c0c0;
-  }
-  .anchorBtn {
-    padding: 2px 0 2px 16px;
   }
 }
 

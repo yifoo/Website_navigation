@@ -1,9 +1,9 @@
 const Settings = {
-  navTheme: 'light',
+  navTheme: 'dark',
   primaryColor: '#1890ff',
-  layout: 'mix',
+  layout: 'top',// 'mix'
   contentWidth: 'Fluid',
-  fixedHeader: false,
+  fixedHeader: true,
   fixSiderbar: true,
   pwa: false,
   title: '',
