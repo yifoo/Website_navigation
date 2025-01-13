@@ -280,10 +280,29 @@ class SiteController extends Controller {
       ctx.body = { code: 201, msg: '已经存在相同分类' }
       return false
     }
-    let sql = `UPDATE nav_sort set sort_name='${params.sortName}',color='${params.color}'`
+    let sql = `UPDATE nav_sort set sort_name='${params.sortName}'`
     sql += params.parentId ? ` ,parent_id='${params.parentId}'` : ''
-    sql += ` where uid=${uid} and sort_id =${params.sortId} `
-    let res
+    sql += ` where uid=${uid} and sort_id =${params.sortId} `;
+    let res;
+    try {
+      // @ts-ignore
+      res = yield app.mysql.query(sql)
+      if (res.changedRows > 0) {
+        ctx.body = { code: 200, msg: '更新成功' }
+      } else {
+        ctx.body = { code: 400, msg: '更新失败' }
+      }
+    } catch (err) {
+      console.log('err: ', err)
+      ctx.body = { code: 400, msg: '更新失败' }
+    }
+  }
+  *updateSortColor() {
+    const { ctx, app } = this
+    const params = ctx.request.body
+    const { uid } = ctx.state.user
+    let sql = `UPDATE nav_sort set color='${params.color}' where sort_id=${params.sortId} OR parent_id =${params.sortId} and uid=${uid}`
+    let res;
     try {
       // @ts-ignore
       res = yield app.mysql.query(sql)
@@ -310,7 +329,6 @@ class SiteController extends Controller {
       }
     })
     sql += ' on duplicate key update order_index=values(order_index);'
-    console.log('sql: ', sql)
     let res
     try {
       // @ts-ignore
@@ -410,8 +428,7 @@ class SiteController extends Controller {
             code: 200,
             msg: '获取图标成功',
             data: {
-              logoId: parseHtml.logo.logo_id,
-              logoSrc: parseHtml.logo,
+              logo: [parseHtml.logo],
               desc: parseHtml.desc
             }
           }

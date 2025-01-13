@@ -281,6 +281,29 @@ export default {
         return false;
       }
     },
+    *updateSortColor({ payload }, { call, put, select }) {
+      const res = yield call(navApi.updateSortColor, payload);
+      if (res) {
+        if (res.code === 200) {
+          message.success(res.msg);
+          // 更新网址分类和所有分类下网址
+          yield put({
+            type: 'fetchSort',
+            payload: {},
+          });
+          return true;
+        } else if (res.code === 201) {
+          message.warning(res.msg);
+          return false;
+        } else {
+          message.error(res.msg);
+          return false;
+        }
+      } else {
+        message.error('出现故障了');
+        return false;
+      }
+    },
     *updateSortOrder({ payload }, { call, put, select }) {
       const res = yield call(navApi.updateSortOrder, payload);
       if (res && res.code === 200) {

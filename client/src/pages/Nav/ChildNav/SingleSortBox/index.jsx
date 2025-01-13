@@ -68,7 +68,7 @@ const SingleSortBox = function (props) {
   // * 拖拽开始
   const onDragStart = (e) => {
     let sIndex = e.target.getAttribute('index');
-    let sortdIndex = e.target.getAttribute('sortIndex');
+    let sortdIndex = e.target.getAttribute('sort-index');
     if (!sIndex) {
       return;
     }

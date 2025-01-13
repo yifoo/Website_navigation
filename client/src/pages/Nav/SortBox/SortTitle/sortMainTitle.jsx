@@ -31,6 +31,18 @@ const SortMainTitle = (props) => {
       setShowSortInput(false);
     }
   };
+  const updateSortColor =async () => {
+    let res = await dispatch({
+      type: 'Nav/updateSortColor',
+      payload: {
+        sortId: props.data.sortId,
+        color,
+      },
+    });
+    if (res) {
+      setShowSortInput(false);
+    }
+  };
   //?编辑一级分类
   const editSort = () => {
     setShowSortInput(!showSortInput);
@@ -50,7 +62,7 @@ const SortMainTitle = (props) => {
     return (
       <>
         <ColorPicker color={color} onChange={setColor} />
-        <Button type="primary" size="small" onClick={submitSort} block>
+        <Button type="primary" size="small" onClick={updateSortColor} block>
           确认
         </Button>
       </>

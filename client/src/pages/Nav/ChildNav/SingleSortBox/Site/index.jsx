@@ -91,6 +91,7 @@ const Site = memo((props) => {
       className={`${style.site} ${props.draggable ? style.drag : ''} ${props.className} ${style.siteWrapper}`}
       draggable={props.draggable}
       index={props.index}
+      sort-index={props.sortIndex}
     >
       <Tooltip title={props.siteDesc} placement="bottom">
         <Button className={style.siteLink} type="text" loading={pingLoading}>
