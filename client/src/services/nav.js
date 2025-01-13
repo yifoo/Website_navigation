@@ -4,7 +4,7 @@ import { request } from 'umi';
 //   Authorization: `Bearer ${localStorage.getItem('token')}`,
 // };
 export async function fetchAll(body, options) {
-  return request('/api/nav/site/fetchAll', {
+  return request('/api/nav/site/fetchAllSites', {
     method: 'POST',
     data: body,
     ...(options || {}),

@@ -20,14 +20,26 @@ const Site = memo((props) => {
         payload: { siteUrl: props.siteUrl },
       }).then((res) => {
         setPingLoading(false);
-        if (res.data === '200') {
-          setPingStatus('success');
-        } else if (res.data === '301' || res.data === '302') {
-          setPingStatus('warning');
-        } else if (res.data === '000') {
-          setPingStatus('error');
-        } else {
-          setPingStatus('default');
+        switch (res.data) {
+          case '200':
+            setPingStatus('success');
+            break;
+          case '301':
+          case '403':
+          case '405':
+            setPingStatus('warning');
+            break;
+          case undefined:
+          case '000':
+          case '404':
+          case '500':
+          case '501':
+          case '502':
+            setPingStatus('error');
+            break;
+          default:
+            setPingStatus('default');
+            break;
         }
         dispatch({
           type: 'Nav/setPingSite',

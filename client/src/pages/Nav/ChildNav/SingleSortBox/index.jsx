@@ -12,6 +12,7 @@ const SingleSortBox = function (props) {
   const dispatch = useDispatch();
   const [startIndex, setStartIndex] = useState(null);
   const [dragIndex, setDragIndex] = useState(null);
+  const [sortIndex, setSortIndex] = useState(null);
   const [siteBoxList, setSiteBoxList] = useState([]);
   const [isOrderable, setIsOrderable] = useState(false);
   useEffect(() => {
@@ -25,7 +26,7 @@ const SingleSortBox = function (props) {
       });
       setSiteBoxList(props.data.children);
     }
-    return ()=>keys = null
+    return () => (keys = null);
   }, [props.data, props.data.sortId]);
   const setShowEditSite = (params) => {
     dispatch({
@@ -67,10 +68,12 @@ const SingleSortBox = function (props) {
   // * 拖拽开始
   const onDragStart = (e) => {
     let sIndex = e.target.getAttribute('index');
+    let sortdIndex = e.target.getAttribute('sortIndex');
     if (!sIndex) {
       return;
     }
     setStartIndex(sIndex);
+    setSortIndex(sortdIndex);
   };
   const onDragEnter = (e) => {
     e.preventDefault();
@@ -90,11 +93,11 @@ const SingleSortBox = function (props) {
     if (endIndex) {
       setStartIndex(null);
       setDragIndex(null);
+      setSortIndex(null);
     }
     if (JSON.stringify(list) === JSON.stringify(siteBoxList[index].children)) {
       return false;
     }
-    // setSiteList(list);
     reCalcList(list);
   };
   //* 单击打开网址
@@ -130,8 +133,11 @@ const SingleSortBox = function (props) {
                       {...item}
                       key={key}
                       index={key}
+                      sortIndex={index}
                       draggable={isOrderable}
-                      className={`${(typeof dragIndex !== 'object' && Number(dragIndex)) === key ? style.siteDrag : ''} `}
+                      className={`${
+                        (typeof dragIndex !== 'object' && Number(dragIndex)) === key && Number(sortIndex) === index ? style.siteDrag : ''
+                      } `}
                     />
                   );
                 })}
@@ -148,7 +154,6 @@ const SingleSortBox = function (props) {
         })}
         {isEdit && <AddSubSort sortId={props.data.sortId} color={props.data.color} />}
       </div>
-
     </>
   );
 };

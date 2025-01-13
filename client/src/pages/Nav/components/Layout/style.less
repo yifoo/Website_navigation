@@ -14,6 +14,33 @@
   width: 30rem;
   margin: 0 auto;
 }
+.anchor {
+  position: fixed;
+  top: 10rem;
+  left: 1rem;
+  width: 5rem;
+  padding: 10px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(15px); /* 调整这个值来设置虚化程度 */
+    z-index: -1;
+    background: #243851;
+  }
+  a {
+    color: #f0f0f0;
+  }
+  .anchorBtn {
+    padding: 2px 0;
+    border: 0.1px solid #fff;
+    text-align: center;
+  }
+}
 @media screen and (min-width: 1600px) {
   html {
     font-size: 24px;

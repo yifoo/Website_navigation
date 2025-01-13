@@ -35,7 +35,7 @@ export default function NavConfig(props) {
   );
   return isLogin ? (
     <div className={style.navConfig}>
-      <Popover content={content} placement="topRight" overlayClassName="diy-popover" trigger="click">
+      <Popover content={content} placement="topRight" overlayClassName="diy-popover" >
         <Button size="large" type="primary" shape="circle" icon={<UngroupOutlined />} />
       </Popover>
     </div>
