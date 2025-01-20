@@ -312,7 +312,7 @@ const SiteForm = forwardRef((props, ref) => {
               return (
                 <>
                   {menu}
-                  {userInfo.func.includes(1003) && (
+                  {userInfo.func.includes(10011) && (
                     <>
                       <Divider
                         style={{
