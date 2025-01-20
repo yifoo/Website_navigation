@@ -11,7 +11,7 @@
  Target Server Version : 80031 (8.0.31)
  File Encoding         : 65001
 
- Date: 20/01/2025 23:13:58
+ Date: 20/01/2025 23:29:25
 */
 
 SET NAMES utf8mb4;
@@ -27,7 +27,7 @@ CREATE TABLE `nav_func` (
   `description` varchar(16) DEFAULT NULL COMMENT '功能描述',
   `parent_id` int DEFAULT NULL COMMENT '父id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10066 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10067 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of nav_func
@@ -37,7 +37,8 @@ INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1001, 
 INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1002, 'insight', '行业洞察', NULL);
 INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1003, 'study', '学习成长', NULL);
 INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1006, 'setting', '设置中心', NULL);
-INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10011, 'nav_logo_edit', '网站图标编辑', 1001);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10011, 'nav_edit', '网站编辑', 1001);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10012, 'nav_logo_edit', '网站图标编辑', 1001);
 INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10061, 'setting_user', '账户中心', 1006);
 INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10062, 'seting_role', '角色权限', 1006);
 INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10063, 'setting_search', '搜索配置', 1006);
