@@ -27,8 +27,8 @@ export default () => {
         >
           <Radio.Group onChange={onChange} value={orderVal}>
             <Space direction="vertical">
-              <Radio value={'sort'}>大菜单排序</Radio>
-              <Radio value={'subSort'}>子菜单排序</Radio>
+              <Radio value={'sort'}>大类排序</Radio>
+              <Radio value={'subSort'}>子类排序</Radio>
               <Radio value={'site'}>网址排序</Radio>
             </Space>
           </Radio.Group>

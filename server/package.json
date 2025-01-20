@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "nodeserver",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -7,43 +7,48 @@
     "declarations": true
   },
   "dependencies": {
+    "egg": "^3.17.5",
+    "egg-scripts": "2",
     "axios": "^0.21.4",
     "cheerio": "1.0.0-rc.12",
-    "egg": "^2.15.1",
     "egg-cors": "^2.2.3",
     "egg-jwt": "^3.1.7",
     "egg-multipart": "^2.10.1",
     "egg-mysql": "^3.0.0",
-    "egg-scripts": "^2.12.0",
+    "excel-export": "^0.5.1",
+    "iconv-lite": "^0.6.3",
     "moment": "^2.24.0",
+    "node-excel-export": "^1.4.4",
     "tree-tool": "^1.1.8"
   },
   "devDependencies": {
+    "egg-bin": "6",
+    "egg-mock": "5",
+    "eslint": "8",
+    "eslint-config-egg": "13",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
-    "egg-bin": "^4.11.0",
     "egg-ci": "^1.11.0",
-    "egg-mock": "^3.21.0",
-    "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "excel-export-next": "^1.0.2",
+    "xlsx": "^0.15.4"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
-    "dev": "egg-bin dev",
-    "start": "EGG_SERVER_ENV=pro egg-scripts start --daemon --title=server",
-    "stop": "egg-scripts stop --title=server",
-    "debug": "egg-bin debug",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test",
+    "start": "EGG_SERVER_ENV=pro egg-scripts start --daemon --title=nav_server",
+    "stop": "egg-scripts stop --title=nav_server",
+    "dev": "EGG_SERVER_ENV=dev egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test:local",
+    "test:local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
+    "pre": "EGG_SERVER_ENV=pre egg-bin dev",
+    "devserver": "EGG_SERVER_ENV=devserver egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
     "autod": "autod"
-  },
-  "ci": {
-    "version": "10"
   },
   "repository": {
     "type": "git",

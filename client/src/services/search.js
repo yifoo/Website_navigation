@@ -77,5 +77,33 @@ export async function updateKeyActive(body, options) {
     ...(options || {}),
   });
 }
+export async function record(body, options) {
+  return request('/api/nav/search/record', {
+    method: 'POST',
+    data: body,
+    ...(options || {}),
+  });
+}
+export async function recordCom(body, options) {
+  return request('/api/nav/search/recordCom', {
+    method: 'POST',
+    data: body,
+    ...(options || {}),
+  });
+}
+export async function delRecord(body, options) {
+  return request('/api/nav/search/deleSearchRecord', {
+    method: 'POST',
+    data: body,
+    ...(options || {}),
+  });
+}
+export async function getRecordList(body, options) {
+  return request('/api/nav/search/getRecordList', {
+    method: 'POST',
+    data: body,
+    ...(options || {}),
+  });
+}
 
 

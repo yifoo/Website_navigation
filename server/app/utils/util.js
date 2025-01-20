@@ -129,4 +129,10 @@ const getIcon = async (url) => {
     return `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${siteHost}&size=32`
   }
 }
-module.exports = { sortArr, getFavicon, getIcon }
+const formatDate=(date)=> {
+  return date
+    .toISOString() // 转换为 ISO 格式（例如：2023-10-05T14:30:45.000Z）
+    .replace('T', ' ') // 将 'T' 替换为空格
+    .slice(0, 19) // 截取前 19 个字符（去掉毫秒和时区部分）
+}
+module.exports = { sortArr, getFavicon, getIcon, formatDate }

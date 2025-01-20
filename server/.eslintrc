@@ -7,7 +7,5 @@
     "jest.config.js",
     "typings"
   ],
-  "env": {
-    "jest": true
-  }
+  "root": true
 }

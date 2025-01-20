@@ -1,7 +1,7 @@
 const Settings = {
   navTheme: 'dark',
   primaryColor: '#1890ff',
-  layout: 'top',// 'mix'
+  layout: 'mix',// 'mix'
   contentWidth: 'Fluid',
   fixedHeader: true,
   fixSiderbar: true,

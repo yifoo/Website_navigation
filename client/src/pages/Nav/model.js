@@ -177,6 +177,22 @@ export default {
         message.error(res.msg);
       }
     },
+    *searchRecord({ payload }, { call, put, select }) {
+      const res = yield call(searchApi.record, payload);
+      if (res && res.code === 200) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    *searchRecordCom({ payload }, { call, put, select }) {
+      const res = yield call(searchApi.recordCom, payload);
+      if (res && res.code === 200) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     *fetchAll({ payload }, { call, put }) {
       const token = localStorage.getItem('token');
       // yield put({ type: 'setIsLoading', payload: true });

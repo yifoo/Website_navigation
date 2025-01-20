@@ -29,6 +29,7 @@
         "headerName": "x-csrf-token",
         "bodyName": "_csrf",
         "queryName": "_csrf",
+        "rotateWhenInvalid": false,
         "supportedRequests": [
           {
             "path": {},
@@ -41,7 +42,10 @@
             ]
           }
         ],
-        "refererWhiteList": []
+        "refererWhiteList": [],
+        "cookieOptions": {
+          "signed": false
+        }
       },
       "xframe": {
         "enable": true,
@@ -85,6 +89,7 @@
       "ssrf": {
         "ipBlackList": null,
         "ipExceptionList": null,
+        "hostnameExceptionList": null,
         "checkAddress": null
       },
       "_protocolWhiteListSet": "<Set>"
@@ -103,27 +108,26 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.2.0/node_modules/egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.4.0/node_modules/egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
         "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@3.7.0/node_modules/egg-security/config/locales",
         "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jsonp@2.0.0/node_modules/egg-jsonp/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.2.0/node_modules/egg-onerror/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.4.0/node_modules/egg-onerror/config/locales",
         "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n/config/locales",
         "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@3.7.0/node_modules/egg-schedule/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@4.0.1/node_modules/egg-schedule/config/locales",
         "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.13.1/node_modules/egg-multipart/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.2.0/node_modules/egg-static/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.3/node_modules/egg-view/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-mysql@3.3.0/node_modules/egg-mysql/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-cors@2.2.3/node_modules/egg-cors/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.2.0/node_modules/egg-logrotator/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-mysql@3.4.0/node_modules/egg-mysql/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-cors@2.2.4/node_modules/egg-cors/config/locales",
         "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jwt@3.1.7/node_modules/egg-jwt/config/locales",
-        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/locales",
+        "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/locales",
         "/Users/yifoo/03-Code/Website_navigation/server/config/locales"
       ],
       "queryField": "locale",
@@ -133,7 +137,7 @@
       "functionName": "__"
     },
     "watcher": {
-      "type": "development",
+      "type": "default",
       "eventSources": {
         "default": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher/lib/event-sources/default",
         "development": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher/lib/event-sources/development"
@@ -187,19 +191,11 @@
       ],
       "whitelist": null,
       "allowArrayField": false,
-      "tmpdir": "/var/folders/cv/c0lg6hcd4355j5dxhbkk6rmc0000gn/T/egg-multipart-tmp/example",
+      "tmpdir": "/var/folders/cv/c0lg6hcd4355j5dxhbkk6rmc0000gn/T/egg-multipart-tmp/nodeserver",
       "cleanSchedule": {
         "cron": "0 30 4 * * *",
         "disable": false
       }
-    },
-    "development": {
-      "watchDirs": [],
-      "ignoreDirs": [],
-      "fastReady": false,
-      "reloadOnDebug": true,
-      "overrideDefault": false,
-      "overrideIgnore": false
     },
     "logrotator": {
       "filesRotateByHour": null,
@@ -220,7 +216,7 @@
     },
     "view": {
       "root": "/Users/yifoo/03-Code/Website_navigation/server/app/view",
-      "cache": false,
+      "cache": true,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
@@ -236,7 +232,7 @@
         "host": "127.0.0.1",
         "port": "3306",
         "user": "root",
-        "password": "<String len: 4>",
+        "password": "<String len: 10>",
         "database": "nav_test",
         "multipleStatements": true
       }
@@ -244,15 +240,16 @@
     "cors": {
       "origin": "*",
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS",
-      "credentials": true
+      "credentials": true,
+      "hasCustomOriginHandler": true
     },
     "jwt": {
       "secret": "<String len: 6>",
       "enable": false
     },
-    "env": "local",
-    "name": "example",
-    "keys": "<String len: 26>",
+    "env": "dev",
+    "name": "nodeserver",
+    "keys": "<String len: 29>",
     "cookies": {},
     "proxy": false,
     "maxIpsCount": 0,
@@ -261,7 +258,7 @@
     "ipHeaders": "x-forwarded-for",
     "hostHeaders": "",
     "pkg": {
-      "name": "example",
+      "name": "nodeserver",
       "version": "1.0.0",
       "description": "",
       "private": true,
@@ -269,42 +266,48 @@
         "declarations": true
       },
       "dependencies": {
+        "egg": "^3.17.5",
+        "egg-scripts": "2",
         "axios": "^0.21.4",
-        "egg": "^2.15.1",
+        "cheerio": "1.0.0-rc.12",
         "egg-cors": "^2.2.3",
         "egg-jwt": "^3.1.7",
         "egg-multipart": "^2.10.1",
         "egg-mysql": "^3.0.0",
-        "egg-scripts": "^2.12.0",
+        "excel-export": "^0.5.1",
+        "iconv-lite": "^0.6.3",
         "moment": "^2.24.0",
+        "node-excel-export": "^1.4.4",
         "tree-tool": "^1.1.8"
       },
       "devDependencies": {
+        "egg-bin": "6",
+        "egg-mock": "5",
+        "eslint": "8",
+        "eslint-config-egg": "13",
         "autod": "^3.0.1",
         "autod-egg": "^1.1.0",
-        "egg-bin": "^4.11.0",
         "egg-ci": "^1.11.0",
-        "egg-mock": "^3.21.0",
-        "eslint": "^5.13.0",
-        "eslint-config-egg": "^7.1.0"
+        "excel-export-next": "^1.0.2",
+        "xlsx": "^0.15.4"
       },
       "engines": {
-        "node": ">=10.0.0"
+        "node": ">=18.0.0"
       },
       "scripts": {
-        "dev": "egg-bin dev",
-        "start": "EGG_SERVER_ENV=pro egg-scripts start --daemon --title=server",
-        "stop": "egg-scripts stop --title=server",
-        "debug": "egg-bin debug",
-        "test": "npm run lint -- --fix && npm run test-local",
-        "test-local": "egg-bin test",
+        "start": "EGG_SERVER_ENV=pro egg-scripts start --daemon --title=nav_server",
+        "stop": "egg-scripts stop --title=nav_server",
+        "dev": "EGG_SERVER_ENV=dev egg-bin dev",
+        "test": "npm run lint -- --fix && npm run test:local",
+        "test:local": "egg-bin test",
         "cov": "egg-bin cov",
         "lint": "eslint .",
         "ci": "npm run lint && npm run cov",
+        "pre": "EGG_SERVER_ENV=pre egg-bin dev",
+        "devserver": "EGG_SERVER_ENV=devserver egg-bin dev",
+        "debug": "egg-bin debug",
+        "test-local": "egg-bin test",
         "autod": "autod"
-      },
-      "ci": {
-        "version": "10"
       },
       "repository": {
         "type": "git",
@@ -317,7 +320,10 @@
     "HOME": "/Users/yifoo",
     "rundir": "/Users/yifoo/03-Code/Website_navigation/server/run",
     "dump": {
-      "ignore": "<Set>"
+      "ignore": "<Set>",
+      "timing": {
+        "slowBootActionMinDuration": 5000
+      }
     },
     "confusedConfigurations": {
       "bodyparser": "bodyParser",
@@ -350,22 +356,22 @@
     "logger": {
       "dir": "../logs",
       "encoding": "utf8",
-      "env": "local",
+      "env": "dev",
       "level": "NONE",
       "consoleLevel": "NONE",
-      "disableConsoleAfterReady": false,
+      "disableConsoleAfterReady": true,
       "outputJSON": false,
       "buffer": true,
-      "appLogName": "example-web.log",
+      "appLogName": "nodeserver-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
-      "coreLogger": {
-        "consoleLevel": "WARN"
-      },
+      "coreLogger": {},
       "allowDebugAtProd": false,
       "enablePerformanceTimer": false,
-      "type": "application"
+      "enableFastContextLogger": false,
+      "type": "application",
+      "localStorage": "<AsyncLocalStorage>"
     },
     "httpclient": {
       "enableDNSCache": false,
@@ -385,7 +391,8 @@
         "freeSocketTimeout": 4000,
         "maxSockets": 9007199254740991,
         "maxFreeSockets": 256
-      }
+      },
+      "useHttpClientNext": false
     },
     "meta": {
       "enable": true,
@@ -401,8 +408,7 @@
       "overrideMethod",
       "session",
       "securities",
-      "i18n",
-      "eggLoaderTrace"
+      "i18n"
     ],
     "workerStartTimeout": 600000,
     "serverTimeout": null,
@@ -425,6 +431,11 @@
     "errorHandler": {
       "match": "/api"
     },
+    "watchDirs": [
+      "app",
+      "config"
+    ],
+    "overrideDefault": true,
     "coreMiddlewares": "~config~coreMiddleware",
     "appMiddlewares": "~config~middleware",
     "appMiddleware": "~config~middleware",
@@ -451,9 +462,9 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.2.0/node_modules/egg-onerror",
-      "version": "2.2.0"
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-onerror@2.4.0/node_modules/egg-onerror",
+      "version": "2.4.0"
     },
     "session": {
       "enable": true,
@@ -462,7 +473,7 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
       "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-session@3.3.0/node_modules/egg-session",
       "version": "3.3.0"
     },
@@ -473,7 +484,7 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
       "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-i18n@2.1.1/node_modules/egg-i18n",
       "version": "2.1.1"
     },
@@ -484,12 +495,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
       "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-watcher@3.1.1/node_modules/egg-watcher",
-      "version": "3.1.1",
-      "dependents": [
-        "development"
-      ]
+      "version": "3.1.1"
     },
     "multipart": {
       "enable": true,
@@ -500,7 +508,7 @@
         "schedule"
       ],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
       "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-multipart@2.13.1/node_modules/egg-multipart",
       "version": "2.13.1"
     },
@@ -513,12 +521,12 @@
         "session"
       ],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@2.11.0/node_modules/egg-security",
-      "version": "2.11.0"
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-security@3.7.0/node_modules/egg-security",
+      "version": "3.7.0"
     },
     "development": {
-      "enable": true,
+      "enable": false,
       "package": "egg-development",
       "name": "development",
       "dependencies": [
@@ -528,9 +536,9 @@
       "env": [
         "local"
       ],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@2.7.0/node_modules/egg-development",
-      "version": "2.7.0"
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-development@3.0.2/node_modules/egg-development",
+      "version": "3.0.2"
     },
     "logrotator": {
       "enable": true,
@@ -541,9 +549,9 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.1.0/node_modules/egg-logrotator",
-      "version": "3.1.0"
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-logrotator@3.2.0/node_modules/egg-logrotator",
+      "version": "3.2.0"
     },
     "schedule": {
       "enable": true,
@@ -552,9 +560,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@3.7.0/node_modules/egg-schedule",
-      "version": "3.7.0",
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-schedule@4.0.1/node_modules/egg-schedule",
+      "version": "4.0.1",
       "dependents": [
         "logrotator"
       ]
@@ -566,9 +574,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.2.0/node_modules/egg-static",
-      "version": "2.2.0"
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-static@2.3.1/node_modules/egg-static",
+      "version": "2.3.1"
     },
     "jsonp": {
       "enable": true,
@@ -579,7 +587,7 @@
         "security"
       ],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
       "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-jsonp@2.0.0/node_modules/egg-jsonp",
       "version": "2.0.0"
     },
@@ -590,9 +598,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@2.37.0/node_modules/egg/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.3/node_modules/egg-view",
-      "version": "2.1.3"
+      "from": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg@3.30.0/node_modules/egg/config/plugin.js",
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-view@2.1.4/node_modules/egg-view",
+      "version": "2.1.4"
     },
     "mysql": {
       "enable": true,
@@ -602,8 +610,8 @@
       "optionalDependencies": [],
       "env": [],
       "from": "/Users/yifoo/03-Code/Website_navigation/server/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-mysql@3.3.0/node_modules/egg-mysql",
-      "version": "3.3.0"
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-mysql@3.4.0/node_modules/egg-mysql",
+      "version": "3.4.0"
     },
     "cors": {
       "enable": true,
@@ -613,8 +621,8 @@
       "optionalDependencies": [],
       "env": [],
       "from": "/Users/yifoo/03-Code/Website_navigation/server/config/plugin.js",
-      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-cors@2.2.3/node_modules/egg-cors",
-      "version": "2.2.3"
+      "path": "/Users/yifoo/03-Code/Website_navigation/server/node_modules/.pnpm/egg-cors@2.2.4/node_modules/egg-cors",
+      "version": "2.2.4"
     },
     "jwt": {
       "enable": true,
@@ -631,13 +639,13 @@
     }
   },
   "appInfo": {
-    "name": "example",
+    "name": "nodeserver",
     "baseDir": "/Users/yifoo/03-Code/Website_navigation/server",
-    "env": "local",
+    "env": "dev",
     "scope": "",
     "HOME": "/Users/yifoo",
     "pkg": {
-      "name": "example",
+      "name": "nodeserver",
       "version": "1.0.0",
       "description": "",
       "private": true,
@@ -645,42 +653,48 @@
         "declarations": true
       },
       "dependencies": {
+        "egg": "^3.17.5",
+        "egg-scripts": "2",
         "axios": "^0.21.4",
-        "egg": "^2.15.1",
+        "cheerio": "1.0.0-rc.12",
         "egg-cors": "^2.2.3",
         "egg-jwt": "^3.1.7",
         "egg-multipart": "^2.10.1",
         "egg-mysql": "^3.0.0",
-        "egg-scripts": "^2.12.0",
+        "excel-export": "^0.5.1",
+        "iconv-lite": "^0.6.3",
         "moment": "^2.24.0",
+        "node-excel-export": "^1.4.4",
         "tree-tool": "^1.1.8"
       },
       "devDependencies": {
+        "egg-bin": "6",
+        "egg-mock": "5",
+        "eslint": "8",
+        "eslint-config-egg": "13",
         "autod": "^3.0.1",
         "autod-egg": "^1.1.0",
-        "egg-bin": "^4.11.0",
         "egg-ci": "^1.11.0",
-        "egg-mock": "^3.21.0",
-        "eslint": "^5.13.0",
-        "eslint-config-egg": "^7.1.0"
+        "excel-export-next": "^1.0.2",
+        "xlsx": "^0.15.4"
       },
       "engines": {
-        "node": ">=10.0.0"
+        "node": ">=18.0.0"
       },
       "scripts": {
-        "dev": "egg-bin dev",
-        "start": "EGG_SERVER_ENV=pro egg-scripts start --daemon --title=server",
-        "stop": "egg-scripts stop --title=server",
-        "debug": "egg-bin debug",
-        "test": "npm run lint -- --fix && npm run test-local",
-        "test-local": "egg-bin test",
+        "start": "EGG_SERVER_ENV=pro egg-scripts start --daemon --title=nav_server",
+        "stop": "egg-scripts stop --title=nav_server",
+        "dev": "EGG_SERVER_ENV=dev egg-bin dev",
+        "test": "npm run lint -- --fix && npm run test:local",
+        "test:local": "egg-bin test",
         "cov": "egg-bin cov",
         "lint": "eslint .",
         "ci": "npm run lint && npm run cov",
+        "pre": "EGG_SERVER_ENV=pre egg-bin dev",
+        "devserver": "EGG_SERVER_ENV=devserver egg-bin dev",
+        "debug": "egg-bin debug",
+        "test-local": "egg-bin test",
         "autod": "autod"
-      },
-      "ci": {
-        "version": "10"
       },
       "repository": {
         "type": "git",
@@ -689,6 +703,6 @@
       "author": "",
       "license": "MIT"
     },
-    "root": "/Users/yifoo/03-Code/Website_navigation/server"
+    "root": "/Users/yifoo"
   }
 }

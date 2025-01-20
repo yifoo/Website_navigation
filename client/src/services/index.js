@@ -7,4 +7,5 @@ import * as login from './login';
 import * as navApi from './nav';
 import * as searchApi from './search';
 import * as userApi from './user';
-export { login, navApi, userApi, searchApi};
+export { login, navApi, searchApi, userApi };
+

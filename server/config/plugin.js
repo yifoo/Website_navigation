@@ -14,8 +14,8 @@ module.exports = {
     enable: true,
     package: 'egg-cors',
   },
-  jwt:{
+  jwt: {
     enable: true,
     package: 'egg-jwt',
-  }
+  },
 };

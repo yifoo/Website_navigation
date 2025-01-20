@@ -133,7 +133,7 @@ export async function updateSortOrder(body, options) {
   });
 }
 export async function updateSortColor(body, options) {
-  return request('/api/nav/site/changeSortColor', {
+  return request('/api/nav/site/updateSortColor', {
     method: 'POST',
     data: body,
     ...(options || {}),

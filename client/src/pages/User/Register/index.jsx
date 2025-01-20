@@ -4,7 +4,7 @@ import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { Button, message } from 'antd';
 import CryptoJS from 'crypto-js';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { history, Link } from 'umi';
 import styles from '../Login/index.less';
 window.CryptoJS = CryptoJS;
@@ -54,12 +54,12 @@ const Register = () => {
             render: (props, doms) => {
               console.log(props);
               return [
-                <Button  key="rest" onClick={() => formRef.current.resetFields()}>
+                <Button key="rest" onClick={() => formRef.current.resetFields()}>
                   重置
                 </Button>,
                 <Button type="primary" key="submit" onClick={() => handleSubmit(formRef.current.getFieldsValue())}>
-                提交
-              </Button>,
+                  提交
+                </Button>,
               ];
             },
           }}
@@ -101,7 +101,7 @@ const Register = () => {
               size: 'large',
               prefix: <UserOutlined className={styles.prefixIcon} />,
             }}
-            placeholder="默认与登录名义一致"
+            placeholder="请输入展示昵称"
             rules={[
               {
                 required: false,
@@ -191,8 +191,8 @@ const Register = () => {
               marginBottom: 24,
             }}
           >
-            <ProFormCheckbox noStyle name="isInit">
-              初始化公共网址
+            <ProFormCheckbox noStyle name="isInit" disabled>
+              默认初始化公共网址
             </ProFormCheckbox>
           </div>
         </LoginForm>

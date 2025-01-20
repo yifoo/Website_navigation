@@ -18,8 +18,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/nav/site/fetchAll",
-    "regexp": "/^\\/api\\/nav\\/site\\/fetchAll(?:\\/(?=$))?$/",
+    "path": "/api/nav/site/fetchAllSites",
+    "regexp": "/^\\/api\\/nav\\/site\\/fetchAllSites(?:\\/(?=$))?$/",
     "stack": [
       "middleware",
       "wrappedController"
@@ -174,6 +174,19 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/nav/site/updateSortColor",
+    "regexp": "/^\\/api\\/nav\\/site\\/updateSortColor(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/nav/site/updateSortOrder",
     "regexp": "/^\\/api\\/nav\\/site\\/updateSortOrder(?:\\/(?=$))?$/",
     "stack": [
@@ -189,6 +202,43 @@
     "paramNames": [],
     "path": "/api/nav/site/delSort",
     "regexp": "/^\\/api\\/nav\\/site\\/delSort(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/nav/site/fetchAllCom",
+    "regexp": "/^\\/api\\/nav\\/site\\/fetchAllCom(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/nav/site/fetchSortCom",
+    "regexp": "/^\\/api\\/nav\\/site\\/fetchSortCom(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/nav/dic/fetchTags",
+    "regexp": "/^\\/api\\/nav\\/dic\\/fetchTags(?:\\/(?=$))?$/",
     "stack": [
       "middleware",
       "wrappedController"
@@ -308,8 +358,34 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/nav/site/fetchAllCom",
-    "regexp": "/^\\/api\\/nav\\/site\\/fetchAllCom(?:\\/(?=$))?$/",
+    "path": "/api/nav/search/record",
+    "regexp": "/^\\/api\\/nav\\/search\\/record(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/nav/search/deleSearchRecord",
+    "regexp": "/^\\/api\\/nav\\/search\\/deleSearchRecord(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/nav/search/recordCom",
+    "regexp": "/^\\/api\\/nav\\/search\\/recordCom(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -320,20 +396,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/nav/site/fetchSortCom",
-    "regexp": "/^\\/api\\/nav\\/site\\/fetchSortCom(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/nav/dic/fetchTags",
-    "regexp": "/^\\/api\\/nav\\/dic\\/fetchTags(?:\\/(?=$))?$/",
+    "path": "/api/nav/search/getRecordList",
+    "regexp": "/^\\/api\\/nav\\/search\\/getRecordList(?:\\/(?=$))?$/",
     "stack": [
       "middleware",
       "wrappedController"
@@ -370,8 +434,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/user/get",
-    "regexp": "/^\\/api\\/user\\/get(?:\\/(?=$))?$/",
+    "path": "/api/user/getUserInfo",
+    "regexp": "/^\\/api\\/user\\/getUserInfo(?:\\/(?=$))?$/",
     "stack": [
       "middleware",
       "wrappedController"
@@ -386,6 +450,32 @@
     "path": "/api/user/register",
     "regexp": "/^\\/api\\/user\\/register(?:\\/(?=$))?$/",
     "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/deleUser",
+    "regexp": "/^\\/api\\/user\\/deleUser(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/editUpwd",
+    "regexp": "/^\\/api\\/user\\/editUpwd(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
       "wrappedController"
     ]
   },
@@ -436,6 +526,110 @@
     "path": "/api/user/sendCode",
     "regexp": "/^\\/api\\/user\\/sendCode(?:\\/(?=$))?$/",
     "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/queryUsers",
+    "regexp": "/^\\/api\\/user\\/queryUsers(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/editUname",
+    "regexp": "/^\\/api\\/user\\/editUname(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/queryUserList",
+    "regexp": "/^\\/api\\/user\\/queryUserList(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/saveUserRole",
+    "regexp": "/^\\/api\\/user\\/saveUserRole(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/queryRoleCode",
+    "regexp": "/^\\/api\\/user\\/queryRoleCode(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/queryRoleList",
+    "regexp": "/^\\/api\\/user\\/queryRoleList(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/queryRoleUserList",
+    "regexp": "/^\\/api\\/user\\/queryRoleUserList(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/saveRoleAccess",
+    "regexp": "/^\\/api\\/user\\/saveRoleAccess(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
       "wrappedController"
     ]
   }

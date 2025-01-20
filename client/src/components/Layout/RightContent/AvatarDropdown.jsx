@@ -44,8 +44,8 @@ const AvatarDropdown = ({ menu }) => {
         case 'logout':
           loginOut();
           break;
-        case 'layout':
-          toggleSetting();
+        case 'config':
+          history.push('/setting');
           break;
         default:
           break;
@@ -85,7 +85,7 @@ const AvatarDropdown = ({ menu }) => {
   }
   let menuNode = {
     items: [
-      { label: '样式配置', key: 'layout' },
+      { label: '设置中心', key: 'config' },
       { label: '退出登录', key: 'logout' },
     ],
     onClick: onMenuClick,

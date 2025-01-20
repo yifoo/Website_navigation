@@ -1,6 +1,6 @@
 import { Tabs } from 'antd';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'umi';
+import { useDispatch, useModel, useSelector } from 'umi';
 import SearchBtn from './SearchBtn';
 import SearchExtra from './SearchExtra';
 import SearchInput from './SearchInput';
@@ -10,6 +10,7 @@ const { TabPane } = Tabs;
 const SearchBox = memo((props) => {
   const [tabKey, setTabKey] = useState();
   const [activeKey, setActiveKey] = useState();
+  const { initialState } = useModel('@@initialState');
   const [btns, setBtns] = useState([]);
   const [placeholder, setPlaceholder] = useState('');
   const searchList = useSelector((state) => state.Nav.searchList);
@@ -71,6 +72,21 @@ const SearchBox = memo((props) => {
       let query = extra ? extra : btn.query;
       query = query.replace(/{key}/gi, encodeURI(inputRef.current.input.trim()));
       window.open(query);
+      try{
+        if(initialState.userInfo){
+          dispatch({
+          type: 'Nav/searchRecord',
+          payload: {keyword:inputRef.current.input.trim()},
+        });
+        }else{
+          dispatch({
+          type: 'Nav/searchRecordCom',
+          payload: {keyword:inputRef.current.input.trim()},
+        });
+        }
+      }catch(e){
+        console.log('搜索记录错误',e);
+      }
       query = null;
       extra = null;
       return false;

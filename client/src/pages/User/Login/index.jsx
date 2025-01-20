@@ -29,8 +29,6 @@ const Login = () => {
         const { redirect } = query;
         history.push(redirect || '/');
         dispatch({ type: 'Nav/clearSiteSort' });
-        dispatch({ type: 'Nav/fetchSort' });
-        dispatch({ type: 'Nav/fetchAll' });
         return;
       } else {
         message.error(res.msg);

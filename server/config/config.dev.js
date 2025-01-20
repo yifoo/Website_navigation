@@ -1,12 +1,12 @@
 /* eslint valid-jsdoc: "off" */
 
-'use strict'
+'use strict';
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
-module.exports = (appInfo) => {
-  const config = {}
+module.exports = appInfo => {
+  const config = {};
   config.mysql = {
     // 单数据库信息配置
     client: {
@@ -20,14 +20,14 @@ module.exports = (appInfo) => {
       password: 'root',
       // 数据库名
       database: 'nav_test',
-      multipleStatements: true
+      multipleStatements: true,
     },
     // 是否加载到 app 上，默认开启
     app: true,
     // 是否加载到 agent 上，默认关闭
-    agent: false
-  }
+    agent: false,
+  };
   return {
-    ...config
-  }
-}
+    ...config,
+  };
+};

@@ -1,10 +1,9 @@
-// import Footer from '@/components/Layout/Footer';
+import Footer from '@/components/Layout/Footer';
 import RightContent from '@/components/Layout/RightContent';
 import { userApi } from '@/services';
-import { BookOutlined, LinkOutlined } from '@ant-design/icons';
-import { PageLoading, SettingDrawer } from '@ant-design/pro-layout';
+import { PageLoading } from '@ant-design/pro-layout';
 import { message } from 'antd';
-import { Link, history } from 'umi';
+import { history } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 import paramConfig from '../config/paramConfig';
 const isDev = process.env.NODE_ENV === 'development';
@@ -55,7 +54,6 @@ export async function getInitialState() {
         if (res.code === 200) {
           return { ...res, isLogin: true };
         } else {
-          // history.push(loginPath);
           return {};
         }
       } catch (e) {
@@ -68,7 +66,7 @@ export async function getInitialState() {
   if (history.location.pathname !== paramConfig.loginPath) {
     try {
       const { userInfo, isLogin } = await fetchUserInfo();
-      const isPad = window.document.body.clientWidth <= 991&&window.document.body.clientWidth>768;
+      const isPad = window.document.body.clientWidth <= 991 && window.document.body.clientWidth > 768;
       const isMobile = window.document.body.clientWidth <= 768;
       return {
         userInfo,
@@ -85,16 +83,16 @@ export async function getInitialState() {
 } // ProLayout 支持的api https://procomponents.ant.design/components/layout
 
 export const layout = ({ initialState, setInitialState }) => {
-  const onCollapse = (collapsed) => {
-    setInitialState((s) => ({ ...s, settingShow: !initialState.settingShow }));
-  };
+  // const onCollapse = (collapsed) => {
+  //   setInitialState((s) => ({ ...s, settingShow: !initialState.settingShow }));
+  // };
   return {
     rightContentRender: () => <RightContent />,
     disableContentMargin: true,
     waterMarkProps: {
       content: initialState?.userInfo?.uname,
     },
-    // footerRender: () => <Footer />,
+    footerRender: () => <Footer />,
     onPageChange: () => {
       // console.log('initialState: ', initialState);
       // const { location } = history; // 如果没有登录，重定向到 login
@@ -102,18 +100,7 @@ export const layout = ({ initialState, setInitialState }) => {
       //   history.push(paramConfig.loginPath);
       // }
     },
-    links: isDev
-      ? [
-          <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
-            <LinkOutlined />
-            <span>OpenAPI 文档</span>
-          </Link>,
-          <Link to="/~docs" key="docs">
-            <BookOutlined />
-            <span>业务组件文档</span>
-          </Link>,
-        ]
-      : [],
+    links: [],
     menuHeaderRender: undefined,
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
@@ -123,32 +110,6 @@ export const layout = ({ initialState, setInitialState }) => {
       return (
         <>
           {children}
-          {!props.location?.pathname?.includes('/login') && (
-            <SettingDrawer
-              disableUrlParams
-              enableDarkTheme
-              collapse={initialState.settingShow}
-              onCollapseChange={onCollapse}
-              hideHintAlert={true}
-              hideCopyButton={true}
-              colorList={[
-                { key: 'black', color: '#202020' },
-                { key: 'daybreak', color: '#1890ff' },
-                { key: 'yanhong', color: '#ed556a' },
-                { key: 'dust', color: '#F5222D' },
-                { key: 'volcano', color: '#FA541C' },
-                { key: 'sunset', color: '#FAAD14' },
-                { key: 'cyan', color: '#13C2C2' },
-                { key: 'green', color: '#52C41A' },
-                { key: 'geekblue', color: '#2F54EB' },
-                { key: 'purple', color: '#722ED1' },
-              ]}
-              settings={initialState?.settings}
-              onSettingChange={(settings) => {
-                setInitialState((preInitialState) => ({ ...preInitialState, settings }));
-              }}
-            />
-          )}
         </>
       );
     },

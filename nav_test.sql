@@ -1,21 +1,46 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Dump SQL
 
  Source Server         : Maclocal
  Source Server Type    : MySQL
- Source Server Version : 80031
+ Source Server Version : 80031 (8.0.31)
  Source Host           : localhost:3306
  Source Schema         : nav_test
 
  Target Server Type    : MySQL
- Target Server Version : 80031
+ Target Server Version : 80031 (8.0.31)
  File Encoding         : 65001
 
- Date: 05/01/2023 21:43:23
+ Date: 20/01/2025 22:01:41
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for nav_func
+-- ----------------------------
+DROP TABLE IF EXISTS `nav_func`;
+CREATE TABLE `nav_func` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(16) DEFAULT NULL COMMENT '功能',
+  `description` varchar(16) DEFAULT NULL COMMENT '功能描述',
+  `parent_id` int DEFAULT NULL COMMENT '父id',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=10065 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of nav_func
+-- ----------------------------
+BEGIN;
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1001, 'nav', '网址导航', NULL);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1002, 'insight', '行业洞察', NULL);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1003, 'study', '学习成长', NULL);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (1006, 'setting', '设置中心', NULL);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10061, 'setting_user', '账户中心', 1006);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10062, 'seting_role', '角色权限', 1006);
+INSERT INTO `nav_func` (`id`, `name`, `description`, `parent_id`) VALUES (10063, 'setting_search', '搜索配置', 1006);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for nav_logo
@@ -27,7 +52,7 @@ CREATE TABLE `nav_logo` (
   `site_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`logo_id`) USING BTREE,
   KEY `logoIndex` (`logo_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1385 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=1886 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of nav_logo
@@ -95,7 +120,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (59, 'https:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (60, 'https://www.thepaper.cn/favicon.ico', NULL);
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (61, 'https://favicon.yandex.net/favicon/ddl.escience.cn', NULL);
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (62, 'https://s.zbjimg.com/img/favicon.ico', NULL);
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (63, 'https://favicon.yandex.net/favicon/sohu.com', '搜狐网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (63, '//statics.itc.cn/mp-new/icon/1.1/favicon.ico', '搜狐网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (64, 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=w24', NULL);
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (65, 'https://enjoy.ricebook.com/./static/images/fav.ico', 'EnJoy');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (66, 'https://www.patexplorer.com/images/favicon.png', '佰腾专利');
@@ -118,12 +143,12 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (83, 'https:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (84, 'https://favicon.yandex.net/favicon/williamlong.info', '月光博客');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (85, 'https://static0.tuicool.com/favicon.ico', '推酷');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (86, 'https://static001.infoq.cn/static/infoq/www/img/share-default-5tgbiuhgfefgujjhg.png', 'InfoQ');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (87, 'https://favicon.yandex.net/favicon/songshuhui.net', '科学松鼠会');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (87, 'http://songshuhui.net/favicon.ico', '科学松鼠会');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (88, 'https://36kr.com/favicon.ico', '36氪');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (89, 'https://cn.engadget.com/favicon.ico', 'Engadget');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (90, 'https://www.zoulang.com/images/favicon.ico', '走廊');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (91, 'https://www.douban.com/favicon.ico', '豆  瓣');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (92, 'https://favicon.yandex.net/favicon/xinli001.com', '壹心理');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (92, 'http://www.xinli001.com/favicon.ico', '壹心理');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (93, 'http://g.yeeyan.com/favicon.ico', '译言网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (94, 'https://www.duwanjuan.cn/favicon.ico', '酱香韭菜园');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (95, 'https://haohome.top/18-10-16/3475751.jpg', '十五言');
@@ -136,7 +161,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (101, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (102, 'https://favicon.yandex.net/favicon/pdfdrive.net', 'PDFdrive');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (103, 'https://favicon.yandex.net/favicon/booksee.org', 'Booksee');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (104, 'https://favicon.yandex.net/favicon/it-ebooks.info', 'itEbooks');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (105, 'http://gen.lib.rus.ec/favicon.ico', 'Library');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (105, 'https://z-library.sk/favicon.ico', 'Library');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (106, 'https://favicon.yandex.net/favicon/bookask.com', '书问搜索');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (107, 'https://www.jiumodiary.com/images/favicon.png', '鸠摩搜书');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (108, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '读书小站');
@@ -155,47 +180,47 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (120, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (121, 'https://www.52dzxy.com/favicon.ico', '读者');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (122, 'https://favicon.yandex.net/favicon/92yilin.com', '意林');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (123, 'http://www.92gushi.com/favicon.ico', '故事会');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (124, 'https://favicon.yandex.net/favicon/youtube.com', 'YouTube');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (125, 'https://img.mgtv.com/imgotv-channel/5.9.7/pcweb-head/ios-fav.png', '芒果TV');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (124, 'https://www.youtube.com/s/desktop/a98f809d/img/favicon_96x96.png', 'YouTube');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (125, 'https://static.hitv.com/pc/icons/icon_64x64.1b7ca7.png', '芒果TV');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (126, '//v.qq.com/favicon.ico', '腾讯视频');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (127, 'https://www.youku.com/favicon.ico', '优 酷');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (128, 'https://img.alicdn.com/tfs/TB1Pd4JZ.z1gK0jSZLeXXb9kVXa-32-32.png', '土 豆');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (129, 'https://tv.sohu.com/favicon.ico', '搜狐视频');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (130, 'http://www.cctv.com/favicon.ico', '央视网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (130, 'https://www.cctv.com/favicon.ico', '央视网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (131, 'https://www.iqiyi.com/apple-touch-icon-114x114-precomposed.png', '爱奇艺');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (132, 'https://favicon.yandex.net/favicon/imweb.io', '腾讯Web');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (133, 'https://ssl.gstatic.com/pantheon/images/favicon/default.png', '谷歌云');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (134, 'https://www.duitang.com/favicon.ico', '堆  糖');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (135, 'http://static.huashichang.com/image/favicon.ico', '护花网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (134, 'https://c-ssl.dtstatic.com/uploads/icons/duitang_favicon.ico', '堆  糖');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (135, 'http://static.huashichang.com/image/favicon.ico?v=201812211030', '护花网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (136, 'https://huaban.com/favicon.ico', '花瓣网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (137, 'https://favicon.yandex.net/favicon/imanpin.com', '慢品网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (138, 'https://www.zw3e.com/favicon.ico', '植物之家');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (139, 'https://favicon.yandex.net/favicon/lvye.cn', '绿野户外');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (140, 'https://static.qyer.com/images/favicon.ico', '穷游网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (141, 'https://favicon.yandex.net/favicon/jingcity.com', '京城网');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (142, 'https://blog.haohome.top/images/favicon.ico', '靖风行');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (142, 'https://blog.haohome.top/imgs/icons/favicon64.ico', '靖风行');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (143, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/google.ico', 'Google');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (144, 'https://www.imooc.com/favicon.ico', '慕课网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (145, 'http://yixi.tv/static/website/images/bitbug_favicon.ico', '一 席');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (146, 'https://favicon.yandex.net/favicon/duososo.com', '多搜搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (146, 'https://duososo.com/images/xiaotubiao.png', '多搜搜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (147, 'https://y.qq.com/favicon.ico', 'QQ音乐');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (148, 'https://douban.fm/favicon.ico', '豆瓣FM');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (149, '//8.url.cn/edu/edu_modules/edu-ui/img/nohash/favicon.ico', '腾讯课堂');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (149, 'http://ke.qq.com/favicon.ico', '腾讯课堂');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (150, 'https://favicon.yandex.net/favicon/study.163.com', '网易云课堂');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (151, 'https://favicon.yandex.net/favicon/runoob.com', '菜鸟教程');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (152, 'https://www.nowcoder.com/favicon.ico', '牛客网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (153, 'https://static.leetcode-cn.com/cn-assets/icons/favicon-16x16.png', 'Leetcode');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (154, 'https://jsrun.net/res/favicon.ico', 'JSRun');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (154, 'https://cdns.jsrun.net/favicon.png', 'JSRun');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (155, 'https://favicon.yandex.net/favicon/reabble.com', 'Reabble');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (156, '//pub-static.haozhaopian.net/static/web/share/images/LOGO.png', 'Fotor');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (157, 'http://www.peise.net/favicon.ico', '配色设计');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (158, 'https://ppj.io/favicon.ico', 'PP匠');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (158, 'https://ppj.io/index_images/logo.png', 'PP匠');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (159, 'https://favicon.yandex.net/favicon/zhongguose.com', '中国色');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (160, 'https://www.islide.cc/favicon.ico', 'iSlide');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (161, 'http://cn.office-converter.com/favicon.ico', '文件转换器');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (162, 'https://index.baidu.com/favicon.ico', '百度指数');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (163, 'https://favicon.yandex.net/favicon/data.weibo.com', '微报告');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (164, 'https://www.newrank.cn/favicon.ico', '新 榜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (164, 'https://chs.newrank.cn/favicon/favicon.ico', '新 榜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (165, 'https://top.baidu.com/favicon.ico', '百度风云榜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (166, 'https://favicon.yandex.net/favicon/cbooo.cn', '中国票房');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (167, 'https://trends.so.com/favicon.ico', '360趋势');
@@ -204,8 +229,8 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (169, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (170, 'https://www.zhipin.com/favicon.ico', 'BOSS直聘');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (171, '//www.lgstatic.com/www/static/common/static/favicon_faed927.ico', '拉勾网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (172, '//concat.lietou-static.com/fe-www-pc/v5/static/favicon.ba1ac58f.ico', '猎聘网');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (173, 'https://juejin.im/favicon.ico', '掘金');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (174, 'https://cdn.segmentfault.com/r-cce1b45f/favicon.ico', '思 否');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (173, 'https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/static/favicons/favicon-32x32.png', '掘金');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (174, 'https://static.segmentfault.com/main_site_next/e3057aed/touch-icon.png', '思 否');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (175, 'https://www.qdfuns.com/favicon.ico', '前端网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (176, 'https://www.v2ex.com/static/img/icon_rayps_64.png', 'V2EX');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (177, 'https://favicon.yandex.net/favicon/bslxx.com', '奔三路');
@@ -225,16 +250,16 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (190, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (191, 'https://www.afenxi.com/wp-content/uploads/2017060700250750.ico', '大数据导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (192, 'http://www.syntun.com.cn/favicon.ico', '星图数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (193, 'https://www.iyiou.com/favicon.ico', '亿欧网');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (194, 'https://www.pedaily.cn/favicon.ico', '投资界');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (194, 'https://static.pedaily.cn/app/pedaily/favicon.ico', '投资界');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (195, 'http://image.woshipm.com/favicon.ico', '产品经理');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (196, 'http://www.sino-manager.com/favicon.ico', '经理人');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (196, 'https://www.sino-manager.com/pc/favicon.ico', '经理人');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (197, 'http://www.ceconline.com/favicon.ico', '世界经理人');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (198, 'http://www.chanpin100.com/favicon.ico', '产品壹佰');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (199, 'http://www.ikanchai.com/favicon.ico', '砍柴网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (200, 'https://static.pedaily.cn/app/newseed/favicon.ico', '新芽网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (201, 'https://www.shaoziketang.com/img/favicon.ico', '勺子课堂');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (202, 'http://www.linkshop.com/favicon.ico', '联商网');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (203, 'https://favicon.yandex.net/favicon/iimedia.cn', '艾媒网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (203, 'http://www.iimedia.cn/favicon.ico', '艾媒网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (204, 'https://favicon.yandex.net/favicon/down.foodmate.net', '食品标准');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (205, 'https://favicon.yandex.net/favicon/down.foodmate.net', '食品伙伴网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (206, 'https://favicon.yandex.net/favicon/decodingdelicious.com', '美食解码');
@@ -280,13 +305,13 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (245, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (246, 'http://www.hzou.net/favicon.ico', '红嘴鸥');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (247, 'http://www.app-echo.com/favicon.ico', 'echo回声');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (248, 'http://www.yuesir.com/ipu/favicon.ico', '爱乐谱');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (249, 'https://favicon.yandex.net/favicon/assrt.net', '射手网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (249, 'http://assrt.net/favicon.ico', '射手网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (250, 'https://www.52pojie.cn/favicon.ico', '吾爱破解');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (251, 'https://www.mpyit.com/favicon.ico', '殁漂遥');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (252, 'https://favicon.yandex.net/favicon/zdfans.com', 'zd423');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (253, 'https://www.repaik.com/favicon.ico', '睿派克');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (254, 'http://r.virscan.org/favicon.ico', 'VirSCAN');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (255, 'https://www.inpandora.com/wp-content/themes/pdr-pro/images/favicon.ico', '潘多拉盒子');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (254, 'https://www.virscan.org/favicon.ico', 'VirSCAN');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (255, 'https://www.inpandora.com/favicon.ico', '潘多拉盒子');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (256, 'https://www.rkdot.com/wordpress/wp-content/uploads/2016/08/favicon.ico', '软 矿');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (257, 'http://www.ifunmac.com/favicon2014.ico', '玩转苹果');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (258, 'https://www.waitsun.com/favicon.ico', '爱情守望者');
@@ -295,7 +320,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (260, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (261, 'https://softasm.co/wp-content/uploads/2017/03/cropped-1488540729_cloud-download-32x32.png', 'SoftAsm');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (262, 'https://links.tickstep.com/favicon.ico', '链刻精选');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (263, 'http://www.pcbeta.com/favicon.ico', '远景论坛');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (264, 'https://img3.appinn.net/static/wp-content/uploads/cropped-Appinn-icon-512-32x32.png', '小众软件');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (264, 'https://www.appinn.com/apple-touch-icon-57x57.png', '小众软件');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (265, 'https://www.chinapyg.com/favicon.ico', '飘云阁');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (266, 'https://favicon.yandex.net/favicon/itreping.com', 'IT热评');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (267, 'https://xbeta.info/favicon.ico', '善用佳软');
@@ -323,7 +348,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (288, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (289, 'https://pixabay.com/favicon.ico', 'PixaBay');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (290, '//assetcdn.500px.org/assets/favicon-e2c5b38899aa875fc619f268af668d6d.ico', '500px');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (291, 'https://favicon.yandex.net/favicon/gratisography.com', 'gratiso');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (292, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '美工吧');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (292, 'https://img.meigong8.com/2021/03/appico.png', '美工吧');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (293, 'https://favicon.yandex.net/favicon/yisell.com', '音效网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (294, 'http://font.chinaz.com/favicon.ico', '站长字体');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (295, 'http://www.diyiziti.com/favicon.ico', '字体转换');
@@ -333,7 +358,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (298, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (299, 'https://favicon.yandex.net/favicon/niudana.com', '牛大拿');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (300, 'http://hao.psefan.com/favicon.ico', '饭团导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (301, 'https://favicon.yandex.net/favicon/paomianba.com', '泡面吧');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (302, 'https://kim.plopco.com/favicon.ico', 'KIM主页');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (302, 'https://www.51kim.com/favicon.ico', 'KIM主页');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (303, 'https://favicon.yandex.net/favicon/taoxiaozhong.com', '淘小众');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (304, 'http://lackar.com/aa/favicon.ico', 'Anywhere');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (305, 'https://www.moulem.com/favicon.ico', '某柠檬');
@@ -344,7 +369,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (309, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (310, 'http://www.egouz.com/favicon.ico', 'Egouz');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (311, 'https://favicon.yandex.net/favicon/xiaolvji.com', '效率集');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (312, 'https://favicon.yandex.net/favicon/321ku.com', '321ku');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (313, 'https://www.qicao.cn/favicon.ico', '奇草导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (313, 'https://qicao.cn/images/favicon.ico', '奇草导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (314, 'https://favicon.yandex.net/favicon/haoyonghaowan.com', '好用好玩');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (315, 'http://cdn-sqn.aigei.com/assets/site/img/icon/favicon.ico', '爱给音效');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (316, 'http://ybmfx.com/wp-content/uploads/2018/07/cropped-1-32x32.png', '100秒分享');
@@ -370,7 +395,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (335, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (336, 'https://www.linkresearcher.com/favicon.ico', '领研网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (337, 'https://ssl-static.fishlee.net/favicon.ico', '鱼の后花园');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (338, 'https://tool.lu/favicon.ico', '在线工具');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (339, 'https://favicon.yandex.net/favicon/quzhuanpan.com', '去转盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (339, 'https://www.laisoyixia.com/media/image/logo/favicon.ico', '去转盘');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (340, 'https://academic.microsoft.com/App/build/icons-75bfc40a2c7542928d63dac3594141ab/favicon.ico', 'MS学术');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (341, 'http://www.tubiaoxiu.com/landing/img/logo_small16.png', '图表秀');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (342, 'http://smallpdf.com/favicon.png', 'SmallPDF');
@@ -387,7 +412,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (352, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (353, 'https://www.eurofresh-distribution.com/sites/all/themes/eurofresh/favicon.ico', 'eurofresh');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (354, 'https://www.kkroot.com/wp-content/uploads/2017/11/卡卡-03-150x150.png', '卡卡源');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (355, 'http://wangchujiang.com/awesome-mac/favicon.ico', 'Mac绝赞');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (356, 'https://cdn.sspai.com/sspai/assets/img/favicon/icon.ico', '少数派');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (356, 'https://cdn-static.sspai.com/favicon/sspai.ico', '少数派');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (357, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '逗比云');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (358, 'http://oldj.github.io/SwitchHosts/images/icon_32x32.png', 'SwitchHosts');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (359, 'https://qianshan.sfo2.digitaloceanspaces.com/icon.png', '千山导航');
@@ -401,7 +426,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (366, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (367, 'https://favicon.yandex.net/favicon/sofasofa.io', 'Sofa');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (368, 'https://geekori.com/images/logo2.png', '极客起源');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (369, 'https://ask.seowhy.com/favicon.ico', '搜外问答');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (370, 'https://favicon.yandex.net/favicon/geekpark.net', '极客公园');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (370, 'https://imgslim.geekpark.net/geekpark-icon-196-black.png', '极客公园');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (371, 'http://www.itvalue.com.cn/public/images/favicon.ico', 'ITValue');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (372, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '404');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (373, 'https://s1.music.126.net/style/favicon.ico', '网易音乐');
@@ -416,7 +441,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (381, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (382, 'https://favicon.yandex.net/favicon/aihot.net', '人工智能');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (383, 'https://favicon.yandex.net/favicon/baozoumanhua.com', '暴走漫画');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (384, 'https://file.iviewui.com/file/favicon.ico', 'iveiw');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (385, 'https://www.wukong.com/favicon.ico', '悟空问答');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (385, 'https://i.sevencdn.com/favicon/https://www.wukong.com', '悟空问答');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (386, 'https://favicon.yandex.net/favicon/dx.doi.org', 'DOI');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (387, 'https://cybermap.kaspersky.com/Kaspersky_Web_Favicon_256x256.png', '卡巴全球攻击');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (388, 'https://xinqukuai.cn/wp-content/uploads/2018/06/nblogo.png', '新区块');
@@ -502,7 +527,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (468, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (469, '//favicon.yandex.net/favicon/yunpanjingling.com', '云盘精灵');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (470, 'http://www.imh5.com/assets/images/logo-122x114.png', 'H5');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (471, 'https://www.multcloud.com/favicon.ico', '网盘同步');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (472, '//favicon.yandex.net/favicon/remove.bg', '移除背景');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (472, 'https://www.remove.bg/favicon-32x32.png', '移除背景');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (473, 'http://assets.bootcss.com/www/assets/ico/favicon.png?1557372811800', 'BootCSS');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (474, '//favicon.yandex.net/favicon/github.io', 'mac独立');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (475, 'https://www.geetest.com/favicon.ico', '极 验');
@@ -529,7 +554,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (495, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (496, 'http://bddn.cn/favicon.ico', '电视直播');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (497, 'https://f0cdn.anyknew.com/web/img/icons/favicon-32x32.png', '拷贝兔');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (498, 'https://zhuanlan.zhihu.com/favicon.ico', '50个网站');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (499, 'https://demo.glyptodon.com/images/logo-144.png', '在线win10');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (499, 'https://demo.glyptodon.com/assets/branding/favicon-32x32.png', '在线win10');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (500, 'https://background.cowtransfer.com/favicon.ico', '奶牛快传');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (501, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '学术网站');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (502, 'https://www.91sotu.com/favicon.ico', '搜图导航');
@@ -541,7 +566,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (507, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (508, 'https://www.zwcsm.com/favicon.ico', '中午吃什么');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (509, 'https://www.zwcsm.com/favicon.ico', '中午吃什么');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (510, 'http://www.mp4ba.com/favicon.ico', 'Mp4ba吧');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (511, 'http://n.lackk.com/img/favicon.ico', '兰客导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (511, 'http://lackk.com/favicon.ico', '兰客导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (512, 'https://lf3-static.bytednsdoc.com/obj/eden-cn/kyhgpdeh7nuvanuhd/count/trendinsight.ico', '头条报告');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (513, 'http://qiachu.com/zb_users/theme/suiranx_nav/image/favicon.ico', '恰初导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (514, 'https://css-tricks.com/favicon.ico', 'CSS-Tricks');
@@ -560,7 +585,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (526, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (527, 'https://www.chinaventure.com.cn/images/logo/logo_tiny.png', '投中网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (528, 'https://research.ke.com/_next/static/images/favicon-d9d110b8f90bc2df2a4f6ecc01b7062f.png', '房地产研究院');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (529, 'https://www.jiemian.com/favicon.ico', '界面数据');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (530, 'https://www.xinpianchang.com/new_favicon/favicon-32x32.png', '场 库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (530, 'https://www.xinpianchang.com/new_favicon/favicon.ico', '场 库');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (531, 'https://www.digitaling.com/file/images/favicon.ico', '数英网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (532, '//goss.vcg.com/static/favicon.ico', '视觉中国');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (533, 'http://www.baiduonce.com/favicon.ico', '摆渡一下');
@@ -594,7 +619,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (560, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (561, 'https://anyi.life/favicon.ico', '安逸导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (562, 'https://hitokoto.cn/favicon.ico', '一 言');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (563, 'http://172.18.116.4/portal/plug-in/login/images/favicon.ico', 'BI分析');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (564, 'https://creativemass.cn/favicon-32x32.png', '创意导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (564, 'https://creativemass.cn/logo.jpg', '创意导航');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (565, 'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png', 'Antd');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (566, 'https://cn.vuejs.org/images/icons/favicon-16x16.png', 'Vue');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (567, 'https://www.redux.org.cn/gitbook/images/favicon.ico', 'Redux');
@@ -638,7 +663,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (604, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (605, 'https://cdn-www.yxgapp.com/wp-content/uploads/2018/12/yxg-logo-100x100.png', '译学馆');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (606, 'https://wx4.sinaimg.cn/mw690/7e03218cly1fuqmdspyg0j202x02xmwx.jpg', '千百度');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (607, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '医学导航');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (608, 'https://bigezhang.com/favicon.png', '比格张');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (608, 'https://bigezhang.com/favicon.ico', '比格张');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (609, 'http://data.stats.gov.cn/images/favourite.ico', '国家数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (610, 'https://img-sz.topys.cn/ico/favicon.ico', 'TOPS');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (611, 'https://yunduanxin.net/favicon.ico', '云短信');
@@ -648,7 +673,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (614, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (615, 'http://s.nodejs.cn/moment/static/img/moment-favicon.png', 'moment');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (616, 'https://static.skyandroid.cn/images/favicon.ico', '马可波罗');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (617, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '身份证号码');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (618, 'https://static.ftimg.net/img/ipad_icon.png', 'FT中文网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (618, 'https://d2785ji6wtdqx8.cloudfront.net/img/ipad_icon.png', 'FT中文网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (619, 'http://pubmed.cn/favicon.ico', 'PubMed');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (620, 'http://www.795.com.cn/favicon.ico', '创业点子');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (621, 'https://git-scm.com/favicon.ico', 'Git');
@@ -699,7 +724,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (665, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (666, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', 'Git简易指南');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (667, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', 'HCM-Test');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (668, 'https://cdn.labs.topbook.cc/icon.png', '高效生活视频书');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (669, 'https://matters.news/_next/static/images/favicon-32x32-ebe87c1331e8f38768ca2f94791768aa.png', 'Matters');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (669, 'https://assets-next.matters.news/_next/static/media/favicon-32x32.5e03b2c1.png', 'Matters');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (670, '//img.alicdn.com/tfs/TB1v_SfxCzqK1RjSZFLXXcn2XXa-50-50.png', 'Bizcharts');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (671, 'http://www.coursade.com/media/favicon.png', 'Coursade');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (672, 'https://i2.wp.com/mactorrents.co/wp-content/uploads/2019/02/fruity-apple-mac-icons-4.png?fit=32%2C32&ssl=1', 'MacTorrent');
@@ -739,12 +764,12 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (705, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (706, 'https://iao.su/favicon.ico', '不死鸟');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (707, 'https://wanqu.co/static/images/wanqu/favicons/favicon-32x32.png', '湾区日报');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (708, 'https://www.jiqizhixin.com/favicon.ico', '机器之心');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (709, 'http://www.atoolbox.net/favicon.ico', '一个工具箱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (709, 'http://www.atoolbox.net/images/icons/apple-touch-icon-76x76.png', '一个工具箱');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (710, 'https://oss.love2.io/static/favicon.ico', 'Love2');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (711, 'http://microsculpture.net/favicon.ico', '昆 虫');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (712, 'http://111.205.102.251:8090/favicon.ico', '中少绘本');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (713, 'https://gridea.dev/gridea.ico', 'Gridea');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (714, 'https://www.hiyd.com/favicon.ico', '食物库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (713, 'https://gridea.dev/favicon.ico', 'Gridea');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (714, 'https://shiwuchengfen.com/favicon.ico', '食物库');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (715, 'http://www.phsciencedata.cn/favicon.ico', '食物数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (716, 'https://schrodinger.github.io/fixed-data-table-2/images/favicon-b4fca2450cb5aa407a2e106f42a92838.png', 'FixedTable');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (717, 'https://www.fa123.com/favicon-pc.ico', '法律导航');
@@ -752,7 +777,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (718, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (719, 'https://www.woodo.cn/favicon.ico', '吾 道');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (720, 'https://img.jokerps.com/wp-content/uploads/2019/05/cropped-未标题-7-1-32x32.jpg', '鹏少资源网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (721, 'https://zsxwz.com/wp-content/uploads/2019/03/cropped-2994b07591407a74a490f13e13c1dc95-2-32x32.png', '姿势小王子');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (722, 'https://wheremylife.cn/homepage/images/wheremylife.ico', 'SubRss');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (722, 'https://wheremylife.cn/fivacon.ico', 'SubRss');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (723, 'https://myslide.cn/favicon-196x196.png', 'MySlide');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (724, 'https://static.mezw.com/so_v2/favicon.ico', '聚合搜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (725, 'https://file.ipadown.com/tophub/assets/images/favicon/favicon-32x32.png', '今日热榜');
@@ -784,7 +809,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (750, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (751, 'https://handbook.jiqizhixin.com/favicon.ico', 'AI商用搜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (752, 'https://bbs.pinggu.org/favicon.ico', '人大经济');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (753, 'https://www.haidilao.com/favicon.ico', '海底捞');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (754, 'https://qiniu.macxin.com/wp-content/uploads/2018/01/cropped-newlogo.png?imageView2/1/w/192/h/192/interlace/1/q/75#', '萌新网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (754, 'https://www.macxin.com/wp-content/uploads/2018/01/cropped-newlogo-180x180.png', '萌新网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (755, 'http://ssr.bingly.cn/favicon.ico', '冰灵酸酸乳');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (756, 'https://www.fxbaogao.com/favicon.ico', '发现报告');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (757, 'https://pos.haidilao.com/favicon.ico', 'PCM');
@@ -803,8 +828,8 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (769, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (770, 'https://foodsaid.com/sites/default/files/Torrenz%20favicon.png', '食品之声');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (771, 'https://www.cnblogs.com/favicon.ico', '省市经纬度');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (772, 'https://www.mapbox.com/favicon.ico', 'Mapbox');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (773, 'https://vpn.haidilao.com/por/images/vpn.ico', 'OA系统');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (774, 'https://www.fxbaogao.com/favicon.ico', '发现报告');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (773, 'https://oa.haidilao.com/favicon.ico', 'OA系统');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (774, 'https://static.fxbaogao.com/pub/img/logo/fxbaogao/favicon.ico', '发现报告');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (775, 'http://wk.askci.com/favicon.ico', '前言报告');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (776, 'https://www.ctrip.com/favicon.ico', '携 程');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (777, 'http://ipoipo.cn/zb_users/theme/suiranx_news/image/favicon.ico', '并购家');
@@ -812,7 +837,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (778, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (779, 'http://haidilao.sy.foodvip.net/favicon.ico', '安全信息');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (780, 'https://www.huabaike.com/favicon.ico', '花百科');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (781, 'http://zhyy.haidilao.com/favicon.ico', '创新平台');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (782, 'http://down.foodmate.net/favicon.ico', '食品标准');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (782, 'http://img.foodmate.net/favicon.ico', '食品标准');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (783, 'https://picobd.yunxuetang.cn/sys/17610786768/images/201807/15bdac32df944505be6cc2e4f1a98126.ico', '海 大');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (784, 'https://www.jiemodui.com/favicon.ico', '芥末推');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (785, 'https://cn.kantar.com/favicon.ico', '凯度观察');
@@ -820,7 +845,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (786, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (787, '//static.hd.weibo.com/weiboalk30/static/pc/img/favicon.ico', '营销案例');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (788, 'http://www.mid2007.com/favicon.ico', '传媒作品');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (789, 'https://edu.tencentads.com/images/favicon.ico', '腾讯实验室');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (790, 'https://www.zizaifan.com/favicon.ico', '自在饭');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (790, 'https://img.haohome.top/uPic/blankico.jpg', '自在饭');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (791, 'http://m.iptv206.com/favicon.ico', 'IPTV');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (792, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '药剂圈');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (793, 'http://jiema.tech/favicon.ico', '免费接码');
@@ -838,7 +863,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (804, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (805, 'https://toobigdata.com/images/favicon-32x32.png', 'TooBigData');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (806, 'https://data.beijing.gov.cn/favicon.ico', '北京数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (807, 'https://cnd.bukebook.cn/wp-content/uploads/2019/02/微信图片_20190131102325.jpg', '布克书屋');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (808, 'https://www.timeforkids.com/favicon.ico', 'TimeForKid');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (808, 'https://www.timeforkids.com/wp-content/uploads/2021/06/cropped-RosieFavicon.png', 'TimeForKid');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (809, 'https://www.ceicdata.com/themes/ceicdata/images/touch-icons/icon60.png', 'CEIC');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (810, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '安安网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (811, 'https://foxss.me/favicon.ico', '阿狸云加速');
@@ -863,14 +888,14 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (829, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (830, 'https://www.urlgot.cn/static/favicon.ico', '视频下载');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (831, 'http://www.gridsum.com/favicon.ico', '国双报告');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (832, 'https://www.mcmod.cn/images/favicon.ico', 'MC百科');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (833, 'https://www.baidu.com/favicon.ico', '百度营销');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (833, 'https://cpdfe.cdn.bcebos.com/favicon.ico', '百度营销');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (834, '//awp-assets.meituan.net/dianpinged-f2e/new-marketing-analysis/favicon.png', '经营有数');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (835, 'http://www.sstir.cn/favicon.ico', '上海科创');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (836, 'http://www.chinese-learning.cn/dist/static/images/favicon.ico', '全球中文');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (837, 'https://new.shuge.org/wp-content/uploads/2018/06/shugeorg-icon.png', '书 格');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (838, 'http://www.dzkbw.com/favicon.ico', '电子课本');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (839, 'https://www.ghpym.com/favicon.ico', '果核剥壳');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (840, 'https://www.foodbevdaily.com/assets/img/favicon.png', '食品微刊');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (840, 'https://www.foodbevdaily.com/favicon.ico', '食品微刊');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (841, 'http://azreader.net/favicon.ico', 'AZReader');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (842, 'http://www.jintiankansha.me/favicon.ico', '今天看啥');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (843, 'https://huginn.cn/wp-content/uploads/2019/01/logo.png', 'Huginn');
@@ -883,7 +908,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (849, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (850, 'https://rss.anyant.com/favicon.png', '蚁 阅');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (851, 'https://kz.sync163.com/web/favicon.png', '快 知');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (852, 'https://geph.io/favicon.ico', '迷雾通');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (853, 'http://www.chaonengsou.com/./source/pan.png', '超能搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (853, 'http://www.chaonengsou.com/favicon.ico', '超能搜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (854, 'https://www.ershicimi.com/favicon.ico', '二十次幂');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (855, 'https://www.wjx.cn/favicon.ico', '问卷星');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (856, 'https://www.teambition.com/favicon.ico', 'Team');
@@ -898,7 +923,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (864, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (865, 'https://blog.idc.moe/favicon.ico', '落樱博客');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (866, 'http://www.axios-js.com/icon/apple-touch-icon-72x72.png', 'Axios');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (867, 'https://cmacapps.com/wp-content/uploads/fbrfg/favicon-32x32.png', 'TNT Team');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (868, 'http://mac-torrent-download.net/apple-touch-icon.png', 'TNT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (868, 'https://www.tntteam.top/wp-content/uploads/2022/06/tnt.png', 'TNT');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (869, 'https://zh.pickfrom.net/favicon.ico', 'PickForm');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (870, 'https://www.caixin.com/favicon.ico', '财新网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (871, 'https://panjiachen.gitee.io/vue-element-admin-site/favicon.ico', 'vue-adming');
@@ -912,7 +937,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (878, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (879, 'http://www.mob.com/favicon.ico', 'Mob研究院');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (880, 'https://shop.dreamspark.ac.cn/favicon.ico', 'Onedrive');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (881, 'https://ae01.alicdn.com/kf/H68219444f65c480cac20621cedb59490Z.png', '羊王 の 分享站');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (882, 'https://pincong.rocks/favicon.ico', '新· 品葱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (882, 'https://telegra.ph/file/c6108ae9daee666d70a46.jpg', '新· 品葱');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (883, 'https://www.imacso.com/static/favicon.ico', '麦氪搜');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (884, 'https://zh.telegramindex.com/assets/favicon.ico', '电报统计');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (885, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', 'YouTube镜像');
@@ -924,7 +949,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (890, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (891, 'https://aom.monster/favicon.ico', 'AuCloud');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (892, 'https://ibookin-1252237247.cos.ap-shanghai.myqcloud.com/icon.png', '盗版书下载');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (893, 'http://test-hdl-internationalization.hhtdev.com/favicon.ico', '测 试');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (894, 'http://tool2.cn/icon/favicon.png', '兔二工具');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (894, 'http://tool2.cn/assets/icon/favicon.png', '兔二工具');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (895, 'https://www.iphonecake.com/favicon.ico', 'IOSCake');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (896, 'https://www.photopea.com/promo/thumb256.png', '在线PS');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (897, 'https://music.yeie.net/favicon.ico', '老D音乐');
@@ -934,8 +959,8 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (900, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (901, 'https://minghuaji.dpm.org.cn/images/favicon.ico', '故宫名画记');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (902, 'http://51otech.com/favicon.ico', '技术元');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (903, 'https://www.edityouraudio.com/favicon.ico', '移除人音');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (904, 'https://echarts.apache.org/favicon.ico', 'Echarts');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (905, 'https://www.haidilao.com/eportal/imageDir/haidilao/2019/07/2019071509194486593.ico', '分析平台');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (904, 'https://echarts.apache.org/zh/images/favicon.png?_v_=20200710_1', 'Echarts');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (905, 'https://www.haidilao.com/favicon.ico', '分析平台');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (906, 'http://meijuxingqiu.com/favicon.ico', '美剧星球');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (907, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '油猴API');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (908, 'http://3.136.108.22:8888/static/favicon.ico', '小蜜蜂面板');
@@ -954,23 +979,23 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (920, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (921, 'https://xz.cakeba.cn/favicon.ico', '节点分享');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (922, 'https://raw.githubusercontent.com/yifoo/img-cloud/master/img/blankico.jpg', '转二维码');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (923, 'https://www.btmoo.com/img/favicon.png', '磁力搜索');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (924, 'https://yixiuer.me/favicon.ico', '一休儿');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (924, 'https://yixiuer.me/icons/safari-pinned-tab.svg', '一休儿');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (925, 'https://www.semanticscholar.org/img/favicon.png', '开放学术');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (926, 'https://wzfou.cdn.bcebos.com/wp-content/uploads/2018/07/cropped-wzfoulogo-32x32.png', 'cdn');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (927, 'http://data.163.com/favicon.ico', '网易数读');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (928, 'http://www.youserials.com/favicon.ico', '注册码');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (929, 'https://www.medrxiv.org/sites/default/files/images/favicon.ico', 'Medrxiv');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (930, 'https://static.arxiv.org/static/browse/0.2.9/images/icons/favicon.ico', 'arXiv');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (930, 'https://static.arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png', 'arXiv');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (931, 'http://www.wenbor.net/favicon.ico', '文博研习社');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (932, 'https://www.dutype.com/uploads/default/original/1X/7ca40f80290632d821e7a39fe7c782dae438b65e.png', '独唱者');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (933, 'http://www.shigeku.org/favicon.ico', '中国诗歌库');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (934, 'https://www.dupanso.com/favicon.ico', '盘百度');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (935, 'https://shuziyimin.org/favicon.ico', '数字移民');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (935, 'https://www.shuziyimin.org/assets/images/favicon.png', '数字移民');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (936, 'https://typlog.com/favicon.ico', '中文独立博客');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (937, 'https://img.haohome.top/uPic/blankico.jpg', '腾讯大家');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (938, 'https://orgasmsoundlibrary.com/images/common/favicon.ico', '呻吟');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (939, 'https://www.bt.cn/favicon.ico', '宝塔SSL');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (940, 'http://118.25.137.56/favicon.ico', '靖风行面板');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (940, 'https://bt.haohome.top/favicon.ico', '靖风行面板');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (941, 'https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_64,w_64,q_auto/1389536/logonew19xiu_ilsgtq.png', 'Macenjoy');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (942, 'https://mubu.com/favicon.ico', '学习收藏');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (943, 'https://vis.baidu.com/favicon.ico', 'Echarts');
@@ -990,7 +1015,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (956, 'https:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (957, 'https://www.ixl.com/ixl-favicon.png', 'IXL');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (958, 'https://app.flourish.studio/favicon.ico', 'Flour图表');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (959, 'https://m0.mail.sina.com.cn/favicon.ico', '新浪邮箱');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (960, 'https://www.deepl.com/img/favicon/favicon_96.png', 'DeepL翻译');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (960, 'https://static.deepl.com/img/favicon/favicon_32.png', 'DeepL翻译');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (961, 'https://tmioe.com/favicon.ico', '杂铺');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (962, 'https://www.uzaobao.com/favicon.ico', '联合早报');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (963, 'https://www.dw.com/favicon.png', '德国之声');
@@ -1012,7 +1037,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (978, 'http:/
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (979, 'http://gjj.beijing.gov.cn/web/uiFramework/commonResource/zip/bitbug_favicon/bitbug_favicon.ico', '公积金');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (980, 'https://www.wenjuan.com/favicon.ico', '问卷网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (981, 'https://taro-docs.jd.com/taro/img/favicon.ico', 'Taro');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (982, 'https://pan.haohome.top/static/img/favicon.ico', '靖网盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (982, 'https://www.haohome.top/img/favicon64.ico', '靖网盘');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (983, 'https://photos.google.com/favicon.ico', '谷歌相片');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (984, 'http://www.kejilie.com/img/logom.png', '科技猎');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (985, 'https://img.haohome.top/uPic/blankico.jpg', '环球食品');
@@ -1079,7 +1104,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1045, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1046, 'http://u.jiqid.com/favicon.ico', '米兔上传');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1047, 'https://img.haohome.top/uPic/blankico.jpg', '米小兔');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1048, 'https://www.crrc.com.cn/favicon.ico', '首医大');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1049, 'http://dydata.io/static/dist/images/icon/favicon.ico', '镝数聚');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1049, 'https://img1.dydata.io/static/images/icon/favicon.ico', '镝数聚');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1050, 'https://www.bookmarkearth.com/media/img/logo/favicon.ico', '书签地球');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1051, 'http://tuzhidian.com/static/favicon.ico', '图之典');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1052, 'https://ebook.huzerui.com/website/favicon.ico', '熊猫搜书');
@@ -1128,9 +1153,9 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1094, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1095, 'http://www.nejmqianyan.cn/files/images/favicon1.ico', '医学前沿');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1096, 'https://yixueshu.gitee.io/favicon.ico', '医学电子书');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1097, 'https://scienceasdf.gitee.io/favicon.ico', 'DOI/ISBN');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1098, 'https://www.bioon.com/favicon.ico', '生物谷');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1098, 'https://msimg.bioon.com/bioon-com/favicon.ico?v=1', '生物谷');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1099, 'https://ifish.fun/img/fish.png', 'Sci-Hub');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1100, 'https://mail.163.com/favicon.ico', '126邮箱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1100, 'https://mail.126.com/apple-touch-icon-120x120.png', '126邮箱');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1101, 'https://www.hundun.cn/favicon.ico', '混沌大学');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1102, 'https://kns-cnki-net-s.webvpn.bjmu.edu.cn/apple-touch-icon.png', '北大知网');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1103, 'https://webvpn.fudan.edu.cn/favicon.ico', '复旦知网');
@@ -1141,14 +1166,14 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1107, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1108, 'https://focusapp.ink/favicon.ico', '专注笔记');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1109, 'https://img.haohome.top/uPic/blankico.jpg', '萌萌家');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1110, 'https://www.ezhangongxiang.com/favicon.ico', 'E站共享');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1111, 'https://www.huxiu.com/favicon.ico', '虎 嗅');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1111, 'https://www.huxiu.com/public/logo-120.png', '虎 嗅');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1112, 'https://jpghd.com/htdocs/favicon.ico', 'AI图高清');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1113, 'https://notion.cx/favicon.ico', 'Notion中文');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1114, 'https://www.pmcaff.com/static/img/Icon_512.png', 'Pmcaff');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1115, 'https://img.haohome.top/uPic/blankico.jpg', 'Cake');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1116, '//sce6a1b4c0d1ni-sb-qn.qiqiuyun.net/files/system/2020/05-21/10430594f04d538466.png', '口碑大学');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1117, 'https://www.guandata.com/static/favicon.ico', '观远数据');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1118, 'http://www.mzdata.top/img/apple-touch-icon.png', '明之数据');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1117, 'https://guandata-official-website.oss-cn-hangzhou.aliyuncs.com/assets/favicon.ico', '观远数据');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1118, 'https://record.mzdata.top/uc/favicon.ico', '明之数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1119, 'https://img.alicdn.com/tfs/TB1_ZXuNcfpK1RjSZFOXXa6nFXa-32-32.ico', '宜搭');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1120, 'https://easyai.tech/wp-content/uploads/2019/01/cropped-ai-icon-32x32.png', '人工智能');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1121, 'http://www.cnit-research.com/favicon.ico', 'IT研究中心');
@@ -1162,18 +1187,18 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1128, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1129, 'https://www.pmdaniu.com/favicon.png', '产品大牛');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1130, 'https://www.xiaolvpai.com/favicon.ico', '效率派');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1131, 'https://dartools.com/wp-content/uploads/2020/11/slogo.png', '工具达人');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1132, 'http://xuexinxs.ys168.com/favicon.ico', '薛信的资料室');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1132, 'https://i.sevencdn.com/favicon/http://xuexinxs.ys168.com', '薛信的资料室');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1133, 'https://i.advos.cn/static/images/i_logo_sm.png', '小I独立');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1134, 'https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico', 'Neo图数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1135, 'https://res.oodcd.cn/zhi/mlogo.png', '毕方铺');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1136, 'https://www.xiaomapan.com/favicon.ico', '小马盘');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1137, 'https://ionego.net/wp-content/uploads/2021/09/logo.png', 'OneGo');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1138, 'https://img.haohome.top/uPic/blankico.jpg', 'Noiseyp');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1138, 'https://jsd.cdn.noisework.cn/gh/rcy1314/tuchuang@main/20230905/85.4gohc2fzoro0.jpg', 'Noiseyp');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1139, 'https://noisevip.cn/./2022/04/1649887970-db8925f08947de7.ico', 'Noisevip');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1140, 'https://xxxmmm.club/favicon.ico', '黑料不打烊');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1141, 'https://imyshare.com/favicon.ico', '音乐app');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1142, 'https://www.lifves.com/favicon.ico', '期刊杂志');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1143, 'http://www.giaoshou.com/Content/images/favicon.ico', '怪叫兽');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1143, 'https://www.giaoshou.com/favicon.ico', '怪叫兽');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1144, 'https://xinquji.com/favicon.ico', '新趣集');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1145, 'https://salaryfly.com/favicon.ico', 'Salaryfly');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1146, 'http://lovezhihu.com/static/images/logo.png', '爱知乎');
@@ -1190,7 +1215,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1156, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1157, 'http://haidilao.dzbxk.com/favicon.ico', 'ESM能耗');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1158, 'https://img.haohome.top/uPic/blankico.jpg', '马建军大学');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1159, 'https://www.scratch-cn.cn/img/favicon.ico', 'Scratch中国');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1160, 'https://www.treelab.com.cn/r/static/images/favicon-light.ico', 'Treelab');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1160, 'https://cn.treelab.com/static/images/favicon-light.ico', 'Treelab');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1161, 'https://dsxys.com/favicon.ico', '大师兄');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1162, 'https://testpos.hdltest.com/favicon.ico', '测试PCM');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1163, 'http://www.aiwanzn.com/favicon.ico', '艾玩智能');
@@ -1214,7 +1239,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1180, 'http:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1181, 'https://www.shanshu.ai/assets/img/favicon.ico', '杉数科技');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1182, 'https://www.sensorsdata.cn/favicon.ico', '神策数据');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1183, 'http://haina.shuhaisc.com/favicon.ico', '蜀海百川');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1184, 'https://g.alicdn.com/aliyun-drive-fe/h5-main/0.0.8/favicon.ico', '阿里云盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1184, 'https://img.alicdn.com/imgextra/i1/O1CN01JDQCi21Dc8EfbRwvF_!!6000000000236-73-tps-64-64.ico', '阿里云盘');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1185, 'https://s1.wp.com/i/favicon.ico', '英文文献');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1186, 'https://www.haidilao.com/eportal/imageDir/haidilao/2019/07/2019071509194486593.ico', '云端标签');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1187, 'https://tv.syrme.top/favicon.ico', '简影');
@@ -1236,11 +1261,11 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1202, 'http:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1203, 'https://music.liumingye.cn/favicon.ico', 'MyFree');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1204, 'https://music.postgraduate.top/favicon.ico', 'Online');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1205, 'http://static.ibimawen.com/favicon.ico', '歌曲大全');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1206, 'https://tonzhon.com/favicon2.ico', '铜钟音乐');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1207, 'https://flac.life/favicon.png', '无损生活');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1206, 'https://dist.tonzhon.com/favicon.ico', '铜钟音乐');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1207, 'https://flac.life/img/logo.png', '无损生活');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1208, 'https://img.haohome.top/uPic/blankico.jpg', '抖音解析');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1209, 'https://shp.qpic.cn/collector/1523230910/10d6b04e-e7a8-4db1-92ae-5b53518ab9f8/0', 'YYDS电影');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1210, 'https://polebrief.com/favicon.ico', '极简历');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1210, 'https://www.polebrief.com/favicon.ico', '极简历');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1211, 'http://hodo.qv0.top/favicon.ico', '会员优惠');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1212, 'https://wechat.privacyhide.com/favicon.ico', '微信');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1213, 'http://www.musictool.top/static/img/apple-touch-icon.png', '音乐搜索器');
@@ -1288,24 +1313,24 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1255, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1256, 'http://xy1314.xyz/favicon.ico', '华源API');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1257, 'https://api.lxurl.net/favicon.ico', '绿夏API');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1258, 'https://api.vvhan.com/favicon.ico', '韩小韩');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1259, 'http://www.hellokittycn.com/favicon.ico', 'PMP专家');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1259, 'https://img.haohome.top/uPic/blankico.jpg', 'PMP专家');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1260, 'https://www.hailuomaifang.com/static/favicon.png', '小房圈');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1261, 'https://www.everphoto.cn/favicon.ico', '时光相册');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1262, 'https://xkczb.jtw.beijing.gov.cn/favicon.ico', '北京汽车');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1263, 'https://jx.mmkv.cn/favicon.ico', '七哥');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1264, 'http://39.106.183.132:8083/favicon.ico', '智慧智慧产品');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1264, 'https://ipms.haidilao.com/favicon.ico', '智慧智慧产品');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1265, 'https://www.jianguoyun.com/favicon.ico', '坚果云');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1266, 'http://remote.chinapm.org/favicon.ico', 'PMP');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1267, 'https://www.usroid.com/favicon.ico', 'USroid');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1268, 'https://vipapk.org/favicon.ico', 'VipApk');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1268, 'https://cdn.apkhops.com/wp-content/uploads/2019/09/fav1.png', 'VipApk');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1269, 'https://www.dianbo.org/favicon.ico', '批量整理照片');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1270, 'https://apkcombo.com/favicon.ico', 'ApkCombo');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1271, 'https://gpx-poi.com/favicon.ico', 'GPX');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1272, 'http://mygeoposition.com/favicon.ico', 'MyGeo');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1273, 'https://ednovas.xyz/favicon.ico', '白嫖VPS');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1274, 'https://teracloud.jp/favicon.ico', 'Tera云盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1274, 'https://teracloud.jp/favicon.png', 'Tera云盘');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1275, 'https://chenjin5.com/favicon.ico', '沉金书屋');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1276, 'https://appstorrent.ru/favicon.ico', 'TNT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1276, 'http://wangchujiang.com/awesome-mac/favicon.ico', 'TNT');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1277, 'https://wechat2rss.xlab.app/favicon.ico', '公众号');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1278, 'https://vip.bljiex.cc/favicon.ico', 'bL白嫖');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1279, 'https://lzpan.com/favicon.ico', '懒盘搜');
@@ -1328,7 +1353,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1295, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1296, 'https://www.west.cn/favicon.ico', '西部数码');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1297, 'https://www.xinjuc.com/wp-content/uploads/2021/12/logo1.png', '新剧场');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1298, 'https://www.getmonero.cc/view/img/favicon.ico', '电子书');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1299, 'https://www.saasruanjian.com/static/css/rating/img/favicon.ico?v=20210316', 'SaaS点评');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1299, 'https://www.saasruanjian.com/favicon.ico', 'SaaS点评');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1300, 'https://cloud.yuedu.pro/favicon.ico', '阅读链');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1301, 'https://www.geenmedical.com/favicon.ico', '根哥学术');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1303, 'https://www.ftlib.cn/webfile/favicon.ico', '丰台图书馆');
@@ -1336,8 +1361,8 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1304, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1305, 'https://lf-cdn-tos.bytescm.com/obj/static/shiqu/favicon_new.png', '识区');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1306, 'https://yinrss.com/favicon.ico', '隐订阅');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1307, 'https://www.macdo.cn/wp-content/uploads/2021/08/6464.png', 'Mac毒');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1308, 'https://cdn.allflow.cn/assets/_next/static/media/logo.87039949.png', 'FlowUs');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1309, 'https://nbcharts.com/favicon.ico', 'NB Map');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1308, 'https://cdn2.flowus.cn/assets/_next/static/media/favicon.0c45c594.png', 'FlowUs');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1309, 'https://nbcharts.com//images/favicon.ico', 'NB Map');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1310, 'http://www.qijishow.com/img/ico.ico', '奇迹秀');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1311, 'https://macbang.net/favicon.ico', 'Mac帮');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1312, 'http://www.jieyoutsg.com/favicon.ico', '解忧图书馆');
@@ -1349,7 +1374,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1317, 'http:
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1318, 'https://www.gwdang.com/favicon.ico', '购物党');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1319, 'https://qingtu.cn/static/images/icon.png', '清图');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1320, 'http://172.20.201.145/favicon.ico', 'UAT');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1321, 'https://www.mac8k.com/favicon.ico', 'Mac8K');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1321, 'https://1475031.s21i.faiusr.com/5/1/ABUIABAFGAAg9Y_W-QUoiM-7vAUwgAI4gAI.ico', 'Mac8K');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1322, 'https://money.163.com/favicon.ico', '网易成本控');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1323, 'https://fofa.info/favicon.ico', 'Fofa');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1324, 'https://ankimemory.com/favicon.ico', 'Anki');
@@ -1359,9 +1384,9 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1327, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1328, 'https://zh.1lib.to/favicon-32x32.svg?v=2', 'Z-library');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1329, 'https://raw.githubusercontent.com/Evil0ctal/Douyin_TikTok_Download_API/main/favicon/android-chrome-512x512.png', '抖音解析');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1330, 'https://support.apple.com/favicon.ico', 'Catalina');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1331, 'https://al.chirmyram.com/favicon.ico', 'Alist');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1331, 'https://alist.nn.ci/favicon.ico', 'Alist');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1332, 'https://item.guidebook.top/favicon.ico', '谷歌学术');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1333, 'https://yyets.dmesg.app/favicon.ico', '人人影视');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1333, 'https://yyets.click/svg/logo.svg', '人人影视');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1334, 'https://downloads.mysql.com/favicon.ico', 'MySQL下载');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1335, 'https://mirrors.huaweicloud.com/favicon.ico', 'Git_Mac');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1336, 'https://repo.huaweicloud.com/favicon.ico', 'Git_win');
@@ -1397,7 +1422,7 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1365, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1366, 'https://www.datastory.com.cn/favicon.ico', 'DataStory');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1367, 'https://img.kaikeba.com/a/82815192501202xocl.ico', '案例拆解');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1368, 'https://www.hongruimy.com/favicon.ico', '鸿瑞网');
-INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1369, 'https://52laoba.xyz/favicon.ico', '老八机场');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1369, 'https://balink.buzz/favicon.ico', '老八机场');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1370, 'http://analysis.kiwa-tech.com:8105/favicon.ico', '神策分析');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1371, 'https://ip125.com/favicon.ico', 'IP125');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1372, 'http://www.767stock.com/favicon.ico', '乐睛智库');
@@ -1413,6 +1438,507 @@ INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1381, 'https
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1382, 'http://sinonavi.dahailaozhen.cn/favicon.ico', '文学研究');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1383, 'http://www.theses.fr/img/favicon.png', 'theses');
 INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1384, 'https://web.dudianji.com/icon/favicon.ico', '读典籍');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1385, 'https://pro.ant.design/favicon.ico', 'Antd-Pro');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1386, 'https://www.library.ac.cn/favicon.ico', '镜像库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1387, 'http://www.wenqujingdian.com/favicon.ico', '文曲经典');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1388, 'https://ifree8.com/upload/2021/10/ifree8.com_favicon-80123cccf273484c999bb2943b20a945.ico', '知识船舱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1389, 'http://zscc.ysepan.com/favicon.ico', '知识船舱盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1390, 'https://firefly.libertynlp.com/firefly.png', '萤火虫文献');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1391, 'https://shuyi.shenmezhidedu.com/wp-content/uploads/2021/10/fco.png', '书易');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1392, 'https://adzhp.xyz/wp-content/uploads/2020/02/A-win.ico', '爱达杂货铺');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1393, 'https://a.poki.com/icons/fav-512.png', '在线游戏');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1394, 'https://www.tboxn.com/wp-content/uploads/2022/03/cropped-tboxlogo512-32x32.png', 'Tbox导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1395, 'https://www.maoken.com/favicon.ico', '猫啃网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1396, 'https://www.zijia.com.cn/favicon.ico', '字加');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1397, 'https://www.foundertype.com/favicon.ico', '方正字体');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1398, 'https://searx.space/favicon.ico', 'Searx');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1399, 'https://procomponents.ant.design/favicon.ico', 'antd-pro');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1400, 'https://www.bj-xinghe.com/wp-content/uploads/2020/08/cropped-xh-6-3-32x32.jpg', '元景社区');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1401, 'https://www.314dt.com/wp-content/uploads/2020/11/cropped-logo1-32x32.png', '派数据');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1402, 'http://wanrenmi8.com/assets/images/1.png', '万人迷');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1403, 'https://tuostudy.com/favicon.ico', '图欧资源');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1404, 'https://115.com/favicon.ico', '115网盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1405, 'https://zh.z-lib.org/favicon-32x32.svg?v=2', 'Z-library');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1406, 'https://www.oalib.com/favicon.ico', 'OpenLib');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1407, 'https://apps.automeris.io/wpd/favicon.ico', '量尺图片');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1408, 'https://heipog.xyz/favicon.ico', '小白云');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1409, 'https://www.weihengag.com/favicon.ico', '农小蜜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1410, 'https://www.foodtalks.cn/favicon.ico', 'FoodTalk');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1411, 'https://accesspath-com-1252517293.cos.ap-nanjing.myqcloud.com/2023/04/favicon-2.png', '前途科技');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1412, 'http://www.scitranslate.com/favicon.ico', 'SCI翻译');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1413, 'https://www.pubu.com.tw/apple-touch-icon-57x57.png', '台湾电子书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1414, 'https://www.growthhk.cn/wp-content/uploads/bitbug_favicon.ico', '增长黑客');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1415, 'https://dlweb.sogoucdn.com/translate/favicon.ico', '搜狗翻译');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1416, 'http://std.samr.gov.cn/favicon.ico', '标准信息');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1417, 'https://www.panyoubbs.com/favicon.ico', '盘友');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1418, 'https://www.549.tv/favicon.ico', '影视森林');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1419, 'https://www.mktindex.com/favicon.ico', '魔镜报告');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1420, 'https://mat1.gtimg.com/qqcdn/qqindex2021/favicon.ico', '儿研所');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1421, 'https://juyanbao.com.cn/favicon.ico', '聚研宝');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1422, 'https://www.weiciyun.com/img/weiciyun.ico', '微词云');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1423, 'https://www.ifresh1688.com/img/favicon.ico', '快肴网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1424, 'https://ping.pe/favicon.ico', 'Ping');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1425, 'https://2dogz.cn/static/favicon.png', '唐诗宋词');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1426, 'https://img.haohome.top/uPic/blankico.jpg', '中华文化');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1427, 'https://acec.cloud/favicon.ico', 'ACEC');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1428, 'https://www.fineyin.com/favicon.ico', 'Fineyin');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1429, 'https://doc.opit.top/logo.png', 'openit');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1430, 'https://betteruptime.com/assets/status_pages/operational_small-da9ff2fc30b3886ee7a3c8f15a12c3e9d33658fafbd6b2a3759c5bfe2a47c90b.png', 'NotionFaster');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1431, 'https://v.flomoapp.com/img/icons/apple-touch-icon-60x60.png', 'Flomo');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1432, 'https://biji.ci/favicon.ico', '笔记词');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1433, 'https://cnkgraph.com/favicon.ico', '知识图谱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1434, 'https://www.7ed.net/_images/favicon.svg', '7ED');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1435, 'https://aadcdn.msftauth.net/shared/1.0/content/images/favicon_a_eupayfgghqiai7k9sol6lg2.ico', 'loveOnedrive');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1436, 'https://app.mover.io/img/favicon-mover.png', 'Mover');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1437, 'https://www.tgsql.com/favicon.ico', '电报');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1438, 'https://www.miaook.com/favicon.ico', '秒卡信息');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1439, 'https://www.emojiall.com/favicon.ico', 'Emoji中文');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1440, 'https://static.runoob.com/images/c-runoob-logo.ico', '正则');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1441, 'https://ahooks.gitee.io/simple-logo.svg', 'Hooks');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1442, 'https://www.s5t.com/logo.png', '搜网通');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1443, 'https://momoyu.cc/favicon16.ico', '摸鱼热榜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1444, 'https://avatars0.githubusercontent.com/u/34258355?s=460&u=eb0a1ce09dd045532464cb42f020e8ba1d025b6c&v=4', 'logseq');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1445, 'https://modyolo.com/wp-content/uploads/2021/09/modyolo-1-150x150.png', 'ModYolo');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1446, 'https://www.crxsoso.com/favicon-32x32.png', 'Crxsoso');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1447, 'https://www.shenyandayi.com/favicon.ico', '据意查句');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1448, 'https://www.wiki-hao.xyz/img/favicon.ico', '数字花园');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1449, 'https://www.listennotes.com/favicon.ico', '播客搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1450, 'https://xyzrank.justinbot.com/public/favicon.png', '播客榜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1451, 'http://up.caup.net/guihuayun/moban/img/apple-touch-icon.png', '规划云');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1452, 'https://www.visualdatatools.com/favicon.ico', 'DataGraph');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1453, 'http://web.jshcsoft.com/favicon.ico', '江苏消保委');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1454, 'https://meow.tg/favicon.ico', 'MeowTg');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1455, 'http://www.chinafactcheck.com/wp-content/themes/youju/assets/57_icon.jpg', '有据');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1456, 'https://ys.endata.cn/favicon.ico', '艺恩娱数');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1457, 'https://www.hongheiku.com/favicon.ico', '红黑人口库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1458, 'https://pc.meitu.com/_next/static/media/favicon.88867287.ico', '美图秀秀');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1459, 'https://app.mockplus.cn/favicon.ico', '摹客');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1460, 'https://www.google.com/chrome/static/images/favicons/android-icon-48x48.png', 'ChromeStore');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1461, 'http://m.btbpfst.cn/favicon.ico', '萌萌家');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1462, 'https://www.noisework.cn/assets/favicon.png', 'Noise导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1463, 'http://caibaoshuo.com/favicon.ico', '财报说');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1464, 'https://liuyan.people.com.cn/favicon.ico', '领导留言板');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1465, 'http://www.qctvip.com/favicon.ico', '全厨通');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1466, 'http://www.aimok.cn/favicon.ico', '艾默柯');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1467, 'https://www.acwifi.net/favicon.ico', '路由器');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1468, 'https://www.yebaike.com/skin/default/images/favicon.ico', '业百科');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1469, 'https://melody.shop.ele.me/favicon.ico', '饿了么商家');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1470, 'https://www.ghxi.com/favicon.ico', '果核剥壳');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1471, 'https://www.torrentmac.net/favicon.ico', 'MacTorrent');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1472, 'https://www.67tool.com/favicon.ico', '即时工具');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1473, 'https://www.gaodimusic.com/images/favicon.ico', '高地音乐');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1474, 'https://www.huijiala.com/wp-content/uploads/2022/09/2022090314382511.png', '回家啦');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1475, 'https://tg.qianfan.app/favicon.ico', '千帆搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1476, 'https://www.fx361.com/favicon.ico', '参考网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1477, 'http://easywork.center/favicon.ico', '');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1478, 'https://scm-blog.com/favicon.ico', '供应链管理');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1479, 'https://www.logclub.com/public/favicon.ico', '罗戈网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1480, 'https://qa.cnki.net/web/favicon.ico', '随问');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1481, 'https://ipa.decrypt.day/favicon.ico', 'IPA');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1482, 'https://bbs.yibook.org/favicon.ico', '易书论坛');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1483, 'https://www.decohack.com/wp-content/uploads/2022/03/13113516251.png', '产品周刊');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1484, 'https://www.youdananli.com/favicon.ico', '案例有蛋');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1485, 'https://drive.haohome.top/favicon.ico', '云盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1486, 'https://npmmirror.com/favicon.ico', '淘宝镜像');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1487, 'http://www.canyin168.com/favicon.ico', '职业餐饮网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1488, 'http://www.midwayjs.org/img/logo.svg', 'Midway');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1489, 'https://admin.cool-js.com/logo.png', 'Cool');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1490, 'https://typeorm.biunav.com/images/favicon.ico', 'Typeorg');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1491, 'https://element-plus.gitee.io/images/element-plus-logo-small.svg', 'element-plus');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1492, 'https://xn--ehq00hgtfdmt.xyz/theme/Bob-Theme-Argon/favicon.ico', '三分机场');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1493, 'https://xn--4gq62f52gdss.com/favicon.ico', '一元机场');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1494, 'https://xn--6nq0hk9tdjr.com/favicon.ico', '低价机场');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1495, 'https://xn--6nq44r2uh9rhj7f.com/favicon.ico', '性价比机场');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1496, 'https://www.readdig.com/favicons/favicon-32x32.png', 'Readdig');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1497, 'https://plink.anyfeeder.com/favicon.ico', 'Plink');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1498, 'https://www.smsgou.com/wp-content/uploads/2020/09/telegram.png', '电报狗');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1499, 'https://a-image.1ove.club/image/2022/10/984d299b47a6a96f09143c8a3fc5e1de.png', '1ove');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1500, 'https://www.snapmail.cc/favicon.ico', '24小时');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1501, 'https://lf-cdn-tos.bytescm.com/obj/static/guji/shidian/cn/favicon/logo.svg', '识典古籍');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1502, 'https://onemac.app/favicon.ico', 'Orange');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1503, 'https://typeset.io/apple-touch-icon-57x57.png', 'SCI助手');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1504, 'https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico', 'Vercel');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1505, 'https://getpodcast.xyz/favicon.ico', '播客订阅');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1506, 'https://music.y444.cn/favicon.ico', '下歌吧');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1507, 'https://724.guzhang.com/favicon.ico', '鼓掌');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1508, 'https://www.kyocera.com.cn/favicon.ico', '稻盛和夫');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1509, 'https://img.alicdn.com/imgextra/i1/O1CN01JDQCi21Dc8EfbRwvF_', '船舱资料3');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1510, 'https://www.yxssp.com/wp-content/uploads/2017/12/cropped-yxf-2-32x32.png', '异星软件');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1511, 'https://www.lan-sha.com/wp-content/uploads/2021/03/fino.png', '蓝鲨app');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1512, 'https://www.quzuotu.com/favicon.ico', '趣作图');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1513, 'https://qingtu.co/public/favicon.a7894264.ico', '氢图');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1514, 'https://dh.woshipm.com/wp-content/uploads/2022/01/txtm.png', 'PM宝宝');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1515, 'https://ossinsight.io/img/favicon-1.png', 'Github趋势');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1516, 'https://www.readhub.one/wp-content/uploads/2022/12/readhub-logo.svg', 'Readhub');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1517, 'https://readhub.one/logo/favicon.ico', '读库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1518, 'https://app.netlify.com/favicon.ico', 'netlify');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1519, 'https://smsactivate.s3.eu-central-1.amazonaws.com/assets/img/activate_favicon.png', 'SMS');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1520, 'https://wangxiao.xisaiwang.com/favicon.ico', 'PMP试题库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1521, 'https://www.inneed.club/global/static/image/logo.ico', 'inNeed');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1522, 'https://blogwe.com/favicon.ico', '博客大全');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1523, 'https://wiki.eryajf.net/img/favicon.ico', '二丫讲梵');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1524, 'https://piyao.kepuchina.cn/favicon.ico', '科普辟谣');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1525, 'https://decrypt.day/favicon/favicon-32x32.png', 'IPAStore');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1526, 'http://www.likebookmark.com/favicon.ico', '喜欢书签');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1527, 'https://macosicons.com/favicon.ico', 'Mac图标');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1528, 'https://www.wandou.pro/favicon.ico', '豌豆Pro');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1529, 'http://www.chinapm.com.cn/zb_users/theme/ydmm/style/images/favicon.ico', '产品之家');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1530, 'https://www.yixieshi.com/favicon.ico', '互联网事');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1531, 'https://88sheji-1304770347.cos.ap-guangzhou.myqcloud.com/wp-content/uploads/2022/03/logo-80x80-1.png', '拜拜设计');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1532, 'https://liteapks.com/wp-content/uploads/2022/07/android.ico', 'LiteApks');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1533, 'https://nav.yibook.org/favicon.ico', '书籍导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1534, 'https://www.shuzhou.cc/favicon.ico', '书舟搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1535, 'https://book.niuoh.com/favicon.ico', '全网出版');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1536, 'https://www.niuoh.com/static/css/default/img/favicon.ico', '牛喔社区');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1537, 'https://www.fangpi.net/favicon.ico', '放屁网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1538, 'https://pmsub.me/favicon.ico', 'Paimon');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1539, 'https://metrodb.org/favicon.ico', '地铁数据');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1540, 'https://www.libvio.fun/statics/img/favicon.ico', 'Libvio');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1541, 'https://www.zhubai.wiki/favicon.ico', '竹白百科');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1542, 'https://www.grab4k.com/mxstatic/picture/logo.png', 'Grab4K');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1543, 'http://www.iplant.cn/images/favicon.ico', '植物智');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1544, 'https://i1.funletu.com/img/1572229551-funletu-logo-favicon.png', 'Funletu');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1545, 'https://www.nodeseek.com/static/image/favicon/apple-touch-icon.png', 'NodeSeek');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1546, 'https://www.mianfeisms.xyz/favicon.ico', '在线接码');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1547, 'https://cdn.3kjs.com/wp-content/uploads/2022/08/cropped-2016051706190928-1.ico', '临时手机号');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1548, 'https://super-static-assets.s3.amazonaws.com/05a27665-670b-457d-ae41-f68942e2d90f/uploads/favicon/765367f1-4d61-43bd-bbe8-e4717ab20fb6.png', 'Tool Finder');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1549, 'https://www.wolai.com/favicon.ico', 'Google');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1550, 'https://alleyread.com/favicon.ico', 'AlleyRead');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1551, 'https://www.guoxiaoli.com/favicon.ico', '郭晓力');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1552, 'https://zhiy.cc/logo.png', '知园');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1553, 'http://cdn.wallpaperswide.com/templates/custom/ds/ds.1.png', '小雅Alist');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1554, 'https://www.fantasyfactory.xyz/favicon.svg', '小丁');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1555, 'http://www.9312.net/favicon.ico', '小鲸鱼文献');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1556, 'https://ipa.store/wp-content/uploads/2022/08/2022080502143894.png', 'iPA商店');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1557, 'https://zhiso.top/static/image/favicon.ico', '知搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1558, 'https://zb.liey.cn/favicon.png', '竹白专栏');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1559, 'https://neal.fun/favicon.ico', 'Neal');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1560, 'http://ct.vpan123.com/favicon.ico', '城通搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1561, 'https://www.addresscopy.com/favicon.ico', '地址生成');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1562, 'https://originalfileserver.aminer.cn/sys/aminer/favicon.ico', 'Aminer');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1563, 'https://zb.v1.mk/favicon.ico', '直播源');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1564, 'https://github.com/fluidicon.png', '蓝鲸直播');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1565, 'https://a.nicetab.cn/favicon.ico', 'NiceTab');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1566, 'https://ylnav.com/favicon.ico', '有料');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1567, 'https://ifun.cool/favicon.ico', '趣集');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1568, 'https://adultiptv.net/favicon.ico', 'Adult');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1569, 'https://leon21.notion.site/images/favicon.ico', '笔记工具');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1570, 'https://lovelive.tools/icon.png', '一句话');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1571, 'https://anotherdayu.com/wp-content/uploads/2022/06/cropped-photo_2022-06-16-10.08.51-32x32.jpeg', 'Another');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1572, 'https://substack.com/favicon.ico', 'SubStack');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1573, 'https://feeddd.org/favicon.ico', '微信订阅');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1574, 'https://tool.browser.qq.com/favicon.ico', '帮小忙');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1575, 'https://img.alicdn.com/imgextra/i2/O1CN01DOYcs71v3B6bOemVM_', '影视分享');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1576, 'http://juleck.web3v.work/favicon.ico', '免费空间');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1577, 'https://www.kancaibao.com/kcb_img/logo_dark.png', '看财报');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1578, 'https://www.tandfonline.com/favicon.ico', 'inter杂志');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1579, 'https://www.sciencedirect.com/favicon.ico', '美国急诊杂志 ');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1580, 'https://www.dovepress.com/favicon.ico', '作者指南');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1581, 'https://docs.librephotos.com/assets/images/favicon.ico', 'librephotos');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1582, 'https://photoview.github.io/favicon.ico', 'Photoview');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1583, 'https://res.gxlib.org.cn/favicon.ico', '广西图书馆');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1584, 'https://www.restorephotos.io/favicon.ico', 'Restore照片');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1585, 'https://qncdn.aoscdn.com/img/picwish-home/favicon.png', '佐糖');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1586, 'https://replicate.com/favicon.ico', '腾讯GFP-GAN');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1587, 'https://basic.10jqka.com.cn/favicon.ico', '同花顺');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1588, 'https://www.10jqka.com.cn/favicon.ico', '同花数据');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1589, 'http://q.10jqka.com.cn/favicon.ico', '同花大盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1590, 'https://www.xfz.cn/static/build/images/favicon.ico', '小饭桌');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1591, 'https://app.humata.ai/favicon.ico', '论文解读');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1592, 'https://ai2045.com/favicon.ico', 'Ai2045');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1593, 'https://www.futurepedia.io/futurepedia-small.svg', 'Futurepedia');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1594, 'https://design.sunyang.vip/images/favicon.ico', '设计笔记');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1595, 'https://askai.top/assets/img/default/ai.png', 'AskAI');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1596, 'https://res.pandateacher.com/UFC8WTDA1671369565980.png', 'Forchange');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1597, 'https://mqttx.app/favicon.ico', 'MQTTX');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1598, 'https://zlibsearch.1kbtool.com/assets/favicon-32x32.116e60ac.png', 'ZlibS');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1599, 'https://search.yibook.org/favicon.ico', '易书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1600, 'https://tonkiang.us/favicon.ico', '直播搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1601, 'https://rationale.jinaai.cn/favicon.ico', 'AI决策');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1602, 'https://api.aa1.cn/assets/img/favicon.png', '免费API');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1603, 'https://aski.ai/public/favicon.563804be.ico', 'Aski');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1604, 'https://www.teach-anything.com/favicon.ico', 'Teach Any');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1605, 'https://bf.zzxworld.com/images/favicon.png', 'BlogFinder');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1606, 'https://www.foreverblog.cn/favicon.ico', '十年之约');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1607, 'https://imnks.com/logo/imnkst.png', '我不是矿神');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1608, 'https://freefrp.net/favicon.ico', 'Frp');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1609, 'https://www.waiwang.men/img/favicon.ico', 'Waiwang');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1610, 'https://img.haohome.top/img202302261048384.png', '云梦源');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1611, 'https://www.natfrp.com/favicon.ico', 'Natfrp');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1612, 'https://ipw.cn/favicon.ico', 'IP查询');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1613, 'https://my.zerotier.com/img/favicon-32x32.png', 'Zerotier');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1614, 'https://www.ioiox.com/favicon.ico', '群晖专栏');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1615, 'http://afrps.cn/wp-content/uploads/2022/07/cropped-3.png', '免费frp');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1616, 'https://chat.openai.com/favicon.ico', 'ChatGPT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1617, 'https://rescdn.qqmail.com/node/wr/wrpage/style/images/independent/favicon/favicon_32h.png', '微信读书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1618, 'https://frp.wiki/favicon.ico', '凿洞');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1619, 'https://diannaobos.com/favicon.ico', 'Frp');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1620, 'https://www.frp.cool/favicon.png', '浮居');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1621, 'https://static.afdiancdn.com/static/img/icons/apple-touch-icon-60x60.png', '爱发电');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1622, 'http://www.ele007.com/favicon.ico', '小象智合');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1623, 'https://rutracker.org/favicon.ico', '俄罗斯');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1624, 'https://freegpt.one/favicon-32x32.png', 'FreeGpt');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1625, 'https://www.openos.org/styles/default/xenforo/logo.og.png', 'Openos');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1626, 'https://gate.haohome.top/webman/resources/images/icon_dsm_32.png', 'MyNas');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1627, 'https://www.tntmac.com/wp-content/uploads/2019/09/tnticon.jpg', 'TNTmac');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1628, 'https://www.nbmao.com/favicon.ico', '笨猫博客');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1629, 'https://row.mycx.pro/img/icon/128.png', '晨曦云');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1630, 'https://kuwi.net/wp-content/uploads/2022/02/favicon.png', 'Kuwi');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1631, 'https://www.zsbeike.com/favicon.ico', '知识贝壳');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1632, 'https://dnsdaquan.com/favicon.ico', 'DNS大全');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1633, 'https://fsys.app/favicon.ico', '风声雨声');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1634, 'https://apirank.dev/favicon.png', 'API排名');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1635, 'https://clubasid.com/favicon.ico', '在线图表');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1636, 'https://storage.googleapis.com/luciaai-assets/favicon/apple-touch-icon.png', '写作平台');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1637, 'https://www.chatpdf.com/favicon.ico', 'ChatPDF');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1638, 'https://global.discourse-cdn.com/business7/uploads/openai1/optimized/1X/4659b509fa5c4fa41b0a8e82ed87a7412c5a46a7_2_32x32.png', '社区');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1639, 'https://www.roomgpt.io/favicon.ico', 'RoomGpt');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1640, 'https://tntmod.com/favicon.ico', 'TNTMod');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1641, 'https://cprs.patentstar.com.cn/favicon.ico', '专利之星');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1642, 'https://console.openfrp.net/favicon.ico', 'OpenFrp');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1643, 'https://freefrps.com/favicon.ico', 'freefrps');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1644, 'https://liulifrp.cn/favicon.ico', '琉璃家');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1645, 'http://suning.ele007.com/favicon.ico', '小象测试');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1646, 'https://chatgpt.com/favicon.ico', 'Poe');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1647, 'https://ylibrary.org/favicon.ico', 'Ylibrary');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1648, 'https://www.ainavpro.com/wp-content/uploads/2023/03/logo-9-e1677917045954.png', 'AI导航');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1649, 'https://ainav.sciencat.net/favicon.ico', 'GPT汇总');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1650, 'https://www.tianlangbooks.com/wp-content/themes/dragon/images/touch-icon-iphone.png', '天浪书屋');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1651, 'https://www.lovejay.top/wp-content/uploads/2022/10/80.png', 'Jay仓库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1652, 'https://www.aiyjs.com/wp-content/uploads/2024/02/cropped-1709004251-AI%E7%A0%94%E7%A9%B6%E6%89%80.webp', 'AI研究所');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1653, 'https://chatpaper.org/favicon.ico', 'ChatPaper');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1654, 'https://cloud.okteto.com/favicon.ico', 'oketo');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1655, 'https://course.rs/favicon.svg', 'Rust');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1656, 'https://www.asakifoodmachine.com/favicon.ico', 'ASAK设备');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1657, 'https://spssau.com/favicon.png', 'SPSSAU');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1658, 'https://cc.ai55.cc/favicon.ico', 'Ai Free');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1659, 'https://frp.starryfrp.com//favicon.ico', 'Starry');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1660, 'https://preview.locyanfrp.cn/favicon.ico', 'Locyan');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1661, 'https://shang.520810.xyz/favicon.ico', '云深不知处');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1662, 'http://101.42.157.13/favicon.ico', 'Frp后台');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1663, 'https://cms.pixso.cn/images/favicon.ico', 'PixSo');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1664, 'https://infini-cloud.net/favicon.png', 'Tera云盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1665, 'https://ele007.com/favicon.ico', '海底捞图文');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1666, 'https://lf-package-cn.feishucdn.com/obj/feishu-static/ccm/pc/web/resource/bear/src/common/assets/favicons/icon_file_doc_nor-256x256.5ecc0ce2486516290b43.png', '服务台链接');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1667, 'http://www.iiiff.com/favicon.ico', 'Tipask');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1668, 'https://puter.com/favicons/apple-icon-57x57.png', 'Polotno');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1669, 'https://learningprompt.wiki/img/favicon.ico', 'Midjourney');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1670, 'https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-57x57.png', 'iFixit');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1671, 'https://app.nofwl.com/img/logo.png', 'GPT客户端');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1672, 'https://nlp-eb.cdn.bcebos.com/logo/favicon.ico', '文心一言');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1673, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/purple_base.png', 'Chat飞书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1674, 'https://image.uisdc.com/wp-content/uploads/2018/05/uisdc-ico-apple.jpg', '优设AI');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1675, 'https://flowgpt.com/favicon.ico', 'Prompt聚合');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1676, 'https://17yongai.com/wp-content/uploads/2023/02/logo.png', '一起用AI');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1677, 'https://chatdoc.com/favicon-32x32.png', 'ChatDoc');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1678, 'https://beta.tome.app/favicon.ico', 'PPT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1679, 'https://www.hayo.com/icons/72.png', 'Hayo');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1680, 'https://app.shokichan.com/icon_512_rect.png', '白嫖机场');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1681, 'https://hub.docker.com/favicon.ico', 'Docker');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1682, 'https://www.18bit.cn/favicon.png', '18bit DNS');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1683, 'https://tableconvert.com/favicon.ico', '表格转换');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1684, 'http://www.esjson.com/favicon.ico', 'ESJOSN');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1685, 'https://play.vercel.ai/favicon.ico', 'play');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1686, 'https://playgroundai.com/favicon.ico', 'Playground');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1687, 'https://github.9421.eu.org/favicon.ico', '公益api接口');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1688, 'https://2af26e39.vip.cpolar.top/webman/resources/images/icon_dsm_96.png', 'CpNas');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1689, 'https://314236ab.vip.cpolar.top/favicon.ico', 'Cp隧道');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1690, 'https://www.fgnwct.com/./static/img/bitbug_favicon.ico', '飞鸽');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1691, 'http://frp.xrick.cn/favicon.ico', 'Xrick');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1692, 'https://ora.sh/favicon.ico', 'ChatBot');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1693, 'https://chat.forefront.ai/favicon.ico', 'ForeFront');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1694, 'https://www.ddnsto.com/favicon.png', 'DDNSTO');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1695, 'https://cdn.o2omind.com/img/o2omind_logo.ico', 'O2OMind');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1696, 'https://newfssc.haidilao.com/resource/images/favicon.ico', '报销系统');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1697, 'https://chat-shared.zhile.io/apple-touch-icon.png', 'GPT共享');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1698, 'https://img.mst.xyz/assets/favicon-8f9e8d04.ico', 'mst-AI');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1699, 'https://ssl.gstatic.com/images/branding/product/1x/hh_gmail_96dp.png', 'Gmail');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1700, 'https://s2-12480.kwimgs.com/kos/nlav12480/dist/public/favicon.ico', '妙记多');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1701, 'http://www.koovin.com/favicon.ico', '库问');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1702, 'https://www.mydyjs.com//favicon.png', '有用的');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1703, 'https://xinghuo.xfyun.cn/spark-icon.ico', '讯飞星火');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1704, 'http://www.foodcta.com/favicon.ico', '食品标准查询');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1705, 'https://www.aigcbb.com/favicon.ico', 'AIGC助手');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1706, 'https://ebook.hep.com.cn//favicon.ico', '高教书苑');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1707, 'https://www.toplinks.cc/s/static/im/favicon.ico', '淘链客');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1708, 'https://www.soushu.vip/favicon.ico', '搜书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1709, 'https://docs.gtimg.com/docs-design-resources/history/png@2x/brand_logo@2x-fcdb753a44.png', '资源合集');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1710, 'https://chatexcel.com/logo.svg', 'ChatExcel');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1711, 'https://chatgpt.com/favicon.ico', 'FastGPT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1712, 'http://www.lu8.win/favicon.ico', 'Lu8');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1713, 'http://www.chuantou.org/favicon.ico', '穿透');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1714, 'https://www.book123.info/apple-touch-icon.png', '无名图书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1715, 'http://www.ucdrs.net/favicon.ico', '图书联盟');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1716, 'http://www.voiceclub.cn/static/img/favicon.ico', '悦录');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1717, 'https://www.findbooks.info/favicon.ico', '找书网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1718, 'https://gimg2.baidu.com/gimg/app=2028&src=43ckukd5.ii97efd2.com/2022/07/12/88c2f1613357e.png', '555电影');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1719, 'https://theporndude.com/favicon.ico', 'Porndude');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1720, 'http://www.cistc.gov.cn/images/cistc.ico', '国际科技合作');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1721, 'https://www.chaonengso.com/favicon.ico', '超能搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1722, 'https://imzm.im/wp-content/uploads/2021/01/cropped-bloglogo-180x180.png', '陈仓颉');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1723, 'https://macxzb.com/wp-content/themes/bootstyle/favicon.ico', 'Mac下载吧');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1724, 'https://macoshome.com/wp-content/themes/OCCnav/favicon.ico', 'Mac之家');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1725, 'http://53wer.top/favicon.ico', '简易软件');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1726, 'https://www.macyy.cn/favicon.ico', 'Macyy');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1727, 'https://filepursuit.com/favicon.ico', 'FTP电子书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1728, 'https://www.math.pku.edu.cn/favicon.ico', 'R 语言');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1729, 'https://adnim.neatifyapp.com/favicon.ico', 'Neatify');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1730, 'https://tools.liumingye.cn/favicon.ico', '音乐下载');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1731, 'https://www.gequbao.com/favicon.ico', '歌曲宝');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1732, 'https://music.dogged.cn/favicon.png', '顽狗音乐');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1733, 'https://order.haohome.top/favicon.ico', '会议预约');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1734, 'http://www.foodata.ai/favicon.ico', '数食链');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1735, 'https://www.yunzhan365.com/favicon.ico', '云展');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1736, 'https://iptvindex.com/favicon.ico', '电视集合');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1737, 'https://owen2000wy.github.io/favicon.ico', 'Owen2000');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1738, 'http://www.tanglib.com/favicon.ico', '小唐即搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1739, 'https://nav.xybin.top/favicon.ico', '书签');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1740, 'https://xiageba.com/favicon.ico', '下歌吧');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1741, 'https://www.icloud.com.cn/system/icloud.com/current/static/apple-touch-icon.png', 'iCloud');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1742, 'https://resource.bear20.com/bear_download/images/favicon.ico', 'Bear');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1743, 'https://www.kdocs.cn/favicon.ico', '金山文档');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1744, 'https://slider.kz/favicon.ico', 'Slider');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1745, 'https://zh.annas-archive.org/favicon.ico', '安娜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1746, 'https://pan.justin3go.com/logo.ico', '阿里搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1747, 'https://soupian.pro/static/images/icon-48px.png', '搜片网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1748, 'https://www.maigoo.com/favicon.ico', '买购网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1749, 'http://db.foodmate.net/favicon.ico', '伙伴数据库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1750, 'https://chinafooddb.com/favicon.ico', '食规查');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1751, 'http://dbxinshipin.sy.foodvip.net/favicon.ico', '原料库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1752, 'https://www.nutridata.cn/favicon.ico', '营养数据库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1753, 'https://plugins.zotero-chinese.com/favicon.ico', 'Zotero');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1754, 'https://firewood.news/favicon.ico', '积薪');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1755, 'https://gcore.jsdelivr.net/gh/msterzhang/cdn@1.0.35/jojo/dist/images/favicon.ico', 'JOJO');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1756, 'https://www.mvcat.com/img/logo_1024.jpg', 'MvCat');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1757, 'https://qread.xmsoushu.com/favicon.ico', '熊猫速读');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1758, 'https://www.xunshu.xyz/favicon.ico', '寻书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1759, 'https://axutongxue.com/favicon.ico', '阿虚同学');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1760, 'https://oa.crrc.com.cn/favicon.ico', '中康OA');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1761, 'https://gate.haohome.top/webman/favicon.ico?v=40438', '本地Nas');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1762, 'https://sppt.cfsa.net.cn/favicon.ico', '风险控制');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1763, 'https://i.sevencdn.com/favicon/https://www.flavornet.org', 'Flavornet');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1764, 'https://i.sevencdn.com/favicon/https://www.odour.org.uk', 'odour');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1765, 'https://www.amazon.com/favicon.ico', 'SendKindle');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1766, 'https://pubscholar.cn/static/favicon-wfn3fg.ico', 'PubScholar');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1767, 'https://pss-system.cponline.cnipa.gov.cn/favicon.ico', '国家专利');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1768, 'https://panyq.com/favicon.ico', '盘友圈');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1769, 'https://article.biliimg.com/bfs/article/ae44304091bbf561947795b2b5a87e58501656305.png', '爱看剧');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1770, 'https://beian.mps.gov.cn/favicon.ico', '公安备案');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1771, 'https://bmcpulmmed.biomedcentral.com/static/img/favicons/bmc/favicon-32x32-5d7879efe1.png', 'BMC论文');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1772, 'http://y.lytv.gq/', '影视TV');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1773, 'https://www.google.com/favicon.ico', '谷歌导出');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1774, 'https://i.sevencdn.com/favicon/https://live.fanmingming.com', 'live');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1775, 'https://i.sevencdn.com/favicon/https://www.emailnator.com', '临时Gmail');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1776, 'https://www.4kvm.net/wp-content/uploads/2023/07/3645419dee5146.png', '4K电影');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1777, 'https://cyuan.netlify.app/favicon.ico', '盒子源');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1778, 'https://statics.123pan.com/static/favicon.ico', '123云盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1779, 'https://i.sevencdn.com/favicon/https://researcher.nature.com', 'BMJ论文跟踪');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1780, 'https://www.hsmy.fun/favicon.ico', '浑水阅读');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1781, 'https://ps.gaoding.com/favicon.ico', '在线PS');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1782, 'https://i.sevencdn.com/favicon/http://xn--wlqq2kg97ag5slb.xn--fiqs8s', '生产许可证');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1783, 'https://www.patentguru.com/favicon.ico', '专利顾如');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1784, 'https://i.sevencdn.com/favicon/https://ficus.world', 'ficus');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1785, 'https://www.easyspider.net/favicon.ico', '爬虫');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1786, 'https://pic.c-ctrip.com/corp_niv/corp_logo/favicon.ico', '携程商旅');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1787, 'https://banshi.beijing.gov.cn/favicon.ico', '企业项目投资备案');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1788, 'https://www.beijing.gov.cn/favicon.ico', '北京禁限');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1789, 'https://www.liangmlk.cn/favicon.ico', '数科api');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1790, 'https://smzdk.top/ico/favicon.png', '什么值得看');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1791, 'https://www.webhub123.com/favicon.ico', '发现好站');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1792, 'https://psc2.cf2.poecdn.net/assets/apple-touch-icon.png', 'poe');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1793, 'http://www.mycopedia.top/favicon.ico', '菌物志');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1794, 'https://mail.163.com/apple-touch-icon-120x120-precomposed.png', '163邮箱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1795, 'https://g.csdnimg.cn/static/logo/favicon32.ico', '电视内置');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1796, 'https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06b.png', 'Gemini');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1797, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/orange_radar.png', '团队OKR');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1798, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/rose_radar.png', '食品新技术');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1799, 'https://metaso.cn/favicon.ico', '秘塔AI搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1800, 'https://download.anytype.io/apple-touch-icon.png', 'Anytype');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1801, 'https://affine.pro/favicon.ico', 'Affine');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1802, 'https://www.perplexity.ai/favicon.ico', 'Perplexity');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1803, 'https://lf-coze-web-cdn.coze.cn/obj/coze-web-cn/obric/coze/favicon.1970.png', 'Coze');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1804, 'https://aspoem.com/favicon.ico', 'AsPoem');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1805, 'https://pan.qianfan.app/favicon.ico', '千帆搜索');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1806, 'https://i.sevencdn.com/favicon/https://www.alipansou.com', '猫狸盘搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1807, 'https://www.xuebapan.com/static/img/logo.png', '学霸盘');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1808, 'https://statics.moonshot.cn/kimi-chat/favicon.ico', 'Kimi');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1809, 'https://mail.td/favicon.png', '临时邮箱');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1810, 'img/icon/touch-icon-57.png', '群晖');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1811, 'http://www.sensknow.com/favicon.ico', '感知网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1812, 'https://hajimi.online/favicon.ico', '哈基米');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1813, 'https://you.com/favicon/favicon-32x32.png', 'You');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1814, 'https://www.waytoagi.com/favicon.ico', 'WaytoAGI');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1815, 'https://asset.logseq.com/static/img/logo.png', 'Logseq');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1816, 'https://story.panziye.com/story/wp-content/uploads/2023/12/icon.png', '儿童故事');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1817, 'https://www.yckceo.com/favicon.ico', '源仓库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1818, 'https://tuostudy.top/favicon.ico', '学习仓资源');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1819, 'https://yjrx.bjedu.cn/favicon.ico', '北京入学');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1820, 'https://jxt.bjedu.cn/favicon.ico', '京学通');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1821, 'https://a1.cdn.osfipin.com/site/letsencrypt/favicon.ico', '来此加密');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1822, 'https://freshrss.mubibai.com./favicon.ico', 'FreshRss');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1823, 'https://macwk.cn/wp-content/uploads/2023/07/macwkico.png', 'Macwk');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1824, 'https://www.iflyrec.com/static/imgs/favicon.ico', '讯飞听见');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1825, 'https://i.sevencdn.com/favicon/https://annas-archive.org', '安娜的书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1826, 'https://ayenwn.aitianhu1.top/favicon.ico', '多Chat');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1827, 'https://cn.uptodown.com/favicon.ico', 'uptodown');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1828, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/pink_time.png', '任务催办');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1829, 'https://macked.app/favicon.ico', 'Macked');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1830, 'https://5sim.net/favicon.ico', '5Sim');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1831, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/wathet_base.png', '团队周报');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1832, 'https://www.kkdaxue.com/favicon.ico', '框框大学');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1833, 'https://chatwithpaper.org/favicon.ico', 'ChatPaper');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1834, 'https://www.chatpdf.com/icons/logo-192.png', 'ChatPDF');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1835, 'https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png', '豆包');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1836, 'https://book.tstrs.me/96.png', 'Salty');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1837, 'https://www.yiigle.com/static/img/logo.png', '中华医学');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1838, 'https://swanhub.co/logo.ico', '证件照');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1839, 'https://book.haohome.top/logo/favicon.ico', '书库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1840, 'https://lf-scm-cn.feishucdn.com/ccm/pc/web/resource/bear/src/common/assets/favicons/icon_file_sheet_nor-32x32.cfc088eb79db0088ca28.png', '推广排期');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1841, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/orange_growth.png', '菌汤销售');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1842, 'https://sex-positions.online/favicon.ico', 'Action');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1843, 'https://www.shukui.net/skin/book/images/favicon.ico', '书葵网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1844, 'https://24hbook.com/assets/android-chrome-36x36-ffadc3db.png', '24小时搜');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1845, 'https://i.sevencdn.com/favicon/https://gofrp.org', 'FRP');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1846, 'https://gate.haohome.top/webman/resources/images/icon_dsm_48.png?v=40438', 'NpcNas');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1847, 'https://www.juwanhezi.com/static/themes/icon_100.png', '聚玩盒子');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1848, 'https://test.ustc.edu.cn/favicon.ico', 'IP测速');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1849, 'https://www.right.com.cn/favicon.ico', '恩山无线');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1850, 'http://ipv6-test.ch/images/knob_info.png', 'ipv6');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1851, 'https://www.dushupai.com/favicon.ico', '读书派');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1852, 'https://sf1-scmcdn-cn.feishucdn.com/obj/lark-reaction-cn/purple_base.png', '产品意见');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1853, 'https://www.me83.com/img/favicon.ico', '欣城宝库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1854, 'https://mao.fan/images/favicon.ico', '检测NAT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1855, 'https://igoutu.cn/vue-static/icon/favicon/icons8_fav_32%C3%9732.png', 'icon图标');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1856, 'https://dashboard.passnat.com/web_icon.svg', '帕斯特内网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1857, 'https://www.xbwpys.com/favicon.ico', '学霸影视');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1858, 'https://www.huibooks.com/favicon.ico', '汇书网');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1859, 'https://www.yanxuanwk.com/wp-content/uploads/2023/08/cropped-yx-icon-180x180.png', '盐选文库');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1860, 'https://music.makifx.com/favicon.ico', '音流');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1861, 'https://www.nmod.net/favicon.ico', 'NMOD');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1862, 'https://duzhege.cn/wp-content/uploads/2024/03/2024032011464271-150x150.png', '读者阁');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1863, 'https://666671.xyz/i/2023/11/20/655adbfddef60.jpg', 'MAKI');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1864, 'https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png', '豆包');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1865, 'https://dbzdk.com/static/images/favicon/apple-touch-icon.png', '电报值得看');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1866, 'https://www.runningcheese.cn/favicon.ico', '奶酪电子书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1867, 'https://open-slum.org/favicon.ico', '影子图书馆');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1868, 'https://kska32.github.io/favicon.ico', '谷歌电子书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1869, 'https://cdn.deepseek.com/chat/icon.png', 'DeepSeek');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1870, 'https://chat.deepseek.com/favicon.svg', 'DeepSeek');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1871, 'https://obsidian.md/favicon.ico', 'Obdiian');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1872, 'https://ahooks.pages.dev/simple-logo.svg', 'Hooks');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1873, 'https://linux.do/uploads/default/optimized/3X/7/d/7de31932a4fd533496cfe35979a4d9d995bb5c63_2_180x180.png', 'LINUX DO');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1874, 'https://heck.ai/favicon.ico', '免费ChatGPT');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1875, 'https://vf.bqlpk.cn/vod_pc_static_kkdy/images/favicon.ico?ver=24121715', '可可影视');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1876, 'https://kimivod.com/favicon.ico', 'KimiVod');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1877, 'https://gimg2.baidu.com/gimg/app=2028&src=sk45ywk.ifznedy1.com/storage/images/2024-04-23/f1/347aea16ffa9a312dd85f769cda603d5.webp', '大米星球');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1878, 'https://melody.haohome.top/favicon.ico', 'Melody');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1879, 'http://businessecology.cn/favicon.ico', '商业生态');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1880, 'https://missav.ws/favicon.ico', 'MissAV');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1881, 'https://yidanshu.com/favicon.ico', '一单书');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1882, 'https://gaze.run/favicon.ico', '注视影视');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1883, 'https://xn--4gq62ffxz.net/favicon.ico', '新一元');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1884, 'https://lingowhale.com/favicon-96x96.png', '语鲸');
+INSERT INTO `nav_logo` (`logo_id`, `logo_src`, `site_name`) VALUES (1885, 'https://yyjingyan.com/logo(已处理).png ', '有用经验');
 COMMIT;
 
 -- ----------------------------
@@ -1421,23 +1947,19 @@ COMMIT;
 DROP TABLE IF EXISTS `nav_role`;
 CREATE TABLE `nav_role` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `rid` int NOT NULL,
-  `role` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `fid` int NOT NULL,
-  `func` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `func_name` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `name` varchar(16) DEFAULT NULL,
+  `description` varchar(16) DEFAULT NULL,
+  `fids` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1026 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1005 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of nav_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1005, 10099, 'admin', 1001, 'menu_nav', '导航菜单');
-INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1011, 10000, 'guest', 1001, 'menu_nav', '导航菜单');
-INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1020, 10001, 'reguser', 1001, 'menu_nav', '导航菜单');
-INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1024, 10099, 'admin', 1099, 'menu_admin', '超级权限');
-INSERT INTO `nav_role` (`id`, `rid`, `role`, `fid`, `func`, `func_name`) VALUES (1025, 10099, 'admin', 1003, 'menu_edit', '图标编辑');
+INSERT INTO `nav_role` (`id`, `name`, `description`, `fids`) VALUES (101, 'admin', '管理员', '10061,1001,1006,10062,10063,1002,1003');
+INSERT INTO `nav_role` (`id`, `name`, `description`, `fids`) VALUES (102, 'user', '普通用户', '10061');
+INSERT INTO `nav_role` (`id`, `name`, `description`, `fids`) VALUES (103, 'work', '工作', '10061');
 COMMIT;
 
 -- ----------------------------
@@ -1453,22 +1975,25 @@ CREATE TABLE `nav_search` (
   `status` int DEFAULT '1',
   `active_btn` int DEFAULT NULL,
   PRIMARY KEY (`sid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of nav_search
 -- ----------------------------
 BEGIN;
 INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (1, 1, '网页', '网页搜搜', 1, 1, 1);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (2, 0, '社交', '社交搜索', 2, 1, 7);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (3, 0, '资讯', '资讯搜索', 3, 1, 40);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (4, 0, '视频', '视频搜索', 4, 1, 9);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (5, 0, '素材', '素材搜索', 5, 1, 14);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (6, 0, '音乐', '音乐搜索', 6, 1, 19);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (7, 0, '网盘', '网盘搜索', 7, 1, 22);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (8, 0, 'Ebook', '电子书搜索', 8, 1, 25);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (9, 0, '专业', '专业搜索', 9, 1, 28);
-INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (10, 0, '生活', '生活搜索', 10, 1, 33);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (2, 0, '社交', '社交搜索', 3, 1, 6);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (3, 0, '资讯', '资讯搜索', 5, 1, 46);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (4, 0, '视频', '视频搜索', 6, 1, 12);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (5, 0, '素材', '素材搜索', 7, 1, 16);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (6, 0, '音乐', '音乐搜索', 8, 1, 19);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (7, 0, '网盘', '网盘搜索', 9, 1, 49);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (8, 0, 'Ebook', '电子书搜索', 10, 1, 25);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (9, 0, '专业', '专业搜索', 11, 1, 28);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (10, 0, '生活', '生活搜索', 12, 1, 34);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (11, 0, '学术', '学术搜索', 4, 1, 27);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (12, 0, '指数', '指数搜索', 13, 1, 53);
+INSERT INTO `nav_search` (`sid`, `key_active`, `title`, `placeholder`, `s_index`, `status`, `active_btn`) VALUES (13, 0, 'AI搜', 'AI搜索', 2, 1, 62);
 COMMIT;
 
 -- ----------------------------
@@ -1478,19 +2003,74 @@ DROP TABLE IF EXISTS `nav_search_extra`;
 CREATE TABLE `nav_search_extra` (
   `id` int NOT NULL AUTO_INCREMENT,
   `label` varchar(32) DEFAULT NULL,
-  `value` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `placeholder` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `placeholder` varchar(128) DEFAULT NULL,
   `btn_id` int DEFAULT NULL,
   `e_index` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of nav_search_extra
 -- ----------------------------
 BEGIN;
 INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (2, 'PDF', 'https://www.baidu.com/s?wd=filetype:pdf {key}&ie=utf-8', '搜索PDF文档', 1, 1);
-INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (5, 'Doc', 'https://www.baidu.com/s?wd=filetype:pdf {key}&ie=utf-8', '', 1, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (3, 'Word', 'https://www.baidu.com/s?wd=filetype:doc {key}&ie=utf-8', '搜索Word文档', 1, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (4, '精准搜索', 'https://www.google.com/search?q=\"{key}\"', '精准搜索', 2, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (5, 'PDF', 'https://www.google.com/search?q=filetype:pdf {key}', '文档搜索', 2, 4);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (6, '站内', 'https://www.baidu.com/s?wd=:site {key} &ie=utf-8', '输入域名搜索', 1, 5);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (7, '标题搜索', 'https://www.google.com/search?q=allintitle:{key}', '标题搜索', 2, 3);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (8, '正文搜索', 'https://www.google.com/search?q=allintext:{key}', '正文搜索', 2, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (9, '站内搜索', 'https://www.google.com/search?q=site:{key}', '站内搜索', 2, 9);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (10, '公众号', 'https://weixin.sogou.com/weixin?type=1&s_from=input&query={key}&ie=utf8&_sug_=n&_sug_type_=', '搜索公众号', 4, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (11, '话题', 'https://www.zhihu.com/search?q={key}&type=topic', '话题搜索', 6, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (12, '专栏', 'https://www.zhihu.com/search?q={key}&type=column', '专栏搜索', 6, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (14, '用户', 'https://so.toutiao.com/search?keyword={key}&pd=user&dvpf=pc', '用户搜索', 5, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (15, '谷歌数据', 'https://datasetsearch.research.google.com/search?src=0&query={key}', '数据搜索', 2, 8);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (17, '资讯', 'https://so.toutiao.com/search?keyword={key}&pd=information&source=search_subtab_switch&dvpf=pc', '资讯搜索', 5, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (18, '视频', 'https://www.douyin.com/search/{key}?publish_time=0&type=video', '视频搜索', 44, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (19, '用户', 'https://www.douyin.com/search/{key}?type=user', '用户搜索', 44, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (20, '直播', 'https://www.douyin.com/search/{key}?type=live', '直播搜索', 44, 3);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (21, '期刊', 'https://xueshu.baidu.com/s?wd={key}&tn=SE_baiduxueshu_c1gjeupa&sc_hit=1&bcp=2&ie=utf-8&filter=sc_type%3D%7B1%7D', '期刊搜索', 45, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (22, '学位', 'https://xueshu.baidu.com/s?wd={key}&tn=SE_baiduxueshu_c1gjeupa&sc_hit=1&bcp=2&ie=utf-8&filter=sc_type%3D%7B2%7D', '学位搜索', 45, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (23, '会议', 'https://xueshu.baidu.com/s?wd={key}&tn=SE_baiduxueshu_c1gjeupa&sc_hit=1&bcp=2&ie=utf-8&filter=sc_type%3D%7B3%7D', '会议搜索', 45, 3);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (24, '精准', 'https://www.baidu.com/s?wd=\"{key}\"&ie=utf-8', '', 1, 0);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (25, '汉语', 'https://hanyu.baidu.com/s?wd={key}', '查询古诗文', 1, 4);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (26, '深度学术', 'https://xs2.dailyheadlines.cc/scholar?q={key}', '谷歌学术镜像', 27, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (27, '熊猫学术', 'https://sc.panda321.com/scholar?&as_sdt=0%2C5&q={key}&btnG=', '谷歌学术镜像', 27, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (29, '电影', 'https://search.douban.com/movie/subject_search?search_text={key}&cat=1002', '电影搜索', 7, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (30, '书籍', 'https://search.douban.com/book/subject_search?search_text={key}&cat=1001', '书记搜索', 7, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (31, '用户', 'https://s.weibo.com/user?q={key}', '用户搜索', 8, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (32, '文章', 'https://s.weibo.com/article?q={key}', '文章搜索', 8, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (33, '实时', 'https://s.weibo.com/realtime?q={key}&rd=realtime&tw=realtime&', '实时搜索', 8, 3);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (37, '美版', 'https://search.ononoki.org/search?q={key}&safesearch=0', NULL, 3, 1);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (38, '中版', 'https://searx.fmac.xyz/search?q={key}&safesearch=0', '', 3, 2);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (41, 'PPT', 'https://www.baidu.com/s?wd=filetype:ppt {key}&ie=utf-8', '搜索PPT', 1, 3);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (42, 'Word', 'https://www.google.com/search?q=filetype:doc {key}', '文档搜索', 2, 5);
+INSERT INTO `nav_search_extra` (`id`, `label`, `value`, `placeholder`, `btn_id`, `e_index`) VALUES (43, 'PPT', 'https://www.google.com/search?q=filetype:ppt {key}', 'PPT搜索', 2, 6);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for nav_search_history
+-- ----------------------------
+DROP TABLE IF EXISTS `nav_search_history`;
+CREATE TABLE `nav_search_history` (
+  `kid` int unsigned NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `uid` int DEFAULT NULL,
+  `count` int DEFAULT '1',
+  `update_time` datetime DEFAULT NULL,
+  `status` int DEFAULT '1',
+  `is_show` int DEFAULT '1',
+  PRIMARY KEY (`kid`) USING BTREE,
+  KEY `keyIndex` (`keyword`),
+  KEY `uid` (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3213 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of nav_search_history
+-- ----------------------------
+BEGIN;
 COMMIT;
 
 -- ----------------------------
@@ -1506,44 +2086,70 @@ CREATE TABLE `nav_search_item` (
   `btn_index` int DEFAULT NULL,
   `status` int DEFAULT '1',
   PRIMARY KEY (`btn_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of nav_search_item
 -- ----------------------------
 BEGIN;
 INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (1, 1, '百 度', 'https://www.baidu.com/s?wd={key}&ie=utf-8', 'https://www.baidu.com/favicon.ico', 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (2, 1, 'Google', 'https://www.google.com/search?q={key}', 'http://www.google.cn/favicon.ico', 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (3, 1, 'Bing', 'https://cn.bing.com/search?q={key}', 'https://www.bing.com/apple-touch-icon.png', 4, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (4, 2, '公众号', 'https://weixin.sogou.com/weixin?type=2&query={key}&ie=utf8&s_from=input', 'https://mp.weixin.qq.com/favicon.ico', 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (5, 2, '头 条', 'https://so.toutiao.com/search?keyword={key}&pd=information&source=search_subtab_switch&dvpf=pc', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (6, 2, '知 乎', 'https://www.zhihu.com/search?q={key}&type=content', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (7, 2, '豆 瓣', 'https://www.douban.com/search?q={key}', NULL, 4, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (8, 2, '微 博', 'https://s.weibo.com/weibo/{key}', NULL, 5, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (9, 4, '腾讯视频', 'https://v.qq.com/x/search/?q={key}', NULL, 4, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (10, 4, '爱奇艺', 'https://so.iqiyi.com/so/q_{key}', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (11, 4, '豆瓣电影', 'https://movie.douban.com/subject_search?search_text={key}&cat=1002', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (12, 4, '茶杯狐', 'https://www.cupfox.com/search?key={key}', NULL, 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (14, 5, '花 瓣', 'https://huaban.com/search/?q={key}', NULL, 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (15, 5, 'Pixabay', 'https://pixabay.com/zh/photos/?&q={key}', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (16, 5, '百度搜图', 'https://image.baidu.com/search/index?tn=baiduimage&word={key}', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (17, 6, 'QQ音乐', 'https://y.qq.com/portal/search.html#page=1&t=song&w={key}', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (18, 6, '网易音乐', 'https://music.163.com/#/search/m/?s={key}', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (19, 6, '聚合音乐', 'https://music.myepoch.cn/?name={key}&type=kuwo', NULL, 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (22, 7, '优聚搜', 'https://ujuso.com/#/main?kw={key}&type=ALL&time=ALL&exact=FALSE', NULL, 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (23, 8, '豆瓣图书', 'https://book.douban.com/subject_search?search_text={key}&cat=1001', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (25, 8, 'Z-Library', 'https://zh.1lib.to/s/{key}?', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (28, 9, 'GitHub', 'https://github.com/search?q={key}', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (32, 10, '豆果美食', 'https://www.douguo.com/search/recipe/{key}', NULL, 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (33, 10, '淘 宝', 'https://s.taobao.com/search?q={key}', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (34, 10, '京 东', 'https://search.jd.com/Search?keyword={key}&enc=utf-8', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (36, 9, '产品经理', 'http://api.woshipm.com/search/list.html?key={key}', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (37, 7, '吾爱破解', 'https://www.52pojie.cn/search.php?mod=forum&searchid=61092&orderby=lastpost&ascdesc=desc&searchsubmit=yes&kw={key}', NULL, 3, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (38, 7, '磁力搜', 'https://www.sokankan33.cc/search.html?name={key}', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (39, 4, '电影狗', 'https://www.dianyinggou.com/so/{key}', NULL, 5, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (40, 3, '东方财富', 'https://so.eastmoney.com/News/s?keyword={key}', NULL, 1, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (41, 3, '凤凰网', 'https://so.ifeng.com/?q={key}&c=1', NULL, 2, 1);
-INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (42, 3, '雪球', 'https://xueqiu.com/k?q={key}', NULL, 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (2, 1, 'Google', 'https://www.google.com/search?q={key}', 'https://www.google.com/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (4, 2, '微 信', 'https://weixin.sogou.com/weixin?type=2&query={key}&ie=utf8&s_from=input', 'https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (5, 1, '头 条', 'https://so.toutiao.com/search?keyword={key}&pd=synthesis&dvpf=pc', 'https://lf3-search.searchpstatp.com/obj/card-system/favicon_5995b44.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (6, 2, '知 乎', 'https://www.zhihu.com/search?q={key}&type=content', 'https://static.zhihu.com/heifetz/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (7, 2, '豆 瓣', 'https://www.douban.com/search?q={key}', 'https://img3.doubanio.com/favicon.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (8, 2, '微 博', 'https://s.weibo.com/weibo/{key}', 'https://s.weibo.com/favicon.ico', 5, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (9, 4, '腾讯视频', 'https://v.qq.com/x/search/?q={key}', 'https://v.qq.com/favicon.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (10, 4, '爱奇艺', 'https://so.iqiyi.com/so/q_{key}', 'https://www.iqiyipic.com/common/fix/128-128-logo.png', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (11, 4, '豆瓣电影', 'https://movie.douban.com/subject_search?search_text={key}&cat=1002', 'https://movie.douban.com/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (12, 4, '茶杯狐', 'https://www.cupfox.com/search?key={key}', 'https://p0.meituan.net/dpgroup/cd088044f183d2719f3f9fe56d5c34204207.png', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (13, 5, 'iconfont', 'http://www.iconfont.cn/search/index?q={key}', 'https://www.iconfont.cn/favicon.ico', 5, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (14, 5, '花 瓣', 'https://huaban.com/search/?q={key}', 'https://st0.dancf.com/static/02/202309110212-e1c5.png', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (15, 5, 'Pixabay', 'https://pixabay.com/zh/photos/?&q={key}', 'https://pixabay.com/favicon-32x32.png', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (16, 5, '百度搜图', 'https://image.baidu.com/search/index?tn=baiduimage&word={key}', 'https://www.baidu.com/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (17, 6, 'QQ音乐', 'https://y.qq.com/portal/search.html#page=1&t=song&w={key}', 'https://y.qq.com/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (18, 6, '网易音乐', 'https://music.163.com/#/search/m/?s={key}', 'https://s1.music.126.net/style/favicon.ico?v20180823', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (19, 6, '聚合音乐', 'https://music.myepoch.cn/?name={key}&type=kuwo', 'https://music.myepoch.cn/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (20, 7, '小马盘', 'https://www.xiaomapan.com/#/main/search?keyword={key}', 'https://res.yimiaoxia.com/sousuo/xiaomapan/favicon.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (23, 8, '豆瓣图书', 'https://book.douban.com/subject_search?search_text={key}&cat=1001', 'https://img3.doubanio.com/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (25, 8, '知搜', 'https://zhiso.cc/search/?q={key}', 'https://zhiso.cc/static/image/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (26, 8, 'PDFDrive', 'https://www.pdfdrive.com/search?q={key}&more=true', 'https://www.pdfdrive.com/favicon.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (27, 11, '谷歌学术', 'https://scholar.google.com.hk/scholar?hl=zh-CN&q={key}', 'https://scholar.google.com.hk/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (28, 9, 'GitHub', 'https://github.com/search?q={key}', 'https://github.githubassets.com/assets/apple-touch-icon-57x57-22f09f5b3a64.png', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (30, 11, 'Pubmed', 'http://www.medlive.cn/pubmed/pubmed_search.do?q={key}', 'https://webres.medlive.cn/favicon.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (31, 9, 'NPM', 'https://www.npmjs.com/search?q={key}', 'https://static-production.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png', 5, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (32, 10, '豆果美食', 'https://www.douguo.com/search/recipe/{key}', 'https://www.douguo.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (33, 10, '淘 宝', 'https://s.taobao.com/search?q={key}', 'https://www.taobao.com/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (34, 10, '京 东', 'https://search.jd.com/Search?keyword={key}&enc=utf-8', 'https://search.jd.com/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (36, 9, '产品经理', 'http://api.woshipm.com/search/list.html?key={key}', 'http://api.woshipm.com/assets/images/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (37, 7, '吾爱破解', 'https://www.52pojie.cn/search.php?mod=forum&searchid=61092&orderby=lastpost&ascdesc=desc&searchsubmit=yes&kw={key}', 'https://www.52pojie.cn/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (40, 3, '东方财富', 'https://so.eastmoney.com/News/s?keyword={key}', 'https://so.eastmoney.com/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (41, 3, '凤凰网', 'https://so.ifeng.com/?q={key}&c=1', 'https://y0.ifengimg.com/index/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (42, 3, '雪球', 'https://xueqiu.com/k?q={key}', 'https://xqdoc.imedao.com/17aebcfb84a145d33fc18679.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (44, 2, '抖音', 'https://www.douyin.com/search/{key}', 'https://www.douyin.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (45, 11, '百度学术', 'https://xueshu.baidu.com/s?wd={key}&rsv_bp=0&ie=utf-8', 'https://xueshu.baidu.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (46, 3, '隐订阅', 'https://yinrss.com/?keyword={key}', 'https://yinrss.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (47, 11, 'Sci-hub', 'https://sci-hub.org.cn/scholar?as_sdt=0%2C5&q={key}&btnG=', 'https://x.sci-hub.org.cn/extdomains/scholar.google.com/favicon.ico', 14, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (48, 10, '盖得排行', 'https://guiderank-app.com/search?key={key}', 'https://img.guiderank-app.com/guiderank_server/guiderank-website/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (49, 7, '千帆搜索', 'https://pan.qianfan.app/search/?pan=all&q={key}', 'https://pan.qianfan.app/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (50, 8, '安娜', 'https://zh.annas-archive.org/search?q={key}', 'https://zh.annas-archive.org/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (52, 12, '全网指数', 'http://mindex.chinaz.com/{key}', 'http://mindex.chinaz.com/favicon.ico', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (53, 12, '巨量指数', 'https://trendinsight.oceanengine.com/arithmetic-index/analysis?keyword={key}&appName=aweme', 'https://lf3-static.bytednsdoc.com/obj/eden-cn/kyhgpdeh7nuvanuhd/count/trendinsight.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (54, 12, '百度指数', 'https://index.baidu.com/v2/main/index.html#/trend/{key}?words={key}', 'https://www.baidu.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (56, 3, '中国搜索', 'http://www.chinaso.com/newssearch/all/allResults?q={key}', 'http://www.chinaso.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (57, 1, 'Bing', 'https://cn.bing.com/search?q={key}&FORM=BESBTB&PC=U531&ensearch=1', 'https://cn.bing.com/apple-touch-icon-57x57.png', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (58, 3, '问财', 'http://www.iwencai.com/unifiedwap/inforesult?w={key}&querytype=info&tab=', 'http://www.iwencai.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (59, 8, 'IFPS', 'https://libstc.cc/#/?q={key}&p=1&ds=false', 'https://libstc.cc/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (60, 7, '毕方铺', 'https://www.iizhi.cn/resource/search/{key}?searchtype=1&searchway=1', 'https://www.iizhi.cn/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (61, 1, '小红书', 'https://www.xiaohongshu.com/search_result?keyword={key}&source=unknown&type=51', 'https://picasso-static.xiaohongshu.com/fe-platform/fbd46ec8a907ca6a8cacc9596f18ff495c639feb.png', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (62, 13, 'Metaso', ' https://metaso.cn/?q={key}&m=detail&et=&_rsc=9s52d', 'https://metaso.cn/favicon.ico', 2, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (63, 9, 'Docker', 'https://hub.docker.com/search?q={key}', 'https://hub.docker.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (64, 8, '书葵', 'https://www.shukui.net/so/search.php?q={key}', 'https://www.shukui.net/skin/book/images/favicon.ico', 26, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (66, 13, '360搜', 'https://www.n.cn/?src=360ai_so&s_type=l&q={key}', 'https://www.so.com/favicon.ico', 4, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (67, 13, '百度AI', 'https://chat.baidu.com/search?word={key}', 'https://chat.baidu.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (68, 13, '知乎直答', 'https://zhida.zhihu.com/search?q={key}&zhida_source=zhida', 'https://pica.zhimg.com/v2-79e835d86b026c7c499de99d49906814.png', 3, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (69, 13, 'Miku', 'https://www.hellomiku.com/search?q={key}', 'https://www.hellomiku.com/favicon.ico', 1, 1);
+INSERT INTO `nav_search_item` (`btn_id`, `sid`, `name`, `query`, `icon`, `btn_index`, `status`) VALUES (70, 9, '油猴', 'https://greasyfork.org/zh-CN/scripts?q={key}', 'https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png', 1, 1);
 COMMIT;
 
 -- ----------------------------
@@ -1557,7 +2163,7 @@ CREATE TABLE `nav_sites` (
   `site_name` varchar(64) DEFAULT NULL,
   `logo_id` int DEFAULT NULL,
   `site_url` varchar(255) DEFAULT NULL,
-  `site_desc` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `site_desc` varchar(255) DEFAULT NULL,
   `order_index` int DEFAULT NULL,
   `is_com` int DEFAULT NULL COMMENT '共用网址',
   `count` int DEFAULT '0' COMMENT '统计点击率',
@@ -1567,7 +2173,7 @@ CREATE TABLE `nav_sites` (
   KEY `subSortIndex` (`sort_id`) USING BTREE,
   KEY `siteIndex` (`site_id`,`order_index`) USING BTREE,
   KEY `uidIndex` (`uid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=17307 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=21331 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of nav_sites
@@ -1592,31 +2198,25 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11587, 10046, 1127, '虫部落', 23, 'https://search.chongbuluo.com/', '一个神奇的搜索网站', 0, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11588, 10046, 1127, '自在饭', 553, 'https://www.zizaifan.com/cloud.html', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11589, 10046, 1127, '多搜搜', 146, 'http://duososo.com/', '', 6, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11591, 10046, 1127, '读 秀', 26, 'https://www.duxiu.com/login.jsp', '', 3, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11591, 10046, 1127, '读 秀', 26, 'https://www.duxiu.com/login.jsp', '', 3, 1, 1, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11592, 10046, 1127, 'PubMed', 27, 'http://www.medlive.cn/pubmed/', '中文版PubMed', 4, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11593, 10046, 1127, '一行代码', 332, 'https://www.alinecode.com/', '', 9, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11594, 10046, 1128, 'DOI', 386, 'http://dx.doi.org/', '下载文献', 11, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11595, 10046, 1127, '小不点', 468, 'https://www.xiaobd.net/', '', 12, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11597, 10046, 1127, '谷歌镜像', 317, 'http://ac.scmor.com/', '', 8, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11600, 10046, 1127, '电报资源搜索', 701, 'http://www.sssoou.com/', '', 1001, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11597, 10046, 1127, '谷歌镜像', 317, 'http://ac.scmor.com/', '', 8, 1, 0, '镜像,谷歌');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11603, 10046, 1127, 'JFreeBook', 735, 'https://www.justfreebooks.info/', '', 1003, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11620, 10046, 1130, '百度网盘', 13, 'https://pan.baidu.com/', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11623, 10046, 1130, '曲奇云盘', 444, 'https://quqi.com/', '', 3, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11624, 10046, 1130, '雷云网盘', 455, 'https://www.leiyun.org', '', 4, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11625, 10046, 1130, '网盘同步', 471, 'https://www.multcloud.com/index.jsp?rl=zh-CN#home', '', 5, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11626, 10046, 1130, '小麦云盘', 546, 'http://wp.own-cloud.cn/', '', 6, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11627, 10046, 1130, '公共网盘', 595, 'https://lm.qiqipip.ml/', '', 7, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11628, 10046, 1130, 'Cloudreve', 572, 'https://cloudreve.org/', '搭建网盘', 2, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11631, 10046, 1131, '百度地图', 16, 'https://map.baidu.com/', '', 0, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11633, 10046, 1131, '火车票', 18, 'https://kyfw.12306.cn/otn', '', 4, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11634, 10046, 1131, '微信公众号', 9, 'https://mp.weixin.qq.com/', '', 2, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11635, 10046, 1131, 'Google', 143, 'https://www.google.com/ncr', '', 5, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11636, 10046, 1131, '百度翻译', 14, 'http://fanyi.baidu.com/', '', 1, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11637, 10046, 1131, '谷歌翻译', 15, 'https://translate.google.cn/', '', 6, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11631, 10046, 1131, '百度地图', 16, 'https://map.baidu.com/', '', 0, 1, 0, '导航');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11633, 10046, 1131, '火车票', 18, 'https://kyfw.12306.cn/otn', '', 4, 1, 0, '出行,购票');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11634, 10046, 1131, '微信公众号', 9, 'https://mp.weixin.qq.com/', '', 2, 1, 0, '阅读');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11635, 10046, 1131, 'Google', 143, 'https://www.google.com/ncr', '', 5, 1, 0, '搜索');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11636, 10046, 1131, '百度翻译', 14, 'http://fanyi.baidu.com/', '', 1, 1, 0, '翻译,工具');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11637, 10046, 1131, '谷歌翻译', 15, 'https://translate.google.cn/', '', 6, 1, 0, '翻译');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11638, 10046, 1131, '薄荷网', 19, 'http://www.boohee.com/', '', 7, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11639, 10046, 1131, '小米云', 20, 'https://i.mi.com/#/', '', 8, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11640, 10046, 1131, '拷贝兔', 497, 'https://cp.anyknew.com/', '跨平台传文件', 9, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11641, 10046, 1131, '携 程', 776, 'https://www.ctrip.com/', '', 11, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11639, 10046, 1131, '小米云', 20, 'https://i.mi.com/#/', '', 8, 1, 0, '云盘');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11641, 10046, 1131, '携 程', 776, 'https://www.ctrip.com/', '', 11, 1, 0, '出行,购票');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11643, 10046, 1132, 'iSlide', 160, 'https://www.islide.cc/', '让PPT设计简单', 0, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11644, 10046, 1132, 'SmallPDF', 342, 'http://smallpdf.com/cn', '', 4, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11645, 10046, 1131, '石墨文档', 627, 'https://shimo.im/', '', 10, 1, 0, NULL);
@@ -1628,7 +2228,6 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11654, 10046, 1132, '在线抠图', 661, 'https://www.gaoding.com/koutu', '', 17, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11656, 10046, 1132, '文档翻译', 604, 'https://www.onlinedoctranslator.com/', '', 19, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11657, 10046, 1132, '图片AI修复', 559, 'https://www.nvidia.com/research/inpainting/', '', 20, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11659, 10046, 1132, '图 说', 694, 'https://tushuo.baidu.com/', '百度图说，数据可视化', 3, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11660, 10046, 1132, 'FireSend', 594, 'https://send.firefox.com/', '', 21, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11665, 10046, 1132, 'TinyPng', 67, 'https://tinypng.com/', '图片在线压缩', 2, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11667, 10046, 1132, 'SEO查询', 30, 'http://seo.chinaz.com/', '', 8, 1, 0, NULL);
@@ -1648,20 +2247,12 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11696, 10046, 1136, 'PDFdrive', 102, 'http://www.pdfdrive.net/', '', 2, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11697, 10046, 1136, 'Booksee', 103, 'http://en.booksee.org/', '英文电子书库', 3, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11698, 10046, 1136, 'itEbooks', 104, 'http://it-ebooks.info/', 'IT电子书', 4, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11699, 10046, 1136, 'Library', 105, 'http://gen.lib.rus.ec/', '电子书库', 5, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11700, 10046, 1136, '书问搜索', 106, 'http://www.bookask.com/', '出版电子书搜索', 6, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11701, 10046, 1136, '鸠摩搜书', 107, 'https://www.jiumodiary.com/', '最强大的搜书引擎', 7, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11702, 10046, 1136, '读书小站', 549, 'http://ibooks.org.cn/', '为阅读而生,书籍下载', 8, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11705, 10046, 1136, '左岸读书', 113, 'http://www.zreading.cn/', '', 12, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11706, 10046, 1136, '走读派', 114, 'http://www.zoudupai.com/', '', 13, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11707, 10046, 1136, '书 伴', 115, 'https://bookfere.com/', '为静心阅读而生', 14, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11708, 10046, 1136, '好 读', 116, 'http://haodoo.net/', '', 15, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11712, 10046, 1136, '西 东', 231, 'http://xidong.net/', '学习资料共享', 18, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11716, 10046, 1136, 'kindle分享', 655, 'https://kindle.51nazhun.pub', '', 1000, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11717, 10046, 1136, '云海电子书', 658, 'http://www.pdfbook.cn/', '', 1000, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11719, 10046, 1136, 'Iread', 730, 'http://www.iread.cf/', '', 1002, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11720, 10046, 1136, 'ePUBw', 731, 'https://epubw.com/', '', 1003, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11723, 10046, 1136, '搬书匠', 760, 'http://www.banshujiang.cn/', '', 1006, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11730, 10046, 1137, '读万卷', 94, 'http://www.duwanjuan.cn/', '免费杂志在线阅读平台', 107, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11731, 10046, 1137, 'Magazine', 117, 'http://magazinelib.com/', '', 132, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11732, 10046, 1137, 'PDF之家', 118, 'http://www.pdfzj.com/', '', 133, 1, 0, NULL);
@@ -1675,12 +2266,11 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11746, 10046, 1140, '萌新网', 754, 'https://www.macxin.com/', '', 0, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11747, 10046, 1140, '殁漂遥', 251, 'https://www.laomoit.com/', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11748, 10046, 1140, '异次元', 271, 'http://www.iplaysoft.com/', '', 2, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11749, 10046, 1140, '小众软件', 264, 'http://www.appinn.com/', '', 3, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11749, 10046, 1140, '小众软件', 264, 'http://www.appinn.com/', '', 3, 1, 0, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11750, 10046, 1140, '爱情守望者', 258, 'https://www.waitsun.com/', '', 4, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11751, 10046, 1140, '玩转苹果', 257, 'http://www.ifunmac.com/', '', 5, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11753, 10046, 1140, 'mac独立', 474, 'https://josephchang10.github.io/chinese-indie-hackers/', '', 32, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11754, 10046, 1140, '酷安应用', 277, 'https://www.coolapk.com/apk/', '', 1640, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11757, 10046, 1141, '睿派克', 253, 'https://www.repaik.com/', '', 6, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11758, 10046, 1141, 'VirSCAN', 254, 'http://r.virscan.org/', '', 7, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11760, 10046, 1141, 'AppKed', 259, 'http://www.macbed.com/', '', 9, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11762, 10046, 1141, '苹果软件园', 260, 'http://www.maczapp.com/', '', 12, 1, 0, NULL);
@@ -1711,14 +2301,14 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11818, 10046, 1145, '易破解', 766, 'http://www.ypojie.com/', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11819, 10046, 1145, 'CrackPatch', 767, 'https://crackingpatching.com/', '', 2, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11820, 10046, 1146, 'KIM主页', 302, 'https://www.zhuye.kim/', '', 0, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11821, 10046, 1146, '兰客导航', 511, 'http://lackk.com/nav/', '集众多网站导航优点于一身', 1, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11821, 10046, 1146, '兰客导航', 511, 'http://lackk.com/nav/', '集众多网站导航优点于一身', 1, 1, 0, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11824, 10046, 1146, '某柠檬', 305, 'http://www.moulem.com/', '', 5, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11827, 10046, 1146, '龙轩导航', 306, 'http://ilxdh.com/', '', 8, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11827, 10046, 1146, '龙轩导航', 306, 'http://ilxdh.com/', '龙轩导航提供最快捷的资源平台，让你迅速找到想要的资源，准确又方便快捷', 8, 1, 0, '导航');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11830, 10046, 1146, '看国外', 309, 'http://www.kanguowai.com/', '', 11, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11831, 10046, 1146, '大数据导航', 191, 'https://www.afenxi.com/hao', '', 12, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11832, 10046, 1146, 'Egouz', 310, 'http://www.egouz.com/', '国外网址大全', 12, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11833, 10046, 1146, '效率集', 311, 'http://www.xiaolvji.com/', '', 13, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11836, 10046, 1146, '奇草导航', 313, 'https://www.qicao.cn/', '个人原创博客导航', 16, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11836, 10046, 1146, '奇草导航', 313, 'https://www.qicao.cn/', '个人原创博客导航', 16, 1, 0, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11837, 10046, 1146, '万花筒', 481, 'https://wht.im/', '', 18, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11840, 10046, 1146, 'addDog', 676, 'http://www.addog.vip/', '广告人的网址导航', 20, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11849, 10046, 1146, '最美网站', 765, 'https://zuimeix.com/', '', 1005, 1, 0, NULL);
@@ -1729,15 +2319,13 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11920, 10046, 1151, '兔耳故事', 743, 'http://www.tuer123.com/', '', 1003, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11975, 10046, 1156, '亿欧网', 193, 'https://www.iyiou.com/', '', 1538, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11976, 10046, 1156, '产品经理', 195, 'http://www.woshipm.com/', '', 1540, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11977, 10046, 1156, '经理人', 196, 'http://www.sino-manager.com/', '', 1541, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11977, 10046, 1156, '经理人', 196, 'http://www.sino-manager.com/', '', 1541, 1, 0, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11978, 10046, 1156, '世界经理人', 197, 'http://www.ceconline.com/', '', 1542, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11979, 10046, 1156, '产品壹佰', 198, 'http://www.chanpin100.com/', '', 1543, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11980, 10046, 1156, '砍柴网', 199, 'http://www.ikanchai.com/', '', 1544, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11980, 10046, 1156, '砍柴网', 199, 'http://www.ikanchai.com/', '砍柴网是一家拥有全球视野的前沿科技媒体，我们始终秉承观点独到、全面深入、有料有趣的宗旨，在科技与人文之间寻找商业新价值，坚持以人文的视角解读科技，用专业的精神剖析时代，孜孜不倦探索科技与商业的未来。 ', 1544, 1, 1, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11981, 10046, 1156, '新芽网', 200, 'http://www.newseed.cn/', '', 1545, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11982, 10046, 1156, '投资界', 194, 'http://www.pedaily.cn/', '', 1539, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11983, 10046, 1156, '勺子课堂', 201, 'https://www.shaoziketang.com/', '', 1546, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11984, 10046, 1156, '联商网', 202, 'http://www.linkshop.com.cn/', '', 1547, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11985, 10046, 1156, '产业新干线', 729, 'https://www.jinluoo.com/', '', 1548, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11984, 10046, 1156, '联商网', 202, 'http://www.linkshop.com.cn/', '', 1547, 1, 1, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11986, 10046, 1157, '智联招聘', 168, 'http://www.zhaopin.com/', '', 1509, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11987, 10046, 1157, 'BOSS直聘', 170, 'https://www.zhipin.com/', '', 1511, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (11988, 10046, 1157, '拉勾网', 171, 'https://www.lagou.com/', '', 1512, 1, 0, NULL);
@@ -1762,7 +2350,7 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12011, 10046, 1162, 'EnJoy', 65, 'https://enjoy.ricebook.com/', '精选美食电商', 54, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12012, 10046, 1160, '淘宝网', 4, 'https://www.taobao.com/', '', 4, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12013, 10046, 1160, '京 东', 5, 'http://www.jd.com/', '', 5, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12014, 10046, 1160, 'Amazon', 22, 'http://www.amazon.cn/', '', 23, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12014, 10046, 1160, 'Amazon', 22, 'http://www.amazon.cn/', '', 23, 1, 3, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12015, 10046, 1160, '苏宁易购', 34, 'https://www.suning.com/', '', 38, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12016, 10046, 1160, '国美在线', 35, 'https://www.gome.com.cn/', '', 39, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12017, 10046, 1160, '猪八戒', 62, 'https://www.zbj.com/', '', 40, 1, 0, NULL);
@@ -1786,15 +2374,8 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12064, 10046, 1168, '果 壳', 181, 'https://www.guokr.com/', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12065, 10046, 1168, 'WikiHow', 185, 'https://zh.wikihow.com/', '', 2, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12067, 10046, 1168, '数字科技馆', 641, 'https://www.cdstm.cn/', '中国数字科技馆是中国科协、教育部、中科院共建的一个基于互联网传播的国家级公益性科普服务平台', 4, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12069, 10046, 1168, 'StackEx', 182, 'https://stackexchange.com/', '', 5, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12071, 10046, 1168, 'Quora', 184, 'https://www.quora.com/', '', 7, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12072, 10046, 1168, 'Answers', 344, 'http://www.answers.com/', '', 8, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12073, 10046, 1168, '十万为什么', 491, 'http://www.10why.net/', '', 9, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12074, 10046, 1168, '法 言', 365, 'http://lawtalks.cn/', '', 10, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12075, 10046, 1168, 'Sofa', 367, 'http://sofasofa.io/', '数据科学问答社区', 12, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12076, 10046, 1168, '极客起源', 368, 'https://geekori.com/', '', 13, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12077, 10046, 1168, '搜外问答', 369, 'https://ask.seowhy.com/', '专注SEO问答', 14, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12078, 10046, 1168, '悟空问答', 385, 'https://www.wukong.com/', '', 16, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12079, 10046, 1168, 'SOverflow', 389, 'https://stackoverflow.com/', '计算机问答', 17, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12080, 10046, 1168, 'ITValue', 371, 'http://www.itvalue.com.cn/', 'CIO的问答平台', 15, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12082, 10046, 1168, '中国哲学', 583, 'https://ctext.org/zhs', '', 19, 1, 0, NULL);
@@ -1841,7 +2422,7 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12123, 10046, 1170, '纪录片天地', 478, 'http://www.jlpcn.net/', '', 1596, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12124, 10046, 1170, 'Bilibili记录', 241, 'https://www.bilibili.com/video/tech-popular-science-1.html', '', 1597, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12125, 10046, 1168, '全历史', 640, 'https://www.allhistory.com/', '全历史(Allhistory）以AI知识图谱为核心引擎，通过高度时空化、关联化数据的方式构造及展现数字人文内容', 1000, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12126, 10046, 1168, '东里书斋', 76, 'http://www.donglishuzhai.net/', '', 1000, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12126, 10046, 1168, '东里书斋', 76, 'http://www.donglishuzhai.net/', '', 1000, 1, 1, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12127, 10046, 1170, '响巢记录', 346, 'http://jilupian.kankan.com/', '', 1599, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12129, 10046, 1172, '爱奇艺', 131, 'http://www.iqiyi.com/', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12130, 10046, 1172, '芒果TV', 125, 'https://www.mgtv.com/', '', 2, 1, 0, NULL);
@@ -1855,11 +2436,8 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12138, 10046, 1172, '电影天堂', 479, 'https://www.dy2018.com/', '', 11, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12139, 10046, 1172, 'Bilibili', 241, 'https://www.bilibili.com/', '', 12, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12140, 10046, 1172, '央视网', 130, 'http://www.cctv.com/', '', 7, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12143, 10046, 1172, '电波字幕', 245, 'http://dbfansub.com/', '', 16, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12144, 10046, 1172, 'Sub-HD', 343, 'http://subhd.com/', '字幕搜索下载', 13, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12145, 10046, 1172, '射手网', 249, 'http://assrt.net/', '', 17, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12146, 10046, 1172, '全视频', 391, 'http://www.qsptv.com/', '', 18, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12147, 10046, 1172, '自由无二', 393, 'http://www.free52.com/', '', 20, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12153, 10046, 1174, '国际乐谱库', 659, 'https://cn.imslp.org/', '', 1000, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12154, 10046, 1174, '摆渡一下', 533, 'http://www.baiduonce.com/index.html', '', 1000, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12155, 10046, 1174, '网易音乐', 373, 'https://music.163.com/', '', 1484, 1, 0, NULL);
@@ -1876,14 +2454,14 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12167, 10046, 1173, '绿野户外', 139, 'http://www.lvye.cn/', '', 300, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12168, 10046, 1173, '穷游网', 140, 'https://www.qyer.com/', '', 301, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12169, 10046, 1173, '植物图像库', 213, 'http://www.plantphoto.cn/', '', 1560, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12170, 10046, 1175, '创意导航', 564, 'https://creativemass.cn/#/', '', 1000, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12170, 10046, 1175, '创意导航', 564, 'https://creativemass.cn/', '精选全球创意网站，涵盖营销、设计、艺术、素材、工具、脑洞等领域数百个站点。', 1000, 1, 0, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12171, 10046, 1175, 'TOPS', 610, 'https://www.topys.cn/', '抢先知晓全球最新鲜、最棒的创意资讯，扩充你的灵感库', 1000, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12172, 10046, 1175, '梅花网', 786, 'https://www.meihua.info/', '营销作品宝库', 1005, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12173, 10046, 1175, '营销案例', 787, 'https://hd.weibo.com/case/index/index', '', 1006, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12175, 10046, 1176, 'Fotor', 156, 'https://www.fotor.com/cn/index.html', '', 0, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12176, 10046, 1176, '图虫网', 404, 'https://tuchong.com/', '', 1, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12177, 10046, 1176, '中国色', 159, 'http://zhongguose.com/', '', 2, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12178, 10046, 1175, '传媒作品', 788, 'http://www.mid2007.com/productclass.html', '', 1007, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12178, 10046, 1175, '蜜得创益', 788, 'http://www.mid2007.com/productclass.html', '蜜得创益是MID蜜得创益事业群的简称，以“为美好愿景连接更多伙伴”为使命，致力于连接多方共探社会问题的解决。蜜得创益为企业或公益组织的创益项目提供全案支持：战略规划、创意传播、落地运营。', 1007, 1, 0, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12179, 10046, 1176, '色 彩', 157, 'http://www.peise.net/color/', '', 3, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12180, 10046, 1176, '千图网', 284, 'http://www.58pic.com/', '', 4, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12181, 10046, 1176, '阿里图标', 21, 'http://www.iconfont.cn/', '', 4, 1, 0, NULL);
@@ -1921,428 +2499,35 @@ INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `s
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12215, 10046, 1179, '搜  狐', 63, 'http://www.sohu.com/', '', 7, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12216, 10046, 1179, '网  易', 57, 'http://www.163.com/', '', 6, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12217, 10046, 1179, '澎湃新闻', 60, 'https://www.thepaper.cn/', '专注时政与思想', 8, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12218, 10046, 1179, 'Matters', 669, 'https://matters.news/', '一個自由、自主、永續的創作與公共討論空間', 2, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12219, 10046, 1179, '科学松鼠会', 87, 'http://songshuhui.net/', '', 10, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12218, 10046, 1179, 'Matters', 669, 'https://matters.news/', '一個自由、自主、永續的創作與公共討論空間', 2, 1, 2, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12219, 10046, 1179, '科学松鼠会', 87, 'http://songshuhui.net/', '', 10, 1, 1, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12220, 10046, 1179, 'InfoQ', 86, 'http://www.infoq.com/cn/', '', 9, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12221, 10046, 1179, '壹心理', 92, 'http://www.xinli001.com/', '', 12, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12222, 10046, 1179, '创意栖息', 99, 'http://ideaest.com/', '', 13, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12223, 10046, 1179, '爱稀奇', 100, 'http://www.ixiqi.com/', '', 14, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12223, 10046, 1179, '爱稀奇', 100, 'http://www.ixiqi.com/', '', 14, 1, 2, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12224, 10046, 1179, '前瞻网', 418, 'https://www.qianzhan.com/', '发现趋势,预见未来', 15, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12225, 10046, 1179, 'FT中文网', 618, 'http://www.ftchinese.com/', '', 16, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12226, 10046, 1179, '推酷', 85, 'https://www.tuicool.com/', '', 97, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12227, 10046, 1179, '豆  瓣', 91, 'https://www.douban.com/', '', 11, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12228, 10046, 1179, '走 廊', 90, 'http://www.zoulang.com/', '', 102, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12229, 10046, 1179, '译言网', 93, 'http://www.yeeyan.org/', '', 105, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12230, 10046, 1183, '煎蛋', 98, 'http://jandan.net/', '地球上没有新鲜事', 111, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12232, 10046, 1179, '湾区日报', 707, 'https://wanqu.co/', '关注创业与技术', 1494, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12233, 10046, 1179, '知微事见', 718, 'http://ef.zhiweidata.com/#!/down', '', 1495, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12233, 10046, 1179, '知微事见', 718, 'http://ef.zhiweidata.com/#!/down', '', 1495, 1, 2, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12234, 10046, 1179, '今日热榜', 725, 'https://tophub.today/', '', 1496, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12235, 10046, 1179, '梅子搜报', 763, 'http://mz.soubao.net/', '', 1497, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12236, 10046, 1181, '钛媒体', 68, 'http://www.tmtpost.com/', '引领未来商业与生活新知', 70, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12237, 10046, 1181, '爱范儿', 70, 'https://www.ifanr.com/', '', 71, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12238, 10046, 1181, 'TechWeb', 82, 'http://www.techweb.com.cn/', '', 94, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12239, 10046, 1181, 'CnBeta', 83, 'https://www.cnbeta.com/', '', 95, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12240, 10046, 1181, '36氪', 88, 'http://36kr.com/', '让创业更简单', 100, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12241, 10046, 1181, 'Engadget', 89, 'https://cn.engadget.com/', '消费性电子产品评测和新闻', 101, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12242, 10046, 1181, '中关村ZOL', 96, 'http://detail.zol.com.cn/', '', 109, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12243, 10046, 1181, 'Koolshare', 653, 'http://koolshare.cn', '', 1000, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12244, 10046, 1181, '极客公园', 370, 'http://www.geekpark.net/', '', 2499, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12245, 10046, 1181, '人工智能', 382, 'http://www.aihot.net/', '', 4065, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12246, 10046, 1181, '新区块', 388, 'https://xinqukuai.cn/', '', 4071, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12242, 10046, 1181, '中关村ZOL', 96, 'http://detail.zol.com.cn/', '', 109, 1, 1, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12244, 10046, 1181, '极客公园', 370, 'http://www.geekpark.net/', '', 2499, 1, 1, '');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12245, 10046, 1181, '人工智能', 382, 'http://www.aihot.net/', '', 4065, 1, 1, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12247, 10046, 1181, '机器之心', 708, 'https://www.jiqizhixin.com/', '关注人工智能、机器人和神经认知科学', 4072, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12248, 10046, 1159, '新 榜', 164, 'https://www.newrank.cn/', '', 1503, 1, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12248, 10046, 1159, '新 榜', 164, 'https://www.newrank.cn/', '', 1503, 1, 1, '');
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12249, 10046, 1159, '百度风云榜', 165, 'http://top.baidu.com/', '', 1504, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12250, 10046, 1159, '中国票房', 166, 'http://www.cbooo.cn/', '', 1505, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12251, 10046, 1183, '我勒个', 97, 'https://www.wolege.com/', '', 110, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12252, 10046, 1183, '暴走漫画', 383, 'http://baozoumanhua.com/', '', 4066, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12253, 10046, 1183, '网不易', 705, 'http://www.netnoease.com/', '原创的乐呵一下', 4067, 1, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (12254, 10046, 1183, '有趣网站', 762, 'http://123.kfd.me/', '', 4068, 1, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (15595, 10046, 1151, '宝宝吧', NULL, 'http://www.baobao88.com/', NULL, 6098, NULL, 0, NULL);
 INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (15596, 10046, 1130, '115网盘', 1248, 'https://www.115.com', NULL, 0, NULL, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16923, 10067, 1128, '佰腾专利', 66, 'https://www.patexplorer.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16924, 10067, 1128, '大为专利', 416, 'http://www.innojoy.com/search/home.html', '', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16925, 10067, 1128, '开放Libary', 632, 'http://www.oalib.com/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16926, 10067, 1128, '国家哲学', 633, 'http://www.ncpssd.org/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16927, 10067, 1128, '万千集合', 589, 'http://www.hejizhan.com/bbs/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16928, 10067, 1128, '科研搜索', 319, 'http://so.sciencesoft.cn/', '', 1697, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16929, 10067, 1128, 'Anypaper', 318, 'https://luooqi.com/paper/search', '论文搜索,下载', 1696, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16930, 10067, 1128, 'AOL', 321, 'https://www.aolsearch.com/', '', 1699, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16931, 10067, 1128, '国家自然基金研究', 622, 'http://or.nsfc.gov.cn/', '国家自然科学基金基础研究知识库', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16932, 10067, 1128, 'MS学术', 340, 'https://academic.microsoft.com/', '', 1700, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16933, 10067, 1128, '领研网', 336, 'https://www.linkresearcher.com/', '', 1717, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16934, 10067, 1128, 'Sci-Hub', 322, 'https://sci-hub.tw/', '免费下载文献', 1701, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16935, 10067, 1128, 'Sci-Hub2', 323, 'http://sci-hub.is/', '', 1702, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16936, 10067, 1128, '科塔学术', 736, 'https://www.sciping.com/', '科研与学术资源导航平台', 6095, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16937, 10067, 1128, '喵咪论文', 745, 'https://lunwen.im/', '数据来源:sci-hub、oalib、findarticles、intechopen', 6096, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16938, 10067, 1128, '教材搜索', 749, 'http://www.hejizhan.com/html/search', '', 6098, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16939, 10067, 1127, '虫部落', 23, 'https://search.chongbuluo.com/', '一个神奇的搜索网站', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16940, 10067, 1127, '自在饭', 553, 'https://www.zizaifan.com/cloud.html', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16941, 10067, 1127, '多搜搜', 146, 'http://duososo.com/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16942, 10067, 1127, '读 秀', 26, 'https://www.duxiu.com/login.jsp', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16943, 10067, 1127, 'PubMed', 27, 'http://www.medlive.cn/pubmed/', '中文版PubMed', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16944, 10067, 1127, '一行代码', 332, 'https://www.alinecode.com/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16945, 10067, 1128, 'DOI', 386, 'http://dx.doi.org/', '下载文献', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16946, 10067, 1127, '小不点', 468, 'https://www.xiaobd.net/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16947, 10067, 1127, '谷歌镜像', 317, 'http://ac.scmor.com/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16948, 10067, 1127, '电报资源搜索', 701, 'http://www.sssoou.com/', '', 1001, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16949, 10067, 1127, 'JFreeBook', 735, 'https://www.justfreebooks.info/', '', 1003, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16950, 10067, 1130, '百度网盘', 13, 'https://pan.baidu.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16951, 10067, 1130, '曲奇云盘', 444, 'https://quqi.com/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16952, 10067, 1130, '雷云网盘', 455, 'https://www.leiyun.org', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16953, 10067, 1130, '网盘同步', 471, 'https://www.multcloud.com/index.jsp?rl=zh-CN#home', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16954, 10067, 1130, '小麦云盘', 546, 'http://wp.own-cloud.cn/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16955, 10067, 1130, '公共网盘', 595, 'https://lm.qiqipip.ml/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16956, 10067, 1130, 'Cloudreve', 572, 'https://cloudreve.org/', '搭建网盘', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16957, 10067, 1131, '百度地图', 16, 'https://map.baidu.com/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16958, 10067, 1131, '火车票', 18, 'https://kyfw.12306.cn/otn', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16959, 10067, 1131, '微信公众号', 9, 'https://mp.weixin.qq.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16960, 10067, 1131, 'Google', 143, 'https://www.google.com/ncr', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16961, 10067, 1131, '百度翻译', 14, 'http://fanyi.baidu.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16962, 10067, 1131, '谷歌翻译', 15, 'https://translate.google.cn/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16963, 10067, 1131, '薄荷网', 19, 'http://www.boohee.com/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16964, 10067, 1131, '小米云', 20, 'https://i.mi.com/#/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16965, 10067, 1131, '拷贝兔', 497, 'https://cp.anyknew.com/', '跨平台传文件', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16966, 10067, 1131, '携 程', 776, 'https://www.ctrip.com/', '', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16967, 10067, 1132, 'iSlide', 160, 'https://www.islide.cc/', '让PPT设计简单', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16968, 10067, 1132, 'SmallPDF', 342, 'http://smallpdf.com/cn', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16969, 10067, 1131, '石墨文档', 627, 'https://shimo.im/', '', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16970, 10067, 1132, '文件转换器', 161, 'http://cn.office-converter.com/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16971, 10067, 1132, '奶牛快传', 500, 'https://cowtransfer.com/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16972, 10067, 1132, '图表秀', 341, 'http://www.tubiaoxiu.com/', '', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16973, 10067, 1132, 'HiPDF', 504, 'https://www.hipdf.cn/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16974, 10067, 1132, '语雀', 656, 'https://www.yuque.com/', '专业的云端知识库', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16975, 10067, 1132, '在线抠图', 661, 'https://www.gaoding.com/koutu', '', 17, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16976, 10067, 1132, '文档翻译', 604, 'https://www.onlinedoctranslator.com/', '', 19, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16977, 10067, 1132, '图片AI修复', 559, 'https://www.nvidia.com/research/inpainting/', '', 20, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16978, 10067, 1132, '图 说', 694, 'https://tushuo.baidu.com/', '百度图说，数据可视化', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16979, 10067, 1132, 'FireSend', 594, 'https://send.firefox.com/', '', 21, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16980, 10067, 1132, 'TinyPng', 67, 'https://tinypng.com/', '图片在线压缩', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16981, 10067, 1132, 'SEO查询', 30, 'http://seo.chinaz.com/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16982, 10067, 1132, '17ce', 32, 'https://www.17ce.com/', '网站测速', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16983, 10067, 1132, 'RGB颜色', 33, 'http://www.sioe.cn/yingyong/yanse-rgb-16/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16984, 10067, 1132, '在线工具', 338, 'https://tool.lu/', '', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16985, 10067, 1132, '草料二维码', 334, 'https://cli.im/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16986, 10067, 1132, '路过图床', 443, 'https://imgchr.com/', '', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16987, 10067, 1132, '移除背景', 472, 'https://www.remove.bg/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16988, 10067, 1132, '爱资料工具', 761, 'https://www.toolnb.com/', '', 24, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16989, 10067, 1134, '腾讯地图', 17, 'https://map.qq.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16990, 10067, 1134, '高德地图', 423, 'https://www.amap.com/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16991, 10067, 1134, '挂号网', 39, 'https://www.guahao.com/', '互联网挂号', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16992, 10067, 1134, '中午吃什么', 508, 'https://www.zwcsm.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16993, 10067, 1134, '食物库', 714, 'https://www.hiyd.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16994, 10067, 1134, '食物数据', 715, 'http://www.phsciencedata.cn/Share/ky_sjml.jsp?id=577e0301-ab65-432a-9bb7-a8342302e589#', '官方', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16995, 10067, 1136, 'PDFdrive', 102, 'http://www.pdfdrive.net/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16996, 10067, 1136, 'Booksee', 103, 'http://en.booksee.org/', '英文电子书库', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16997, 10067, 1136, 'itEbooks', 104, 'http://it-ebooks.info/', 'IT电子书', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16998, 10067, 1136, 'Library', 105, 'http://gen.lib.rus.ec/', '电子书库', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (16999, 10067, 1136, '书问搜索', 106, 'http://www.bookask.com/', '出版电子书搜索', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17000, 10067, 1136, '鸠摩搜书', 107, 'https://www.jiumodiary.com/', '最强大的搜书引擎', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17001, 10067, 1136, '读书小站', 549, 'http://ibooks.org.cn/', '为阅读而生,书籍下载', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17002, 10067, 1136, '左岸读书', 113, 'http://www.zreading.cn/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17003, 10067, 1136, '走读派', 114, 'http://www.zoudupai.com/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17004, 10067, 1136, '书 伴', 115, 'https://bookfere.com/', '为静心阅读而生', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17005, 10067, 1136, '好 读', 116, 'http://haodoo.net/', '', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17006, 10067, 1136, '西 东', 231, 'http://xidong.net/', '学习资料共享', 18, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17007, 10067, 1136, 'kindle分享', 655, 'https://kindle.51nazhun.pub', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17008, 10067, 1136, '云海电子书', 658, 'http://www.pdfbook.cn/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17009, 10067, 1136, 'Iread', 730, 'http://www.iread.cf/', '', 1002, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17010, 10067, 1136, 'ePUBw', 731, 'https://epubw.com/', '', 1003, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17011, 10067, 1136, '搬书匠', 760, 'http://www.banshujiang.cn/', '', 1006, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17012, 10067, 1137, '读万卷', 94, 'http://www.duwanjuan.cn/', '免费杂志在线阅读平台', 107, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17013, 10067, 1137, 'Magazine', 117, 'http://magazinelib.com/', '', 132, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17014, 10067, 1137, 'PDF之家', 118, 'http://www.pdfzj.com/', '', 133, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17015, 10067, 1137, '若蓝格', 119, 'http://www.ifblue.net/', '', 134, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17016, 10067, 1137, '走盘', 120, 'http://www.zoupan.com/', '', 136, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17017, 10067, 1137, '读者', 121, 'http://www.52duzhe.com/', '', 137, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17018, 10067, 1137, '意林', 122, 'http://www.92yilin.com/', '', 138, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17019, 10067, 1137, '故事会', 123, 'http://www.92gushi.com/', '', 139, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17020, 10067, 1137, 'YUDU杂志', 639, 'https://express.yudu.com/explore', '国外在线杂志阅读', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17021, 10067, 1140, '吾爱破解', 250, 'http://www.52pojie.cn/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17022, 10067, 1140, '萌新网', 754, 'https://www.macxin.com/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17023, 10067, 1140, '殁漂遥', 251, 'https://www.laomoit.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17024, 10067, 1140, '异次元', 271, 'http://www.iplaysoft.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17025, 10067, 1140, '小众软件', 264, 'http://www.appinn.com/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17026, 10067, 1140, '爱情守望者', 258, 'https://www.waitsun.com/', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17027, 10067, 1140, '玩转苹果', 257, 'http://www.ifunmac.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17028, 10067, 1140, 'mac独立', 474, 'https://josephchang10.github.io/chinese-indie-hackers/', '', 32, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17029, 10067, 1140, '酷安应用', 277, 'https://www.coolapk.com/apk/', '', 1640, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17030, 10067, 1141, '睿派克', 253, 'https://www.repaik.com/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17031, 10067, 1141, 'VirSCAN', 254, 'http://r.virscan.org/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17032, 10067, 1141, 'AppKed', 259, 'http://www.macbed.com/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17033, 10067, 1141, '苹果软件园', 260, 'http://www.maczapp.com/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17034, 10067, 1141, 'SoftAsm', 261, 'https://softasm.co/category/mac', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17035, 10067, 1141, '远景论坛', 263, 'http://bbs.pcbeta.com/', '', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17036, 10067, 1141, '安下载', 268, 'https://www.anxz.com/', '', 18, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17037, 10067, 1141, '微软软件', 269, 'http://msdn.itellyou.cn/?lang=zh-cn', '', 19, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17038, 10067, 1141, '生物软件园', 270, 'http://www.seekbio.com/soft/', '', 20, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17039, 10067, 1141, '飘云阁', 265, 'https://www.chinapyg.com/forum.php', '', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17040, 10067, 1141, '蒲中资源网', 480, 'http://jsbpzx.net.cn/Index.html', '', 21, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17041, 10067, 1141, '软件盒子', 272, 'http://www.itopdog.cn/', '', 22, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17042, 10067, 1141, 'Mac绝赞', 355, 'http://wangchujiang.com/awesome-mac/index.zh.html', '', 23, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17043, 10067, 1141, 'Win绝赞', 273, 'https://amazing-apps.gitbooks.io/windows-apps-that-amaze-us/content/zh-CN/', '', 25, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17044, 10067, 1141, '鱼の后花园', 337, 'http://www.fishlee.net/', '', 26, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17045, 10067, 1141, 'MIUI', 397, 'http://www.miui.com/index.html', '', 27, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17046, 10067, 1141, '懒得勤快', 431, 'https://masuit.com/', '', 30, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17047, 10067, 1141, '内存清理', 485, 'https://www.henrypp.org/product/memreduct', '', 31, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17048, 10067, 1141, 'MacBed', 679, 'https://www.macbed.cn/', '', 39, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17049, 10067, 1143, 'BhVip', 588, 'http://pan.lanzou.com/u/%E5%BD%AA%E7%85%8Cqq1846055318', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17050, 10067, 1143, '八神app', 651, 'http://zntx.cc/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17051, 10067, 1143, '最美应用', 274, 'http://zuimeia.com/', '', 1637, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17052, 10067, 1143, '豌豆荚设计', 275, 'https://www.wandoujia.com/award', '', 1638, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17053, 10067, 1143, '少数派', 484, 'https://sspai.com/', '', 1641, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17054, 10067, 1143, '好奇心日报', 278, 'http://www.qdaily.com/', '', 1642, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17055, 10067, 1143, 'NEXT', 279, 'http://next.36kr.com/', '', 1643, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17056, 10067, 1143, '我爱玩应用', 280, 'http://www.wooaii.com/', '', 1644, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17057, 10067, 1143, '智友论坛', 276, 'http://bbs.zhiyoo.com/forum-2-1.html', '', 1639, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17058, 10067, 1145, '易破解', 766, 'http://www.ypojie.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17059, 10067, 1145, 'CrackPatch', 767, 'https://crackingpatching.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17060, 10067, 1146, 'KIM主页', 302, 'https://www.zhuye.kim/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17061, 10067, 1146, '兰客导航', 511, 'http://lackk.com/nav/', '集众多网站导航优点于一身', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17062, 10067, 1146, '某柠檬', 305, 'http://www.moulem.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17063, 10067, 1146, '龙轩导航', 306, 'http://ilxdh.com/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17064, 10067, 1146, '看国外', 309, 'http://www.kanguowai.com/', '', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17065, 10067, 1146, '大数据导航', 191, 'https://www.afenxi.com/hao', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17066, 10067, 1146, 'Egouz', 310, 'http://www.egouz.com/', '国外网址大全', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17067, 10067, 1146, '效率集', 311, 'http://www.xiaolvji.com/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17068, 10067, 1146, '奇草导航', 313, 'https://www.qicao.cn/', '个人原创博客导航', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17069, 10067, 1146, '万花筒', 481, 'https://wht.im/', '', 18, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17070, 10067, 1146, 'addDog', 676, 'http://www.addog.vip/', '广告人的网址导航', 20, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17071, 10067, 1146, '最美网站', 765, 'https://zuimeix.com/', '', 1005, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17072, 10067, 1146, '龙喵网', 768, 'http://ailongmiao.com/', '', 1006, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17073, 10067, 1151, '儿童绘本', 657, 'http://www.childrensbooksforever.com/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17074, 10067, 1151, '语文迷', 697, 'http://www.yuwenmi.com/', '', 1001, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17075, 10067, 1151, '中少绘本', 712, 'http://111.205.102.251:8090/Home/', '', 1002, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17076, 10067, 1151, '兔耳故事', 743, 'http://www.tuer123.com/', '', 1003, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17077, 10067, 1156, '亿欧网', 193, 'https://www.iyiou.com/', '', 1538, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17078, 10067, 1156, '产品经理', 195, 'http://www.woshipm.com/', '', 1540, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17079, 10067, 1156, '经理人', 196, 'http://www.sino-manager.com/', '', 1541, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17080, 10067, 1156, '世界经理人', 197, 'http://www.ceconline.com/', '', 1542, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17081, 10067, 1156, '产品壹佰', 198, 'http://www.chanpin100.com/', '', 1543, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17082, 10067, 1156, '砍柴网', 199, 'http://www.ikanchai.com/', '', 1544, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17083, 10067, 1156, '新芽网', 200, 'http://www.newseed.cn/', '', 1545, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17084, 10067, 1156, '投资界', 194, 'http://www.pedaily.cn/', '', 1539, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17085, 10067, 1156, '勺子课堂', 201, 'https://www.shaoziketang.com/', '', 1546, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17086, 10067, 1156, '联商网', 202, 'http://www.linkshop.com.cn/', '', 1547, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17087, 10067, 1156, '产业新干线', 729, 'https://www.jinluoo.com/', '', 1548, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17088, 10067, 1157, '智联招聘', 168, 'http://www.zhaopin.com/', '', 1509, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17089, 10067, 1157, 'BOSS直聘', 170, 'https://www.zhipin.com/', '', 1511, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17090, 10067, 1157, '拉勾网', 171, 'https://www.lagou.com/', '', 1512, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17091, 10067, 1157, '猎聘网', 172, 'https://www.liepin.com/', '', 1513, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17092, 10067, 1157, '实习僧', 759, 'https://www.shixiseng.com/', '', 1514, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17093, 10067, 1157, '前程无忧', 169, 'http://www.51job.com/', '', 1510, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17094, 10067, 1159, '人大经济', 752, 'https://bbs.pinggu.org/', '', 1002, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17095, 10067, 1159, '百度指数', 162, 'http://index.baidu.com/', '', 1501, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17096, 10067, 1159, '360趋势', 167, 'https://trends.so.com/', '', 1506, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17097, 10067, 1159, '发现报告', 774, 'https://www.fxbaogao.com', '', 1508, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17098, 10067, 1162, '贝太厨房', 43, 'http://www.beitaichufang.com/', '', 48, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17099, 10067, 1162, '下厨房', 44, 'http://www.xiachufang.com/', '', 49, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17100, 10067, 1162, '好豆网', 45, 'http://www.haodou.com/', '', 50, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17101, 10067, 1162, '豆果美食', 46, 'http://www.douguo.com/', '', 51, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17102, 10067, 1162, '美食天下', 47, 'https://www.meishichina.com/', '', 52, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17103, 10067, 1162, '零食控', 48, 'http://www.lingshikong.com/', '', 53, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17104, 10067, 1162, '西  厨', 49, 'http://ceechoo.com/', '', 55, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17105, 10067, 1162, '吃在中国', 485, 'http://eatinchina.net/', 'Eat in China', 56, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17106, 10067, 1162, '红餐网', 50, 'http://www.canyin88.com/', '', 57, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17107, 10067, 1162, 'eHow', 629, 'https://www.ehow.com/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17108, 10067, 1162, '大厨网', 728, 'https://zh.dachu.co/', '', 1001, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17109, 10067, 1162, 'EnJoy', 65, 'https://enjoy.ricebook.com/', '精选美食电商', 54, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17110, 10067, 1160, '淘宝网', 4, 'https://www.taobao.com/', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17111, 10067, 1160, '京 东', 5, 'http://www.jd.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17112, 10067, 1160, 'Amazon', 22, 'http://www.amazon.cn/', '', 23, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17113, 10067, 1160, '苏宁易购', 34, 'https://www.suning.com/', '', 38, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17114, 10067, 1160, '国美在线', 35, 'https://www.gome.com.cn/', '', 39, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17115, 10067, 1160, '猪八戒', 62, 'https://www.zbj.com/', '', 40, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17116, 10067, 1160, '58同城', 36, 'http://58.com/', '', 41, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17117, 10067, 1160, '美团网', 37, 'http://www.meituan.com/', '', 42, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17118, 10067, 1160, '大众点评', 38, 'http://www.dianping.com/', '', 43, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17119, 10067, 1160, '搜房网', 40, 'http://www.fang.com/', '', 45, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17120, 10067, 1160, '安居客', 41, 'http://www.anjuke.com/', '', 46, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17121, 10067, 1160, '聚划算', 42, 'https://ju.taobao.com/', '', 47, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17122, 10067, 1161, 'FaceBook', 2, 'https://www.facebook.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17123, 10067, 1161, 'Twitter', 3, 'https://twitter.com/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17124, 10067, 1161, '百度贴吧', 51, 'https://tieba.baidu.com/', '', 58, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17125, 10067, 1161, '简  书', 52, 'https://www.jianshu.com/', '', 59, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17126, 10067, 1161, '微博', 54, 'https://weibo.com/', '', 61, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17127, 10067, 1161, 'Tumblr', 58, 'https://www.tumblr.com/', '汤不热', 67, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17128, 10067, 1161, '一 言', 562, 'https://hitokoto.cn/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17129, 10067, 1161, 'Pinterest', 215, 'https://www.pinterest.com/', '寻找新点子', 1563, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17130, 10067, 1161, 'Gitter', 320, 'https://gitter.im/', '', 1698, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17131, 10067, 1161, '社交故事', 739, 'https://www.wattpad.com/', '社交讲故事平台', 1717, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17132, 10067, 1168, '知 乎', 180, 'https://www.zhihu.com/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17133, 10067, 1168, '果 壳', 181, 'https://www.guokr.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17134, 10067, 1168, 'WikiHow', 185, 'https://zh.wikihow.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17135, 10067, 1168, '数字科技馆', 641, 'https://www.cdstm.cn/', '中国数字科技馆是中国科协、教育部、中科院共建的一个基于互联网传播的国家级公益性科普服务平台', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17136, 10067, 1168, 'StackEx', 182, 'https://stackexchange.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17137, 10067, 1168, 'Quora', 184, 'https://www.quora.com/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17138, 10067, 1168, 'Answers', 344, 'http://www.answers.com/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17139, 10067, 1168, '十万为什么', 491, 'http://www.10why.net/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17140, 10067, 1168, '法 言', 365, 'http://lawtalks.cn/', '', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17141, 10067, 1168, 'Sofa', 367, 'http://sofasofa.io/', '数据科学问答社区', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17142, 10067, 1168, '极客起源', 368, 'https://geekori.com/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17143, 10067, 1168, '搜外问答', 369, 'https://ask.seowhy.com/', '专注SEO问答', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17144, 10067, 1168, '悟空问答', 385, 'https://www.wukong.com/', '', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17145, 10067, 1168, 'SOverflow', 389, 'https://stackoverflow.com/', '计算机问答', 17, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17146, 10067, 1168, 'ITValue', 371, 'http://www.itvalue.com.cn/', 'CIO的问答平台', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17147, 10067, 1168, '中国哲学', 583, 'https://ctext.org/zhs', '', 19, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17148, 10067, 1168, '昆 虫', 711, 'http://microsculpture.net/', '可以无限放大看昆虫', 20, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17149, 10067, 1169, '慕课网', 144, 'https://www.imooc.com/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17150, 10067, 1169, '译学馆', 605, 'https://yxgapp.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17151, 10067, 1169, '学堂在线', 556, 'http://www.xuetangx.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17152, 10067, 1169, '网易公开课', 219, 'https://open.163.com/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17153, 10067, 1169, '腾讯课堂', 149, 'http://ke.qq.com/', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17154, 10067, 1169, '宁皓网', 449, 'https://ninghao.net/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17155, 10067, 1169, 'DevOpen', 448, 'https://devopen.club/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17156, 10067, 1169, '网易云课堂', 150, 'http://study.163.com/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17157, 10067, 1169, '菜鸟教程', 151, 'http://www.runoob.com/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17158, 10067, 1169, '牛客网', 152, 'https://www.nowcoder.com/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17159, 10067, 1169, 'Leetcode', 153, 'https://leetcode-cn.com/', '提升技术水平,迎接技术挑战', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17160, 10067, 1169, '一 席', 145, 'http://yixi.tv/', '', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17161, 10067, 1169, '可汗学院', 220, 'https://zh-hans.khanacademy.org/', '一切皆可学,所有免费', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17162, 10067, 1169, '计蒜客', 221, 'https://www.jisuanke.com/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17163, 10067, 1169, 'Vocabulary', 222, 'https://www.vocabulary.com/', '背单词', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17164, 10067, 1169, '优 米', 223, 'http://www.youmi.cn/', '', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17165, 10067, 1169, '好知网', 224, 'http://www.howzhi.com/', '', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17166, 10067, 1169, 'myoops', 494, 'http://www.myoops.org/', '影像课程', 17, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17167, 10067, 1169, '好学网', 225, 'http://www.haoxue.com/', '中小学在线教育', 18, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17168, 10067, 1169, '实验楼', 226, 'https://www.shiyanlou.com/', '', 19, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17169, 10067, 1169, 'doyoudo', 345, 'http://doyoudo.com/', '', 20, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17170, 10067, 1169, '多 贝', 227, 'http://www.duobei.com/', '', 21, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17171, 10067, 1169, '51自学', 228, 'http://www.51zxw.net/', '', 22, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17172, 10067, 1169, '高高手', 229, 'http://www.gogoup.com/', '', 23, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17173, 10067, 1169, '沪江英语', 230, 'http://www.hjenglish.com/', '', 24, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17174, 10067, 1169, '高数教学', 410, 'http://math.fudan.edu.cn/gdsx/TUSG.htm', '', 25, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17175, 10067, 1169, 'Rails365', 446, 'https://www.rails365.net/', '', 26, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17176, 10067, 1169, '轻课堂', 447, 'https://www.edurt.com/', '', 27, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17177, 10067, 1169, '编程学院', 555, 'https://www.programschool.com/', '', 28, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17178, 10067, 1169, '猿 学', 603, 'http://www.yuanxue365.com/', '', 29, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17179, 10067, 1169, '清华计算机', 598, 'http://ke.yzqz.cn/qh/', '', 30, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17180, 10067, 1169, 'ABCya', 585, 'http://www.abcya.com/', '儿童教育游戏', 31, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17181, 10067, 1169, '果汁英语', 630, 'http://guozhivip.com/', '', 32, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17182, 10067, 1169, '牛津儿童', 637, 'https://www.oxfordowl.co.uk/', '', 33, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17183, 10067, 1169, 'Coursade', 671, 'http://www.coursade.com/', '公开课查找', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17184, 10067, 1169, '鱼C', 698, 'https://ilovefishc.com/', '', 1001, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17185, 10067, 1170, '熊猫盘', 623, 'http://xiongmaopan.com/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17186, 10067, 1170, '公开课记录', 497, 'http://www.opclass.com/', '', 1594, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17187, 10067, 1170, '行者物语', 240, 'http://www.xzwyu.com/', '', 1595, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17188, 10067, 1170, '纪录片天地', 478, 'http://www.jlpcn.net/', '', 1596, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17189, 10067, 1170, 'Bilibili记录', 241, 'https://www.bilibili.com/video/tech-popular-science-1.html', '', 1597, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17190, 10067, 1168, '全历史', 640, 'https://www.allhistory.com/', '全历史(Allhistory）以AI知识图谱为核心引擎，通过高度时空化、关联化数据的方式构造及展现数字人文内容', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17191, 10067, 1168, '东里书斋', 76, 'http://www.donglishuzhai.net/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17192, 10067, 1170, '响巢记录', 346, 'http://jilupian.kankan.com/', '', 1599, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17193, 10067, 1172, '爱奇艺', 131, 'http://www.iqiyi.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17194, 10067, 1172, '芒果TV', 125, 'https://www.mgtv.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17195, 10067, 1172, '腾讯视频', 126, 'http://v.qq.com/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17196, 10067, 1172, '土 豆', 128, 'http://www.tudou.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17197, 10067, 1172, '搜狐视频', 129, 'http://tv.sohu.com/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17198, 10067, 1172, '优 酷', 127, 'http://www.youku.com/', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17199, 10067, 1172, '场 库', 530, 'https://www.vmovier.com/', '高品质短片分享平台', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17200, 10067, 1172, '数英网', 531, 'https://www.digitaling.com/', '广告创意视频,数字媒体网站', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17201, 10067, 1172, 'Mtime', 239, 'http://www.mtime.com/', '', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17202, 10067, 1172, '电影天堂', 479, 'https://www.dy2018.com/', '', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17203, 10067, 1172, 'Bilibili', 241, 'https://www.bilibili.com/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17204, 10067, 1172, '央视网', 130, 'http://www.cctv.com/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17205, 10067, 1172, '电波字幕', 245, 'http://dbfansub.com/', '', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17206, 10067, 1172, 'Sub-HD', 343, 'http://subhd.com/', '字幕搜索下载', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17207, 10067, 1172, '射手网', 249, 'http://assrt.net/', '', 17, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17208, 10067, 1172, '全视频', 391, 'http://www.qsptv.com/', '', 18, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17209, 10067, 1172, '自由无二', 393, 'http://www.free52.com/', '', 20, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17210, 10067, 1174, '国际乐谱库', 659, 'https://cn.imslp.org/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17211, 10067, 1174, '摆渡一下', 533, 'http://www.baiduonce.com/index.html', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17212, 10067, 1174, '网易音乐', 373, 'https://music.163.com/', '', 1484, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17213, 10067, 1174, 'QQ音乐', 147, 'https://y.qq.com/', '', 1485, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17214, 10067, 1174, '红嘴鸥', 246, 'http://www.hzou.net/', '', 1604, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17215, 10067, 1174, 'echo回声', 247, 'http://www.app-echo.com/#/', '', 1605, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17216, 10067, 1174, '豆瓣FM', 148, 'https://douban.fm/', '', 1486, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17217, 10067, 1174, '爱乐谱', 248, 'http://www.yuesir.com/ipu/', '', 1606, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17218, 10067, 1174, '虾米音乐', 374, 'http://www.xiami.com/', '', 1607, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17219, 10067, 1173, '堆  糖', 134, 'https://www.duitang.com/', '', 295, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17220, 10067, 1173, '护花网', 135, 'http://www.aihuhua.com/', '', 296, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17221, 10067, 1173, '花瓣网', 136, 'http://huaban.com/', 'http://huabanpro.com/陪你做生活的设计师', 297, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17222, 10067, 1173, '植物之家', 138, 'https://www.zw3e.com/', '', 299, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17223, 10067, 1173, '绿野户外', 139, 'http://www.lvye.cn/', '', 300, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17224, 10067, 1173, '穷游网', 140, 'https://www.qyer.com/', '', 301, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17225, 10067, 1173, '植物图像库', 213, 'http://www.plantphoto.cn/', '', 1560, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17226, 10067, 1175, '创意导航', 564, 'https://creativemass.cn/#/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17227, 10067, 1175, 'TOPS', 610, 'https://www.topys.cn/', '抢先知晓全球最新鲜、最棒的创意资讯，扩充你的灵感库', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17228, 10067, 1175, '梅花网', 786, 'https://www.meihua.info/', '营销作品宝库', 1005, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17229, 10067, 1175, '营销案例', 787, 'https://hd.weibo.com/case/index/index', '', 1006, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17230, 10067, 1176, 'Fotor', 156, 'https://www.fotor.com/cn/index.html', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17231, 10067, 1176, '图虫网', 404, 'https://tuchong.com/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17232, 10067, 1176, '中国色', 159, 'http://zhongguose.com/', '', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17233, 10067, 1175, '传媒作品', 788, 'http://www.mid2007.com/productclass.html', '', 1007, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17234, 10067, 1176, '色 彩', 157, 'http://www.peise.net/color/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17235, 10067, 1176, '千图网', 284, 'http://www.58pic.com/', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17236, 10067, 1176, '阿里图标', 21, 'http://www.iconfont.cn/', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17237, 10067, 1176, 'PNG素材', 285, 'http://pngimg.com/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17238, 10067, 1176, '配色设计', 157, 'http://www.peise.net/tools/web/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17239, 10067, 1176, '文字拼图', 286, 'https://wordart.com/', '', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17240, 10067, 1176, '全景网', 287, 'http://www.quanjing.com/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17241, 10067, 1176, '7MX', 288, 'http://7mx.com/', '', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17242, 10067, 1176, 'PixaBay', 289, 'https://pixabay.com/', '免版权图片', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17243, 10067, 1176, '500px', 290, 'https://500px.com/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17244, 10067, 1176, 'gratiso', 291, 'https://gratisography.com/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17245, 10067, 1176, '小森平音效', 348, 'http://taira-komori.jpn.org/freesoundcn.html', '', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17246, 10067, 1176, '音效网', 293, 'http://www.yisell.com/', '', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17247, 10067, 1176, '站长字体', 294, 'http://font.chinaz.com/', '', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17248, 10067, 1176, '求字体', 347, 'http://www.qiuziti.com/', '', 17, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17249, 10067, 1176, '字体转换', 295, 'http://www.diyiziti.com/', '', 18, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17250, 10067, 1176, '爱给音效', 315, 'http://www.aigei.com/sound/', '', 19, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17251, 10067, 1176, 'Loading', 682, 'https://loading.io/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17252, 10067, 1176, '视觉中国', 532, 'https://www.vcg.com/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17253, 10067, 1176, '逗比表情', 593, 'http://www.bee-ji.com/', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17254, 10067, 1176, 'CC Search', 649, 'https://search.creativecommons.org/', '开放版权的图片搜索服务', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17255, 10067, 1176, '搜图导航', 502, 'https://www.91sotu.com/', '强大且智能的设计师导航', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17256, 10067, 1177, '美工吧', 292, 'https://www.meigong8.com/', '', 1661, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17257, 10067, 1177, '设计导航', 297, 'http://hao.shejidaren.com/', '', 1668, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17258, 10067, 1177, '学UI', 298, 'http://hao.xueui.cn/', '', 1669, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17259, 10067, 1177, '牛大拿', 299, 'http://www.niudana.com/', '', 1670, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17260, 10067, 1177, '设计师', 296, 'http://hao.uisdc.com/', '', 1667, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17261, 10067, 1177, '全球工业设计前沿', 704, 'https://www.yankodesign.com/', '全球工业设计前沿', 1672, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17262, 10067, 1179, '凤凰网', 53, 'https://www.ifeng.com/', '', 0, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17263, 10067, 1177, '饭团导航', 300, 'http://hao.psefan.com/', '', 1671, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17264, 10067, 1179, 'Solidot', 429, 'https://www.solidot.org/', '', 1, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17265, 10067, 1179, '新浪网', 55, 'https://www.sina.com.cn/', '', 3, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17266, 10067, 1179, '谷歌新闻', 64, 'https://news.google.com/news/?hl=zh-CN&gl=CN&ned=cn', '', 4, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17267, 10067, 1179, '腾讯网', 56, 'http://www.qq.com/', '', 5, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17268, 10067, 1179, '搜  狐', 63, 'http://www.sohu.com/', '', 7, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17269, 10067, 1179, '网  易', 57, 'http://www.163.com/', '', 6, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17270, 10067, 1179, '澎湃新闻', 60, 'https://www.thepaper.cn/', '专注时政与思想', 8, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17271, 10067, 1179, 'Matters', 669, 'https://matters.news/', '一個自由、自主、永續的創作與公共討論空間', 2, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17272, 10067, 1179, '科学松鼠会', 87, 'http://songshuhui.net/', '', 10, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17273, 10067, 1179, 'InfoQ', 86, 'http://www.infoq.com/cn/', '', 9, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17274, 10067, 1179, '壹心理', 92, 'http://www.xinli001.com/', '', 12, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17275, 10067, 1179, '创意栖息', 99, 'http://ideaest.com/', '', 13, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17276, 10067, 1179, '爱稀奇', 100, 'http://www.ixiqi.com/', '', 14, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17277, 10067, 1179, '前瞻网', 418, 'https://www.qianzhan.com/', '发现趋势,预见未来', 15, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17278, 10067, 1179, 'FT中文网', 618, 'http://www.ftchinese.com/', '', 16, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17279, 10067, 1179, '推酷', 85, 'https://www.tuicool.com/', '', 97, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17280, 10067, 1179, '豆  瓣', 91, 'https://www.douban.com/', '', 11, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17281, 10067, 1179, '走 廊', 90, 'http://www.zoulang.com/', '', 102, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17282, 10067, 1179, '译言网', 93, 'http://www.yeeyan.org/', '', 105, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17283, 10067, 1183, '煎蛋', 98, 'http://jandan.net/', '地球上没有新鲜事', 111, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17284, 10067, 1179, '湾区日报', 707, 'https://wanqu.co/', '关注创业与技术', 1494, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17285, 10067, 1179, '知微事见', 718, 'http://ef.zhiweidata.com/#!/down', '', 1495, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17286, 10067, 1179, '今日热榜', 725, 'https://tophub.today/', '', 1496, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17287, 10067, 1179, '梅子搜报', 763, 'http://mz.soubao.net/', '', 1497, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17288, 10067, 1181, '钛媒体', 68, 'http://www.tmtpost.com/', '引领未来商业与生活新知', 70, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17289, 10067, 1181, '爱范儿', 70, 'https://www.ifanr.com/', '', 71, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17290, 10067, 1181, 'TechWeb', 82, 'http://www.techweb.com.cn/', '', 94, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17291, 10067, 1181, 'CnBeta', 83, 'https://www.cnbeta.com/', '', 95, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17292, 10067, 1181, '36氪', 88, 'http://36kr.com/', '让创业更简单', 100, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17293, 10067, 1181, 'Engadget', 89, 'https://cn.engadget.com/', '消费性电子产品评测和新闻', 101, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17294, 10067, 1181, '中关村ZOL', 96, 'http://detail.zol.com.cn/', '', 109, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17295, 10067, 1181, 'Koolshare', 653, 'http://koolshare.cn', '', 1000, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17296, 10067, 1181, '极客公园', 370, 'http://www.geekpark.net/', '', 2499, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17297, 10067, 1181, '人工智能', 382, 'http://www.aihot.net/', '', 4065, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17298, 10067, 1181, '新区块', 388, 'https://xinqukuai.cn/', '', 4071, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17299, 10067, 1181, '机器之心', 708, 'https://www.jiqizhixin.com/', '关注人工智能、机器人和神经认知科学', 4072, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17300, 10067, 1159, '新 榜', 164, 'https://www.newrank.cn/', '', 1503, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17301, 10067, 1159, '百度风云榜', 165, 'http://top.baidu.com/', '', 1504, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17302, 10067, 1159, '中国票房', 166, 'http://www.cbooo.cn/', '', 1505, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17303, 10067, 1183, '我勒个', 97, 'https://www.wolege.com/', '', 110, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17304, 10067, 1183, '暴走漫画', 383, 'http://baozoumanhua.com/', '', 4066, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17305, 10067, 1183, '网不易', 705, 'http://www.netnoease.com/', '原创的乐呵一下', 4067, 0, 0, NULL);
-INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17306, 10067, 1183, '有趣网站', 762, 'http://123.kfd.me/', '', 4068, 0, 0, NULL);
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (17370, 10046, 1131, '领导留言板', 1464, 'http://liuyan.people.com.cn/', '', 6098, NULL, 0, '政府,公开');
+INSERT INTO `nav_sites` (`site_id`, `uid`, `sort_id`, `site_name`, `logo_id`, `site_url`, `site_desc`, `order_index`, `is_com`, `count`, `tags`) VALUES (21330, 10046, 1131, '有用经验', 1885, 'https://yyjingyan.com/', '', 6098, NULL, 0, '');
 COMMIT;
 
 -- ----------------------------
@@ -2359,7 +2544,7 @@ CREATE TABLE `nav_sort` (
   `color` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `is_com` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1757 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2225 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of nav_sort
@@ -2367,14 +2552,14 @@ CREATE TABLE `nav_sort` (
 BEGIN;
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (810, 421, '搜索工具', NULL, 10046, 1, '#f8b629', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (811, 422, '效率工具', NULL, 10046, 0, '#5bae23', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (812, 424, '资源下载', NULL, 10046, 8, 'tongGreen', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (813, 425, '软件社区', NULL, 10046, 6, '#299bf8', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (814, 426, '其他导航', NULL, 10046, 8, '#f8b629', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (812, 424, '资源下载', NULL, 10046, 6, 'tongGreen', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (813, 425, '软件社区', NULL, 10046, 8, '#7829f8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (814, 426, '其他导航', NULL, 10046, 9, '#f8b629', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (815, 428, '工作领域', NULL, 10046, 2, '#299bf8', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (816, 429, '享受生活', NULL, 10046, 5, '#f8b629', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (817, 431, '学习成长', NULL, 10046, 4, '#ed556a', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (818, 432, '自娱自乐', NULL, 10046, 7, '#5bae23', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (819, 433, '媒体设计', NULL, 10046, 9, '#5bae23', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (817, 431, '学习成长', NULL, 10046, 7, '#ed556a', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (818, 432, '自娱自乐', NULL, 10046, 4, '#5bae23', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (819, 433, '媒体设计', NULL, 10046, 10, '#5bae23', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (820, 434, '资讯阅读', NULL, 10046, 3, '#0eb0c9', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1277, 1127, '专业搜', 421, 10046, 0, '#f8b629', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1278, 1128, '学术', 421, 10046, 1, '#f8b629', 1);
@@ -2384,14 +2569,14 @@ INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1283, 1134, '便民', 422, 10046, 3, '#5bae23', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1284, 1136, '电子书', 424, 10046, 11, 'tongGreen', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1285, 1137, '杂志', 424, 10046, 13, 'tongGreen', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1288, 1140, '常用', 425, 10046, 0, '#299bf8', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1289, 1141, '精品软件', 425, 10046, 1, '#299bf8', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1291, 1143, 'APP', 425, 10046, 2, '#299bf8', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1292, 1145, 'Win', 425, 10046, 5, '#299bf8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1288, 1140, '常用', 425, 10046, 0, '#7829f8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1289, 1141, '精品软件', 425, 10046, 1, '#7829f8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1291, 1143, 'APP', 425, 10046, 2, '#7829f8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1292, 1145, 'Win', 425, 10046, 5, '#7829f8', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1293, 1146, '精选', 426, 10046, 163, '#f8b629', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1295, 1151, '儿童', 426, 10046, 168, '#f8b629', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1297, 1156, '创投', 428, 10046, 1, '#299bf8', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1298, 1157, '找工作', 428, 10046, 0, '#299bf8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1297, 1156, '创投', 428, 10046, 0, '#299bf8', 1);
+INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1298, 1157, '找工作', 428, 10046, 1, '#299bf8', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1299, 1159, '统计', 428, 10046, 2, '#299bf8', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1300, 1160, '购物', 429, 10046, 2, '#f8b629', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1301, 1161, '社交', 429, 10046, 3, '#f8b629', 1);
@@ -2408,49 +2593,6 @@ INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1315, 1179, '资讯', 434, 10046, 7, '#0eb0c9', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1317, 1181, '科技', 434, 10046, 146, '#0eb0c9', 1);
 INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1319, 1183, '乐呵', 434, 10046, 150, '#0eb0c9', 1);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1714, 421, '搜索工具', NULL, 10067, 0, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1715, 422, '效率工具', NULL, 10067, 2, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1716, 424, '资源下载', NULL, 10067, 9, 'tongGreen', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1717, 425, '软件社区', NULL, 10067, 8, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1718, 426, '其他导航', NULL, 10067, 7, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1719, 428, '工作领域', NULL, 10067, 4, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1720, 429, '享受生活', NULL, 10067, 3, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1721, 431, '学习成长', NULL, 10067, 6, '#ed556a', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1722, 432, '自娱自乐', NULL, 10067, 5, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1723, 433, '媒体设计', NULL, 10067, 10, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1724, 434, '资讯阅读', NULL, 10067, 1, '#0eb0c9', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1725, 1127, '专业搜', 421, 10067, 0, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1726, 1128, '学术', 421, 10067, 1, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1727, 1130, '云盘', 421, 10067, 3, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1728, 1131, '常用', 422, 10067, 0, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1729, 1132, '工具', 422, 10067, 2, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1730, 1134, '便民', 422, 10067, 3, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1731, 1136, '电子书', 424, 10067, 11, 'tongGreen', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1732, 1137, '杂志', 424, 10067, 13, 'tongGreen', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1733, 1140, '常用', 425, 10067, 0, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1734, 1141, '精品软件', 425, 10067, 1, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1735, 1143, 'APP', 425, 10067, 2, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1736, 1145, 'Win', 425, 10067, 5, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1737, 1146, '精选', 426, 10067, 163, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1738, 1151, '儿童', 426, 10067, 168, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1739, 1156, '创投', 428, 10067, 1, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1740, 1157, '找工作', 428, 10067, 0, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1741, 1159, '统计', 428, 10067, 2, '#299bf8', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1742, 1160, '购物', 429, 10067, 2, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1743, 1161, '社交', 429, 10067, 3, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1744, 1162, '美食', 429, 10067, 6, '#f8b629', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1745, 1168, '百科', 431, 10067, 0, '#ed556a', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1746, 1169, '在线教育', 431, 10067, 1, '#ed556a', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1747, 1170, '纪录片', 431, 10067, 2, '#ed556a', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1748, 1172, '视 频', 432, 10067, 14, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1749, 1173, '兴趣', 432, 10067, 28, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1750, 1174, '音 乐', 432, 10067, 144, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1751, 1175, '创意灵感', 433, 10067, 0, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1752, 1176, '素材', 433, 10067, 1, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1753, 1177, '设计', 433, 10067, 2, '#5bae23', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1754, 1179, '资讯', 434, 10067, 7, '#0eb0c9', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1755, 1181, '科技', 434, 10067, 146, '#0eb0c9', 0);
-INSERT INTO `nav_sort` (`id`, `sort_id`, `sort_name`, `parent_id`, `uid`, `order_index`, `color`, `is_com`) VALUES (1756, 1183, '乐呵', 434, 10067, 150, '#0eb0c9', 0);
 COMMIT;
 
 -- ----------------------------
@@ -2469,14 +2611,13 @@ CREATE TABLE `nav_users` (
   PRIMARY KEY (`uid`) USING BTREE,
   KEY `uname` (`uname`,`upwd`) USING BTREE,
   KEY `uid` (`uid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10068 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10078 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of nav_users
 -- ----------------------------
 BEGIN;
-INSERT INTO `nav_users` (`uid`, `uname`, `upwd`, `email`, `user_name`, `time`, `login_time`, `rid`) VALUES (10046, 'test', 'e10adc3949ba59abbe56e057f20f883e', 'mail@.mail.com', '测试用户', '2022-5-2 22:48:55', '2022-5-2 22:48:55', 10001);
-INSERT INTO `nav_users` (`uid`, `uname`, `upwd`, `email`, `user_name`, `time`, `login_time`, `rid`) VALUES (10067, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin@mail.com', '超级管理员', '2022-6-3 23:34:3', '2023-1-5 21:42:31', 10099);
+INSERT INTO `nav_users` (`uid`, `uname`, `upwd`, `email`, `user_name`, `time`, `login_time`, `rid`) VALUES (10046, 'test', 'e10adc3949ba59abbe56e057f20f883e', 'test@test.com', '测试', '2025-01-20 18:07:30', '2025-01-20 21:25:52', 101);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
